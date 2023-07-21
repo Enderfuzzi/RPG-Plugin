@@ -1,6 +1,5 @@
 package com.falgael.rpg.experience;
 
-import com.falgael.rpg.experience.data.Foraging;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,7 +15,8 @@ import java.util.HashMap;
  */
 public class ExperienceHandler implements Listener {
 
-    private static HashMap<Player,ExperienceData> experiences = new HashMap<Player,ExperienceData>();
+    /** Assigns Experience data to each player */
+    private static HashMap<Player,ExperienceData> experiences = new HashMap<>();
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -25,15 +25,18 @@ public class ExperienceHandler implements Listener {
         }
     }
 
+    /**
+     * Searches each experience of a player when destroying a block
+     * @param event describes to {@code blockBreakEvent}
+     */
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
-        Foraging foraging = experiences.get(event.getPlayer()).getForaging();
-        if (foraging.givesForagingXp(event.getBlock().getType())) {
-            foraging.increaseForagingXP(foraging.amountOfForagingXp(event.getBlock().getType()));
-            event.getPlayer().sendMessage("Current xp: " + foraging.getCurrentForagingXp() + "/" + foraging.getCurrentForagingXpBorder());
+        for (ExperienceFramework ef : experiences.get(event.getPlayer()).getList()) {
+            if (ef.givesExperience(event.getBlock().getType())) {
+                ef.increaseExperience(ef.amountOfExperience(event.getBlock().getType()));
+                event.getPlayer().sendMessage("Current xp: " + ef.getCurrentExperience() + "/" + ef.getCurrentExperienceBorder());
+            }
         }
-
-
     }
 
 }

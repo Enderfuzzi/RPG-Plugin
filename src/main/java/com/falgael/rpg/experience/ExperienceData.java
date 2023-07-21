@@ -2,20 +2,30 @@ package com.falgael.rpg.experience;
 
 import com.falgael.rpg.experience.data.Foraging;
 
+import java.util.ArrayList;
+
 /**
- * Holds all Experience data
+ * Contains all Experience data from a player
  * @author falgael
  * @version 0.0.1
  */
 public class ExperienceData {
 
-    private Foraging foraging;
 
+    private ArrayList<ExperienceFramework> list = new ArrayList<ExperienceFramework>();
+
+    /**
+     * Creates a new Experience list for a Player. Each new Class has to be added here
+     */
     public ExperienceData() {
-        foraging = new Foraging();
+        list.add(new Foraging());
     }
 
-    public Foraging getForaging() {
-        return foraging;
+    /**
+     *
+     * @return the lists of data concerning a player
+     */
+    public ArrayList<ExperienceFramework> getList() {
+        return list;
     }
 }
