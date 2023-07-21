@@ -51,7 +51,6 @@ public abstract class ExperienceFramework implements Serializable {
     }
 
     /**
-     *
      * @return the current experience border
      */
     public int getCurrentExperienceBorder() {

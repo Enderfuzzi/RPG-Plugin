@@ -5,6 +5,11 @@ import org.bukkit.Material;
 
 import java.util.HashMap;
 
+/**
+ * Provides the Foraging proficiency implementation.
+ * @author falgael
+ * @version 0.0.1
+ */
 public class Foraging extends ExperienceFramework {
 
     public Foraging() {
