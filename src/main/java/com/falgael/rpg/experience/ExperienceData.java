@@ -12,20 +12,20 @@ import java.util.ArrayList;
 public class ExperienceData {
 
 
-    private ArrayList<ExperienceFramework> list = new ArrayList<ExperienceFramework>();
+    private ArrayList<ExperienceFramework> blockBreakProficiency = new ArrayList<ExperienceFramework>();
 
     /**
      * Creates a new Experience list for a Player. Each new Class has to be added here
      */
     public ExperienceData() {
-        list.add(new Foraging());
+        blockBreakProficiency.add(new Foraging());
     }
 
     /**
      *
      * @return the lists of data concerning a player
      */
-    public ArrayList<ExperienceFramework> getList() {
-        return list;
+    public ArrayList<ExperienceFramework> getBlockBreakProficiency() {
+        return blockBreakProficiency;
     }
 }

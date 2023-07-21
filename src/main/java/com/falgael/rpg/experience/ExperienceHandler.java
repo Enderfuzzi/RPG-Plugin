@@ -26,12 +26,12 @@ public class ExperienceHandler implements Listener {
     }
 
     /**
-     * Searches each experience of a player when destroying a block
+     * Searches each block break experience of a player when destroying a block
      * @param event describes to {@code blockBreakEvent}
      */
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
-        for (ExperienceFramework ef : experiences.get(event.getPlayer()).getList()) {
+        for (ExperienceFramework ef : experiences.get(event.getPlayer()).getBlockBreakProficiency()) {
             if (ef.givesExperience(event.getBlock().getType())) {
                 ef.increaseExperience(ef.amountOfExperience(event.getBlock().getType()));
                 event.getPlayer().sendMessage(ef.getProficiencyRepresentation() + " Experience: " + ef.getCurrentExperience() + "|" + ef.getCurrentExperienceBorder());
