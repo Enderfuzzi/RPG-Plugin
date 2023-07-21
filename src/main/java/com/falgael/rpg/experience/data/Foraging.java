@@ -12,10 +12,6 @@ import java.util.HashMap;
  */
 public class Foraging extends ExperienceFramework {
 
-    public Foraging() {
-
-    }
-
     @Override
     protected void generateNextBorder() {
         currentExperienceBorder += currentExperienceBorder;
@@ -57,5 +53,10 @@ public class Foraging extends ExperienceFramework {
         result.put(Material.STRIPPED_SPRUCE_LOG,1);
         result.put(Material.STRIPPED_SPRUCE_WOOD,1);
         return result;
+    }
+
+    @Override
+    public String getProficiencyRepresentation() {
+        return getClass().getSimpleName();
     }
 }

@@ -34,7 +34,7 @@ public class ExperienceHandler implements Listener {
         for (ExperienceFramework ef : experiences.get(event.getPlayer()).getList()) {
             if (ef.givesExperience(event.getBlock().getType())) {
                 ef.increaseExperience(ef.amountOfExperience(event.getBlock().getType()));
-                event.getPlayer().sendMessage("Current xp: " + ef.getCurrentExperience() + "/" + ef.getCurrentExperienceBorder());
+                event.getPlayer().sendMessage(ef.getProficiencyRepresentation() + " Experience: " + ef.getCurrentExperience() + "|" + ef.getCurrentExperienceBorder());
             }
         }
     }

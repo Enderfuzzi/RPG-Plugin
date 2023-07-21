@@ -25,6 +25,7 @@ public abstract class ExperienceFramework implements Serializable {
     /** The maximum level a player can reach in this skill */
     protected int lvlBorder = 100;
 
+
     /**
      * Increases the current {@link ExperienceFramework#currentExperience} by the specified {@code int}.
      * Returns always {@code false} if {@link ExperienceFramework#lvlBorder} is reached or the given amount is zero or less.
@@ -92,4 +93,7 @@ public abstract class ExperienceFramework implements Serializable {
     }
     /** Holds each Block which gives experience for the proficiency and stroes the exact amount */
     protected abstract HashMap<Material,Integer> experienceBlocks();
+
+    /** @return The String representation of this proficiency */
+    public abstract String getProficiencyRepresentation();
 }
