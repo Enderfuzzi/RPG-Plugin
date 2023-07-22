@@ -12,13 +12,27 @@ import java.util.HashMap;
  */
 public class Foraging extends ExperienceFramework {
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     protected void generateNextBorder() {
         currentExperienceBorder += currentExperienceBorder;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    protected HashMap<Material, Integer> experienceBlocks() {
+    public String getProficiencyRepresentation() {
+        return getClass().getSimpleName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected HashMap<Material, Integer> fillBlockBreakingExperience() {
         //Todo Increase Value for woods
         HashMap<Material,Integer> result = new HashMap<>();
         result.put(Material.ACACIA_LOG,1);
@@ -56,8 +70,14 @@ public class Foraging extends ExperienceFramework {
         return result;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public String getProficiencyRepresentation() {
-        return getClass().getSimpleName();
+    protected HashMap<Material, Integer> fillBlockCraftingExperience() {
+        HashMap<Material,Integer> result = new HashMap<>();
+        result.put(Material.ACACIA_PLANKS,1);
+        //Todo add further material
+        return result;
     }
 }

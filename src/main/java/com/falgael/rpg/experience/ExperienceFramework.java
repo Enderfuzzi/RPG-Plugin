@@ -2,6 +2,9 @@ package com.falgael.rpg.experience;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.CraftingInventory;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -16,7 +19,10 @@ public abstract class ExperienceFramework implements Serializable {
     @Serial
     private static final long serialVersionUID = 4139975922284126208L;
     /** Contains a list of a Material that gives Experience on destruction and the amount of Experience */
-    protected HashMap<Material,Integer> blockBreakingExperience = experienceBlocks();
+    protected HashMap<Material,Integer> blockBreakingExperience = fillBlockBreakingExperience();
+
+    protected HashMap<Material,Integer> blockCraftingExperience = fillBlockCraftingExperience();
+
     /** Current amount of Experience*/
     protected int currentExperience = 0;
     /** The current Level */
@@ -37,7 +43,7 @@ public abstract class ExperienceFramework implements Serializable {
     public boolean increaseExperience(int amount) {
         if (amount <= 0 || currentLVL == lvlBorder) return false;
         currentExperience += amount;
-        if (getCurrentExperienceBorder() <= currentExperience) {
+        while (getCurrentExperienceBorder() <= currentExperience) {
             currentExperience -= getCurrentExperienceBorder();
             increaseLVL();
         }
@@ -71,13 +77,21 @@ public abstract class ExperienceFramework implements Serializable {
      */
     protected abstract void generateNextBorder();
 
+    /** @return The String representation of this proficiency */
+    public abstract String getProficiencyRepresentation();
+
+    //--------------------------------------------------------------------------------------------
+    // Block breaking
+    //--------------------------------------------------------------------------------------------
+    /** Fills {@link ExperienceFramework#blockBreakingExperience} with {@code Material} which gives Experience when Breaking with specific amount */
+    protected abstract HashMap<Material,Integer> fillBlockBreakingExperience();
 
     /**
-     * //Todo Change Signature to Block and overwrite it for Farming
      * @param b The {@code Block} to check for
      * @return {@code true} when the material is in list
      */
     public boolean givesBlockBreakingExperience(Block b) {
+        if (b == null) return false;
         return blockBreakingExperience.containsKey(b.getType());
     }
 
@@ -92,9 +106,34 @@ public abstract class ExperienceFramework implements Serializable {
         }
         return 0;
     }
-    /** Holds each Block which gives experience for the proficiency and stores the exact amount */
-    protected abstract HashMap<Material,Integer> experienceBlocks();
 
-    /** @return The String representation of this proficiency */
-    public abstract String getProficiencyRepresentation();
+    //--------------------------------------------------------------------------------------------
+    // Block Crafting
+    //--------------------------------------------------------------------------------------------
+
+    /** Fills {@link ExperienceFramework#blockCraftingExperience} with {@code Material} which gives Experience when Crafting with specific amount */
+    protected abstract HashMap<Material,Integer> fillBlockCraftingExperience();
+
+    /**
+     * Checks if a crafting recipe gives experience on crafting. Override this function for other functionality
+     * @param b The {@code Block} to check
+     * @param craftingInventory can be null, when given only crafting table is allowed
+     * @return {@code true} when the material is in list
+     */
+    public  boolean givesBlockCraftingExperience(Material m, CraftingInventory craftingInventory) {
+        if (craftingInventory != null && craftingInventory.getType() != InventoryType.WORKBENCH) return false;
+        return  blockCraftingExperience.containsKey(m);
+    }
+
+    /**
+     * Gives the number of experience a block gives when crafted
+     * @param b The {@code Block} to get the experience amount
+     * @return the amount of experience assigned to the specified {@code Material}
+     */
+    public int amountBlockCraftingExperience(Material m) {
+        if (givesBlockCraftingExperience(m,null)) {
+            return blockCraftingExperience.get(m);
+        }
+        return 0;
+    }
 }
