@@ -84,7 +84,7 @@ public abstract class ExperienceFramework implements Serializable {
     /**
      * Gives the number of experience a block gives when broken
      * @param b The {@code Block} to get the experience amount
-     * @return the amount of experience assigned to the spacefied {@code Material}
+     * @return the amount of experience assigned to the specified {@code Material}
      */
     public int amountBlockBreakingExperience(Block b) {
         if (givesBlockBreakingExperience(b)) {
@@ -92,7 +92,7 @@ public abstract class ExperienceFramework implements Serializable {
         }
         return 0;
     }
-    /** Holds each Block which gives experience for the proficiency and stroes the exact amount */
+    /** Holds each Block which gives experience for the proficiency and stores the exact amount */
     protected abstract HashMap<Material,Integer> experienceBlocks();
 
     /** @return The String representation of this proficiency */
