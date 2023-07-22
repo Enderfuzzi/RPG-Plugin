@@ -35,10 +35,11 @@ public class ExperienceHandler implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent event) {
         for (ExperienceFramework ef : experiences.get(event.getPlayer()).getBlockBreakProficiency()) {
-            if (ef.givesExperience(event.getBlock().getType())) {
-                ef.increaseExperience(ef.amountOfExperience(event.getBlock().getType()));
+            if (ef.givesBlockBreakingExperience(event.getBlock())) {
+                ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()));
                 TextComponent message = new TextComponent(ChatColor.GOLD + "" + ChatColor.ITALIC + ef.getProficiencyRepresentation() + ": " + ef.getCurrentExperience() + "/" + ef.getCurrentExperienceBorder() + " Xp");
                 event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR,message);
+                return;
             }
         }
     }

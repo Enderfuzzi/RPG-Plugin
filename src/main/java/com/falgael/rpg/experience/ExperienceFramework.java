@@ -1,6 +1,7 @@
 package com.falgael.rpg.experience;
 
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -15,7 +16,7 @@ public abstract class ExperienceFramework implements Serializable {
     @Serial
     private static final long serialVersionUID = 4139975922284126208L;
     /** Contains a list of a Material that gives Experience on destruction and the amount of Experience */
-    protected HashMap<Material,Integer> xpBlocks = experienceBlocks();
+    protected HashMap<Material,Integer> blockBreakingExperience = experienceBlocks();
     /** Current amount of Experience*/
     protected int currentExperience = 0;
     /** The current Level */
@@ -73,21 +74,21 @@ public abstract class ExperienceFramework implements Serializable {
 
     /**
      * //Todo Change Signature to Block and overwrite it for Farming
-     * @param m The {@code Material} to check for
+     * @param b The {@code Block} to check for
      * @return {@code true} when the material is in list
      */
-    public boolean givesExperience(Material m) {
-        return xpBlocks.containsKey(m);
+    public boolean givesBlockBreakingExperience(Block b) {
+        return blockBreakingExperience.containsKey(b.getType());
     }
 
     /**
      * Gives the number of experience a block gives when broken
-     * @param m the key for value extraction
+     * @param b The {@code Block} to get the experience amount
      * @return the amount of experience assigned to the spacefied {@code Material}
      */
-    public int amountOfExperience(Material m) {
-        if (givesExperience(m)) {
-            return xpBlocks.get(m);
+    public int amountBlockBreakingExperience(Block b) {
+        if (givesBlockBreakingExperience(b)) {
+            return blockBreakingExperience.get(b.getType());
         }
         return 0;
     }
