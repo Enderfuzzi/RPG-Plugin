@@ -1,5 +1,8 @@
 package com.falgael.rpg.experience;
 
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,7 +37,8 @@ public class ExperienceHandler implements Listener {
         for (ExperienceFramework ef : experiences.get(event.getPlayer()).getBlockBreakProficiency()) {
             if (ef.givesExperience(event.getBlock().getType())) {
                 ef.increaseExperience(ef.amountOfExperience(event.getBlock().getType()));
-                event.getPlayer().sendMessage(ef.getProficiencyRepresentation() + " Experience: " + ef.getCurrentExperience() + "|" + ef.getCurrentExperienceBorder());
+                TextComponent message = new TextComponent(ChatColor.GOLD + "" + ChatColor.ITALIC + ef.getProficiencyRepresentation() + ": " + ef.getCurrentExperience() + "/" + ef.getCurrentExperienceBorder() + " Xp");
+                event.getPlayer().spigot().sendMessage(ChatMessageType.ACTION_BAR,message);
             }
         }
     }
