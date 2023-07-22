@@ -19,6 +19,7 @@ public class Foraging extends ExperienceFramework {
 
     @Override
     protected HashMap<Material, Integer> experienceBlocks() {
+        //Todo Increase Value for woods
         HashMap<Material,Integer> result = new HashMap<>();
         result.put(Material.ACACIA_LOG,1);
         result.put(Material.ACACIA_WOOD,1);
