@@ -2,7 +2,6 @@ package com.falgael.rpg.experience;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.CraftingInventory;
 
@@ -116,7 +115,7 @@ public abstract class ExperienceFramework implements Serializable {
 
     /**
      * Checks if a crafting recipe gives experience on crafting. Override this function for other functionality
-     * @param b The {@code Block} to check
+     * @param m The {@code Material} to check
      * @param craftingInventory can be null, when given only crafting table is allowed
      * @return {@code true} when the material is in list
      */
@@ -127,7 +126,7 @@ public abstract class ExperienceFramework implements Serializable {
 
     /**
      * Gives the number of experience a block gives when crafted
-     * @param b The {@code Block} to get the experience amount
+     * @param m The {@code Material} to get the experience amount
      * @return the amount of experience assigned to the specified {@code Material}
      */
     public int amountBlockCraftingExperience(Material m) {
@@ -136,4 +135,8 @@ public abstract class ExperienceFramework implements Serializable {
         }
         return 0;
     }
+
+
+
+
 }
