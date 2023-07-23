@@ -49,6 +49,8 @@ public class Woodwork extends ProficiencyExperienceFramework {
         result.put(Material.BIRCH_WOOD,1);
         result.put(Material.CHERRY_LOG,1);
         result.put(Material.CHERRY_WOOD,1);
+        result.put(Material.CRIMSON_HYPHAE,2);
+        result.put(Material.CRIMSON_STEM,2);
         result.put(Material.DARK_OAK_LOG,1);
         result.put(Material.DARK_OAK_WOOD,1);
         result.put(Material.JUNGLE_LOG,1);
@@ -60,12 +62,16 @@ public class Woodwork extends ProficiencyExperienceFramework {
         result.put(Material.OAK_WOOD,1);
         result.put(Material.SPRUCE_LOG,1);
         result.put(Material.SPRUCE_WOOD,1);
+        result.put(Material.WARPED_STEM,2);
+        result.put(Material.WARPED_HYPHAE,2);
         result.put(Material.STRIPPED_ACACIA_LOG,1);
         result.put(Material.STRIPPED_ACACIA_WOOD,1);
         result.put(Material.STRIPPED_BIRCH_LOG,1);
         result.put(Material.STRIPPED_BIRCH_WOOD,1);
         result.put(Material.STRIPPED_CHERRY_LOG,1);
         result.put(Material.STRIPPED_CHERRY_WOOD,1);
+        result.put(Material.STRIPPED_CRIMSON_HYPHAE,2);
+        result.put(Material.STRIPPED_CRIMSON_STEM,2);
         result.put(Material.STRIPPED_DARK_OAK_LOG,1);
         result.put(Material.STRIPPED_DARK_OAK_WOOD,1);
         result.put(Material.STRIPPED_JUNGLE_LOG,1);
@@ -76,6 +82,8 @@ public class Woodwork extends ProficiencyExperienceFramework {
         result.put(Material.STRIPPED_OAK_WOOD,1);
         result.put(Material.STRIPPED_SPRUCE_LOG,1);
         result.put(Material.STRIPPED_SPRUCE_WOOD,1);
+        result.put(Material.STRIPPED_WARPED_HYPHAE,2);
+        result.put(Material.STRIPPED_WARPED_STEM,2);
         result.put(Material.BAMBOO,1);
         return result;
     }
@@ -107,7 +115,7 @@ public class Woodwork extends ProficiencyExperienceFramework {
         result.put(Material.OAK_PLANKS,2);
         result.put(Material.SPRUCE_SLAB,2);
         result.put(Material.SPRUCE_PLANKS,2);
-        //Todo add further material
+        //Todo add further materials
         return result;
     }
 
@@ -115,6 +123,26 @@ public class Woodwork extends ProficiencyExperienceFramework {
     protected ArrayList<Material> fillForbiddenCraftingRecipes() {
         ArrayList<Material> result = new ArrayList<>();
         result.add(Material.ACACIA_WOOD);
+        result.add(Material.BIRCH_WOOD);
+        result.add(Material.CHERRY_WOOD);
+        result.add(Material.CRIMSON_HYPHAE);
+        result.add(Material.DARK_OAK_WOOD);
+        result.add(Material.JUNGLE_WOOD);
+        result.add(Material.MANGROVE_WOOD);
+        result.add(Material.OAK_WOOD);
+        result.add(Material.SPRUCE_WOOD);
+        result.add(Material.WARPED_HYPHAE);
+        result.add(Material.STRIPPED_ACACIA_WOOD);
+        result.add(Material.STRIPPED_BIRCH_WOOD);
+        result.add(Material.STRIPPED_CHERRY_WOOD);
+        result.add(Material.STRIPPED_CRIMSON_HYPHAE);
+        result.add(Material.STRIPPED_DARK_OAK_WOOD);
+        result.add(Material.STRIPPED_JUNGLE_WOOD);
+        result.add(Material.STRIPPED_MANGROVE_WOOD);
+        result.add(Material.STRIPPED_OAK_WOOD);
+        result.add(Material.STRIPPED_SPRUCE_WOOD);
+        result.add(Material.STRIPPED_WARPED_HYPHAE);
+        //Todo add further materials
 
         return result;
     }
