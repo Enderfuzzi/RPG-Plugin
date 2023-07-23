@@ -97,6 +97,10 @@ public class ProficiencyHandler implements Listener {
         }
     }
 
+    /**
+     * Checks if the {@code Player} is allowed to craft an item. If not set the result to air.
+     * @param event describes {@code PrepareItemCraftEvent}
+     */
     @EventHandler
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
         if (experiences.get(event.getView().getPlayer()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
