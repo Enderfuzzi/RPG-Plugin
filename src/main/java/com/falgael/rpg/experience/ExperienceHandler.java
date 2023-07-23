@@ -53,6 +53,7 @@ public class ExperienceHandler implements Listener {
      */
     @EventHandler
     public void onBlockBreak(@NotNull BlockBreakEvent event) {
+        if (event.isCancelled()) return;
         for (ExperienceFramework ef : experiences.get(event.getPlayer()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
                 ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()));
@@ -68,6 +69,7 @@ public class ExperienceHandler implements Listener {
      */
     @EventHandler
     public void onCraft(@NotNull CraftItemEvent event) {
+        if (event.isCancelled()) return;
         if (!(event.getWhoClicked() instanceof Player player)) return;
         Bukkit.getLogger().info("Crafting result name: " + Objects.requireNonNull(event.getCurrentItem()).getType());
         Bukkit.getLogger().info("Size of crafting: " + event.getCurrentItem().getAmount());
