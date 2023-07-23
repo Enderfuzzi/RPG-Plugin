@@ -1,4 +1,4 @@
-package com.falgael.rpg.experience;
+package com.falgael.rpg.proficiencies;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -7,20 +7,17 @@ import org.bukkit.inventory.CraftingInventory;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Provides the framework for experience.
+ * Provides the framework for proficiencies.
  * @author falgael
  * @version 0.0.1
  */
-public abstract class ExperienceFramework implements Serializable {
+public abstract class ProficiencyExperienceFramework implements Serializable {
     @Serial
     private static final long serialVersionUID = 4139975922284126208L;
-    /** Contains a list of a Material that gives Experience on destruction and the amount of Experience */
-    protected HashMap<Material,Integer> blockBreakingExperience = fillBlockBreakingExperience();
-
-    protected HashMap<Material,Integer> blockCraftingExperience = fillBlockCraftingExperience();
 
     /** Current amount of Experience*/
     protected int currentExperience = 0;
@@ -31,12 +28,11 @@ public abstract class ExperienceFramework implements Serializable {
     /** The maximum level a player can reach in this skill */
     protected int lvlBorder = 100;
 
-
     /**
-     * Increases the current {@link ExperienceFramework#currentExperience} by the specified {@code int}.
-     * Returns always {@code false} if {@link ExperienceFramework#lvlBorder} is reached or the given amount is zero or less.
-     * Calls {@link ExperienceFramework#increaseLVL()} when {@link ExperienceFramework#currentExperienceBorder} is reached.
-     * @param amount the experience to add
+     * Increases the current {@link ProficiencyExperienceFramework#currentExperience} by the specified {@code int}.
+     * Returns always {@code false} if {@link ProficiencyExperienceFramework#lvlBorder} is reached or the given amount is zero or less.
+     * Calls {@link ProficiencyExperienceFramework#increaseLVL()} when {@link ProficiencyExperienceFramework#currentExperienceBorder} is reached.
+     * @param amount the proficiencies to add
      * @return {@code true} if the increase is successful
      */
     public boolean increaseExperience(int amount) {
@@ -50,7 +46,7 @@ public abstract class ExperienceFramework implements Serializable {
     }
 
     /**
-     * Increases the Level by one and calls {@link ExperienceFramework#generateNextBorder()}
+     * Increases the Level by one and calls {@link ProficiencyExperienceFramework#generateNextBorder()}
      */
     protected void increaseLVL() {
         currentLVL++;
@@ -58,12 +54,12 @@ public abstract class ExperienceFramework implements Serializable {
     }
 
     /**
-     * @return the current experience border
+     * @return the current proficiencies border
      */
     public int getCurrentExperienceBorder() {
         return currentExperienceBorder;
     }
-    /** @return the current amount of experience */
+    /** @return the current amount of proficiencies */
     public int getCurrentExperience() {
         return currentExperience;
     }
@@ -82,7 +78,11 @@ public abstract class ExperienceFramework implements Serializable {
     //--------------------------------------------------------------------------------------------
     // Block breaking
     //--------------------------------------------------------------------------------------------
-    /** Fills {@link ExperienceFramework#blockBreakingExperience} with {@code Material} which gives Experience when Breaking with specific amount */
+
+    /** Contains a list of a Material that gives Experience on destruction with the amount of Experience */
+    protected HashMap<Material,Integer> blockBreakingExperience = fillBlockBreakingExperience();
+
+    /** Fills {@link ProficiencyExperienceFramework#blockBreakingExperience} with {@code Material} which gives Experience when Breaking with specific amount */
     protected abstract HashMap<Material,Integer> fillBlockBreakingExperience();
 
     /**
@@ -95,9 +95,9 @@ public abstract class ExperienceFramework implements Serializable {
     }
 
     /**
-     * Gives the number of experience a block gives when broken
-     * @param b The {@code Block} to get the experience amount
-     * @return the amount of experience assigned to the specified {@code Material}
+     * Gives the number of proficiencies a block gives when broken
+     * @param b The {@code Block} to get the proficiencies amount
+     * @return the amount of proficiencies assigned to the specified {@code Material}
      */
     public int amountBlockBreakingExperience(Block b) {
         if (givesBlockBreakingExperience(b)) {
@@ -110,11 +110,16 @@ public abstract class ExperienceFramework implements Serializable {
     // Block Crafting
     //--------------------------------------------------------------------------------------------
 
-    /** Fills {@link ExperienceFramework#blockCraftingExperience} with {@code Material} which gives Experience when Crafting with specific amount */
+    /**
+     *  Contains a list of a Material that gives Experience on crafting with the amount of Experience
+     */
+    protected HashMap<Material,Integer> blockCraftingExperience = fillBlockCraftingExperience();
+
+    /** Fills {@link ProficiencyExperienceFramework#blockCraftingExperience} with {@code Material} which gives Experience when Crafting with specific amount */
     protected abstract HashMap<Material,Integer> fillBlockCraftingExperience();
 
     /**
-     * Checks if a crafting recipe gives experience on crafting. Override this function for other functionality
+     * Checks if a crafting recipe gives proficiencies on crafting. Override this function for other functionality
      * @param m The {@code Material} to check
      * @param craftingInventory can be null, when given only crafting table is allowed
      * @return {@code true} when the material is in list
@@ -125,9 +130,9 @@ public abstract class ExperienceFramework implements Serializable {
     }
 
     /**
-     * Gives the number of experience a block gives when crafted
-     * @param m The {@code Material} to get the experience amount
-     * @return the amount of experience assigned to the specified {@code Material}
+     * Gives the number of proficiencies a block gives when crafted
+     * @param m The {@code Material} to get the proficiencies amount
+     * @return the amount of proficiencies assigned to the specified {@code Material}
      */
     public int amountBlockCraftingExperience(Material m) {
         if (givesBlockCraftingExperience(m,null)) {
@@ -136,7 +141,24 @@ public abstract class ExperienceFramework implements Serializable {
         return 0;
     }
 
+    //--------------------------------------------------------------------------------------------
+    // Forbidden recipes
+    //--------------------------------------------------------------------------------------------
 
+    /**
+     * Contains a list with {@code Material} which is forbidden to craft currently
+     */
+    protected ArrayList<Material> forbiddenCraftingRecipes = fillForbiddenCraftingRecipes();
+    /** Fills {@link ProficiencyExperienceFramework#forbiddenCraftingRecipes with {@code Material}*/
+    protected abstract ArrayList<Material> fillForbiddenCraftingRecipes();
 
+    /**
+     * Checks if a given Material is forbidden to craft.
+     * @param m The resulting {@code Material} to chek
+     * @return {@code true} if the given {@code Material} is in the list
+     */
+    public boolean isForbiddenToCraft(Material m) {
+        return forbiddenCraftingRecipes.contains(m);
+    }
 
 }

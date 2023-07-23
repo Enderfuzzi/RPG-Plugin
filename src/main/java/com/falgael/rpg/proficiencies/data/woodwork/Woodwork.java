@@ -1,20 +1,24 @@
-package com.falgael.rpg.experience.data;
+package com.falgael.rpg.proficiencies.data.woodwork;
 
-import com.falgael.rpg.experience.ExperienceFramework;
+import com.falgael.rpg.proficiencies.ProficiencyExperienceFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Provides the Foraging proficiency implementation.
+ * Provides the Woodwork proficiency implementation.
  * @author falgael
  * @version 0.0.1
  */
-public class Foraging extends ExperienceFramework {
+public class Woodwork extends ProficiencyExperienceFramework {
 
     @Serial
     private static final long serialVersionUID = -3733453141266327941L;
+
+    /** Identifier for this Proficiency */
+    private static final String PROFICIENCY_NAME = "Woodwork";
 
     /**
      * {@inheritDoc}
@@ -29,7 +33,7 @@ public class Foraging extends ExperienceFramework {
      */
     @Override
     public String getProficiencyRepresentation() {
-        return getClass().getSimpleName();
+        return PROFICIENCY_NAME;
     }
 
     /**
@@ -104,6 +108,14 @@ public class Foraging extends ExperienceFramework {
         result.put(Material.SPRUCE_SLAB,2);
         result.put(Material.SPRUCE_PLANKS,2);
         //Todo add further material
+        return result;
+    }
+
+    @Override
+    protected ArrayList<Material> fillForbiddenCraftingRecipes() {
+        ArrayList<Material> result = new ArrayList<>();
+        result.add(Material.ACACIA_WOOD);
+
         return result;
     }
 }

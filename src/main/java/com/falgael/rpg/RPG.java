@@ -1,6 +1,6 @@
 package com.falgael.rpg;
 
-import com.falgael.rpg.experience.ExperienceHandler;
+import com.falgael.rpg.proficiencies.ProficiencyHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -11,7 +11,7 @@ public final class RPG extends JavaPlugin {
         getLogger().info("RPG enabled");
         sendMessageToAll("Plugin enabled");
 
-        Bukkit.getPluginManager().registerEvents(new ExperienceHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
 
     }
 
