@@ -3,6 +3,8 @@ package com.falgael.rpg.proficiencies;
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
 import org.bukkit.Material;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -10,8 +12,10 @@ import java.util.ArrayList;
  * @author falgael
  * @version 0.0.1
  */
-public class ProficiencyData {
+public class ProficiencyData implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = 7607691920061618617L;
 
     private ArrayList<ProficiencyExperienceFramework> blockBreakProficiency = new ArrayList<ProficiencyExperienceFramework>();
 

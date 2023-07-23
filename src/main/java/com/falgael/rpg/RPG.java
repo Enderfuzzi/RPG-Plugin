@@ -1,5 +1,6 @@
 package com.falgael.rpg;
 
+import com.falgael.rpg.manager.SavingManagement;
 import com.falgael.rpg.proficiencies.ProficiencyHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -8,11 +9,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class RPG extends JavaPlugin {
     @Override
     public void onEnable() {
-        getLogger().info("RPG enabled");
+        getLogger().info(this.getName() + " enabled");
         sendMessageToAll("Plugin enabled");
-
+        SavingManagement.loadProficiencyData();
         Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
-
     }
 
     @Override

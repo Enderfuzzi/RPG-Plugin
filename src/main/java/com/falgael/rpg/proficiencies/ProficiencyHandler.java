@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiencies;
 
+import com.falgael.rpg.manager.SavingManagement;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -15,7 +16,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
 import java.util.Objects;
 
 /**
@@ -24,9 +24,6 @@ import java.util.Objects;
  * @version 0.0.1
  */
 public class ProficiencyHandler implements Listener {
-
-    /** Assigns Experience data to each player */
-    private static HashMap<Player, ProficiencyData> experiences = new HashMap<>();
 
     /**
      * Method to send a formatted Message for the proficiencies increase
@@ -39,14 +36,20 @@ public class ProficiencyHandler implements Listener {
         TextComponent message = new TextComponent(ChatColor.GOLD + "" + ChatColor.ITALIC + proficiencyRepresentation + ": " + currentExperience + "/" + currentExperienceBorder + " Xp");
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR,message);
         Bukkit.getLogger().info(player.getDisplayName() + " has " + currentExperience + " Xp of " + currentExperienceBorder + " from " + proficiencyRepresentation);
+
+        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("RPG-0.0.1"), new Runnable() {
+            @Override
+            public void run() {
+                SavingManagement.saveProficiencyData();
+            }
+        });
+
     }
 
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-        if (!experiences.containsKey(event.getPlayer())) {
-            experiences.put(event.getPlayer(), new ProficiencyData());
-        }
+
     }
 
     /**
@@ -56,7 +59,7 @@ public class ProficiencyHandler implements Listener {
     @EventHandler
     public void onBlockBreak(@NotNull BlockBreakEvent event) {
         if (event.isCancelled()) return;
-        for (ProficiencyExperienceFramework ef : experiences.get(event.getPlayer()).getBlockBreakProficiency()) {
+        for (ProficiencyExperienceFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
                 ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()));
                 experienceIncreaseMessage(event.getPlayer(),ef.getProficiencyRepresentation(),ef.getCurrentExperience(),ef.getCurrentExperienceBorder());
@@ -76,7 +79,7 @@ public class ProficiencyHandler implements Listener {
         Bukkit.getLogger().info("Crafting result name: " + Objects.requireNonNull(event.getCurrentItem()).getType());
         Bukkit.getLogger().info("Size of crafting: " + event.getCurrentItem().getAmount());
 
-        for (ProficiencyExperienceFramework ef : experiences.get(player).getBlockBreakProficiency()) {
+        for (ProficiencyExperienceFramework ef : ProficiencyManager.getProficiencyData(player.getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockCraftingExperience(event.getCurrentItem().getType(),event.getInventory())) {
 
                 int craftedAmount = 1;
@@ -103,7 +106,7 @@ public class ProficiencyHandler implements Listener {
      */
     @EventHandler
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
-        if (experiences.get(event.getView().getPlayer()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
+        if (ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
             event.getInventory().setResult(new ItemStack(Material.AIR));
         }
     }
