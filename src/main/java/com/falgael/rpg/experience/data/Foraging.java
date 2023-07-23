@@ -3,6 +3,7 @@ package com.falgael.rpg.experience.data;
 import com.falgael.rpg.experience.ExperienceFramework;
 import org.bukkit.Material;
 
+import java.io.Serial;
 import java.util.HashMap;
 
 /**
@@ -11,6 +12,9 @@ import java.util.HashMap;
  * @version 0.0.1
  */
 public class Foraging extends ExperienceFramework {
+
+    @Serial
+    private static final long serialVersionUID = -3733453141266327941L;
 
     /**
      * {@inheritDoc}
