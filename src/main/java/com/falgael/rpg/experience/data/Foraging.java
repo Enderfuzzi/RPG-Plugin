@@ -46,6 +46,7 @@ public class Foraging extends ExperienceFramework {
         result.put(Material.JUNGLE_LOG,1);
         result.put(Material.JUNGLE_WOOD,1);
         result.put(Material.MANGROVE_LOG,1);
+        result.put(Material.MANGROVE_ROOTS,1);
         result.put(Material.MANGROVE_WOOD,1);
         result.put(Material.OAK_LOG,1);
         result.put(Material.OAK_WOOD,1);
@@ -67,6 +68,7 @@ public class Foraging extends ExperienceFramework {
         result.put(Material.STRIPPED_OAK_WOOD,1);
         result.put(Material.STRIPPED_SPRUCE_LOG,1);
         result.put(Material.STRIPPED_SPRUCE_WOOD,1);
+        result.put(Material.BAMBOO,1);
         return result;
     }
 
@@ -76,7 +78,27 @@ public class Foraging extends ExperienceFramework {
     @Override
     protected HashMap<Material, Integer> fillBlockCraftingExperience() {
         HashMap<Material,Integer> result = new HashMap<>();
-        result.put(Material.ACACIA_PLANKS,1);
+        result.put(Material.ACACIA_PLANKS,2);
+        result.put(Material.ACACIA_SLAB,3);
+        result.put(Material.BAMBOO_BLOCK,3);
+        result.put(Material.BAMBOO_MOSAIC,1);
+        result.put(Material.BAMBOO_MOSAIC_SLAB,1);
+        result.put(Material.BAMBOO_SLAB,3);
+        result.put(Material.BAMBOO_PLANKS,1);
+        result.put(Material.BIRCH_SLAB,1);
+        result.put(Material.BIRCH_PLANKS,2);
+        result.put(Material.CHERRY_SLAB,3);
+        result.put(Material.CHERRY_PLANKS,2);
+        result.put(Material.DARK_OAK_SLAB,3);
+        result.put(Material.DARK_OAK_PLANKS,2);
+        result.put(Material.JUNGLE_SLAB,2);
+        result.put(Material.JUNGLE_PLANKS,2);
+        result.put(Material.MANGROVE_SLAB,2);
+        result.put(Material.MANGROVE_PLANKS,2);
+        result.put(Material.OAK_SLAB,2);
+        result.put(Material.OAK_PLANKS,2);
+        result.put(Material.SPRUCE_SLAB,2);
+        result.put(Material.SPRUCE_PLANKS,2);
         //Todo add further material
         return result;
     }
