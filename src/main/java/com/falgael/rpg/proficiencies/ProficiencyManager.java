@@ -26,13 +26,4 @@ public class ProficiencyManager {
         proficiencies.put(player,proficiencyData);
     }
 
-    public static void save() {
-
-    }
-
-    public static void load() {
-
-    }
-
-
 }
