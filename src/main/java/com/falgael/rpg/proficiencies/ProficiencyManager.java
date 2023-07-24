@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiencies;
 
-import org.bukkit.entity.Player;
+import com.falgael.rpg.proficiencies.player.ProficiencyData;
 
 import java.util.HashMap;
 import java.util.UUID;

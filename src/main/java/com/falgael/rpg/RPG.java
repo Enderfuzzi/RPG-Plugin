@@ -3,8 +3,14 @@ package com.falgael.rpg;
 import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.proficiencies.ProficiencyHandler;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.*;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Iterator;
 
 public final class RPG extends JavaPlugin {
     @Override

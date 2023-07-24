@@ -1,6 +1,6 @@
 package com.falgael.rpg.manager;
 
-import com.falgael.rpg.proficiencies.ProficiencyData;
+import com.falgael.rpg.proficiencies.player.ProficiencyData;
 import com.falgael.rpg.proficiencies.ProficiencyManager;
 import org.bukkit.Bukkit;
 import org.bukkit.util.io.BukkitObjectInputStream;

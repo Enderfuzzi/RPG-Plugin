@@ -1,6 +1,7 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.manager.DataStoreManagement;
+import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -10,8 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.inventory.CraftItemEvent;
-import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -106,9 +106,9 @@ public class ProficiencyHandler implements Listener {
      */
     @EventHandler
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
+        if (event.getInventory().getResult() == null) return;
         if (ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
             event.getInventory().setResult(new ItemStack(Material.AIR));
         }
     }
-
 }

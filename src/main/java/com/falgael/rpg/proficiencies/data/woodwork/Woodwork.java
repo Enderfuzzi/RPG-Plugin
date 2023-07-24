@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
-import com.falgael.rpg.proficiencies.ProficiencyExperienceFramework;
+import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;

@@ -1,4 +1,4 @@
-package com.falgael.rpg.proficiencies;
+package com.falgael.rpg.proficiencies.template;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
