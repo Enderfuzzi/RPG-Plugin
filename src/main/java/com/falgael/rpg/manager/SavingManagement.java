@@ -14,26 +14,50 @@ import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * Manages the loading and Storing
+ */
 public class SavingManagement {
-
+    /**
+     * Contains the root file for data to store
+     */
     private static final File ROOT_DATA_FOLDER = Bukkit.getPluginManager().getPlugin("RPG-0.0.1").getDataFolder();
+    /**
+     * Contains the Path addition for the data file
+     */
     private static final String DATA_PATH = File.separator + "data";
+    /**
+     * Contains the path addition to the proficiency file
+     */
     private static final String DATA_PROFICIENCY_PATH = DATA_PATH + File.separator +"proficiencies";
 
-
+    /**
+     * Checks if all necessary Directories are existing. Creates missing directories.
+     */
     public static void initialize() {
-        Bukkit.getLogger().info("Start initializing of: " + SavingManagement.class.getName());
+        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Start initializing");
 
         checkAndCreateDirectory(ROOT_DATA_FOLDER);
         checkAndCreateDirectory(ROOT_DATA_FOLDER + DATA_PATH);
         checkAndCreateDirectory(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH);
 
+        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Finished initializing");
+        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Start loading");
+        loadProficiencyData();
+        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Finished loading");
     }
-
+    /**
+     * Checks if a given path to a file exists and creates it as directory if not.
+     * @param path The path pointed to a {@code File}
+     */
     private static void checkAndCreateDirectory(String path) {
         checkAndCreateDirectory(new File(path));
     }
 
+    /**
+     * Checks if a given {@code File} exists and creates it as directory if not.
+     * @param file The {@code File} to check
+     */
     private static void checkAndCreateDirectory(@NotNull File file) {
         Bukkit.getLogger().info("[" + file.getPath() + "]: Checking File");
         if (!file.exists()) {
@@ -43,6 +67,11 @@ public class SavingManagement {
         }
     }
 
+    /**
+     * Loads an object stored in the given {@code File}.
+     * @param file The {@code File} to load the {@code Object}
+     * @return The loaded Object or null
+     */
     private static @Nullable Object load(File file) {
         if (file == null) {
             Bukkit.getLogger().warning("File to load is null");
@@ -74,6 +103,12 @@ public class SavingManagement {
         return null;
     }
 
+    /**
+     * Stores a given {@code Object} in a specified {@File}.
+     * Checks if the File exists and is writable. Creates {@code File} if it does not exist. Checks if the Object is Serializable.
+     * @param file The {@Code File} to store th {@code Object} in
+     * @param o The {@code Object} to store
+     */
     private static void save(File file, Object o) {
         if (file == null) {
             Bukkit.getLogger().warning("File to load is null");
@@ -121,6 +156,9 @@ public class SavingManagement {
         }
     }
 
+    /**
+     * Loads the Proficiency data of all Players
+     */
     public static void loadProficiencyData() {
         File dir = new File(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH + File.separator);
         Bukkit.getLogger().info("[Proficiency Data]: Start loading");
@@ -140,6 +178,9 @@ public class SavingManagement {
         Bukkit.getLogger().info("[Proficiency Data]: Finished loading");
     }
 
+    /**
+     * Saves the Proficiency Data of all Players
+     */
     public static void saveProficiencyData() {
         Bukkit.getLogger().info("[Proficiency Data]: Start Saving");
         for (Map.Entry<UUID,ProficiencyData> entry : ProficiencyManager.getProficiencyData().entrySet()) {
