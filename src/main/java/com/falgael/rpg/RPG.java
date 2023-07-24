@@ -6,6 +6,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.*;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +21,7 @@ public final class RPG extends JavaPlugin {
         sendMessageToAll("Plugin enabled");
         DataStoreManagement.initialize();
         Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
+
     }
 
     @Override
@@ -30,5 +33,4 @@ public final class RPG extends JavaPlugin {
     private final void sendMessageToAll(String message) {
         for (Player p : Bukkit.getOnlinePlayers()) p.sendMessage(message);
     }
-
 }

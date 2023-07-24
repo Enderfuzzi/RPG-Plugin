@@ -1,6 +1,7 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.manager.DataStoreManagement;
+import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
 import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -14,6 +15,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -49,7 +51,8 @@ public class ProficiencyHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-
+        for (ItemStack is: WoodworkItems.items)
+        event.getPlayer().getInventory().addItem(is);
     }
 
     /**
@@ -61,6 +64,13 @@ public class ProficiencyHandler implements Listener {
         if (event.isCancelled()) return;
         for (ProficiencyExperienceFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
+                ItemMeta toCheck = event.getPlayer().getInventory().getItemInMainHand().getItemMeta();
+                Bukkit.getLogger().info("Item Lore: " + toCheck.getLore().get(0));
+                if (toCheck.getDisplayName().equals("Simple Wooden Axe")) {
+                    Bukkit.getLogger().info("Dropped more");
+                    event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),new ItemStack(event.getBlock().getType()));
+                }
+
                 ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()));
                 experienceIncreaseMessage(event.getPlayer(),ef.getProficiencyRepresentation(),ef.getCurrentExperience(),ef.getCurrentExperienceBorder());
                 return;
