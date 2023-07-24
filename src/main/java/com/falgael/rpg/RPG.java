@@ -11,6 +11,7 @@ public final class RPG extends JavaPlugin {
     public void onEnable() {
         getLogger().info(this.getName() + " enabled");
         sendMessageToAll("Plugin enabled");
+        SavingManagement.initialize();
         SavingManagement.loadProficiencyData();
         Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
     }
