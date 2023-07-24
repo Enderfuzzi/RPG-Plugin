@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiencies;
 
-import com.falgael.rpg.manager.SavingManagement;
+import com.falgael.rpg.manager.DataStoreManagement;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -40,7 +40,7 @@ public class ProficiencyHandler implements Listener {
         Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("RPG-0.0.1"), new Runnable() {
             @Override
             public void run() {
-                SavingManagement.saveProficiencyData();
+                DataStoreManagement.saveProficiencyData();
             }
         });
 

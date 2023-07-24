@@ -17,7 +17,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * Manages the loading and Storing
  */
-public class SavingManagement {
+public class DataStoreManagement {
     /**
      * Contains the root file for data to store
      */
@@ -35,16 +35,16 @@ public class SavingManagement {
      * Checks if all necessary Directories are existing. Creates missing directories.
      */
     public static void initialize() {
-        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Start initializing");
+        Bukkit.getLogger().info("[" + DataStoreManagement.class.getSimpleName() + "]: Start initializing");
 
         checkAndCreateDirectory(ROOT_DATA_FOLDER);
         checkAndCreateDirectory(ROOT_DATA_FOLDER + DATA_PATH);
         checkAndCreateDirectory(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH);
 
-        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Finished initializing");
-        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Start loading");
+        Bukkit.getLogger().info("[" + DataStoreManagement.class.getSimpleName() + "]: Finished initializing");
+        Bukkit.getLogger().info("[" + DataStoreManagement.class.getSimpleName() + "]: Start loading");
         loadProficiencyData();
-        Bukkit.getLogger().info("[" + SavingManagement.class.getSimpleName() + "]: Finished loading");
+        Bukkit.getLogger().info("[" + DataStoreManagement.class.getSimpleName() + "]: Finished loading");
     }
     /**
      * Checks if a given path to a file exists and creates it as directory if not.
