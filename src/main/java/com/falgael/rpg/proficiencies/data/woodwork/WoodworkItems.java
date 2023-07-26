@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
+import com.falgael.rpg.utility.ItemCreation;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -16,10 +17,11 @@ public class WoodworkItems {
 
     private static ArrayList<ItemStack> fillItems() {
         ArrayList<ItemStack> result = new ArrayList<>();
-        result.add(createItem(Material.WOODEN_AXE,"Simple Wooden Axe",
+        result.add(ItemCreation.createItem(Material.WOODEN_AXE,"Simple Wooden Axe",
                 ChatColor.ITALIC + "" + ChatColor.DARK_GREEN + "+100% More Wood","Crafted by the gods to test your strength"));
         return result;
     }
+
 
     private static ItemStack createItem(Material material,String itemName, String... lore) {
         ItemStack result = new ItemStack(material);

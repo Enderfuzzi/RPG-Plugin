@@ -11,7 +11,7 @@ import java.util.List;
 public class ItemCreation {
 
 
-    private static @NotNull ItemStack createItem(Material material, String itemName, String... lore) {
+    public static @NotNull ItemStack createItem(Material material, String itemName, String... lore) {
         ItemStack result = new ItemStack(material);
         ItemMeta itemMeta = result.getItemMeta();
         itemMeta.setDisplayName(itemName);
