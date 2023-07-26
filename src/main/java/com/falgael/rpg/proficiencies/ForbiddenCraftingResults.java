@@ -5,21 +5,21 @@ import org.bukkit.Material;
 
 import java.util.ArrayList;
 
-public class ForbiddenToCraft {
+public class ForbiddenCraftingResults {
 
-    private static ArrayList<Material> forbiddenToCraft = new ArrayList<>();
+    private static ArrayList<Material> forbiddenCraftingResults = new ArrayList<>();
 
 
     public static void addMaterial(Material material) {
         if (material == null) return;
-        if (isForbiddenToCraft(material)) return;
-        forbiddenToCraft.add(material);
+        if (isForbiddenCraftingResult(material)) return;
+        forbiddenCraftingResults.add(material);
         Bukkit.getLogger().info("Registered Material which is generally forbidden to craft: " + material);
     }
 
-    public static boolean isForbiddenToCraft(Material material) {
+    public static boolean isForbiddenCraftingResult(Material material) {
         if (material == null) return false;
-        return forbiddenToCraft.contains(material);
+        return forbiddenCraftingResults.contains(material);
     }
 
 }

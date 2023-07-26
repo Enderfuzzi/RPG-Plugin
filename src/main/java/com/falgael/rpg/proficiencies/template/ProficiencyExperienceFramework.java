@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiencies.template;
 
-import com.falgael.rpg.proficiencies.ForbiddenToCraft;
+import com.falgael.rpg.proficiencies.ForbiddenCraftingResults;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.inventory.InventoryType;
@@ -168,7 +168,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
     //--------------------------------------------------------------------------------------------
 
     protected static void registerGenerallyForbidden(Material material) {
-        ForbiddenToCraft.addMaterial(material);
+        ForbiddenCraftingResults.addMaterial(material);
     }
 
     public abstract void initialize();
