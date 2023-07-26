@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
-import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
+import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;
@@ -12,7 +12,7 @@ import java.util.HashMap;
  * @author falgael
  * @version 0.0.1
  */
-public class Woodwork extends ProficiencyExperienceFramework {
+public class Woodwork extends ProficiencyFramework {
 
     @Serial
     private static final long serialVersionUID = -3733453141266327941L;

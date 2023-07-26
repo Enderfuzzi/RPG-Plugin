@@ -16,7 +16,7 @@ import java.util.HashMap;
  * @author falgael
  * @version 0.0.1
  */
-public abstract class ProficiencyExperienceFramework implements Serializable {
+public abstract class ProficiencyFramework implements Serializable {
     @Serial
     private static final long serialVersionUID = 4139975922284126208L;
 
@@ -30,9 +30,9 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
     protected int lvlBorder = 100;
 
     /**
-     * Increases the current {@link ProficiencyExperienceFramework#currentExperience} by the specified {@code int}.
-     * Returns always {@code false} if {@link ProficiencyExperienceFramework#lvlBorder} is reached or the given amount is zero or less.
-     * Calls {@link ProficiencyExperienceFramework#increaseLVL()} when {@link ProficiencyExperienceFramework#currentExperienceBorder} is reached.
+     * Increases the current {@link ProficiencyFramework#currentExperience} by the specified {@code int}.
+     * Returns always {@code false} if {@link ProficiencyFramework#lvlBorder} is reached or the given amount is zero or less.
+     * Calls {@link ProficiencyFramework#increaseLVL()} when {@link ProficiencyFramework#currentExperienceBorder} is reached.
      * @param amount the proficiencies to add
      * @return {@code true} if the increase is successful
      */
@@ -47,7 +47,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
     }
 
     /**
-     * Increases the Level by one and calls {@link ProficiencyExperienceFramework#generateNextBorder()}
+     * Increases the Level by one and calls {@link ProficiencyFramework#generateNextBorder()}
      */
     protected void increaseLVL() {
         currentLVL++;
@@ -83,7 +83,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
     /** Contains a list of a Material that gives Experience on destruction with the amount of Experience */
     protected HashMap<Material,Integer> blockBreakingExperience = fillBlockBreakingExperience();
 
-    /** Fills {@link ProficiencyExperienceFramework#blockBreakingExperience} with {@code Material} which gives Experience when Breaking with specific amount */
+    /** Fills {@link ProficiencyFramework#blockBreakingExperience} with {@code Material} which gives Experience when Breaking with specific amount */
     protected abstract HashMap<Material,Integer> fillBlockBreakingExperience();
 
     /**
@@ -116,7 +116,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
      */
     protected HashMap<Material,Integer> blockCraftingExperience = fillBlockCraftingExperience();
 
-    /** Fills {@link ProficiencyExperienceFramework#blockCraftingExperience} with {@code Material} which gives Experience when Crafting with specific amount */
+    /** Fills {@link ProficiencyFramework#blockCraftingExperience} with {@code Material} which gives Experience when Crafting with specific amount */
     protected abstract HashMap<Material,Integer> fillBlockCraftingExperience();
 
     /**
@@ -150,7 +150,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
      * Contains a list with {@code Material} which is forbidden to craft currently
      */
     protected ArrayList<Material> forbiddenCraftingRecipes = fillForbiddenCraftingRecipes();
-    /** Fills {@link ProficiencyExperienceFramework#forbiddenCraftingRecipes with {@code Material}*/
+    /** Fills {@link ProficiencyFramework#forbiddenCraftingRecipes with {@code Material}*/
     protected abstract ArrayList<Material> fillForbiddenCraftingRecipes();
 
     /**
@@ -164,7 +164,7 @@ public abstract class ProficiencyExperienceFramework implements Serializable {
 
 
     //--------------------------------------------------------------------------------------------
-    // Generally Forbidden recipe of this Proficiency
+    // Generally Forbidden recipe of this Proficiency gets stored in extra list
     //--------------------------------------------------------------------------------------------
 
     protected static void registerGenerallyForbidden(Material material) {

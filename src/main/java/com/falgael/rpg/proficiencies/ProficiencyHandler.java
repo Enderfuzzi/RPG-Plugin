@@ -2,7 +2,7 @@ package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
-import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
+import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -62,7 +62,7 @@ public class ProficiencyHandler implements Listener {
     @EventHandler
     public void onBlockBreak(@NotNull BlockBreakEvent event) {
         if (event.isCancelled()) return;
-        for (ProficiencyExperienceFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
+        for (ProficiencyFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
                 ItemMeta toCheck = event.getPlayer().getInventory().getItemInMainHand().getItemMeta();
                 Bukkit.getLogger().info("Item Lore: " + toCheck.getLore().get(0));
@@ -89,7 +89,7 @@ public class ProficiencyHandler implements Listener {
         Bukkit.getLogger().info("Crafting result name: " + Objects.requireNonNull(event.getCurrentItem()).getType());
         Bukkit.getLogger().info("Size of crafting: " + event.getCurrentItem().getAmount());
 
-        for (ProficiencyExperienceFramework ef : ProficiencyManager.getProficiencyData(player.getUniqueId()).getBlockBreakProficiency()) {
+        for (ProficiencyFramework ef : ProficiencyManager.getProficiencyData(player.getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockCraftingExperience(event.getCurrentItem().getType(),event.getInventory())) {
 
                 int craftedAmount = 1;

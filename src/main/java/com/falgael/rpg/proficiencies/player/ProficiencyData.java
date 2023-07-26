@@ -1,7 +1,7 @@
 package com.falgael.rpg.proficiencies.player;
 
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
-import com.falgael.rpg.proficiencies.template.ProficiencyExperienceFramework;
+import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;
@@ -18,21 +18,21 @@ public class ProficiencyData implements Serializable {
     @Serial
     private static final long serialVersionUID = 7607691920061618617L;
 
-    private ArrayList<ProficiencyExperienceFramework> blockBreakProficiency = new ArrayList<ProficiencyExperienceFramework>();
+    private ArrayList<ProficiencyFramework> blockBreakProficiency = new ArrayList<ProficiencyFramework>();
 
     /**
      * Creates a new Experience list for a Player. Each new Class has to be added here
      */
     public ProficiencyData() {
         blockBreakProficiency.add(new Woodwork());
-        for (ProficiencyExperienceFramework pef : blockBreakProficiency) pef.initialize();
+        for (ProficiencyFramework pef : blockBreakProficiency) pef.initialize();
     }
 
     /**
      *
      * @return the lists of data concerning a player
      */
-    public ArrayList<ProficiencyExperienceFramework> getBlockBreakProficiency() {
+    public ArrayList<ProficiencyFramework> getBlockBreakProficiency() {
         return blockBreakProficiency;
     }
 
@@ -42,7 +42,7 @@ public class ProficiencyData implements Serializable {
      * @return {@code true} if a proficiency forbids to craft an item
      */
     public boolean isForbiddenToCraft(Material m) {
-        for (ProficiencyExperienceFramework ef : blockBreakProficiency) {
+        for (ProficiencyFramework ef : blockBreakProficiency) {
             if (ef.isForbiddenToCraft(m)) return true;
         }
         return false;
