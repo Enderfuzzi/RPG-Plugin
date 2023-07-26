@@ -25,6 +25,7 @@ public class ProficiencyData implements Serializable {
      */
     public ProficiencyData() {
         blockBreakProficiency.add(new Woodwork());
+        for (ProficiencyExperienceFramework pef : blockBreakProficiency) pef.initialize();
     }
 
     /**

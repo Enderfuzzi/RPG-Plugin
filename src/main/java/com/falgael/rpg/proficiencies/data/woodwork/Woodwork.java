@@ -146,4 +146,8 @@ public class Woodwork extends ProficiencyExperienceFramework {
 
         return result;
     }
+
+    public void initialize() {
+        registerGenerallyForbidden(Material.ACACIA_WOOD);
+    }
 }
