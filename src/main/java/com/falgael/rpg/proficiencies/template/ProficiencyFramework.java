@@ -1,10 +1,11 @@
 package com.falgael.rpg.proficiencies.template;
 
-import com.falgael.rpg.proficiencies.ForbiddenCraftingResults;
+import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.CraftingInventory;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -168,7 +169,15 @@ public abstract class ProficiencyFramework implements Serializable {
     //--------------------------------------------------------------------------------------------
 
     protected static void registerGenerallyForbidden(Material material) {
-        ForbiddenCraftingResults.addMaterial(material);
+        ProficiencyDataHolder.addGeneralForbiddenCraftingResult(material);
+    }
+
+    //--------------------------------------------------------------------------------------------
+    // Items added by this Proficiency
+    //--------------------------------------------------------------------------------------------
+
+    protected static void registerItemOfThisProficiency(String key, ArrayList<ItemStack> list) {
+        ProficiencyDataHolder.addItemsToAllProficiencies(key, list);
     }
 
     public abstract void initialize();

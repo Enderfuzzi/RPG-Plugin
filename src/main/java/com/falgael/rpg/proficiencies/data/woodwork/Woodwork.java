@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
+import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
 import org.bukkit.Material;
 
@@ -18,7 +19,7 @@ public class Woodwork extends ProficiencyFramework {
     private static final long serialVersionUID = -3733453141266327941L;
 
     /** Identifier for this Proficiency */
-    private static final String PROFICIENCY_NAME = "Woodwork";
+    private static final String PROFICIENCY_NAME = ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME;
 
     /**
      * {@inheritDoc}
@@ -43,6 +44,7 @@ public class Woodwork extends ProficiencyFramework {
     protected HashMap<Material, Integer> fillBlockBreakingExperience() {
         //Todo Increase Value for woods
         HashMap<Material,Integer> result = new HashMap<>();
+
         result.put(Material.ACACIA_LOG,1);
         result.put(Material.ACACIA_WOOD,1);
         result.put(Material.BIRCH_LOG,1);
@@ -85,6 +87,7 @@ public class Woodwork extends ProficiencyFramework {
         result.put(Material.STRIPPED_WARPED_HYPHAE,2);
         result.put(Material.STRIPPED_WARPED_STEM,2);
         result.put(Material.BAMBOO,1);
+
         return result;
     }
 
@@ -149,5 +152,8 @@ public class Woodwork extends ProficiencyFramework {
 
     public void initialize() {
         registerGenerallyForbidden(Material.ACACIA_WOOD);
+
+
+        registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());
     }
 }

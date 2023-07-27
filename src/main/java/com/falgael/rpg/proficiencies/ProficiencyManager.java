@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class ProficiencyManager {
     /** Assigns Experience data to each player */
-    public static HashMap<UUID, ProficiencyData> proficiencies = new HashMap<>();
+    private static HashMap<UUID, ProficiencyData> proficiencies = new HashMap<>();
 
 
     public static ProficiencyData getProficiencyData(UUID player) {

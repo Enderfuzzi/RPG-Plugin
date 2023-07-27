@@ -1,19 +1,17 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
+import com.falgael.rpg.proficiencies.template.ProficiencyItems;
 import com.falgael.rpg.utility.ItemCreation;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class WoodworkItems {
+public class WoodworkItems implements ProficiencyItems {
 
-    public static final ArrayList<ItemStack> items = fillItems();
+    private static final ArrayList<ItemStack> items = fillItems();
 
     private static ArrayList<ItemStack> fillItems() {
         ArrayList<ItemStack> result = new ArrayList<>();
@@ -22,19 +20,7 @@ public class WoodworkItems {
         return result;
     }
 
-
-    private static ItemStack createItem(Material material,String itemName, String... lore) {
-        ItemStack result = new ItemStack(material);
-        ItemMeta itemMeta = result.getItemMeta();
-        itemMeta.setDisplayName(itemName);
-        itemMeta.setUnbreakable(true);
-        List<String> buildLore = new ArrayList<>();
-        for (String s : lore) {
-            buildLore.add(s);
-        }
-        itemMeta.setLore(buildLore);
-        result.setItemMeta(itemMeta);
-        return result;
+    public static ArrayList<ItemStack> getItems() {
+        return items;
     }
-
 }

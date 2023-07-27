@@ -51,7 +51,7 @@ public class ProficiencyHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-        for (ItemStack is: WoodworkItems.items)
+        for (ItemStack is : ProficiencyDataHolder.getAllItems())
         event.getPlayer().getInventory().addItem(is);
     }
 
@@ -65,7 +65,7 @@ public class ProficiencyHandler implements Listener {
         for (ProficiencyFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
                 ItemMeta toCheck = event.getPlayer().getInventory().getItemInMainHand().getItemMeta();
-                Bukkit.getLogger().info("Item Lore: " + toCheck.getLore().get(0));
+
                 if (toCheck.getDisplayName().equals("Simple Wooden Axe")) {
                     Bukkit.getLogger().info("Dropped more");
                     event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),new ItemStack(event.getBlock().getType()));
@@ -117,8 +117,9 @@ public class ProficiencyHandler implements Listener {
     @EventHandler
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
         if (event.getInventory().getResult() == null) return;
-        if (ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
-            event.getInventory().setResult(new ItemStack(Material.AIR));
-        }
+        if (!ProficiencyDataHolder.isForbiddenCraftingResult(event.getInventory().getResult().getType())) return;
+        if (!ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) return;
+
+        event.getInventory().setResult(new ItemStack(Material.AIR));
     }
 }

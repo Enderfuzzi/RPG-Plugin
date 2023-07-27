@@ -1,6 +1,7 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.manager.DataStoreManagement;
+import com.falgael.rpg.manager.Initializer;
 import com.falgael.rpg.proficiencies.ProficiencyHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -19,7 +20,7 @@ public final class RPG extends JavaPlugin {
     public void onEnable() {
         getLogger().info(this.getName() + " enabled");
         sendMessageToAll("Plugin enabled");
-        DataStoreManagement.initialize();
+        Initializer.initialize();
         Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
 
     }
