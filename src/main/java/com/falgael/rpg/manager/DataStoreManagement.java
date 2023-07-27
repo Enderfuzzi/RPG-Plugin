@@ -1,5 +1,6 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiencies.player.ProficiencyData;
 import com.falgael.rpg.proficiencies.ProficiencyManager;
 import org.bukkit.Bukkit;
@@ -21,7 +22,7 @@ public class DataStoreManagement {
     /**
      * Contains the root file for data to store
      */
-    private static final File ROOT_DATA_FOLDER = Bukkit.getPluginManager().getPlugin("RPG-0.0.1").getDataFolder();
+    private static final File ROOT_DATA_FOLDER = Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME).getDataFolder();
     /**
      * Contains the Path addition for the data file
      */
@@ -179,9 +180,18 @@ public class DataStoreManagement {
     }
 
     /**
-     * Saves the Proficiency Data of all Players
+     * Saves the Proficiency Data of all Players as new Task
      */
     public static void saveProficiencyData() {
+        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),() -> {
+            saveProficiencyDataThread();
+        });
+    }
+
+    /**
+     * Saves the current Proficiency data
+     */
+    private static void saveProficiencyDataThread() {
         Bukkit.getLogger().info("[Proficiency Data]: Start Saving");
         for (Map.Entry<UUID,ProficiencyData> entry : ProficiencyManager.getProficiencyData().entrySet()) {
             File file = new File(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH + File.separator + entry.getKey().toString());

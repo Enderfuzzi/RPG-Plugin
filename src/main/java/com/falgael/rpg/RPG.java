@@ -16,6 +16,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Iterator;
 
 public final class RPG extends JavaPlugin {
+
+    public static final String PLUGIN_NAME = "RPG-0.0.1";
+
     @Override
     public void onEnable() {
         getLogger().info(this.getName() + " enabled");
