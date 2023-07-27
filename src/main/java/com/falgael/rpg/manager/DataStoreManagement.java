@@ -4,6 +4,7 @@ import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiencies.player.ProficiencyData;
 import com.falgael.rpg.proficiencies.ProficiencyManager;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 import org.jetbrains.annotations.NotNull;
@@ -22,7 +23,9 @@ public class DataStoreManagement {
     /**
      * Contains the root file for data to store
      */
-    private static final File ROOT_DATA_FOLDER = Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME).getDataFolder();
+    private static File ROOT_DATA_FOLDER;
+
+    private static final Plugin PLUGIN = Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME);
     /**
      * Contains the Path addition for the data file
      */
@@ -37,6 +40,13 @@ public class DataStoreManagement {
      */
     public static void initialize() {
         Bukkit.getLogger().info("[" + DataStoreManagement.class.getSimpleName() + "]: Start initializing");
+
+        if (PLUGIN == null) {
+            Bukkit.getLogger().warning("[" + DataStoreManagement.class.getSimpleName() + "]: Plugin name is not found");
+            Bukkit.getLogger().warning("[" + DataStoreManagement.class.getSimpleName() + "]: Skipping initializing");
+            return;
+        }
+        ROOT_DATA_FOLDER = PLUGIN.getDataFolder();
 
         checkAndCreateDirectory(ROOT_DATA_FOLDER);
         checkAndCreateDirectory(ROOT_DATA_FOLDER + DATA_PATH);
@@ -105,9 +115,9 @@ public class DataStoreManagement {
     }
 
     /**
-     * Stores a given {@code Object} in a specified {@File}.
+     * Stores a given {@code Object} in a specified {@code File}.
      * Checks if the File exists and is writable. Creates {@code File} if it does not exist. Checks if the Object is Serializable.
-     * @param file The {@Code File} to store th {@code Object} in
+     * @param file The {@code File} to store th {@code Object} in
      * @param o The {@code Object} to store
      */
     private static void save(File file, Object o) {
@@ -129,7 +139,7 @@ public class DataStoreManagement {
             if (file.getParentFile().exists()) {
                 Bukkit.getLogger().info("[" + file.getPath() + "]: Creating file");
                 try {
-                    file.createNewFile();
+                    if (file.createNewFile()) Bukkit.getLogger().info("[" + file.getPath() + "]: File existed on creation");
                 } catch (IOException e) {
                     Bukkit.getLogger().warning("[" + file.getPath() + "]: Could not be created");
                 }
@@ -183,9 +193,12 @@ public class DataStoreManagement {
      * Saves the Proficiency Data of all Players as new Task
      */
     public static void saveProficiencyData() {
-        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),() -> {
+        if (PLUGIN == null) {
+            Bukkit.getLogger().warning("[" + DataStoreManagement.class.getSimpleName() + "]: Plugin is null running saving without thread");
             saveProficiencyDataThread();
-        });
+            return;
+        }
+        Bukkit.getScheduler().runTask(PLUGIN, DataStoreManagement::saveProficiencyDataThread);
     }
 
     /**
