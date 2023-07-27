@@ -18,7 +18,7 @@ public class ProficiencyData implements Serializable {
     @Serial
     private static final long serialVersionUID = 7607691920061618617L;
 
-    private ArrayList<ProficiencyFramework> blockBreakProficiency = new ArrayList<ProficiencyFramework>();
+    private ArrayList<ProficiencyFramework> blockBreakProficiency = new ArrayList<>();
 
     /**
      * Creates a new Experience list for a Player. Each new Class has to be added here

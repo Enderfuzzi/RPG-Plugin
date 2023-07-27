@@ -18,6 +18,8 @@ import java.util.zip.GZIPOutputStream;
 
 /**
  * Manages the loading and Storing
+ * @author falgael
+ * @version 0.0.1
  */
 public class DataStoreManagement {
     /**

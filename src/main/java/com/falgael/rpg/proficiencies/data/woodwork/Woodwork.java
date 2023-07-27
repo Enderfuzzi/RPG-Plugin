@@ -151,7 +151,7 @@ public class Woodwork extends ProficiencyFramework {
     }
 
     public void initialize() {
-        registerGenerallyForbidden(Material.ACACIA_WOOD);
+        registerGenerallyForbiddenCraftingResult(Material.ACACIA_WOOD);
 
 
         registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());

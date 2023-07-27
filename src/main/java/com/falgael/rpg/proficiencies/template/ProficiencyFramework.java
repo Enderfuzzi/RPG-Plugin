@@ -168,7 +168,11 @@ public abstract class ProficiencyFramework implements Serializable {
     // Generally Forbidden recipe of this Proficiency gets stored in extra list
     //--------------------------------------------------------------------------------------------
 
-    protected static void registerGenerallyForbidden(Material material) {
+    /**
+     * Method to register a general forbidden crafting result
+     * @param material The result to forbid
+     */
+    protected static void registerGenerallyForbiddenCraftingResult(Material material) {
         ProficiencyDataHolder.addGeneralForbiddenCraftingResult(material);
     }
 
@@ -176,10 +180,20 @@ public abstract class ProficiencyFramework implements Serializable {
     // Items added by this Proficiency
     //--------------------------------------------------------------------------------------------
 
+    /**
+     * register the items of a proficiency to {@link ProficiencyDataHolder}
+     * @param key The representation of the proficiency
+     * @param list The list of items to add
+     */
     protected static void registerItemOfThisProficiency(String key, ArrayList<ItemStack> list) {
         ProficiencyDataHolder.addItemsToAllProficiencies(key, list);
     }
 
+    /**
+     * Needed for initialization of items and forbidden crafting results of a proficiency.
+     * implement this with usage of {@link ProficiencyFramework#registerGenerallyForbiddenCraftingResult(Material)} and
+     * {@link ProficiencyFramework#registerItemOfThisProficiency(String, ArrayList)}.
+     */
     public abstract void initialize();
 
 }
