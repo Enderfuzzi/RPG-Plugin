@@ -1,7 +1,7 @@
 package com.falgael.rpg.proficiencies.data.woodwork;
 
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
-import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
+import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;
@@ -36,6 +36,7 @@ public class Woodwork extends ProficiencyFramework {
     public String getProficiencyRepresentation() {
         return PROFICIENCY_NAME;
     }
+
 
     /**
      * {@inheritDoc}

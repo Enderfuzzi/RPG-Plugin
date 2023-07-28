@@ -1,12 +1,13 @@
 package com.falgael.rpg.proficiencies.player;
 
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
-import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
+import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.Material;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Contains all Experience data from a player
@@ -47,5 +48,13 @@ public class ProficiencyData implements Serializable {
         }
         return false;
     }
+
+    /**
+     * Usage for internal initialization.
+     */
+    public void initialize() {
+        blockBreakProficiency.forEach((collection) -> {collection.internalInitialize();});
+    }
+
 
 }

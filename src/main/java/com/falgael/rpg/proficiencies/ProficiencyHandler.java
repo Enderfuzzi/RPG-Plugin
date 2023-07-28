@@ -1,8 +1,7 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.manager.DataStoreManagement;
-import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
-import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
+import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -51,7 +50,7 @@ public class ProficiencyHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-        for (ItemStack is : ProficiencyDataHolder.getAllItems())
+        for (ItemStack is : ProficiencyDataHolder.getAllItems().keySet())
         event.getPlayer().getInventory().addItem(is);
     }
 
@@ -64,14 +63,18 @@ public class ProficiencyHandler implements Listener {
         if (event.isCancelled()) return;
         for (ProficiencyFramework ef : ProficiencyManager.getProficiencyData(event.getPlayer().getUniqueId()).getBlockBreakProficiency()) {
             if (ef.givesBlockBreakingExperience(event.getBlock())) {
-                ItemMeta toCheck = event.getPlayer().getInventory().getItemInMainHand().getItemMeta();
-
-                if (toCheck.getDisplayName().equals("Simple Wooden Axe")) {
+                int modifier = 1;
+                ItemStack toCheck = event.getPlayer().getInventory().getItemInMainHand();
+                if (ProficiencyDataHolder.containsItem(toCheck)) {
                     Bukkit.getLogger().info("Dropped more");
-                    event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),new ItemStack(event.getBlock().getType()));
+                    int amount = ProficiencyDataHolder.getItemConfiguration(toCheck).calculateDroppedBlocks();
+                    modifier = ProficiencyDataHolder.getItemConfiguration(toCheck).getExperienceModifier();
+                    if (amount != 0) {
+                        event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(event.getBlock().getType(), amount));
+                    }
                 }
 
-                ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()));
+                ef.increaseExperience(ef.amountBlockBreakingExperience(event.getBlock()) * modifier);
                 experienceIncreaseMessage(event.getPlayer(),ef.getProficiencyRepresentation(),ef.getCurrentExperience(),ef.getCurrentExperienceBorder());
                 return;
             }

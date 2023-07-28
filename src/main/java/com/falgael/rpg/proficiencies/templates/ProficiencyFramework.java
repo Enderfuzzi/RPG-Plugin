@@ -1,6 +1,7 @@
-package com.falgael.rpg.proficiencies.template;
+package com.falgael.rpg.proficiencies.templates;
 
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
+import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.inventory.InventoryType;
@@ -156,7 +157,7 @@ public abstract class ProficiencyFramework implements Serializable {
 
     /**
      * Checks if a given Material is forbidden to craft.
-     * @param m The resulting {@code Material} to chek
+     * @param m The resulting {@code Material} to check
      * @return {@code true} if the given {@code Material} is in the list
      */
     public boolean isForbiddenToCraft(Material m) {
@@ -185,9 +186,10 @@ public abstract class ProficiencyFramework implements Serializable {
      * @param key The representation of the proficiency
      * @param list The list of items to add
      */
-    protected static void registerItemOfThisProficiency(String key, ArrayList<ItemStack> list) {
+    protected static void registerItemOfThisProficiency(String key, HashMap<ItemStack, ItemConfiguration> list) {
         ProficiencyDataHolder.addItemsToAllProficiencies(key, list);
     }
+
 
     /**
      * Needed for initialization of items and forbidden crafting results of a proficiency.
@@ -195,5 +197,12 @@ public abstract class ProficiencyFramework implements Serializable {
      * {@link ProficiencyFramework#registerItemOfThisProficiency(String, ArrayList)}.
      */
     public abstract void initialize();
+
+
+
+    public void internalInitialize() {
+        blockBreakingExperience = fillBlockBreakingExperience();
+        blockCraftingExperience = fillBlockCraftingExperience();
+    }
 
 }

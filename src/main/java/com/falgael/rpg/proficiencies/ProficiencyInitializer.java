@@ -1,7 +1,7 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
-import com.falgael.rpg.proficiencies.template.ProficiencyFramework;
+import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.Bukkit;
 
 /**

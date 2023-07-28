@@ -1,9 +1,12 @@
 package com.falgael.rpg.proficiencies;
 
+import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,14 +60,14 @@ public class ProficiencyDataHolder {
     /**
      * List which contains each special item grouped by Proficiency.
      */
-    private static HashMap<String,ArrayList<ItemStack>> itemsOfAllProficiencies = new HashMap<>();
+    private static HashMap<String,HashMap<ItemStack, ItemConfiguration>> itemsOfAllProficiencies = new HashMap<>();
 
     /**
      * Adds a given List with the specified Key to the list. If the Proficiency is already registered nothing is added
      * @param key The representational name of the proficiency
      * @param list The list of {@code ItemStack} to add
      */
-    public static void addItemsToAllProficiencies(String key, ArrayList<ItemStack> list) {
+    public static void addItemsToAllProficiencies(String key, HashMap<ItemStack, ItemConfiguration> list) {
         if (itemsOfAllProficiencies.containsKey(key)) return;
         itemsOfAllProficiencies.put(key,list);
         Bukkit.getLogger().info("[" + ProficiencyDataHolder.class.getSimpleName() + "]: Registered " + key + " items");
@@ -74,22 +77,39 @@ public class ProficiencyDataHolder {
      * Provides a list with all items of all proficiencies combined
      * @return The combined list of all items
      */
-    public static @NotNull ArrayList<ItemStack> getAllItems() {
-        ArrayList<ItemStack> result = new ArrayList<>();
-        for(ArrayList<ItemStack> list : itemsOfAllProficiencies.values()) result.addAll(list);
+    public static @NotNull HashMap<ItemStack,ItemConfiguration> getAllItems() {
+        HashMap<ItemStack, ItemConfiguration> result = new HashMap<>();
+        for(HashMap<ItemStack, ItemConfiguration> list : itemsOfAllProficiencies.values()) {
+            result.putAll(list);
+        }
         return result;
     }
 
     /**
      * Provides a list of items by a specified proficiency
      * @param key The representational name of the proficiency
-     * @return The list of items by the proficiency
+     * @return The list of items by the proficiency. If the proficiency does not exist return a empty list.
      */
-    public static ArrayList<ItemStack> getProficiencyItems(String key) {
+    public static HashMap<ItemStack,ItemConfiguration> getProficiencyItems(String key) {
         if (itemsOfAllProficiencies.containsKey(key)) return itemsOfAllProficiencies.get(key);
-        return new ArrayList<>();
+        return new HashMap<>();
     }
 
+
+    public static boolean containsItem(ItemStack item) {
+        for (HashMap<ItemStack, ItemConfiguration> entry : itemsOfAllProficiencies.values()) {
+            if (entry.containsKey(item)) return true;
+        }
+        return false;
+    }
+
+    public static @Nullable ItemConfiguration getItemConfiguration(ItemStack item) {
+        if (!containsItem(item)) return null;
+        for (HashMap<ItemStack, ItemConfiguration> entry : itemsOfAllProficiencies.values()) {
+            if (entry.containsKey(item)) return entry.get(item);
+        }
+        return null;
+    }
 
 
 }

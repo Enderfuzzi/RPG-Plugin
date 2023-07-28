@@ -185,6 +185,8 @@ public class DataStoreManagement {
                 Bukkit.getLogger().warning("[Proficiency Data]: [" + tmp.getPath() + "] is not instance of ProficiencyData");
                 continue;
             }
+            // Test initialization to avoid null pointer exceptions
+            pd.initialize();
             ProficiencyManager.setProficiencyData(UUID.fromString(tmp.getName()),pd);
             Bukkit.getLogger().info("[Proficiency Data]: Loaded " + tmp.getName());
         }
