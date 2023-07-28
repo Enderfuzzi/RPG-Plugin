@@ -22,7 +22,7 @@ public class ProficiencyInitializer {
     /**
      * The initialized function to call by {@link com.falgael.rpg.manager.Initializer}. Can't be called more than once.
      */
-    public static final void initialize() {
+    public static void initialize() {
         if (initialized) {
             Bukkit.getLogger().warning("[" + ProficiencyInitializer.class.getSimpleName() + "]: try to initialized more than once");
             return;

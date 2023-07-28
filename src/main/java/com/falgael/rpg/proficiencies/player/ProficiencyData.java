@@ -7,7 +7,6 @@ import org.bukkit.Material;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 /**
  * Contains all Experience data from a player
@@ -53,7 +52,7 @@ public class ProficiencyData implements Serializable {
      * Usage for internal initialization.
      */
     public void initialize() {
-        blockBreakProficiency.forEach((collection) -> {collection.internalInitialize();});
+        blockBreakProficiency.forEach(ProficiencyFramework::internalInitialize);
     }
 
 

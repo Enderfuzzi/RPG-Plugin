@@ -3,7 +3,6 @@ package com.falgael.rpg.proficiencies;
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -103,12 +102,12 @@ public class ProficiencyDataHolder {
         return false;
     }
 
-    public static @Nullable ItemConfiguration getItemConfiguration(ItemStack item) {
-        if (!containsItem(item)) return null;
+    public static ItemConfiguration getItemConfiguration(ItemStack item) {
+        if (!containsItem(item)) return new ItemConfiguration();
         for (HashMap<ItemStack, ItemConfiguration> entry : itemsOfAllProficiencies.values()) {
             if (entry.containsKey(item)) return entry.get(item);
         }
-        return null;
+        return new ItemConfiguration();
     }
 
 

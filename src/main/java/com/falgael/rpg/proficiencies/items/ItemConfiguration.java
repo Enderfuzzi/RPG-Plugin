@@ -29,7 +29,7 @@ public class ItemConfiguration {
      */
     public ItemConfiguration(int experienceModifier, float blockBreakDropRate) {
         hasBlockBreakEffect = true;
-        this.blockBreakDropRate = blockBreakDropRate > 1.0f ? blockBreakDropRate : 1.0f;
+        this.blockBreakDropRate = Math.max(blockBreakDropRate, 1.0f);
         this.experienceModifier = experienceModifier;
     }
 

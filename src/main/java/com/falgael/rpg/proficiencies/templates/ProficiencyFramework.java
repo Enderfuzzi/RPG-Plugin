@@ -194,7 +194,7 @@ public abstract class ProficiencyFramework implements Serializable {
     /**
      * Needed for initialization of items and forbidden crafting results of a proficiency.
      * implement this with usage of {@link ProficiencyFramework#registerGenerallyForbiddenCraftingResult(Material)} and
-     * {@link ProficiencyFramework#registerItemOfThisProficiency(String, ArrayList)}.
+     * {@link ProficiencyFramework#registerItemOfThisProficiency(String, HashMap)}.
      */
     public abstract void initialize();
 

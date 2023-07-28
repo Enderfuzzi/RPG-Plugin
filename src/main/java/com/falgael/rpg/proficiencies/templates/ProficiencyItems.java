@@ -4,7 +4,6 @@ import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -14,8 +13,8 @@ import java.util.HashMap;
  */
 public interface ProficiencyItems {
 
-    public default void registerProficiencyItems(String key, HashMap<ItemStack, ItemConfiguration> items) {
+    default void registerProficiencyItems(String key, HashMap<ItemStack, ItemConfiguration> items) {
         ProficiencyDataHolder.addItemsToAllProficiencies(key,items);
-    };
+    }
 
 }
