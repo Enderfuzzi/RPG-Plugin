@@ -14,7 +14,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.inventory.*;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -38,20 +37,13 @@ public class ProficiencyHandler implements Listener {
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR,message);
         Bukkit.getLogger().info(player.getDisplayName() + " has " + currentExperience + " Xp of " + currentExperienceBorder + " from " + proficiencyRepresentation);
 
-        Bukkit.getScheduler().runTask(Bukkit.getPluginManager().getPlugin("RPG-0.0.1"), new Runnable() {
-            @Override
-            public void run() {
-                DataStoreManagement.saveProficiencyData();
-            }
-        });
-
+        DataStoreManagement.saveProficiencyData();
     }
 
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-        for (ItemStack is : ProficiencyDataHolder.getAllItems().keySet())
-        event.getPlayer().getInventory().addItem(is);
+        for (ItemStack is : ProficiencyDataHolder.getAllItems().keySet()) event.getPlayer().getInventory().addItem(is);
     }
 
     /**
