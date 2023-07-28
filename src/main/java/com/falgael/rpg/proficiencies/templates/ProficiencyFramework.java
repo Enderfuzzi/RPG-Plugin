@@ -199,7 +199,7 @@ public abstract class ProficiencyFramework implements Serializable {
     public abstract void initialize();
 
 
-
+    /** Refills the lists after loading the class */
     public void internalInitialize() {
         blockBreakingExperience = fillBlockBreakingExperience();
         blockCraftingExperience = fillBlockCraftingExperience();
