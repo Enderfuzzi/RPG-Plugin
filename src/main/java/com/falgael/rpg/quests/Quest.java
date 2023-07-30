@@ -1,7 +1,10 @@
 package com.falgael.rpg.quests;
 
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Quest {
@@ -18,20 +21,24 @@ public class Quest {
 
     private boolean awarded;
 
-    private ArrayList<Task> tasks;
+    private Reward reward;
+
+    private Task task;
 
     private ArrayList<Requirement> requirements;
 
-    private ArrayList<Quest> following;
+    private Quest following;
 
 
-    private Quest(QuestBuilder questBuilder) {
+    @Contract(pure = true)
+    private Quest(@NotNull QuestBuilder questBuilder) {
         this.representation = questBuilder.representation;
         this.title = questBuilder.title;
         this.text = questBuilder.text;
-        this.tasks = questBuilder.tasks;
+        this.task = questBuilder.task;
         this.requirements = questBuilder.requirements;
         this.following = questBuilder.following;
+        this.reward = questBuilder.reward;
 
         completed = false;
         active = false;
@@ -40,7 +47,7 @@ public class Quest {
 
     public void addFollowingQuest(Quest quest) {
         if (quest == null) return;
-        following.add(quest);
+        following = quest;
     }
 
     public boolean isActive() {
@@ -55,20 +62,36 @@ public class Quest {
         return awarded;
     }
 
-    public boolean evaluate(Player player) {
-        if (!isActive() || isCompleted()) return false;
+    public boolean setActive(Player player) {
         for (Requirement requirement : requirements) {
-            if (!requirement.evaluate(player)) return false;
+            if (!requirement.evaluate(player)) {
+                player.sendMessage(requirement.getDenyMessage());
+                return false;
+            }
         }
-        completed = true;
-        active = false;
+        // here the player has to accept
+        active = true;
+        // player accept message
         return true;
     }
 
-    public void award(QuestInterface awardingInterface, Player player) {
+    private void award(Player player) {
         if (!isAwarded() && isCompleted()) return;
-        awardingInterface.award(player);
+        if (reward != null) reward.award(player);
         awarded = true;
+    }
+
+    public void evaluate(Player player) {
+        if (!isActive() || isCompleted()) return;
+        if (!task.satisfied(player)) return;
+        completed = true;
+        award(player);
+        active = false;
+    }
+
+
+    public boolean isLeaf() {
+        return following == null;
     }
 
 
@@ -79,11 +102,13 @@ public class Quest {
 
         private String text;
 
-        private ArrayList<Task> tasks;
+        private Task task = null;
 
         private ArrayList<Requirement> requirements;
 
-        private ArrayList<Quest> following;
+        private Quest following = null;
+
+        private Reward reward = null;
 
         public QuestBuilder(String representation, String title) {
             this.representation = representation;
@@ -96,14 +121,10 @@ public class Quest {
         }
 
         public QuestBuilder addTask(Task task) {
-            this.tasks.add(task);
+            this.task = task;
             return this;
         }
 
-        public QuestBuilder addTasks(ArrayList<Task> tasks) {
-            this.tasks.addAll(tasks);
-            return this;
-        }
 
         public QuestBuilder addRequirement(Requirement requirement) {
             this.requirements.add(requirement);
@@ -116,12 +137,12 @@ public class Quest {
         }
 
         public QuestBuilder addFollowingQuest(Quest quest) {
-            this.following.add(quest);
+            this.following = quest;
             return this;
         }
 
-        public QuestBuilder addFollowingQuests(ArrayList<Quest> quests) {
-            this.following.addAll(quests);
+        public QuestBuilder addReward(Reward reward) {
+            this.reward = reward;
             return this;
         }
 

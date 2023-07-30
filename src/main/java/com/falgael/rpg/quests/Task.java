@@ -1,4 +1,9 @@
 package com.falgael.rpg.quests;
 
-public class Task {
+import org.bukkit.entity.Player;
+
+public interface Task {
+
+    boolean satisfied(Player player);
+
 }
