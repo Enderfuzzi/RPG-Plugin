@@ -126,7 +126,7 @@ public class Woodwork extends ProficiencyFramework {
     @Override
     protected ArrayList<Material> fillForbiddenCraftingRecipes() {
         ArrayList<Material> result = new ArrayList<>();
-        result.add(Material.ACACIA_WOOD);
+        /*result.add(Material.ACACIA_WOOD);
         result.add(Material.BIRCH_WOOD);
         result.add(Material.CHERRY_WOOD);
         result.add(Material.CRIMSON_HYPHAE);
@@ -145,15 +145,15 @@ public class Woodwork extends ProficiencyFramework {
         result.add(Material.STRIPPED_MANGROVE_WOOD);
         result.add(Material.STRIPPED_OAK_WOOD);
         result.add(Material.STRIPPED_SPRUCE_WOOD);
-        result.add(Material.STRIPPED_WARPED_HYPHAE);
+        result.add(Material.STRIPPED_WARPED_HYPHAE);*/
         //Todo add further materials
 
         return result;
     }
 
     public void initialize() {
-        registerGenerallyForbiddenCraftingResult(Material.ACACIA_WOOD);
-
+        //registerGenerallyForbiddenCraftingResult(Material.ACACIA_WOOD);
+        //registerGenerallyForbiddenCraftingResult(Material.BIRCH_WOOD);
 
         registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());
     }

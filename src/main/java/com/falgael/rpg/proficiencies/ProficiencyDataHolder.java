@@ -5,10 +5,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Holds static information about the proficiencies.
@@ -56,6 +56,8 @@ public class ProficiencyDataHolder {
     // List of all items of all proficiencies
     //--------------------------------------------------------------------------------------------
 
+    private static HashMap<String,ItemStack> allItemsByRepresentation = new HashMap<>();
+
     /**
      * List which contains each special item grouped by Proficiency.
      */
@@ -69,6 +71,10 @@ public class ProficiencyDataHolder {
     public static void addItemsToAllProficiencies(String key, HashMap<ItemStack, ItemConfiguration> list) {
         if (itemsOfAllProficiencies.containsKey(key)) return;
         itemsOfAllProficiencies.put(key,list);
+        for (Map.Entry<ItemStack, ItemConfiguration> item : list.entrySet()) {
+            allItemsByRepresentation.put(item.getValue().getName(), item.getKey());
+        }
+
         Bukkit.getLogger().info("[" + ProficiencyDataHolder.class.getSimpleName() + "]: Registered " + key + " items");
     }
 
@@ -76,7 +82,7 @@ public class ProficiencyDataHolder {
      * Provides a list with all items of all proficiencies combined
      * @return The combined list of all items
      */
-    public static @NotNull HashMap<ItemStack,ItemConfiguration> getAllItems() {
+    public static @NotNull HashMap<ItemStack,ItemConfiguration> getAllItemsByRepresentation() {
         HashMap<ItemStack, ItemConfiguration> result = new HashMap<>();
         for(HashMap<ItemStack, ItemConfiguration> list : itemsOfAllProficiencies.values()) {
             result.putAll(list);
@@ -109,6 +115,10 @@ public class ProficiencyDataHolder {
         }
         return new ItemConfiguration();
     }
+
+    //--------------------------------------------------------------------------------------------
+    // List of all special crafting recipes
+    //--------------------------------------------------------------------------------------------
 
 
 }

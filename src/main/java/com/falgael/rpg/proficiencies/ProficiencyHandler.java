@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiencies;
 
+import com.falgael.rpg.RPG;
 import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import net.md_5.bungee.api.ChatMessageType;
@@ -7,6 +8,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -43,7 +45,10 @@ public class ProficiencyHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
-        for (ItemStack is : ProficiencyDataHolder.getAllItems().keySet()) event.getPlayer().getInventory().addItem(is);
+        for (ItemStack is : ProficiencyDataHolder.getAllItemsByRepresentation().keySet()) event.getPlayer().getInventory().addItem(is);
+
+        event.getPlayer().discoverRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore"));
+
     }
 
     /**
@@ -114,7 +119,6 @@ public class ProficiencyHandler implements Listener {
         if (event.getInventory().getResult() == null) return;
         if (!ProficiencyDataHolder.isForbiddenCraftingResult(event.getInventory().getResult().getType())) return;
         if (!ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) return;
-
         event.getInventory().setResult(new ItemStack(Material.AIR));
     }
 }

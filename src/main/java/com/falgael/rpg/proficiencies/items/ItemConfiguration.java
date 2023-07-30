@@ -2,12 +2,16 @@ package com.falgael.rpg.proficiencies.items;
 
 import org.bukkit.Bukkit;
 
+import java.util.UUID;
+
 /**
  * Contains special information about an item.
  * @author falgael
  * @version 0.0.1
  */
 public class ItemConfiguration {
+
+    private final String name;
 
     /** Indicates if the item has a block break effect */
     private boolean hasBlockBreakEffect;
@@ -18,6 +22,7 @@ public class ItemConfiguration {
 
     /** Creates a default configuration without special modification */
     public ItemConfiguration() {
+        name = UUID.randomUUID().toString();
         hasBlockBreakEffect = false;
         experienceModifier = 1;
     }
@@ -27,7 +32,8 @@ public class ItemConfiguration {
      * @param experienceModifier The experience modifier
      * @param blockBreakDropRate The rate of blocks dropping
      */
-    public ItemConfiguration(int experienceModifier, float blockBreakDropRate) {
+    public ItemConfiguration(String name, int experienceModifier, float blockBreakDropRate) {
+        this.name = name;
         hasBlockBreakEffect = true;
         this.blockBreakDropRate = Math.max(blockBreakDropRate, 1.0f);
         this.experienceModifier = experienceModifier;
@@ -57,6 +63,8 @@ public class ItemConfiguration {
         return experienceModifier;
     }
 
-
+    public String getName() {
+        return name;
+    }
 
 }

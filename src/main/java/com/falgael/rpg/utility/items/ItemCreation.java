@@ -36,7 +36,7 @@ public class ItemCreation {
 
     public static ItemStack createItem(Material material, String name, String... lore) {
         if (material == null) return null;
-        ItemStack result = new ItemStack(material);
+        ItemStack result = new ItemStack(material,1);
         ItemMeta itemMeta = result.getItemMeta();
 
         if (!name.equals("")) itemMeta.setDisplayName(name);
