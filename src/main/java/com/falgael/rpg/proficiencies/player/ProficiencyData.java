@@ -3,6 +3,7 @@ package com.falgael.rpg.proficiencies.player;
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
 import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.Material;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -27,6 +28,14 @@ public class ProficiencyData implements Serializable {
         blockBreakProficiency.add(new Woodwork());
         for (ProficiencyFramework pef : blockBreakProficiency) pef.initialize();
     }
+
+    public @Nullable ProficiencyFramework getProficiency(String representation) {
+        for (ProficiencyFramework pf : blockBreakProficiency) {
+            if (pf.getProficiencyRepresentation().equals(representation)) return pf;
+        }
+        return null;
+    }
+
 
     /**
      *

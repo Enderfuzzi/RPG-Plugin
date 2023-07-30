@@ -13,7 +13,7 @@ public enum RequirementType {
         this.deny_message = deny_message;
     }
 
-    public String getDeny_message() {
+    public String getDenyMessage() {
         return deny_message;
     }
 }
