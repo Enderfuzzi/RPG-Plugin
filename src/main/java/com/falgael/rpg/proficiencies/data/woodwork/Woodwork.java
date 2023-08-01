@@ -2,7 +2,11 @@ package com.falgael.rpg.proficiencies.data.woodwork;
 
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
+import com.falgael.rpg.utility.recipe.MerchantRecipeBuilder;
+import com.falgael.rpg.villager.Villager;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.MerchantRecipe;
 
 import java.io.Serial;
 import java.util.ArrayList;
@@ -151,10 +155,31 @@ public class Woodwork extends ProficiencyFramework {
         return result;
     }
 
+
+
+
+
     public void initialize() {
         //registerGenerallyForbiddenCraftingResult(Material.ACACIA_WOOD);
         //registerGenerallyForbiddenCraftingResult(Material.BIRCH_WOOD);
 
+        registerVillager();
+
         registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());
     }
+
+
+    public void registerVillager() {
+        ProficiencyFramework.registerVillager(PROFICIENCY_NAME + "_Quest", new Villager.VillagerBuilder("Quest", org.bukkit.entity.Villager.Profession.BUTCHER)
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.ACACIA_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.BIRCH_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.CHERRY_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.CRIMSON_STEM,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.JUNGLE_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.MANGROVE_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.OAK_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.SPRUCE_LOG,64)).create())
+                .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.WARPED_STEM,64)).create()).create());
+    }
+
 }

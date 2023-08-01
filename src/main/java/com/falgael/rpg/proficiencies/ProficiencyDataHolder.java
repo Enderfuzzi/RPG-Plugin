@@ -116,6 +116,11 @@ public class ProficiencyDataHolder {
         return new ItemConfiguration();
     }
 
+    public static ItemStack getItemByName(String name) {
+        for (String s : allItemsByRepresentation.keySet()) Bukkit.getLogger().info("Key: " + s);
+        return allItemsByRepresentation.get(name);
+    }
+
     //--------------------------------------------------------------------------------------------
     // List of all special crafting recipes
     //--------------------------------------------------------------------------------------------

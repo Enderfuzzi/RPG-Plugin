@@ -1,10 +1,11 @@
 package com.falgael.rpg.quests;
 
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class Quest {
@@ -13,7 +14,9 @@ public class Quest {
 
     private final String title;
 
-    private String text;
+    private TextComponent acceptMessage;
+
+    private TextComponent fulfillMessage;
 
     private boolean completed;
 
@@ -34,7 +37,7 @@ public class Quest {
     private Quest(@NotNull QuestBuilder questBuilder) {
         this.representation = questBuilder.representation;
         this.title = questBuilder.title;
-        this.text = questBuilder.text;
+        this.acceptMessage = questBuilder.text;
         this.task = questBuilder.task;
         this.requirements = questBuilder.requirements;
         this.following = questBuilder.following;
@@ -69,6 +72,7 @@ public class Quest {
                 return false;
             }
         }
+        player.spigot().sendMessage(acceptMessage);
         // here the player has to accept
         active = true;
         // player accept message
@@ -100,7 +104,7 @@ public class Quest {
         private String representation;
         private String title;
 
-        private String text;
+        private TextComponent text;
 
         private Task task = null;
 
@@ -115,7 +119,7 @@ public class Quest {
             this.title = title;
         }
 
-        public QuestBuilder setText(String text) {
+        public QuestBuilder setText(TextComponent text) {
             this.text = text;
             return this;
         }

@@ -4,6 +4,7 @@ import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import com.falgael.rpg.proficiencies.templates.ProficiencyItems;
 import com.falgael.rpg.utility.items.ItemCreation;
+import com.falgael.rpg.utility.items.ItemFactory;
 import com.falgael.rpg.utility.items.ItemInformation;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -18,6 +19,8 @@ import java.util.HashMap;
 public class WoodworkItems implements ProficiencyItems {
     /** local copy of items created by this class */
     private static final HashMap<ItemStack, ItemConfiguration> items  = fillItems();
+
+    public static final ItemStack COMPRESSED_WOOD = new ItemFactory(Material.OAK_WOOD).setCompressed(true).crate();
 
 
     /**
@@ -49,6 +52,14 @@ public class WoodworkItems implements ProficiencyItems {
                         " Axe", 1.0, 1.5,0.2, 0.2,ItemInformation.LOOT_MODIFIER_COLOR + "+500% More Wood",
                     ItemInformation.EXPERIENCE_MODIFIER_COLOR + "+400% Experience", "Crafted by the Gods", "providing the greatest enhancements"),
                 new ItemConfiguration("legendary_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",5,6.0f));
+
+
+        result.put(ItemCreation.createItem(Material.ACACIA_WOOD,ItemInformation.COMMON_ITEM_COLOR + "Compressed Acacia Wood"),
+                new ItemConfiguration("Compressed_Acacia_Wood",0,1f));
+
+
+
+
         return result;
     }
     /**
