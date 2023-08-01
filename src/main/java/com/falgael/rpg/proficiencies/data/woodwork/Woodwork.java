@@ -6,7 +6,6 @@ import com.falgael.rpg.utility.recipe.MerchantRecipeBuilder;
 import com.falgael.rpg.villager.Villager;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.MerchantRecipe;
 
 import java.io.Serial;
 import java.util.ArrayList;
@@ -160,17 +159,14 @@ public class Woodwork extends ProficiencyFramework {
 
 
     public void initialize() {
-        //registerGenerallyForbiddenCraftingResult(Material.ACACIA_WOOD);
-        //registerGenerallyForbiddenCraftingResult(Material.BIRCH_WOOD);
-
         registerVillager();
-
         registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());
+        WoodworkItems.generateConfiguration();
     }
 
 
     public void registerVillager() {
-        ProficiencyFramework.registerVillager(PROFICIENCY_NAME + "_Quest", new Villager.VillagerBuilder("Quest", org.bukkit.entity.Villager.Profession.BUTCHER)
+        ProficiencyFramework.registerVillager(PROFICIENCY_NAME + "_TIER_I", new Villager.VillagerBuilder("TIER_I", org.bukkit.entity.Villager.Profession.BUTCHER)
                 .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.ACACIA_LOG,64)).create())
                 .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.BIRCH_LOG,64)).create())
                 .addRecipe(new MerchantRecipeBuilder(WoodworkItems.COMPRESSED_WOOD).addIngredients(new ItemStack(Material.CHERRY_LOG,64)).create())

@@ -3,69 +3,66 @@ package com.falgael.rpg.proficiencies.data.woodwork;
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
 import com.falgael.rpg.proficiencies.templates.ProficiencyItems;
-import com.falgael.rpg.utility.items.ItemCreation;
 import com.falgael.rpg.utility.items.ItemFactory;
-import com.falgael.rpg.utility.items.ItemInformation;
+import com.falgael.rpg.utility.items.ItemType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-
 import java.util.HashMap;
+
 
 /**
  * Contains all items by the Woodwork proficiency.
  * Note the storage of all items is contained in {@link com.falgael.rpg.proficiencies.ProficiencyDataHolder}.
  */
 public class WoodworkItems implements ProficiencyItems {
+
     /** local copy of items created by this class */
-    private static final HashMap<ItemStack, ItemConfiguration> items  = fillItems();
+    private static HashMap<ItemStack, ItemConfiguration> itemConfiguration = new HashMap<>();
 
-    public static final ItemStack COMPRESSED_WOOD = new ItemFactory(Material.OAK_WOOD).setCompressed(true).crate();
+    public static final ItemStack COMPRESSED_WOOD = new ItemFactory(Material.OAK_WOOD).setName("Compressed Oak").setCompressed(true).crate();
 
+    public static ItemStack SIMPLE_AXE = new ItemFactory(Material.WOODEN_AXE).setType(ItemType.SIMPLE).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+50% More Wood").addLore("Simple tool for harvesting")
+            .addDamageAttribute(0.5).crate();
 
-    /**
-     * Creates and fills {@link WoodworkItems#items}. Uses {@link ItemCreation#createItem(Material, String, String...)}
-     * for item creation.
-     * @return The list with all items
-     */
-    private static @NotNull HashMap<ItemStack,ItemConfiguration> fillItems() {
-        HashMap<ItemStack, ItemConfiguration> result = new HashMap<>();
-        result.put(ItemCreation.createAxe(Material.WOODEN_AXE,ItemInformation.SIMPLE_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                                " Axe", 0.0, 0.5, 0.0, 0.0, ItemInformation.LOOT_MODIFIER_COLOR + "+50% More Wood","Simple tool for harvesting"),
-                new ItemConfiguration("simple_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe", 1,1.5f));
-        result.put(ItemCreation.createAxe(Material.STONE_AXE, ItemInformation.COMMON_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                                " Axe", 0.1, 0.6, 0.0, 0.0,ItemInformation.LOOT_MODIFIER_COLOR + "+100% More Wood","Common tool for harvesting"),
-                new ItemConfiguration("common_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",1,2.0f));
-        result.put(ItemCreation.createAxe(Material.IRON_AXE, ItemInformation.ADVANCED_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                                " Axe", 0.2, 0.7, 0.0, 0.0,ItemInformation.LOOT_MODIFIER_COLOR + "+150% More Wood",
-                        ItemInformation.EXPERIENCE_MODIFIER_COLOR + "+100% Experience", "Advanced tool for Harvesting"),
-                new ItemConfiguration("advanced_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",2,2.5f));
-        result.put(ItemCreation.createAxe(Material.GOLDEN_AXE, ItemInformation.RARE_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                                " Axe", 0.3, 0.9,0.0, 0.0,ItemInformation.LOOT_MODIFIER_COLOR + "+200% More Wood",
-                        ItemInformation.EXPERIENCE_MODIFIER_COLOR + "+100% Experience", "Forged in the depth"),
-                new ItemConfiguration("rare_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",2,3.0f));
-        result.put(ItemCreation.createAxe(Material.DIAMOND_AXE, ItemInformation.EPIC_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                                " Axe", 0.5, 1.0,0.0, 0.0,ItemInformation.LOOT_MODIFIER_COLOR + "+350% More Wood",
-                        ItemInformation.EXPERIENCE_MODIFIER_COLOR + "+200% Experience", "Forged to provide huge","bonuses for harvesting"),
-                new ItemConfiguration("epic_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",3,4.5f));
-        result.put(ItemCreation.createAxe(Material.NETHERITE_AXE, ItemInformation.LEGENDARY_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                        " Axe", 1.0, 1.5,0.2, 0.2,ItemInformation.LOOT_MODIFIER_COLOR + "+500% More Wood",
-                    ItemInformation.EXPERIENCE_MODIFIER_COLOR + "+400% Experience", "Crafted by the Gods", "providing the greatest enhancements"),
-                new ItemConfiguration("legendary_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",5,6.0f));
+    public static ItemStack COMMON_AXE = new ItemFactory(Material.STONE_AXE).setType(ItemType.COMMON).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+100% More Wood").addLore("Common tool for harvesting").addSpeedAttribute(0.1)
+            .addDamageAttribute(0.6).crate();
+
+    public static ItemStack ADVANCED_AXE = new ItemFactory(Material.IRON_AXE).setType(ItemType.ADVANCED).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+150% More Wood").addExperienceModifierLore("100% Experience")
+            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(0.7).crate();
+
+    public static ItemStack RARE_AXE = new ItemFactory(Material.GOLDEN_AXE).setType(ItemType.RARE).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+200% More Wood").addExperienceModifierLore("100% Experience")
+            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(0.9).crate();
+
+    public static ItemStack EPIC_AXE = new ItemFactory(Material.DIAMOND_AXE).setType(ItemType.EPIC).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+350% More Wood").addExperienceModifierLore("200% Experience")
+            .addLore("Forged in the depth").addSpeedAttribute(0.5).addDamageAttribute(1).crate();
+
+    public static ItemStack LEGENDARY_AXE = new ItemFactory(Material.NETHERITE_AXE).setType(ItemType.LEGENDARY).setName("Axe")
+            .addPrefix(ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME).addLootModifierLore("+600% More Wood").addExperienceModifierLore("500% Experience")
+            .addLore("Forged in the depth").addSpeedAttribute(1.0).addDamageAttribute(1.5)
+            .addHealthAttribute(0.2).addArmorAttribute(0.2).crate();
 
 
-        result.put(ItemCreation.createItem(Material.ACACIA_WOOD,ItemInformation.COMMON_ITEM_COLOR + "Compressed Acacia Wood"),
-                new ItemConfiguration("Compressed_Acacia_Wood",0,1f));
+    public static void generateConfiguration() {
+        itemConfiguration.put(SIMPLE_AXE, new ItemConfiguration("simple_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe", 1,1.5f));
+        itemConfiguration.put(COMMON_AXE, new ItemConfiguration("common_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",1,2.0f));
+        itemConfiguration.put(ADVANCED_AXE, new ItemConfiguration("advanced_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",2,2.5f));
+        itemConfiguration.put(RARE_AXE, new ItemConfiguration("rare_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",2,3.0f));
+        itemConfiguration.put(EPIC_AXE, new ItemConfiguration("epic_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",3,4.5f));
+        itemConfiguration.put(LEGENDARY_AXE, new ItemConfiguration("legendary_" + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME + "_axe",5,6.0f));
 
+        itemConfiguration.put(COMPRESSED_WOOD,new ItemConfiguration());
 
-
-
-        return result;
     }
+
     /**
-     * Returns the local non-modifiable copy of {@link com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems#items}
+     * Returns the local non-modifiable copy of {@link com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems#itemConfiguration}
      */
     public static HashMap<ItemStack, ItemConfiguration> getItems() {
-        return items;
+        return itemConfiguration;
     }
 }

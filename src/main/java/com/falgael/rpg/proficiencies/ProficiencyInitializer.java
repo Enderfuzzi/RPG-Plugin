@@ -1,6 +1,7 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.proficiencies.data.woodwork.Woodwork;
+import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
 import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.Bukkit;
 
@@ -28,6 +29,7 @@ public class ProficiencyInitializer {
             return;
         }
         WOOD_WORK.initialize();
+        //WoodworkItems.generateConfiguration();
 
         initialized = true;
     }

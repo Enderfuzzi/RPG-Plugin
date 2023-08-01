@@ -5,6 +5,7 @@ import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.manager.Initializer;
 import com.falgael.rpg.proficiencies.ProficiencyHandler;
 import com.falgael.rpg.proficiencies.items.SpecialCraftingRecipe;
+import com.falgael.rpg.utility.CraftingHandler;
 import com.falgael.rpg.villager.VillagerHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -30,6 +31,7 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
         Bukkit.getPluginManager().registerEvents(new VillagerHandler(),this);
 
+        Bukkit.getPluginManager().registerEvents(new CraftingHandler(),this);
 
         this.getCommand("villager").setExecutor(new VillagerSpawn());
 

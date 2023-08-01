@@ -4,14 +4,13 @@ import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
 import com.falgael.rpg.utility.items.ItemCreation;
+import com.falgael.rpg.utility.items.ItemFactory;
 import com.falgael.rpg.utility.items.ItemInformation;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.RecipeChoice;
-import org.bukkit.inventory.ShapedRecipe;
-import org.bukkit.inventory.ShapelessRecipe;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.inventory.*;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
 
 public class SpecialCraftingRecipe {
@@ -46,8 +45,7 @@ public class SpecialCraftingRecipe {
     public static void testRecipe() {
 
         ItemStack item = ItemCreation.createItem(Material.STONE);
-        RecipeChoice upgrade = new RecipeChoice.ExactChoice(ItemCreation.createAxe(Material.WOODEN_AXE,ItemInformation.SIMPLE_ITEM_COLOR + ProficiencyDataHolder.WOODWORK_PROFICIENCY_NAME +
-                " Axe", 0.0, 0.5, 0.0, 0.0, ItemInformation.LOOT_MODIFIER_COLOR + "+50% More Wood","Simple tool for harvesting"));
+        RecipeChoice upgrade = new RecipeChoice.ExactChoice(WoodworkItems.SIMPLE_AXE);
         ShapedRecipe recipe = new ShapedRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore"),item);
         recipe.shape(" S ","   ","   ");
         recipe.setIngredient('S',upgrade);
@@ -58,5 +56,17 @@ public class SpecialCraftingRecipe {
         //Bukkit.addRecipe(recipe);
         Bukkit.getLogger().info("Added recipe");
         Bukkit.addRecipe(recipe);
+
+
+        ItemStack item2 = new ItemFactory(Material.OAK_STAIRS).setAmount(4).crate();
+        RecipeChoice upgrade2 = new RecipeChoice.ExactChoice(new ItemStack(Material.OAK_LOG));
+        StonecuttingRecipe recipe2 = new StonecuttingRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore2"),item2,upgrade2);
+        Bukkit.addRecipe(recipe2);
+
+        ItemStack item3 = new ItemFactory(Material.OAK_SLAB).setAmount(12).crate();
+        RecipeChoice upgrade3 = new RecipeChoice.ExactChoice(new ItemStack(Material.OAK_LOG));
+        StonecuttingRecipe recipe3 = new StonecuttingRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore3"),item3,upgrade3);
+        Bukkit.addRecipe(recipe3);
+
     }
 }

@@ -210,7 +210,6 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
 
-
     protected static void registerVillager(String key, Villager villager) {
         VillagerManager.registerVillager(key, villager);
         Bukkit.getLogger().info("Registered Villager with key: " + key);
