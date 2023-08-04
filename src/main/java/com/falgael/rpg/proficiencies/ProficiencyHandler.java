@@ -3,6 +3,7 @@ package com.falgael.rpg.proficiencies;
 import com.falgael.rpg.RPG;
 import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
+import com.falgael.rpg.utility.Pair;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -118,7 +119,16 @@ public class ProficiencyHandler implements Listener {
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
         if (event.getInventory().getResult() == null) return;
         if (!ProficiencyDataHolder.isForbiddenCraftingResult(event.getInventory().getResult().getType())) return;
-        if (!ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) return;
-        event.getInventory().setResult(new ItemStack(Material.AIR));
+        if (ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).isForbiddenToCraft(event.getInventory().getResult().getType())) {
+            event.getInventory().setResult(new ItemStack(Material.AIR));
+        }
+
+        Pair<String,Integer> pair = ProficiencyDataHolder.getRecipes(event.getRecipe());
+        if (pair != null) {
+            if (ProficiencyManager.getProficiencyData(event.getView().getPlayer().getUniqueId()).getProficiency(pair.getFirst()).getCurrentLVL() < pair.getSecond()) {
+                event.getInventory().setResult(new ItemStack(Material.AIR));
+            }
+        }
+
     }
 }

@@ -1,15 +1,14 @@
 package com.falgael.rpg.proficiencies.items;
 
 import com.falgael.rpg.RPG;
-import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.data.woodwork.WoodworkItems;
 import com.falgael.rpg.utility.items.ItemCreation;
 import com.falgael.rpg.utility.items.ItemFactory;
-import com.falgael.rpg.utility.items.ItemInformation;
+import com.falgael.rpg.utility.recipe.RecipeBuilder;
+import com.falgael.rpg.utility.recipe.RecipeType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
 
@@ -58,15 +57,21 @@ public class SpecialCraftingRecipe {
         Bukkit.addRecipe(recipe);
 
 
-        ItemStack item2 = new ItemFactory(Material.OAK_STAIRS).setAmount(4).crate();
+        ItemStack item2 = new ItemFactory(Material.OAK_STAIRS).setAmount(4).create();
         RecipeChoice upgrade2 = new RecipeChoice.ExactChoice(new ItemStack(Material.OAK_LOG));
         StonecuttingRecipe recipe2 = new StonecuttingRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore2"),item2,upgrade2);
         Bukkit.addRecipe(recipe2);
 
-        ItemStack item3 = new ItemFactory(Material.OAK_SLAB).setAmount(12).crate();
+        ItemStack item3 = new ItemFactory(Material.OAK_SLAB).setAmount(12).create();
         RecipeChoice upgrade3 = new RecipeChoice.ExactChoice(new ItemStack(Material.OAK_LOG));
         StonecuttingRecipe recipe3 = new StonecuttingRecipe(new NamespacedKey(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"upgradecore3"),item3,upgrade3);
         Bukkit.addRecipe(recipe3);
+
+
+        Bukkit.addRecipe(new RecipeBuilder(new ItemStack(Material.OAK_SLAB), "STAIR_TO_SLAB", RecipeType.STONECUTTER)
+                .addIngredient(new ItemStack(Material.OAK_STAIRS)).create());
+
+
 
     }
 }

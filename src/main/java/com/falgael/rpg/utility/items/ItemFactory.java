@@ -2,7 +2,6 @@ package com.falgael.rpg.utility.items;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -11,10 +10,8 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.w3c.dom.Attr;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.UUID;
 
 public class ItemFactory {
@@ -37,7 +34,6 @@ public class ItemFactory {
 
     public ItemFactory(Material material) {
         this.material = material;
-        this.name = Utils.getMaterialName(material);
     }
 
     public ItemFactory setName(String name) {
@@ -111,16 +107,19 @@ public class ItemFactory {
     }
 
 
-    public ItemStack crate() {
+    public ItemStack create() {
         ItemStack result = new ItemStack(material,Math.max(1,amount));
         ItemMeta itemMeta = result.getItemMeta();
-        itemMeta.setDisplayName(buildName());
+
+        if (name != null) itemMeta.setDisplayName(buildName());
 
         itemMeta.setUnbreakable(true);
         itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
+
+        itemMeta.setLore(lore);
 
         if (compressed) {
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

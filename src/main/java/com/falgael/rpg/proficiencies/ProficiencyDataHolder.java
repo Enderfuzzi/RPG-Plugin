@@ -1,9 +1,12 @@
 package com.falgael.rpg.proficiencies;
 
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
+import com.falgael.rpg.utility.Pair;
+import com.falgael.rpg.utility.recipe.RecipeManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.Recipe;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -124,6 +127,18 @@ public class ProficiencyDataHolder {
     //--------------------------------------------------------------------------------------------
     // List of all special crafting recipes
     //--------------------------------------------------------------------------------------------
+
+    private static HashMap<Recipe, Pair<String,Integer>> recipes = new HashMap<>();
+
+
+    public static void registerRecipe(Recipe recipe, Pair<String, Integer> pair) {
+        recipes.put(recipe,pair);
+    }
+
+    public static Pair<String,Integer> getRecipes(Recipe recipe) {
+        return recipes.get(recipe);
+    }
+
 
 
 }

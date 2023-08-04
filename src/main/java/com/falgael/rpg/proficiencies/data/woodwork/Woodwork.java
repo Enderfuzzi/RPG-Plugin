@@ -162,6 +162,8 @@ public class Woodwork extends ProficiencyFramework {
         registerVillager();
         registerItemOfThisProficiency(PROFICIENCY_NAME, WoodworkItems.getItems());
         WoodworkItems.generateConfiguration();
+        WoodworkItems.generateRecipes();
+        registerRecipes(WoodworkItems.getRecipes());
     }
 
 

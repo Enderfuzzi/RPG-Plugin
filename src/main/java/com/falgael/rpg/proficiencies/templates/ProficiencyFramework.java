@@ -2,6 +2,7 @@ package com.falgael.rpg.proficiencies.templates;
 
 import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
 import com.falgael.rpg.proficiencies.items.ItemConfiguration;
+import com.falgael.rpg.utility.Pair;
 import com.falgael.rpg.villager.Villager;
 import com.falgael.rpg.villager.VillagerManager;
 import org.bukkit.Bukkit;
@@ -11,11 +12,13 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
+import org.bukkit.inventory.Recipe;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Provides the framework for proficiencies.
@@ -214,5 +217,14 @@ public abstract class ProficiencyFramework implements Serializable {
         VillagerManager.registerVillager(key, villager);
         Bukkit.getLogger().info("Registered Villager with key: " + key);
     }
+
+
+
+    protected void registerRecipes(HashMap<Recipe,Integer> recipes) {
+        for (Map.Entry<Recipe,Integer> entry : recipes.entrySet()) {
+            ProficiencyDataHolder.registerRecipe(entry.getKey(), new Pair<>(getProficiencyRepresentation(),entry.getValue()));
+        }
+    }
+
 
 }
