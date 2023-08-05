@@ -6,9 +6,9 @@ public enum Rarity {
 
     SIMPLE(ChatColor.DARK_GRAY + "Simple "),
     COMMON(ChatColor.GRAY + "Common "),
-    ADVANCED(ChatColor.DARK_PURPLE + "Advanced "),
-    ELITE(ChatColor.DARK_AQUA + "Elite "),
-    EPIC(ChatColor.RED + "Epic "),
+    ADVANCED(ChatColor.DARK_AQUA + "Advanced "),
+    ELITE(ChatColor.DARK_PURPLE + "Elite "),
+    EPIC(ChatColor.RED  + "Epic "),
     LEGENDARY(ChatColor.GOLD + "" + ChatColor.MAGIC + "Legendary" + ChatColor.RESET + " " + ChatColor.GOLD);
 
 

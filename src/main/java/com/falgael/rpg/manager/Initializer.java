@@ -1,5 +1,6 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.proficiency.CustomRecipe;
 import org.bukkit.Bukkit;
 
 /**
@@ -18,6 +19,16 @@ public class Initializer {
             return;
         }
         DataStoreManagement.initialize();
+
+        loadRecipes();
     }
+
+
+    private static void loadRecipes() {
+        for (CustomRecipe customRecipe : CustomRecipe.values()) {
+            Bukkit.addRecipe(customRecipe.getRecipe());
+        }
+    }
+
 
 }

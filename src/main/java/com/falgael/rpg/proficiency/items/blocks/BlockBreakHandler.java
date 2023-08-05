@@ -4,14 +4,12 @@ import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.proficiency.ProficiencyTypes;
 import com.falgael.rpg.proficiency.items.CustomBlocks;
 import com.falgael.rpg.proficiency.items.CustomTools;
-import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -44,10 +42,8 @@ public class BlockBreakHandler implements Listener {
         long experienceAmount = block.getExperienceAmount();
         int droppedBlocks = 0;
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-        Map<Enchantment,Integer> enchantments = item.getEnchantments();
-        enchantments.forEach((e, i) -> item.removeEnchantment(e));
 
-        CustomTools customTools = CustomTools.getItem(item);
+        CustomTools customTools = CustomTools.compare(item);
         if (!customTools.isNone() && customTools.getProficiencyType() == block.getProficiency()) {
                 experienceAmount *= customTools.getItemConfiguration().getExperienceModifier();
                 droppedBlocks = customTools.getItemConfiguration().calculateDroppedBlocks();
@@ -61,7 +57,6 @@ public class BlockBreakHandler implements Listener {
             event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(toDrop, droppedBlocks));
         }
 
-        item.addUnsafeEnchantments(enchantments);
 
         experienceIncreaseMessage(event.getPlayer(),block.getProficiency());
         PlayerManager.getProficiencyData(event.getPlayer().getUniqueId()).increaseExperience(block.getProficiency(),experienceAmount);

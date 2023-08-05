@@ -1,6 +1,8 @@
 package com.falgael.rpg.proficiency.player;
 
-import com.falgael.rpg.proficiency.player.PlayerExperience;
+import com.falgael.rpg.RPG;
+import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -29,5 +31,9 @@ public class PlayerManager implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (proficiencyData.containsKey(event.getPlayer().getUniqueId())) return;
         proficiencyData.put(event.getPlayer().getUniqueId(), new PlayerExperience());
+
+
+        event.getPlayer().discoverRecipe(new NamespacedKey( Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"TEST_Recipe"));
+
     }
 }

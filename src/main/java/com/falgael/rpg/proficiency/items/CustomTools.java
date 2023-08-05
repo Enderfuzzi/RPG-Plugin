@@ -2,8 +2,10 @@ package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.proficiency.ProficiencyTypes;
 import com.falgael.rpg.items.ItemBuilder;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
 
@@ -134,4 +136,20 @@ public enum CustomTools {
     public static HashMap<ItemStack, CustomTools> getItems() {
         return LIST_OF_ITEMS;
     }
+
+    public static CustomTools compare(ItemStack key) {
+        for (CustomTools customTool : CustomTools.values()) {
+            if (key.getType() != customTool.itemStack.getType()) continue;
+
+            ItemMeta keyMeta = key.getItemMeta();
+            ItemMeta toolMeta = customTool.getItem().getItemMeta();
+            if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;
+            if (!keyMeta.getLore().equals(toolMeta.getLore())) continue;
+            if (!keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
+            if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
+            return customTool;
+        }
+        return NONE;
+    }
+
 }
