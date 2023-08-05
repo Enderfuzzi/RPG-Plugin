@@ -6,6 +6,12 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public enum CustomBlocks {
+    //--------------------------------------------------------------------------------------------
+    // Misc
+    //--------------------------------------------------------------------------------------------
+    MISC_IRON_NUGGET(ProficiencyTypes.MISC, new ItemBuilder(Material.IRON_NUGGET).setName("Silver Coin").setCurrency(true).setRarity(Rarity.NONE).create()),
+    MISC_GOLD_NUGGET(ProficiencyTypes.MISC, new ItemBuilder(Material.GOLD_NUGGET).setName("Gold Coin").setCurrency(true).setRarity(Rarity.NONE).create()),
+
 
     //--------------------------------------------------------------------------------------------
     // Woodwork

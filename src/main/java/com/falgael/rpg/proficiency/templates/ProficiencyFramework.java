@@ -3,7 +3,7 @@ package com.falgael.rpg.proficiency.templates;
 import com.falgael.rpg.proficiency.ProficiencyDataHolder;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.framework.Pair;
-import com.falgael.rpg.villager.Villager;
+import com.falgael.rpg.villager.VillagerInstance;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -211,9 +211,9 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
 
-    protected static void registerVillager(String key, Villager villager) {
-        //VillagerManager.registerVillager(key, villager);
-        Bukkit.getLogger().info("Registered Villager with key: " + key);
+    protected static void registerVillager(String key, VillagerInstance villagerInstance) {
+        //VillagerManager.registerVillager(key, villagerInstance);
+        Bukkit.getLogger().info("Registered VillagerInstance with key: " + key);
     }
 
 

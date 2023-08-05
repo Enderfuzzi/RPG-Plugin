@@ -67,6 +67,12 @@ public enum BlockBreak {
     STRIPPED_SPRUCE_WOOD(ProficiencyTypes.WOODWORK, Material.STRIPPED_SPRUCE_WOOD, 2,Material.AIR),
 
 
+    WARPED_STEM(ProficiencyTypes.WOODWORK, Material.WARPED_STEM,2, Material.AIR),
+    WARPED_HYPHAE(ProficiencyTypes.WOODWORK, Material.WARPED_HYPHAE, 2, Material.AIR),
+    STRIPPED_WARPED_STEM(ProficiencyTypes.WOODWORK, Material.STRIPPED_WARPED_STEM, 4, Material.AIR),
+    STRIPPED_WARPED_HYPHAE(ProficiencyTypes.WOODWORK, Material.STRIPPED_WARPED_HYPHAE, 4, Material.AIR),
+
+
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------

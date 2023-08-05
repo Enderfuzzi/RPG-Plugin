@@ -31,9 +31,5 @@ public class PlayerManager implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (proficiencyData.containsKey(event.getPlayer().getUniqueId())) return;
         proficiencyData.put(event.getPlayer().getUniqueId(), new PlayerExperience());
-
-
-        event.getPlayer().discoverRecipe(new NamespacedKey( Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),"TEST_Recipe"));
-
     }
 }

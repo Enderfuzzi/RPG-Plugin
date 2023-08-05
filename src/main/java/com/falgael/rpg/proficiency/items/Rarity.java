@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 
 public enum Rarity {
 
+    NONE(ChatColor.RESET + ""),
     SIMPLE(ChatColor.DARK_GRAY + "Simple "),
     COMMON(ChatColor.GRAY + "Common "),
     ADVANCED(ChatColor.DARK_AQUA + "Advanced "),

@@ -4,11 +4,12 @@ package com.falgael.rpg.villager;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Villager;
 import org.bukkit.inventory.MerchantRecipe;
 
 import java.util.ArrayList;
 
-public class Villager {
+public class VillagerInstance {
 
     private final String name;
 
@@ -17,7 +18,7 @@ public class Villager {
     private final org.bukkit.entity.Villager.Profession profession;
 
 
-    private Villager(VillagerBuilder builder) {
+    private VillagerInstance(VillagerBuilder builder) {
         this.name = builder.name;
         this.profession = builder.profession;
         this.recipes = builder.recipes;
@@ -34,7 +35,22 @@ public class Villager {
         entity.setProfession(profession);
         entity.setRecipes(recipes);
         entity.setSilent(true);
+        entity.setVillagerLevel(5);
     }
+
+    public boolean isSame(Villager villager) {
+        if (!villager.isCustomNameVisible()) return false;
+        if (!villager.getCustomName().equals(name)) return false;
+        if (villager.getProfession() != profession) return false;
+        if (villager.isCollidable()) return false;
+        if (villager.hasAI()) return false;
+        if (villager.getCanPickupItems()) return false;
+        if (!villager.isInvulnerable()) return false;
+        if (!villager.isSilent()) return false;
+        return true;
+    }
+
+
 
     public static class VillagerBuilder {
         private final String name;
@@ -53,8 +69,8 @@ public class Villager {
             return this;
         }
 
-        public Villager create() {
-            return new Villager(this);
+        public VillagerInstance create() {
+            return new VillagerInstance(this);
         }
 
     }

@@ -2,7 +2,10 @@ package com.falgael.rpg;
 
 import com.falgael.rpg.commands.VillagerSpawn;
 import com.falgael.rpg.manager.Initializer;
+import com.falgael.rpg.proficiency.ForbiddenCraftingHandler;
+import com.falgael.rpg.proficiency.TestHandler;
 import com.falgael.rpg.proficiency.items.blocks.BlockBreakHandler;
+import com.falgael.rpg.proficiency.items.blocks.CraftingResultsHandler;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import com.falgael.rpg.villager.VillagerHandler;
 import org.bukkit.Bukkit;
@@ -21,6 +24,10 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerManager(),this);
         Bukkit.getPluginManager().registerEvents(new VillagerHandler(),this);
         Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new CraftingResultsHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new ForbiddenCraftingHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new TestHandler(), this);
+
 
         this.getCommand("villager").setExecutor(new VillagerSpawn());
 

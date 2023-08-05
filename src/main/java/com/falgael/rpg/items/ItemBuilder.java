@@ -1,8 +1,8 @@
 package com.falgael.rpg.items;
 
 import com.falgael.rpg.proficiency.ProficiencyTypes;
+import com.falgael.rpg.proficiency.Utils;
 import com.falgael.rpg.proficiency.items.Rarity;
-import com.falgael.rpg.utility.Utils;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.bukkit.Material;
@@ -37,9 +37,12 @@ public class ItemBuilder {
 
     private EquipmentSlot equipmentSlot = EquipmentSlot.HAND;
 
+    private boolean isCurrency = false;
+
     public ItemBuilder(Material material) {
         this.material = material;
     }
+
 
     public ItemBuilder setName(String name) {
         this.name = name;
@@ -116,6 +119,15 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder setCurrency(boolean isCurrency) {
+        this.isCurrency = isCurrency;
+        if (isCurrency) {
+            lore.add("Currency");
+            proficiency = ProficiencyTypes.MISC;
+        }
+        return this;
+    }
+
 
     public ItemStack create() {
         ItemStack result = new ItemStack(material,Math.max(1,amount));
@@ -131,8 +143,8 @@ public class ItemBuilder {
         if (proficiency != ProficiencyTypes.NONE) lore.add(0,proficiency.getRepresentation());
         itemMeta.setLore(lore);
 
-        if (compressed) {
-            itemMeta.setDisplayName(buildCompressedName());
+        if (compressed || isCurrency) {
+            if (compressed) itemMeta.setDisplayName(buildCompressedName());
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
         }

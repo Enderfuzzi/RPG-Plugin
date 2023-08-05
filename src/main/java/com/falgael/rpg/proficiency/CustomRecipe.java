@@ -9,11 +9,13 @@ import org.bukkit.inventory.Recipe;
 
 public enum CustomRecipe {
     // Note Loading these Recipes is placed in initializer
-    OAK_STAIR_TO_SLAB(new RecipeBuilder(new ItemStack(Material.OAK_SLAB), "OAK_STAIR_TO_SLAB", RecipeType.STONECUTTER)
-            .addIngredient(new ItemStack(Material.OAK_STAIRS)).create()),
 
     TEST(new RecipeBuilder(CustomBlocks.WOODWORK_COMPRESSED_OAK.getItem(), "TEST_Recipe", RecipeType.SHAPELESS)
-            .addIngredient(new ItemStack(Material.OAK_LOG, 64)).create())
+            .addIngredient(new ItemStack(Material.LIGHT, 64)).create()),
+
+
+    OAK_STAIR_TO_SLAB(new RecipeBuilder(new ItemStack(Material.OAK_SLAB), "OAK_STAIR_TO_SLAB", RecipeType.STONECUTTER)
+            .addIngredient(new ItemStack(Material.OAK_STAIRS)).create()),
 
     ;
 

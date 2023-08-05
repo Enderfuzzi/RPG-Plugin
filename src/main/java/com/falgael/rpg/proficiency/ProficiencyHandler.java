@@ -29,7 +29,7 @@ import java.util.Objects;
 public class ProficiencyHandler implements Listener {
 /*
     /**
-     * Method to send a formatted Message for the proficiency increase
+     * Method to send a formatted Utils for the proficiency increase
      * @param player The player to target
      * @param proficiencyRepresentation The representation of the proficiency
      * @param currentExperience The current Experience of the {@code Player}
