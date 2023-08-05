@@ -129,15 +129,11 @@ public enum CustomTools {
         return NONE == this;
     }
 
-    public static CustomTools getItem(ItemStack key) {
-        return LIST_OF_ITEMS.getOrDefault(key, NONE);
-    }
-
     public static HashMap<ItemStack, CustomTools> getItems() {
         return LIST_OF_ITEMS;
     }
 
-    public static CustomTools compare(ItemStack key) {
+    public static CustomTools getItem(ItemStack key) {
         for (CustomTools customTool : CustomTools.values()) {
             if (key.getType() != customTool.itemStack.getType()) continue;
 

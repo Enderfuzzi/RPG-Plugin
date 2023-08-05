@@ -18,8 +18,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Map;
-
 public class BlockBreakHandler implements Listener {
 
     private void experienceIncreaseMessage(@NotNull Player player, ProficiencyTypes proficiency) {
@@ -43,7 +41,7 @@ public class BlockBreakHandler implements Listener {
         int droppedBlocks = 0;
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
-        CustomTools customTools = CustomTools.compare(item);
+        CustomTools customTools = CustomTools.getItem(item);
         if (!customTools.isNone() && customTools.getProficiencyType() == block.getProficiency()) {
                 experienceAmount *= customTools.getItemConfiguration().getExperienceModifier();
                 droppedBlocks = customTools.getItemConfiguration().calculateDroppedBlocks();
