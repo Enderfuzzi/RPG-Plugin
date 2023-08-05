@@ -1,5 +1,8 @@
-package com.falgael.rpg.utility.items;
+package com.falgael.rpg.items;
 
+import com.falgael.rpg.proficiency.ProficiencyTypes;
+import com.falgael.rpg.proficiency.items.Rarity;
+import com.falgael.rpg.utility.Utils;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.bukkit.Material;
@@ -14,9 +17,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class ItemFactory {
+public class ItemBuilder {
 
     private String name;
+
+    private ProficiencyTypes proficiency = ProficiencyTypes.NONE;
 
     private Material material;
 
@@ -26,58 +31,58 @@ public class ItemFactory {
 
     private boolean compressed = false;
 
-    private ItemType type = ItemType.COMMON;
+    private Rarity rarity = Rarity.COMMON;
 
     private Multimap<Attribute, AttributeModifier> attributes = ArrayListMultimap.create();
 
     private EquipmentSlot equipmentSlot = EquipmentSlot.HAND;
 
-    public ItemFactory(Material material) {
+    public ItemBuilder(Material material) {
         this.material = material;
     }
 
-    public ItemFactory setName(String name) {
+    public ItemBuilder setName(String name) {
         this.name = name;
         return this;
     }
 
-    public ItemFactory addPrefix(String name) {
+    public ItemBuilder addPrefix(String name) {
         this.name = name + " " + this.name;
         return this;
     }
 
-    public ItemFactory setAmount(int amount) {
+    public ItemBuilder setAmount(int amount) {
         this.amount = amount;
         return this;
     }
 
-    public ItemFactory addLore(String lore) {
+    public ItemBuilder addLore(String lore) {
         this.lore.add(lore);
         return this;
     }
 
-    public ItemFactory addExperienceModifierLore(String text) {
+    public ItemBuilder addExperienceModifierLore(String text) {
         this.lore.add(ItemModifier.EXPERIENCE.getRepresentation() + text);
         return this;
     }
 
-    public ItemFactory addLootModifierLore(String text) {
+    public ItemBuilder addLootModifierLore(String text) {
         this.lore.add(ItemModifier.LOOT.getRepresentation() + text);
         return this;
     }
 
-    public ItemFactory setCompressed(boolean compressed) {
+    public ItemBuilder setCompressed(boolean compressed) {
         this.compressed = compressed;
-        this.type = ItemType.RARE;
+        this.rarity = Rarity.ELITE;
         return this;
     }
 
-    public ItemFactory setType(ItemType itemType) {
-        this.type = itemType;
+    public ItemBuilder setRarity(Rarity itemType) {
+        this.rarity = itemType;
         return this;
     }
 
-    public ItemFactory setEquipmentSlot(EquipmentSlot equipmentSlot) {
+    public ItemBuilder setEquipmentSlot(EquipmentSlot equipmentSlot) {
         this.equipmentSlot = equipmentSlot;
         return this;
     }
@@ -86,23 +91,28 @@ public class ItemFactory {
         attributes.put(attribute, new AttributeModifier(UUID.randomUUID(),name,value,AttributeModifier.Operation.ADD_SCALAR, equipmentSlot));
     }
 
-    public ItemFactory addSpeedAttribute(double value) {
+    public ItemBuilder addSpeedAttribute(double value) {
         addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,value,"Movement Speed");
         return this;
     }
 
-    public ItemFactory addHealthAttribute(double value) {
+    public ItemBuilder addHealthAttribute(double value) {
         addAttribute(Attribute.GENERIC_MAX_HEALTH,value,"Health");
         return this;
     }
 
-    public ItemFactory addDamageAttribute(double value) {
+    public ItemBuilder addDamageAttribute(double value) {
         addAttribute(Attribute.GENERIC_ATTACK_DAMAGE,value,"Attack Damage");
         return this;
     }
 
-    public ItemFactory addArmorAttribute(double value) {
+    public ItemBuilder addArmorAttribute(double value) {
         addAttribute(Attribute.GENERIC_ARMOR,value,"Armor");
+        return this;
+    }
+
+    public ItemBuilder addProficiency(ProficiencyTypes proficiency) {
+        this.proficiency = proficiency;
         return this;
     }
 
@@ -118,10 +128,11 @@ public class ItemFactory {
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
-
+        if (proficiency != ProficiencyTypes.NONE) lore.add(0,proficiency.getRepresentation());
         itemMeta.setLore(lore);
 
         if (compressed) {
+            itemMeta.setDisplayName(buildCompressedName());
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
         }
@@ -133,7 +144,11 @@ public class ItemFactory {
 
 
     private String buildName() {
-        return type.getPrefix() + name;
+        return rarity.getRepresentation() + name;
+    }
+
+    private String buildCompressedName() {
+        return rarity.getRepresentation() + "Compressed " + Utils.getMaterialName(material);
     }
 
 }

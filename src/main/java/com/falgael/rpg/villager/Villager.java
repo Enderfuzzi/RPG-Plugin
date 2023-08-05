@@ -33,6 +33,7 @@ public class Villager {
         entity.setInvulnerable(true);
         entity.setProfession(profession);
         entity.setRecipes(recipes);
+        entity.setSilent(true);
     }
 
     public static class VillagerBuilder {

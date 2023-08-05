@@ -1,11 +1,11 @@
-package com.falgael.rpg.proficiencies.items;
+package com.falgael.rpg.proficiency.items;
 
 import org.bukkit.Bukkit;
 
 import java.util.UUID;
 
 /**
- * Contains special information about an item.
+ * Contains special information about an items.
  * @author falgael
  * @version 0.0.1
  */
@@ -13,12 +13,13 @@ public class ItemConfiguration {
 
     private final String name;
 
-    /** Indicates if the item has a block break effect */
+    /** Indicates if the items has a block break effect */
     private boolean hasBlockBreakEffect;
     /** The rate of items that should have been dropped. Has to be at least 1.0f */
     private float blockBreakDropRate = 1.0f;
     /** The experience multiplier */
-    private int experienceModifier;
+    private int experienceModifier = 1;
+
 
     /** Creates a default configuration without special modification */
     public ItemConfiguration() {
@@ -36,8 +37,13 @@ public class ItemConfiguration {
         this.name = name;
         hasBlockBreakEffect = true;
         this.blockBreakDropRate = Math.max(blockBreakDropRate, 1.0f);
-        this.experienceModifier = experienceModifier;
+        this.experienceModifier = Math.max(experienceModifier, 1);
     }
+
+    public ItemConfiguration(String name) {
+        this(name, 1, 1.0f);
+    }
+
 
     /**
      * Calculates the amount of blocks been dropped. This works with special percentages.

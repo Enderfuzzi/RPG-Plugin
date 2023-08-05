@@ -2,3 +2,7 @@ name: RPG-0.0.1
 main: com.falgael.rpg.RPG
 api-version: 1.20
 version: 0.0.1
+commands:
+  villager:
+    description: "Spawn a villager with key"
+    usage: /<command> <arg>

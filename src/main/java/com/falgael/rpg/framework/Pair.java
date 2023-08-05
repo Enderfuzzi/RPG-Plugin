@@ -1,4 +1,4 @@
-package com.falgael.rpg.utility;
+package com.falgael.rpg.framework;
 
 public class Pair <T, V>{
 

@@ -1,7 +1,5 @@
 package com.falgael.rpg.quests;
 
-import com.falgael.rpg.proficiencies.ProficiencyManager;
-import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
 import org.bukkit.entity.Player;
 
 public class Requirement {
@@ -33,10 +31,7 @@ public class Requirement {
     public boolean evaluate(Player player) {
         switch (type) {
             case PROFICIENCY_EXPERIENCE:
-                if (proficiency == null) return false;
-                ProficiencyFramework proficiencyFramework = ProficiencyManager.getProficiencyData(player.getUniqueId()).getProficiency(proficiency);
-                if (proficiencyFramework == null) return false;
-                return proficiencyFramework.getCurrentLVL() >= value;
+                //WIP
             case PLAYER_EXPERIENCE:
                 return player.getLevel() >= value;
             case ARMOR:

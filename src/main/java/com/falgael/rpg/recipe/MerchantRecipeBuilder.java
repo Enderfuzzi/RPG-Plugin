@@ -1,4 +1,4 @@
-package com.falgael.rpg.utility.recipe;
+package com.falgael.rpg.recipe;
 
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;

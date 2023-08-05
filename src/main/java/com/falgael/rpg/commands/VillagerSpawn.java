@@ -1,6 +1,6 @@
 package com.falgael.rpg.commands;
 
-import com.falgael.rpg.villager.VillagerManager;
+import com.falgael.rpg.villager.CustomVillager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,9 +16,8 @@ public class VillagerSpawn implements CommandExecutor {
             return false;
         }
 
-        VillagerManager.getVillager(args[0]).spawn(player.getWorld(),player.getLocation());
+        CustomVillager.getVillager(args[0]).getVillager().spawn(player.getWorld(),player.getLocation());
 
-        //Villager.spawnVillager(player, args[0]);
         return true;
 
     }

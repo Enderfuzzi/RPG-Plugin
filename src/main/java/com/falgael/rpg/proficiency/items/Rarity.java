@@ -1,24 +1,25 @@
-package com.falgael.rpg.utility.items;
+package com.falgael.rpg.proficiency.items;
 
 import org.bukkit.ChatColor;
 
-public enum ItemType {
+public enum Rarity {
 
     SIMPLE(ChatColor.DARK_GRAY + "Simple "),
     COMMON(ChatColor.GRAY + "Common "),
     ADVANCED(ChatColor.DARK_PURPLE + "Advanced "),
-    RARE(ChatColor.YELLOW + "Rare "),
+    ELITE(ChatColor.DARK_AQUA + "Elite "),
     EPIC(ChatColor.RED + "Epic "),
     LEGENDARY(ChatColor.GOLD + "" + ChatColor.MAGIC + "Legendary" + ChatColor.RESET + " " + ChatColor.GOLD);
 
-    private final String prefix;
 
-    ItemType(String prefix) {
-        this.prefix = prefix;
+    private final String representation;
+
+    Rarity(String representation) {
+        this.representation = representation;
     }
 
-    public String getPrefix() {
-        return prefix;
+    public String getRepresentation() {
+        return representation;
     }
 
 }

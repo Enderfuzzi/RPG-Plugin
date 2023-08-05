@@ -1,10 +1,8 @@
-package com.falgael.rpg.utility.recipe;
+package com.falgael.rpg.recipe;
 
 import com.falgael.rpg.RPG;
-import com.falgael.rpg.utility.items.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.bukkit.plugin.Plugin;

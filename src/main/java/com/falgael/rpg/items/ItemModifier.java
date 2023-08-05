@@ -1,4 +1,4 @@
-package com.falgael.rpg.utility.items;
+package com.falgael.rpg.items;
 
 import org.bukkit.ChatColor;
 

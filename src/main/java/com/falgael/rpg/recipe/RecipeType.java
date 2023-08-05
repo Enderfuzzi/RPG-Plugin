@@ -1,4 +1,4 @@
-package com.falgael.rpg.utility.recipe;
+package com.falgael.rpg.recipe;
 
 public enum RecipeType {
 

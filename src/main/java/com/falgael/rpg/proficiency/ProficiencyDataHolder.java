@@ -1,8 +1,7 @@
-package com.falgael.rpg.proficiencies;
+package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiencies.items.ItemConfiguration;
-import com.falgael.rpg.utility.Pair;
-import com.falgael.rpg.utility.recipe.RecipeManager;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.framework.Pair;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -14,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Holds static information about the proficiencies.
+ * Holds static information about the proficiency.
  * @author falgael
  * @version 0.0.1
  */
@@ -23,7 +22,7 @@ public class ProficiencyDataHolder {
     //--------------------------------------------------------------------------------------------
     // Names of all Proficiencies
     //--------------------------------------------------------------------------------------------
-    /** The name of the Woodwork Proficiency. Used for global identification */
+    /** The name of the Woodwork ProficiencyTypes. Used for global identification */
     public static final String WOODWORK_PROFICIENCY_NAME = "Woodwork";
 
 
@@ -56,18 +55,18 @@ public class ProficiencyDataHolder {
     }
 
     //--------------------------------------------------------------------------------------------
-    // List of all items of all proficiencies
+    // List of all items of all proficiency
     //--------------------------------------------------------------------------------------------
 
     private static HashMap<String,ItemStack> allItemsByRepresentation = new HashMap<>();
 
     /**
-     * List which contains each special item grouped by Proficiency.
+     * List which contains each special items grouped by ProficiencyTypes.
      */
     private static HashMap<String,HashMap<ItemStack, ItemConfiguration>> itemsOfAllProficiencies = new HashMap<>();
 
     /**
-     * Adds a given List with the specified Key to the list. If the Proficiency is already registered nothing is added
+     * Adds a given List with the specified Key to the list. If the ProficiencyTypes is already registered nothing is added
      * @param key The representational name of the proficiency
      * @param list The list of {@code ItemStack} to add
      */
@@ -82,7 +81,7 @@ public class ProficiencyDataHolder {
     }
 
     /**
-     * Provides a list with all items of all proficiencies combined
+     * Provides a list with all items of all proficiency combined
      * @return The combined list of all items
      */
     public static @NotNull HashMap<ItemStack,ItemConfiguration> getAllItemsByRepresentation() {

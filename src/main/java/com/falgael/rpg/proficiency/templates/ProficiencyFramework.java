@@ -1,17 +1,15 @@
-package com.falgael.rpg.proficiencies.templates;
+package com.falgael.rpg.proficiency.templates;
 
-import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
-import com.falgael.rpg.proficiencies.items.ItemConfiguration;
-import com.falgael.rpg.utility.Pair;
+import com.falgael.rpg.proficiency.ProficiencyDataHolder;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.framework.Pair;
 import com.falgael.rpg.villager.Villager;
-import com.falgael.rpg.villager.VillagerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.CraftingInventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.MerchantRecipe;
 import org.bukkit.inventory.Recipe;
 
 import java.io.Serial;
@@ -21,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Provides the framework for proficiencies.
+ * Provides the framework for proficiency.
  * @author falgael
  * @version 0.0.1
  */
@@ -42,7 +40,7 @@ public abstract class ProficiencyFramework implements Serializable {
      * Increases the current {@link ProficiencyFramework#currentExperience} by the specified {@code int}.
      * Returns always {@code false} if {@link ProficiencyFramework#lvlBorder} is reached or the given amount is zero or less.
      * Calls {@link ProficiencyFramework#increaseLVL()} when {@link ProficiencyFramework#currentExperienceBorder} is reached.
-     * @param amount the proficiencies to add
+     * @param amount the proficiency to add
      * @return {@code true} if the increase is successful
      */
     public boolean increaseExperience(int amount) {
@@ -64,12 +62,12 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     /**
-     * @return the current proficiencies border
+     * @return the current proficiency border
      */
     public int getCurrentExperienceBorder() {
         return currentExperienceBorder;
     }
-    /** @return the current amount of proficiencies */
+    /** @return the current amount of proficiency */
     public int getCurrentExperience() {
         return currentExperience;
     }
@@ -105,9 +103,9 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     /**
-     * Gives the number of proficiencies a block gives when broken
-     * @param b The {@code Block} to get the proficiencies amount
-     * @return the amount of proficiencies assigned to the specified {@code Material}
+     * Gives the number of proficiency a block gives when broken
+     * @param b The {@code Block} to get the proficiency amount
+     * @return the amount of proficiency assigned to the specified {@code Material}
      */
     public int amountBlockBreakingExperience(Block b) {
         if (givesBlockBreakingExperience(b)) {
@@ -129,7 +127,7 @@ public abstract class ProficiencyFramework implements Serializable {
     protected abstract HashMap<Material,Integer> fillBlockCraftingExperience();
 
     /**
-     * Checks if a crafting recipe gives proficiencies on crafting. Override this function for other functionality
+     * Checks if a crafting recipe gives proficiency on crafting. Override this function for other functionality
      * @param m The {@code Material} to check
      * @param craftingInventory can be null, when given only crafting table is allowed
      * @return {@code true} when the material is in list
@@ -140,9 +138,9 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     /**
-     * Gives the number of proficiencies a block gives when crafted
-     * @param m The {@code Material} to get the proficiencies amount
-     * @return the amount of proficiencies assigned to the specified {@code Material}
+     * Gives the number of proficiency a block gives when crafted
+     * @param m The {@code Material} to get the proficiency amount
+     * @return the amount of proficiency assigned to the specified {@code Material}
      */
     public int amountBlockCraftingExperience(Material m) {
         if (givesBlockCraftingExperience(m,null)) {
@@ -152,7 +150,7 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     //--------------------------------------------------------------------------------------------
-    // Forbidden recipes for this Proficiency
+    // Forbidden recipes for this ProficiencyTypes
     //--------------------------------------------------------------------------------------------
 
     /**
@@ -173,7 +171,7 @@ public abstract class ProficiencyFramework implements Serializable {
 
 
     //--------------------------------------------------------------------------------------------
-    // Generally Forbidden recipe of this Proficiency gets stored in extra list
+    // Generally Forbidden recipe of this ProficiencyTypes gets stored in extra list
     //--------------------------------------------------------------------------------------------
 
     /**
@@ -185,7 +183,7 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     //--------------------------------------------------------------------------------------------
-    // Items added by this Proficiency
+    // CustomTools added by this ProficiencyTypes
     //--------------------------------------------------------------------------------------------
 
     /**
@@ -214,7 +212,7 @@ public abstract class ProficiencyFramework implements Serializable {
 
 
     protected static void registerVillager(String key, Villager villager) {
-        VillagerManager.registerVillager(key, villager);
+        //VillagerManager.registerVillager(key, villager);
         Bukkit.getLogger().info("Registered Villager with key: " + key);
     }
 

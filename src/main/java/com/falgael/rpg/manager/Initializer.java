@@ -1,8 +1,5 @@
 package com.falgael.rpg.manager;
 
-import com.falgael.rpg.proficiencies.ProficiencyDataHolder;
-import com.falgael.rpg.proficiencies.ProficiencyInitializer;
-import com.falgael.rpg.utility.recipe.RecipeManager;
 import org.bukkit.Bukkit;
 
 /**
@@ -21,8 +18,6 @@ public class Initializer {
             return;
         }
         DataStoreManagement.initialize();
-        ProficiencyInitializer.initialize();
-        RecipeManager.initialize();
     }
 
 }

@@ -1,23 +1,13 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.commands.VillagerSpawn;
-import com.falgael.rpg.manager.DataStoreManagement;
 import com.falgael.rpg.manager.Initializer;
-import com.falgael.rpg.proficiencies.ProficiencyHandler;
-import com.falgael.rpg.proficiencies.items.SpecialCraftingRecipe;
-import com.falgael.rpg.utility.CraftingHandler;
+import com.falgael.rpg.proficiency.items.blocks.BlockBreakHandler;
+import com.falgael.rpg.proficiency.player.PlayerManager;
 import com.falgael.rpg.villager.VillagerHandler;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.*;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.Iterator;
 
 public final class RPG extends JavaPlugin {
 
@@ -28,14 +18,11 @@ public final class RPG extends JavaPlugin {
         getLogger().info(this.getName() + " enabled");
         sendMessageToAll("Plugin enabled");
         Initializer.initialize();
-        Bukkit.getPluginManager().registerEvents(new ProficiencyHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new PlayerManager(),this);
         Bukkit.getPluginManager().registerEvents(new VillagerHandler(),this);
-
-        Bukkit.getPluginManager().registerEvents(new CraftingHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(),this);
 
         this.getCommand("villager").setExecutor(new VillagerSpawn());
-
-        SpecialCraftingRecipe.testRecipe();
 
     }
 

@@ -1,9 +1,9 @@
-package com.falgael.rpg.proficiencies;
+package com.falgael.rpg.proficiency;
 
 import com.falgael.rpg.RPG;
 import com.falgael.rpg.manager.DataStoreManagement;
-import com.falgael.rpg.proficiencies.templates.ProficiencyFramework;
-import com.falgael.rpg.utility.Pair;
+import com.falgael.rpg.proficiency.templates.ProficiencyFramework;
+import com.falgael.rpg.framework.Pair;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
@@ -22,19 +22,19 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 /**
- * Manages the proficiencies of all Players
+ * Manages the proficiency of all Players
  * @author falgael
  * @version 0.0.1
  */
 public class ProficiencyHandler implements Listener {
-
+/*
     /**
-     * Method to send a formatted Message for the proficiencies increase
+     * Method to send a formatted Message for the proficiency increase
      * @param player The player to target
      * @param proficiencyRepresentation The representation of the proficiency
      * @param currentExperience The current Experience of the {@code Player}
      * @param currentExperienceBorder The current Experience Border of the {@code Player}
-     */
+     *
     private void experienceIncreaseMessage(@NotNull Player player, String proficiencyRepresentation, int currentExperience, int currentExperienceBorder) {
         TextComponent message = new TextComponent(ChatColor.GOLD + "" + ChatColor.ITALIC + proficiencyRepresentation + ": " + currentExperience + "/" + currentExperienceBorder + " Xp");
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR,message);
@@ -53,9 +53,9 @@ public class ProficiencyHandler implements Listener {
     }
 
     /**
-     * Searches each block break proficiencies of a player when destroying a block
+     * Searches each block break proficiency of a player when destroying a block
      * @param event describes the {@code BlockBreakEvent}
-     */
+     *
     @EventHandler
     public void onBlockBreak(@NotNull BlockBreakEvent event) {
         if (event.isCancelled()) return;
@@ -80,9 +80,9 @@ public class ProficiencyHandler implements Listener {
     }
 
     /**
-     * Searches each block craft proficiencies of a {@code Player} when crafting a block. Works with crafting whole stacks with shift-click.
+     * Searches each block craft proficiency of a {@code Player} when crafting a block. Works with crafting whole stacks with shift-click.
      * @param event describes the {@code CraftItemEvent}
-     */
+     *
     @EventHandler
     public void onCraft(@NotNull CraftItemEvent event) {
         if (event.isCancelled()) return;
@@ -112,9 +112,9 @@ public class ProficiencyHandler implements Listener {
     }
 
     /**
-     * Checks if the {@code Player} is allowed to craft an item. If not set the result to air.
+     * Checks if the {@code Player} is allowed to craft an items. If not set the result to air.
      * @param event describes {@code PrepareItemCraftEvent}
-     */
+     *
     @EventHandler
     public void onPrepareItemCraft(@NotNull PrepareItemCraftEvent event) {
         if (event.getInventory().getResult() == null) return;
@@ -131,4 +131,6 @@ public class ProficiencyHandler implements Listener {
         }
 
     }
+
+    */
 }
