@@ -114,7 +114,7 @@ public enum CustomTools {
     }
 
     public ItemStack getItem() {
-        return this.itemStack;
+        return itemStack;
     }
 
     public ProficiencyTypes getProficiencyType() {
@@ -138,10 +138,18 @@ public enum CustomTools {
             if (key.getType() != customTool.itemStack.getType()) continue;
 
             ItemMeta keyMeta = key.getItemMeta();
+            if (keyMeta == null) continue;
             ItemMeta toolMeta = customTool.getItem().getItemMeta();
+            if (toolMeta == null) continue;
+
+            if (!keyMeta.hasDisplayName()) continue;
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;
-            if (!keyMeta.getLore().equals(toolMeta.getLore())) continue;
-            if (!keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
+
+            if (keyMeta.hasLore() ^ toolMeta.hasLore()) continue;
+            if (!keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
+
+            if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
+            if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
             if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
             return customTool;
         }

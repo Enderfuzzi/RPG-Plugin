@@ -9,7 +9,6 @@ import com.falgael.rpg.recipe.MerchantRecipeBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.MerchantRecipe;
 
 import java.util.HashMap;
 
@@ -42,12 +41,9 @@ public enum CustomVillager {
 
     private static final HashMap<String, CustomVillager> villagers = new HashMap<>();
 
-    private static final HashMap<VillagerInstance, CustomVillager> villager_Map = new HashMap<>();
-
     static {
         for (CustomVillager customVillager : CustomVillager.values()) {
             villagers.put(customVillager.key,customVillager);
-            villager_Map.put(customVillager.villagerInstance,customVillager);
         }
 
 

@@ -39,7 +39,7 @@ public final class RPG extends JavaPlugin {
         sendMessageToAll("Plugin disabled");
     }
 
-    private final void sendMessageToAll(String message) {
+    private void sendMessageToAll(String message) {
         for (Player p : Bukkit.getOnlinePlayers()) p.sendMessage(message);
     }
 }

@@ -5,6 +5,7 @@ import com.falgael.rpg.proficiency.Utils;
 import com.falgael.rpg.proficiency.items.Rarity;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -90,8 +91,9 @@ public class ItemBuilder {
         return this;
     }
 
-    private void addAttribute(Attribute attribute, double value, String name) {
-        attributes.put(attribute, new AttributeModifier(UUID.randomUUID(),name,value,AttributeModifier.Operation.ADD_SCALAR, equipmentSlot));
+    private void addAttribute(Attribute attribute, double value, String attributeName) {
+        UUID uuid = this.name == null ? UUID.randomUUID() : UUID.nameUUIDFromBytes((ChatColor.stripColor(this.name) + attributeName).getBytes());
+        attributes.put(attribute, new AttributeModifier(uuid,attributeName,value,AttributeModifier.Operation.ADD_SCALAR, equipmentSlot));
     }
 
     public ItemBuilder addSpeedAttribute(double value) {
