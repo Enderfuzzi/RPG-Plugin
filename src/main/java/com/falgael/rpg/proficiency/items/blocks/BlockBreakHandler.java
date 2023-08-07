@@ -1,17 +1,16 @@
 package com.falgael.rpg.proficiency.items.blocks;
 
 import com.falgael.rpg.proficiency.Utils;
-import com.falgael.rpg.proficiency.items.CustomBlocks;
 import com.falgael.rpg.proficiency.items.CustomTools;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
+
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class BlockBreakHandler implements Listener {
@@ -50,6 +49,7 @@ public class BlockBreakHandler implements Listener {
 
 
             /*
+            Old Code
             Material toDrop = event.getBlock().getType();
             if (BlockBreak.getBlock(toDrop).hasAlternativeDrop()) {
                 toDrop = BlockBreak.getBlock(toDrop).getAlternativeDrop();
