@@ -17,6 +17,18 @@ public enum CustomTools {
             .addHealthAttribute(10).addArmorAttribute(5.0).create(),
             new ItemConfiguration("legendary_" + ProficiencyTypes.MISC.getName() + "_sword",1,1.0f)),
 
+    MIGHTY_AXE(ProficiencyTypes.WOODWORK, new ItemBuilder(Material.NETHERITE_AXE).setRarity(Rarity.LEGENDARY).setName("Mighty Axe")
+            .addProficiency(ProficiencyTypes.WOODWORK).addLootModifierLore("+10000% More Wood").addExperienceModifierLore("+100000% Experience")
+            .addLore("Foraging is the only solution").addSpeedAttribute(3).addHealthAttribute(10).addArmorAttribute(5.0).create(),
+            new ItemConfiguration("legendary_" + ProficiencyTypes.WOODWORK.getName() + "_axe",10000,10000.0f)),
+
+
+    MIGHTY_PICKAXE(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.NETHERITE_PICKAXE).setRarity(Rarity.LEGENDARY).setName("Mighty Pickaxe")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+10000% More Stone").addExperienceModifierLore("+100000% Experience")
+            .addLore("Mining is the only solution").addSpeedAttribute(3).addHealthAttribute(10).addArmorAttribute(5.0).create(),
+            new ItemConfiguration("legendary_" + ProficiencyTypes.STONEWORK.getName() + "_pickaxe",10000,10000.0f)),
+
+
 
     //--------------------------------------------------------------------------------------------
     // Woodwork
@@ -37,7 +49,7 @@ public enum CustomTools {
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(1.2).create(),
             new ItemConfiguration("advanced_" +  ProficiencyTypes.WOODWORK.getName()+ "_axe",2,2.5f)),
 
-    WOODWORK_RARE_AXE( ProficiencyTypes.WOODWORK, new ItemBuilder(Material.GOLDEN_AXE).setRarity(Rarity.ELITE).setName("Axe")
+    WOODWORK_ELITE_AXE( ProficiencyTypes.WOODWORK, new ItemBuilder(Material.GOLDEN_AXE).setRarity(Rarity.ELITE).setName("Axe")
             .addProficiency(ProficiencyTypes.WOODWORK).addLootModifierLore("+200% More Wood").addExperienceModifierLore("+100% Experience")
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(1.3).create(),
             new ItemConfiguration("rare_" + ProficiencyTypes.WOODWORK.getName() + "_axe",2,3.0f)),

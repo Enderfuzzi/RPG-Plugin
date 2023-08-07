@@ -1,6 +1,7 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.commands.VillagerSpawn;
+import com.falgael.rpg.commands.VillagerSpawnTabComplete;
 import com.falgael.rpg.manager.Initializer;
 import com.falgael.rpg.proficiency.ForbiddenCraftingHandler;
 import com.falgael.rpg.proficiency.TestHandler;
@@ -30,7 +31,7 @@ public final class RPG extends JavaPlugin {
 
 
         this.getCommand("villager").setExecutor(new VillagerSpawn());
-
+        this.getCommand("villager").setTabCompleter(new VillagerSpawnTabComplete());
     }
 
     @Override
