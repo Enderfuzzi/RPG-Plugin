@@ -9,11 +9,10 @@ import com.falgael.rpg.recipe.MerchantRecipeBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.MerchantRecipe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Set;
 

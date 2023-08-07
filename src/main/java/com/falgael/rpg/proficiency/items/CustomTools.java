@@ -101,6 +101,39 @@ public enum CustomTools {
             new ItemConfiguration("legendary_" + ProficiencyTypes.STONEWORK.getName() + "_pickaxe",6,7.0f)),
 
 
+
+    STONEWORK_SIMPLE_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.WOODEN_SHOVEL).setRarity(Rarity.SIMPLE).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+50% More Stone").addLore("Simple tool for harvesting")
+            .addDamageAttribute(0.5).create(),
+            new ItemConfiguration("simple_" + ProficiencyTypes.STONEWORK.getName() + "_shovel", 1,1.5f)),
+    STONEWORK_COMMON_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.STONE_SHOVEL).setRarity(Rarity.COMMON).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+100% More Stone").addLore("Common tool for harvesting").addSpeedAttribute(0.1)
+            .addDamageAttribute(0.6).create(),
+            new ItemConfiguration("common_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",1,2.0f)),
+
+    STONEWORK_ADVANCED_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.IRON_SHOVEL).setRarity(Rarity.ADVANCED).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+150% More Stone").addExperienceModifierLore("+100% Experience")
+            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(1.2).create(),
+            new ItemConfiguration("advanced_" +  ProficiencyTypes.STONEWORK.getName()+ "_shovel",2,2.5f)),
+
+    STONEWORK_RARE_SHOVEL( ProficiencyTypes.STONEWORK, new ItemBuilder(Material.GOLDEN_SHOVEL).setRarity(Rarity.ELITE).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+200% More Stone").addExperienceModifierLore("+100% Experience")
+            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(1.3).create(),
+            new ItemConfiguration("rare_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",2,3.0f)),
+
+    STONEWORK_EPIC_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.DIAMOND_SHOVEL).setRarity(Rarity.EPIC).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+350% More Stone").addExperienceModifierLore("+200% Experience")
+            .addLore("Forged in the depth").addSpeedAttribute(0.5).addDamageAttribute(1.5).create(),
+            new ItemConfiguration("epic_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",3,4.5f)),
+
+    STONEWORK_LEGENDARY_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.NETHERITE_SHOVEL).setRarity(Rarity.LEGENDARY).setName("Shovel")
+            .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+600% More Stone").addExperienceModifierLore("+500% Experience")
+            .addLore("Forged in the depth").addSpeedAttribute(1.0).addDamageAttribute(2.5)
+            .addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
+            new ItemConfiguration("legendary_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",6,7.0f)),
+
+
+
     ;
 
 

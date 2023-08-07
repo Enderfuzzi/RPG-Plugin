@@ -2,7 +2,6 @@ package com.falgael.rpg.proficiency;
 
 import com.falgael.rpg.proficiency.items.CustomBlocks;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 
 public enum ForbiddenCrafting {
