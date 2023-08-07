@@ -77,7 +77,7 @@ public enum BlockBreak {
     // Stonework
     //--------------------------------------------------------------------------------------------
 
-    STONE(ProficiencyTypes.STONEWORK, Material.STONE, 1,Material.COBBLESTONE),
+    STONE(ProficiencyTypes.STONEWORK, Material.STONE, 1,Material.AIR),
     COBBLESTONE(ProficiencyTypes.STONEWORK, Material.COBBLESTONE, 1,Material.AIR),
     COBBLED_DEEPSLATE(ProficiencyTypes.STONEWORK, Material.DEEPSLATE,3, Material.COBBLED_DEEPSLATE),
     COAL_ORE(ProficiencyTypes.STONEWORK, Material.COAL_ORE,2,Material.AIR),

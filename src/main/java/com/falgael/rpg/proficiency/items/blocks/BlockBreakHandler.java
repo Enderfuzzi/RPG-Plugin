@@ -11,6 +11,9 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BlockBreakHandler implements Listener {
 
 
@@ -32,11 +35,28 @@ public class BlockBreakHandler implements Listener {
         }
 
         if (droppedBlocks != 0) {
+            // Get the natural Drops and modify them
+            List<ItemStack> toDrop = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
+            for (ItemStack itemStack : toDrop) {
+                ItemStack tmp = itemStack.clone();
+                tmp.setAmount(droppedBlocks);
+                //Override the Drops if an alternative is given
+                if (BlockBreak.getBlock(event.getBlock().getType()).hasAlternativeDrop()) {
+                   tmp = new ItemStack(BlockBreak.getBlock(event.getBlock().getType()).getAlternativeDrop(),droppedBlocks + 1);
+                   event.setDropItems(false);
+                }
+                event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),tmp);
+            }
+
+
+            /*
             Material toDrop = event.getBlock().getType();
             if (BlockBreak.getBlock(toDrop).hasAlternativeDrop()) {
                 toDrop = BlockBreak.getBlock(toDrop).getAlternativeDrop();
             }
             event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(toDrop, droppedBlocks));
+            */
+
         }
 
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
