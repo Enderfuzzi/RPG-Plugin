@@ -23,7 +23,15 @@ public enum CustomBlocks {
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
-    STONEWORK_COMPRESSED_STONE(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyTypes.STONEWORK).setCompressed(true).create())
+    STONEWORK_COMPRESSED_STONE(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyTypes.STONEWORK).setCompressed(true).create()),
+
+
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
+
+    FARMING_COMPRESSED_WHEAT(ProficiencyTypes.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyTypes.FARMING).setCompressed(true).create()),
+
 
     ;
 

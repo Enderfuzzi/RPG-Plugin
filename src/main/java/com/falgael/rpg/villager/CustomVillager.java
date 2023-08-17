@@ -9,6 +9,7 @@ import com.falgael.rpg.recipe.MerchantRecipeBuilder;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.MerchantRecipe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,6 +20,29 @@ import java.util.Set;
 public enum CustomVillager {
 
     NONE("NONE", ProficiencyTypes.NONE, new VillagerInstance.VillagerBuilder("", org.bukkit.entity.Villager.Profession.NONE).create(),0),
+
+    //--------------------------------------------------------------------------------------------
+    // Misc
+    //--------------------------------------------------------------------------------------------
+
+    MISC_TIER_I(ProficiencyTypes.MISC.getName() + "_TIER_I", ProficiencyTypes.MISC,
+            new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyTypes.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+
+                    .create(), 0),
+
+
+    //--------------------------------------------------------------------------------------------
+    // Woodwork
+    //--------------------------------------------------------------------------------------------
 
     WOODWORK_TIER_I(ProficiencyTypes.WOODWORK.getName() + "_TIER_I", ProficiencyTypes.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), org.bukkit.entity.Villager.Profession.BUTCHER)
@@ -55,6 +79,16 @@ public enum CustomVillager {
 
     WOODWORK_TIER_III(ProficiencyTypes.WOODWORK.getName() + "_TIER_III", ProficiencyTypes.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_ELITE_AXE.getItem()).addIngredients(CustomTools.WOODWORK_ADVANCED_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
@@ -81,8 +115,16 @@ public enum CustomVillager {
                     .create(), 40),
 
 
+    //--------------------------------------------------------------------------------------------
+    // Stonework
+    //--------------------------------------------------------------------------------------------
 
 
+
+
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
 
 
     ;
