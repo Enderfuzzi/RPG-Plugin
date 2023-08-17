@@ -79,7 +79,7 @@ public enum BlockBreak {
 
     STONE(ProficiencyTypes.STONEWORK, Material.STONE, 1,Material.AIR),
     COBBLESTONE(ProficiencyTypes.STONEWORK, Material.COBBLESTONE, 1,Material.AIR),
-    COBBLED_DEEPSLATE(ProficiencyTypes.STONEWORK, Material.DEEPSLATE,3, Material.COBBLED_DEEPSLATE),
+    COBBLED_DEEPSLATE(ProficiencyTypes.STONEWORK, Material.DEEPSLATE,3, Material.AIR),
     COAL_ORE(ProficiencyTypes.STONEWORK, Material.COAL_ORE,2,Material.AIR),
     IRON_ORE(ProficiencyTypes.STONEWORK, Material.IRON_ORE,3,Material.AIR),
     GOLD_ORE(ProficiencyTypes.STONEWORK, Material.GOLD_ORE, 5,Material.AIR),
@@ -91,6 +91,11 @@ public enum BlockBreak {
     SAND(ProficiencyTypes.STONEWORK, Material.SAND,1,Material.AIR),
     GRAVEL(ProficiencyTypes.STONEWORK, Material.GRAVEL,1,Material.AIR),
 
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
+
+    WHEAT(ProficiencyTypes.FARMING, Material.WHEAT, 1, Material.AIR)
 
     ;
 

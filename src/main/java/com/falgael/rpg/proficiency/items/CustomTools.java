@@ -116,9 +116,9 @@ public enum CustomTools {
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(1.2).create(),
             new ItemConfiguration("advanced_" +  ProficiencyTypes.STONEWORK.getName()+ "_shovel",2,2.5f)),
 
-    STONEWORK_RARE_SHOVEL( ProficiencyTypes.STONEWORK, new ItemBuilder(Material.GOLDEN_SHOVEL).setRarity(Rarity.ELITE).setName("Shovel")
+    STONEWORK_ELITE_SHOVEL( ProficiencyTypes.STONEWORK, new ItemBuilder(Material.GOLDEN_SHOVEL).setRarity(Rarity.ELITE).setName("Shovel")
             .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+200% More Stone").addExperienceModifierLore("+100% Experience")
-            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(1.3).create(),
+            .addLore("Elite tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(1.3).create(),
             new ItemConfiguration("rare_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",2,3.0f)),
 
     STONEWORK_EPIC_SHOVEL(ProficiencyTypes.STONEWORK, new ItemBuilder(Material.DIAMOND_SHOVEL).setRarity(Rarity.EPIC).setName("Shovel")
@@ -132,6 +132,42 @@ public enum CustomTools {
             .addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
             new ItemConfiguration("legendary_" + ProficiencyTypes.STONEWORK.getName() + "_shovel",6,7.0f)),
 
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
+
+    FARMING_SIMPLE_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.WOODEN_HOE).setRarity(Rarity.SIMPLE).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+50% More Plants").addLore("Simple tool for harvesting")
+            .addSpeedAttribute(0.1).create(),
+            new ItemConfiguration("simple_" + ProficiencyTypes.FARMING.getName() + "_hoe", 1, 1.5f)),
+
+    FARMING_COMMON_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.STONE_HOE).setRarity(Rarity.COMMON).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+100% More Plants").addLore("Common tool for harvesting")
+            .addSpeedAttribute(0.3).create(),
+            new ItemConfiguration("common_" + ProficiencyTypes.FARMING.getName() + "_hoe", 1, 2f)),
+
+    FARMING_ADVANCED_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.IRON_HOE).setRarity(Rarity.ADVANCED).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+150% More Plants").addExperienceModifierLore("+100% Experience")
+            .addLore("Advanced tool for harvesting").addSpeedAttribute(0.5).create(),
+            new ItemConfiguration("advanced_" + ProficiencyTypes.FARMING.getName() + "_hoe", 2, 2.5f)),
+
+    FARMING_ELITE_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.GOLDEN_HOE).setRarity(Rarity.ELITE).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+200% More Plants").addExperienceModifierLore("+100% Experience")
+            .addLore("Elite tool for harvesting")
+            .addSpeedAttribute(0.75).create(),
+            new ItemConfiguration("elite_" + ProficiencyTypes.FARMING.getName() + "_hoe", 2, 3.0f)),
+
+    FARMING_EPIC_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.DIAMOND_HOE).setRarity(Rarity.EPIC).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+350% More Plants").addExperienceModifierLore("+200% Experience")
+            .addLore("Forged in the depth")
+            .addSpeedAttribute(1.0).create(),
+            new ItemConfiguration("epic_" + ProficiencyTypes.FARMING.getName() + "_hoe", 3, 4.5f)),
+
+    FARMING_LEGENDARY_HOE(ProficiencyTypes.FARMING, new ItemBuilder(Material.NETHERITE_HOE).setRarity(Rarity.LEGENDARY).setName("Hoe")
+            .addProficiency(ProficiencyTypes.FARMING).addLootModifierLore("+600% More Plants").addExperienceModifierLore("+500% Experience")
+            .addLore("Forged in the depth")
+            .addSpeedAttribute(1.3).addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
+            new ItemConfiguration("legendary_" + ProficiencyTypes.FARMING.getName() + "_hoe", 6, 7.0f)),
 
 
     ;

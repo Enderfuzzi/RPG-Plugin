@@ -4,6 +4,8 @@ import com.falgael.rpg.proficiency.Utils;
 import com.falgael.rpg.proficiency.items.CustomTools;
 import org.bukkit.Bukkit;
 
+import org.bukkit.block.data.Ageable;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -21,6 +23,13 @@ public class BlockBreakHandler implements Listener {
         if (event.isCancelled()) return;
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
         if (block.isNone()) return;
+
+        //Check if block is a crop which is fully grown
+        if (event.getBlock().getBlockData() instanceof Ageable cropAge) {
+            if (cropAge.getAge() != cropAge.getMaximumAge()) return;
+        }
+
+
 
         long experienceAmount = block.getExperienceAmount();
         int droppedBlocks = 0;
