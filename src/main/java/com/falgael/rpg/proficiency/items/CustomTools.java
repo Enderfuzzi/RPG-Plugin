@@ -84,7 +84,7 @@ public enum CustomTools {
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(1.2).create(),
             new ItemConfiguration("advanced_" +  ProficiencyTypes.STONEWORK.getName()+ "_pickaxe",2,2.5f)),
 
-    STONEWORK_RARE_PICKAXE( ProficiencyTypes.STONEWORK, new ItemBuilder(Material.GOLDEN_PICKAXE).setRarity(Rarity.ELITE).setName("Pickaxe")
+    STONEWORK_ELITE_PICKAXE( ProficiencyTypes.STONEWORK, new ItemBuilder(Material.GOLDEN_PICKAXE).setRarity(Rarity.ELITE).setName("Pickaxe")
             .addProficiency(ProficiencyTypes.STONEWORK).addLootModifierLore("+200% More Stone").addExperienceModifierLore("+100% Experience")
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.3).addDamageAttribute(1.3).create(),
             new ItemConfiguration("rare_" + ProficiencyTypes.STONEWORK.getName() + "_pickaxe",2,3.0f)),

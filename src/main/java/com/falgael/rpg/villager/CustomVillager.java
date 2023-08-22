@@ -6,6 +6,7 @@ import com.falgael.rpg.proficiency.items.CustomBlocks;
 import com.falgael.rpg.proficiency.items.CustomTools;
 import com.falgael.rpg.proficiency.items.Rarity;
 import com.falgael.rpg.recipe.MerchantRecipeBuilder;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
@@ -106,26 +107,74 @@ public enum CustomVillager {
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTools.WOODWORK_EPIC_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
-                    .create(), 20),
+                    .create(), 40),
 
     WOODWORK_TIER_VI(ProficiencyTypes.WOODWORK.getName() + "_TIER_VI", ProficiencyTypes.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.LEGENDARY.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
 
-                    .create(), 40),
+                    .create(), 60),
 
 
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
 
+    STONEWORK_TIER_I(ProficiencyTypes.STONEWORK.getName() + "_TIER_I", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyTypes.STONEWORK),Villager.Profession.TOOLSMITH)
+                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.STONE, 32)).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_COMMON_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_SIMPLE_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),4)).create())
+
+                    .create(), 1),
+
+    STONEWORK_TIER_II(ProficiencyTypes.STONEWORK.getName() + "_TIER_II", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_COMMON_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),32)).create())
+
+                    .create(), 5),
+
+    STONEWORK_TIER_III(ProficiencyTypes.STONEWORK.getName() + "_TIER_III", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
+                    .create(), 10),
+
+    STONEWORK_TIER_IV(ProficiencyTypes.STONEWORK.getName() + "_TIER_IV", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ELITE_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),32)).create())
+                    .create(), 20),
+
+    STONEWORK_TIER_V(ProficiencyTypes.STONEWORK.getName() + "_TIER_V", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_LEGENDARY_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_EPIC_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
+                    .create(), 40),
+
+    STONEWORK_TIER_VI(ProficiencyTypes.STONEWORK.getName() + "_TIER_VI", ProficiencyTypes.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
 
 
+                    .create(), 60),
 
     //--------------------------------------------------------------------------------------------
     // Farming
     //--------------------------------------------------------------------------------------------
 
+    FARMING_TIER_I(ProficiencyTypes.FARMING.getName() + "_TIER_I", ProficiencyTypes.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyTypes.FARMING), Villager.Profession.FARMER)
+                    .addRecipe(new MerchantRecipeBuilder(CustomTools.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTools.FARMING_SIMPLE_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(), 4)).create())
+
+                    .create(), 1),
 
     ;
     private final String key;
@@ -140,6 +189,10 @@ public enum CustomVillager {
 
     static {
         for (CustomVillager customVillager : CustomVillager.values()) {
+            if (villagers.containsKey(customVillager.key)) {
+                Bukkit.getLogger().warning("[" + CustomVillager.class.getSimpleName() + "]: Double registered Key: " + customVillager.key);
+                continue;
+            }
             villagers.put(customVillager.key,customVillager);
         }
 
@@ -184,6 +237,10 @@ public enum CustomVillager {
     @Contract(pure = true)
     public static @NotNull Set<String> getVillagerKeys() {
         return villagers.keySet();
+    }
+
+    private static String buildName(Rarity rarity, ProficiencyTypes proficiencyType) {
+        return rarity.getRepresentation() + proficiencyType.getRepresentation();
     }
 
 

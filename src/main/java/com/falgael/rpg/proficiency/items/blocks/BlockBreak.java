@@ -81,12 +81,15 @@ public enum BlockBreak {
     COBBLESTONE(ProficiencyTypes.STONEWORK, Material.COBBLESTONE, 1,Material.AIR),
     COBBLED_DEEPSLATE(ProficiencyTypes.STONEWORK, Material.DEEPSLATE,3, Material.AIR),
     COAL_ORE(ProficiencyTypes.STONEWORK, Material.COAL_ORE,2,Material.AIR),
+    COPPER_ORE(ProficiencyTypes.STONEWORK, Material.COPPER_ORE, 1, Material.AIR),
     IRON_ORE(ProficiencyTypes.STONEWORK, Material.IRON_ORE,3,Material.AIR),
     GOLD_ORE(ProficiencyTypes.STONEWORK, Material.GOLD_ORE, 5,Material.AIR),
     REDSTONE_ORE(ProficiencyTypes.STONEWORK, Material.REDSTONE_ORE, 5,Material.AIR),
     DIAMOND_ORE(ProficiencyTypes.STONEWORK, Material.DIAMOND_ORE, 10,Material.AIR),
     EMERALD_ORE(ProficiencyTypes.STONEWORK, Material.EMERALD_ORE,10,Material.AIR),
     ANCIENT_DEBRIS(ProficiencyTypes.STONEWORK, Material.ANCIENT_DEBRIS, 20,Material.NETHERITE_SCRAP),
+
+
 
     SAND(ProficiencyTypes.STONEWORK, Material.SAND,1,Material.AIR),
     GRAVEL(ProficiencyTypes.STONEWORK, Material.GRAVEL,1,Material.AIR),
