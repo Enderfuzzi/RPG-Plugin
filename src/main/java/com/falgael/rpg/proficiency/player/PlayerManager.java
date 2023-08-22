@@ -1,8 +1,6 @@
 package com.falgael.rpg.proficiency.player;
 
-import com.falgael.rpg.RPG;
-import org.bukkit.Bukkit;
-import org.bukkit.NamespacedKey;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;

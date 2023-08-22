@@ -2,7 +2,6 @@ package com.falgael.rpg.proficiency;
 
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 

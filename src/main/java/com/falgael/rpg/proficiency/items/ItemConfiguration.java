@@ -25,7 +25,6 @@ public class ItemConfiguration {
     public ItemConfiguration() {
         name = UUID.randomUUID().toString();
         hasBlockBreakEffect = false;
-        experienceModifier = 1;
     }
 
     /**
