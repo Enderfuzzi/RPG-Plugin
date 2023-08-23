@@ -1,12 +1,14 @@
 package com.falgael.rpg;
 
+import com.falgael.rpg.commands.CustomCommand;
 import com.falgael.rpg.commands.VillagerSpawn;
 import com.falgael.rpg.commands.VillagerSpawnTabComplete;
 import com.falgael.rpg.manager.Initializer;
 import com.falgael.rpg.proficiency.ForbiddenCraftingHandler;
 import com.falgael.rpg.proficiency.TestHandler;
-import com.falgael.rpg.proficiency.items.blocks.BlockBreakHandler;
-import com.falgael.rpg.proficiency.items.blocks.CraftingResultsHandler;
+import com.falgael.rpg.proficiency.handler.BlockBreakHandler;
+import com.falgael.rpg.proficiency.handler.CraftingResultsHandler;
+import com.falgael.rpg.proficiency.handler.HarvestBlockHandler;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import com.falgael.rpg.villager.VillagerHandler;
 import org.bukkit.Bukkit;
@@ -27,12 +29,22 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(),this);
         Bukkit.getPluginManager().registerEvents(new CraftingResultsHandler(),this);
         Bukkit.getPluginManager().registerEvents(new ForbiddenCraftingHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new HarvestBlockHandler(), this);
         Bukkit.getPluginManager().registerEvents(new TestHandler(), this);
 
 
-        this.getCommand("villager").setExecutor(new VillagerSpawn());
-        this.getCommand("villager").setTabCompleter(new VillagerSpawnTabComplete());
+        for (CustomCommand command : CustomCommand.values()) {
+            this.getCommand(command.getKey()).setExecutor(command.getCommand());
+            this.getCommand(command.getKey()).setTabCompleter(command.getTabCompleter());
+            Bukkit.getLogger().info("[" + RPG.class.getSimpleName() + "]: Registered Command: " + command.getKey());
+        }
+
+        /*
+        this.getCommand("spawn_villager").setExecutor(new VillagerSpawn());
+        this.getCommand("spawn_villager").setTabCompleter(new VillagerSpawnTabComplete());
+        */
     }
+
 
     @Override
     public void onDisable() {
