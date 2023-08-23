@@ -23,8 +23,11 @@ public class BlockBreakHandler implements Listener {
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
         if (block.isNone()) return;
 
+        Bukkit.getLogger().info("[" + BlockBreakHandler.class.getSimpleName() + "]: Block to harvest: " + event.getBlock().getType().name());
+
         //Check if block is a crop which is fully grown
-        if (event.getBlock().getBlockData() instanceof Ageable cropAge) {
+        if (block.ageable() && event.getBlock().getBlockData() instanceof Ageable cropAge) {
+            Bukkit.getLogger().info("[" + BlockBreakHandler.class.getSimpleName() + "]: Ageable: " + event.getBlock().getType().name());
             if (cropAge.getAge() != cropAge.getMaximumAge()) return;
         }
 
