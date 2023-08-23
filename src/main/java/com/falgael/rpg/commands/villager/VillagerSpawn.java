@@ -1,4 +1,4 @@
-package com.falgael.rpg.commands;
+package com.falgael.rpg.commands.villager;
 
 import com.falgael.rpg.villager.CustomVillager;
 import org.bukkit.command.Command;
@@ -12,7 +12,7 @@ public class VillagerSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player player)) return false;
         if (args.length != 1) {
-            player.sendMessage("Usage: /villager <key>");
+            player.sendMessage("Usage: /spawn_villager <key>");
             return false;
         }
 

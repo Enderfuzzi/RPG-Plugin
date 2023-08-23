@@ -1,4 +1,4 @@
-package com.falgael.rpg.commands;
+package com.falgael.rpg.commands.villager;
 
 import com.falgael.rpg.villager.CustomVillager;
 import org.bukkit.command.Command;
@@ -28,7 +28,7 @@ public class VillagerSpawnTabComplete implements TabCompleter {
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player player)) return null;
-        if (command.getName().equals("villager") && args.length <= 1) {
+        if (command.getName().equals("spawn_villager") && args.length <= 1) {
             return CustomVillager.getVillagerKeys().stream().toList();
         }
 
