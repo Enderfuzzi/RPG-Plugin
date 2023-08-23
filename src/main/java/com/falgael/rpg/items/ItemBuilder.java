@@ -1,8 +1,8 @@
 package com.falgael.rpg.items;
 
-import com.falgael.rpg.proficiency.ProficiencyTypes;
-import com.falgael.rpg.proficiency.Utils;
-import com.falgael.rpg.proficiency.items.Rarity;
+import com.falgael.rpg.proficiency.general.ProficiencyType;
+import com.falgael.rpg.proficiency.general.Utils;
+import com.falgael.rpg.proficiency.general.Rarity;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.bukkit.ChatColor;
@@ -22,7 +22,7 @@ public class ItemBuilder {
 
     private String name;
 
-    private ProficiencyTypes proficiency = ProficiencyTypes.NONE;
+    private ProficiencyType proficiency = ProficiencyType.NONE;
 
     private Material material;
 
@@ -39,6 +39,8 @@ public class ItemBuilder {
     private EquipmentSlot equipmentSlot = EquipmentSlot.HAND;
 
     private boolean isCurrency = false;
+
+    private boolean visibleEnchanted = false;
 
     public ItemBuilder(Material material) {
         this.material = material;
@@ -116,7 +118,7 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder addProficiency(ProficiencyTypes proficiency) {
+    public ItemBuilder addProficiency(ProficiencyType proficiency) {
         this.proficiency = proficiency;
         return this;
     }
@@ -125,8 +127,13 @@ public class ItemBuilder {
         this.isCurrency = isCurrency;
         if (isCurrency) {
             lore.add("Currency");
-            proficiency = ProficiencyTypes.MISC;
+            proficiency = ProficiencyType.MISC;
         }
+        return this;
+    }
+
+    public ItemBuilder visibleEnchanted(boolean flag) {
+        visibleEnchanted = flag;
         return this;
     }
 
@@ -142,10 +149,10 @@ public class ItemBuilder {
         itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
-        if (proficiency != ProficiencyTypes.NONE) lore.add(0,proficiency.getRepresentation());
+        if (proficiency != ProficiencyType.NONE) lore.add(0,proficiency.getRepresentation());
         itemMeta.setLore(lore);
 
-        if (compressed || isCurrency) {
+        if (compressed || isCurrency || visibleEnchanted) {
             if (compressed) itemMeta.setDisplayName(buildCompressedName());
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
@@ -164,5 +171,7 @@ public class ItemBuilder {
     private String buildCompressedName() {
         return rarity.getRepresentation() + "Compressed " + Utils.getMaterialName(material);
     }
+
+
 
 }

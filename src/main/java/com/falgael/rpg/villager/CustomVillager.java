@@ -1,10 +1,10 @@
 package com.falgael.rpg.villager;
 
-import com.falgael.rpg.proficiency.ProficiencyTypes;
-import com.falgael.rpg.proficiency.Utils;
-import com.falgael.rpg.proficiency.items.CustomBlocks;
+import com.falgael.rpg.proficiency.general.ProficiencyType;
+import com.falgael.rpg.proficiency.general.Utils;
+import com.falgael.rpg.proficiency.blocks.CustomBlocks;
 import com.falgael.rpg.proficiency.items.CustomTools;
-import com.falgael.rpg.proficiency.items.Rarity;
+import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.recipe.MerchantRecipeBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -19,14 +19,14 @@ import java.util.Set;
 
 public enum CustomVillager {
 
-    NONE("NONE", ProficiencyTypes.NONE, new VillagerInstance.VillagerBuilder("", org.bukkit.entity.Villager.Profession.NONE).create(),0),
+    NONE("NONE", ProficiencyType.NONE, new VillagerInstance.VillagerBuilder("", org.bukkit.entity.Villager.Profession.NONE).create(),0),
 
     //--------------------------------------------------------------------------------------------
     // Misc
     //--------------------------------------------------------------------------------------------
 
-    MISC_TIER_I(ProficiencyTypes.MISC.getName() + "_TIER_I", ProficiencyTypes.MISC,
-            new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyTypes.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
+    MISC_TIER_I(ProficiencyType.MISC.getName() + "_TIER_I", ProficiencyType.MISC,
+            new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyType.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
@@ -44,8 +44,8 @@ public enum CustomVillager {
     // Woodwork
     //--------------------------------------------------------------------------------------------
 
-    WOODWORK_TIER_I(ProficiencyTypes.WOODWORK.getName() + "_TIER_I", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), org.bukkit.entity.Villager.Profession.BUTCHER)
+    WOODWORK_TIER_I(ProficiencyType.WOODWORK.getName() + "_TIER_I", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), org.bukkit.entity.Villager.Profession.BUTCHER)
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create())
@@ -59,8 +59,8 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_COMMON_AXE.getItem()).addIngredients(CustomTools.WOODWORK_SIMPLE_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),4)).create())
                     .create(),1),
-    WOODWORK_TIER_II(ProficiencyTypes.WOODWORK.getName() + "_TIER_II", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.COMMON.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+    WOODWORK_TIER_II(ProficiencyType.WOODWORK.getName() + "_TIER_II", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.COMMON.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
@@ -77,8 +77,8 @@ public enum CustomVillager {
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),32)).create())
                     .create(), 5),
 
-    WOODWORK_TIER_III(ProficiencyTypes.WOODWORK.getName() + "_TIER_III", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+    WOODWORK_TIER_III(ProficiencyType.WOODWORK.getName() + "_TIER_III", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
@@ -94,22 +94,22 @@ public enum CustomVillager {
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
             .create(), 10),
 
-    WOODWORK_TIER_IV(ProficiencyTypes.WOODWORK.getName() + "_TIER_IV", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.ELITE.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+    WOODWORK_TIER_IV(ProficiencyType.WOODWORK.getName() + "_TIER_IV", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.ELITE.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_EPIC_AXE.getItem()).addIngredients(CustomTools.WOODWORK_ELITE_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),
 
-    WOODWORK_TIER_V(ProficiencyTypes.WOODWORK.getName() + "_TIER_V", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.EPIC.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+    WOODWORK_TIER_V(ProficiencyType.WOODWORK.getName() + "_TIER_V", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.EPIC.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTools.WOODWORK_EPIC_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
                     .create(), 40),
 
-    WOODWORK_TIER_VI(ProficiencyTypes.WOODWORK.getName() + "_TIER_VI", ProficiencyTypes.WOODWORK,
-            new VillagerInstance.VillagerBuilder(Rarity.LEGENDARY.getRepresentation() + ProficiencyTypes.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+    WOODWORK_TIER_VI(ProficiencyType.WOODWORK.getName() + "_TIER_VI", ProficiencyType.WOODWORK,
+            new VillagerInstance.VillagerBuilder(Rarity.LEGENDARY.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
 
                     .create(), 60),
@@ -119,8 +119,8 @@ public enum CustomVillager {
     // Stonework
     //--------------------------------------------------------------------------------------------
 
-    STONEWORK_TIER_I(ProficiencyTypes.STONEWORK.getName() + "_TIER_I", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyTypes.STONEWORK),Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_I(ProficiencyType.STONEWORK.getName() + "_TIER_I", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.STONEWORK),Villager.Profession.TOOLSMITH)
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create())
@@ -131,35 +131,35 @@ public enum CustomVillager {
 
                     .create(), 1),
 
-    STONEWORK_TIER_II(ProficiencyTypes.STONEWORK.getName() + "_TIER_II", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_II(ProficiencyType.STONEWORK.getName() + "_TIER_II", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_COMMON_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),32)).create())
 
                     .create(), 5),
 
-    STONEWORK_TIER_III(ProficiencyTypes.STONEWORK.getName() + "_TIER_III", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_III(ProficiencyType.STONEWORK.getName() + "_TIER_III", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
                     .create(), 10),
 
-    STONEWORK_TIER_IV(ProficiencyTypes.STONEWORK.getName() + "_TIER_IV", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_IV(ProficiencyType.STONEWORK.getName() + "_TIER_IV", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ELITE_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),
 
-    STONEWORK_TIER_V(ProficiencyTypes.STONEWORK.getName() + "_TIER_V", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_V(ProficiencyType.STONEWORK.getName() + "_TIER_V", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_LEGENDARY_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_EPIC_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
                     .create(), 40),
 
-    STONEWORK_TIER_VI(ProficiencyTypes.STONEWORK.getName() + "_TIER_VI", ProficiencyTypes.STONEWORK,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, ProficiencyTypes.STONEWORK), Villager.Profession.TOOLSMITH)
+    STONEWORK_TIER_VI(ProficiencyType.STONEWORK.getName() + "_TIER_VI", ProficiencyType.STONEWORK,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
 
 
                     .create(), 60),
@@ -168,8 +168,8 @@ public enum CustomVillager {
     // Farming
     //--------------------------------------------------------------------------------------------
 
-    FARMING_TIER_I(ProficiencyTypes.FARMING.getName() + "_TIER_I", ProficiencyTypes.FARMING,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyTypes.FARMING), Villager.Profession.FARMER)
+    FARMING_TIER_I(ProficiencyType.FARMING.getName() + "_TIER_I", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.FARMING), Villager.Profession.FARMER)
                     .addRecipe(new MerchantRecipeBuilder(CustomTools.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTools.FARMING_SIMPLE_HOE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(), 4)).create())
 
@@ -178,7 +178,7 @@ public enum CustomVillager {
     ;
     private final String key;
 
-    private final ProficiencyTypes proficiency;
+    private final ProficiencyType proficiency;
 
     private final int levelRequirement;
 
@@ -198,14 +198,14 @@ public enum CustomVillager {
 
     }
 
-    CustomVillager(String key, ProficiencyTypes proficiency , VillagerInstance villagerInstance, int levelRequirement) {
+    CustomVillager(String key, ProficiencyType proficiency , VillagerInstance villagerInstance, int levelRequirement) {
         this.key = key;
         this.proficiency = proficiency;
         this.villagerInstance = villagerInstance;
         this.levelRequirement = levelRequirement;
     }
 
-    public ProficiencyTypes getProficiency() {
+    public ProficiencyType getProficiency() {
         return proficiency;
     }
 
@@ -238,7 +238,7 @@ public enum CustomVillager {
         return villagers.keySet();
     }
 
-    private static String buildName(Rarity rarity, ProficiencyTypes proficiencyType) {
+    private static String buildName(Rarity rarity, ProficiencyType proficiencyType) {
         return rarity.getRepresentation() + proficiencyType.getRepresentation();
     }
 

@@ -170,29 +170,29 @@ public class DataStoreManagement {
     }
 
     /**
-     * Loads the ProficiencyTypes data of all Players
+     * Loads the ProficiencyType data of all Players
      */
     public static void loadProficiencyData() {
         File dir = new File(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH + File.separator);
-        Bukkit.getLogger().info("[ProficiencyTypes Data]: Start loading");
+        Bukkit.getLogger().info("[ProficiencyType Data]: Start loading");
         File[] dirList = dir.listFiles();
         if (dirList == null) {
-            Bukkit.getLogger().info("[ProficiencyTypes Data]: No data to load found");
+            Bukkit.getLogger().info("[ProficiencyType Data]: No data to load found");
             return;
         }
         for (File tmp : dirList) {
             if (!(load(tmp) instanceof PlayerExperience playerExperience)) {
-                Bukkit.getLogger().warning("[ProficiencyTypes Data]: [" + tmp.getPath() + "] is not instance of ExperienceData");
+                Bukkit.getLogger().warning("[ProficiencyType Data]: [" + tmp.getPath() + "] is not instance of ExperienceData");
                 continue;
             }
             PlayerManager.setProficiencyData(UUID.fromString(tmp.getName()), playerExperience);
-            Bukkit.getLogger().info("[ProficiencyTypes Data]: Loaded " + tmp.getName());
+            Bukkit.getLogger().info("[ProficiencyType Data]: Loaded " + tmp.getName());
         }
-        Bukkit.getLogger().info("[ProficiencyTypes Data]: Finished loading");
+        Bukkit.getLogger().info("[ProficiencyType Data]: Finished loading");
     }
 
     /**
-     * Saves the ProficiencyTypes Data of all Players as new Task
+     * Saves the ProficiencyType Data of all Players as new Task
      */
     public static void saveProficiencyData() {
         if (PLUGIN == null) {
@@ -204,15 +204,15 @@ public class DataStoreManagement {
     }
 
     /**
-     * Saves the current ProficiencyTypes data
+     * Saves the current ProficiencyType data
      */
     private static void saveProficiencyDataThread() {
-        Bukkit.getLogger().info("[ProficiencyTypes Data]: Start Saving");
+        Bukkit.getLogger().info("[ProficiencyType Data]: Start Saving");
         for (Map.Entry<UUID, PlayerExperience> entry : PlayerManager.getProficiencyData().entrySet()) {
             File file = new File(ROOT_DATA_FOLDER + DATA_PROFICIENCY_PATH + File.separator + entry.getKey().toString());
             save(file, entry.getValue());
         }
-        Bukkit.getLogger().info("[ProficiencyTypes Data]: Finished Saving");
+        Bukkit.getLogger().info("[ProficiencyType Data]: Finished Saving");
     }
 
 }

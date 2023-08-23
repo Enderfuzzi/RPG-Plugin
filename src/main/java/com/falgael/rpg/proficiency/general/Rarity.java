@@ -1,4 +1,4 @@
-package com.falgael.rpg.proficiency.items;
+package com.falgael.rpg.proficiency.general;
 
 import org.bukkit.ChatColor;
 

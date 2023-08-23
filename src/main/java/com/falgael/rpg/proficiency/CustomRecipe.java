@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiency.items.CustomBlocks;
+import com.falgael.rpg.proficiency.blocks.CustomBlocks;
 import com.falgael.rpg.recipe.RecipeBuilder;
 import com.falgael.rpg.recipe.RecipeType;
 import org.bukkit.Material;

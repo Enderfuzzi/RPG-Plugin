@@ -150,7 +150,7 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     //--------------------------------------------------------------------------------------------
-    // Forbidden recipes for this ProficiencyTypes
+    // Forbidden recipes for this ProficiencyType
     //--------------------------------------------------------------------------------------------
 
     /**
@@ -171,7 +171,7 @@ public abstract class ProficiencyFramework implements Serializable {
 
 
     //--------------------------------------------------------------------------------------------
-    // Generally Forbidden recipe of this ProficiencyTypes gets stored in extra list
+    // Generally Forbidden recipe of this ProficiencyType gets stored in extra list
     //--------------------------------------------------------------------------------------------
 
     /**
@@ -183,7 +183,7 @@ public abstract class ProficiencyFramework implements Serializable {
     }
 
     //--------------------------------------------------------------------------------------------
-    // CustomTools added by this ProficiencyTypes
+    // CustomTools added by this ProficiencyType
     //--------------------------------------------------------------------------------------------
 
     /**

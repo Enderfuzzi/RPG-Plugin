@@ -9,11 +9,13 @@ public class ExperienceData implements Serializable {
     private long currentExperience = 0;
     private int currentLVL = 0;
     private long currentExperienceBorder = 10;
+
+
     private static int lvlBorder = 100;
 
 
     public boolean increaseExperience(long amount) {
-        if (amount <= 0 || currentLVL == lvlBorder) return false;
+        if (amount <= 0) return false;
         currentExperience += amount;
         while (getCurrentExperienceBorder() <= currentExperience) {
             currentExperience -= getCurrentExperienceBorder();
@@ -22,8 +24,26 @@ public class ExperienceData implements Serializable {
         return true;
     }
 
+    public boolean decreaseExperience(long amount) {
+        if (amount <= 0) return false;
+        while (currentExperience - amount < 0) {
+            decreaseLVL();
+            amount -= currentExperienceBorder;
+        }
+        currentExperience -= amount;
+        return true;
+    }
+
+
+
+    private void decreaseLVL() {
+        if (currentLVL == 0) return;
+        currentLVL--;
+        generateLastBorder();
+    }
 
     private void increaseLVL() {
+        if (currentLVL == lvlBorder) return;
         currentLVL++;
         generateNextBorder();
     }
@@ -41,9 +61,12 @@ public class ExperienceData implements Serializable {
     }
 
     private void generateNextBorder() {
-        currentExperienceBorder = currentExperienceBorder + currentExperienceBorder / 2;
+        currentExperienceBorder *= 1.5;
     }
 
+    private void generateLastBorder() {
+        currentExperienceBorder /= 1.5;
+    }
 
 
 }

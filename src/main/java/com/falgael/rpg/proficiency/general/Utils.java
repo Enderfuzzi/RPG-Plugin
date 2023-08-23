@@ -1,5 +1,7 @@
-package com.falgael.rpg.proficiency;
+package com.falgael.rpg.proficiency.general;
 
+import com.falgael.rpg.proficiency.Messages;
+import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,7 +16,7 @@ public class Utils {
     }
 
 
-    public static void increaseExperience(Player player, ProficiencyTypes proficiencyType, long experienceAmount) {
+    public static void increaseExperience(Player player, ProficiencyType proficiencyType, long experienceAmount) {
         PlayerManager.getProficiencyData(player.getUniqueId()).increaseExperience(proficiencyType,experienceAmount);
         Messages.experienceIncreaseMessage(player,proficiencyType);
 

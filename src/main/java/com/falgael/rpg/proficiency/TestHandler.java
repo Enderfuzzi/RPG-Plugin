@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiency.items.CustomBlocks;
+import com.falgael.rpg.proficiency.blocks.CustomBlocks;
 import com.falgael.rpg.proficiency.items.CustomTools;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

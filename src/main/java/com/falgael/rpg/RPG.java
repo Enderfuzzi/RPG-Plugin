@@ -1,14 +1,9 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.commands.CustomCommand;
-import com.falgael.rpg.commands.VillagerSpawn;
-import com.falgael.rpg.commands.VillagerSpawnTabComplete;
 import com.falgael.rpg.manager.Initializer;
-import com.falgael.rpg.proficiency.ForbiddenCraftingHandler;
+import com.falgael.rpg.proficiency.handler.*;
 import com.falgael.rpg.proficiency.TestHandler;
-import com.falgael.rpg.proficiency.handler.BlockBreakHandler;
-import com.falgael.rpg.proficiency.handler.CraftingResultsHandler;
-import com.falgael.rpg.proficiency.handler.HarvestBlockHandler;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import com.falgael.rpg.villager.VillagerHandler;
 import org.bukkit.Bukkit;
@@ -31,6 +26,7 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new ForbiddenCraftingHandler(), this);
         Bukkit.getPluginManager().registerEvents(new HarvestBlockHandler(), this);
         Bukkit.getPluginManager().registerEvents(new TestHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new ItemHeldHandler(), this);
 
 
         for (CustomCommand command : CustomCommand.values()) {

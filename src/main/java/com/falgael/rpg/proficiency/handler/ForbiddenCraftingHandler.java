@@ -1,6 +1,7 @@
-package com.falgael.rpg.proficiency;
+package com.falgael.rpg.proficiency.handler;
 
 
+import com.falgael.rpg.proficiency.ForbiddenCrafting;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

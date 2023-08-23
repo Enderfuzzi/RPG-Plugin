@@ -22,7 +22,7 @@ public class ProficiencyDataHolder {
     //--------------------------------------------------------------------------------------------
     // Names of all Proficiencies
     //--------------------------------------------------------------------------------------------
-    /** The name of the Woodwork ProficiencyTypes. Used for global identification */
+    /** The name of the Woodwork ProficiencyType. Used for global identification */
     public static final String WOODWORK_PROFICIENCY_NAME = "Woodwork";
 
 
@@ -61,12 +61,12 @@ public class ProficiencyDataHolder {
     private static HashMap<String,ItemStack> allItemsByRepresentation = new HashMap<>();
 
     /**
-     * List which contains each special items grouped by ProficiencyTypes.
+     * List which contains each special items grouped by ProficiencyType.
      */
     private static HashMap<String,HashMap<ItemStack, ItemConfiguration>> itemsOfAllProficiencies = new HashMap<>();
 
     /**
-     * Adds a given List with the specified Key to the list. If the ProficiencyTypes is already registered nothing is added
+     * Adds a given List with the specified Key to the list. If the ProficiencyType is already registered nothing is added
      * @param key The representational name of the proficiency
      * @param list The list of {@code ItemStack} to add
      */

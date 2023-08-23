@@ -14,10 +14,10 @@ public class VillagerHandler implements Listener {
     @EventHandler
     public void onPlayerInteractEntityEvent(PlayerInteractEntityEvent event) {
         if (!(event.getRightClicked() instanceof Villager villager)) return;
-        Bukkit.getLogger().info("Villager interact event");
+        Bukkit.getLogger().info("villager interact event");
         CustomVillager customVillager = CustomVillager.getVillager(villager);
         if (customVillager.isNone()) {
-            Bukkit.getLogger().info("Villager is not found");
+            Bukkit.getLogger().info("villager is not found");
             return;
         }
 
@@ -28,7 +28,7 @@ public class VillagerHandler implements Listener {
 
         int playerLevel = PlayerManager.getProficiencyData(event.getPlayer().getUniqueId()).getLevel(customVillager.getProficiency());
         if (playerLevel < customVillager.getLevelRequirement()) {
-            Bukkit.getLogger().info("Villager Deny interaction");
+            Bukkit.getLogger().info("villager Deny interaction");
             Messages.denyVillagerInteraction(event.getPlayer(), customVillager.getProficiency(), customVillager.getLevelRequirement());
             event.setCancelled(true);
         }

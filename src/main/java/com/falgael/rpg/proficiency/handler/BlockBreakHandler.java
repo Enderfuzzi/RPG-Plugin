@@ -1,7 +1,8 @@
-package com.falgael.rpg.proficiency.items.blocks;
+package com.falgael.rpg.proficiency.handler;
 
-import com.falgael.rpg.proficiency.Utils;
+import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTools;
+import com.falgael.rpg.proficiency.blocks.BlockBreak;
 import org.bukkit.Bukkit;
 
 import org.bukkit.block.data.Ageable;
