@@ -12,7 +12,6 @@ import java.util.UUID;
 
 public class PlayerManager implements Listener {
 
-
     private static HashMap<UUID, PlayerExperience> proficiencyData = new HashMap<>();
 
     public static PlayerExperience getProficiencyData(UUID player) {

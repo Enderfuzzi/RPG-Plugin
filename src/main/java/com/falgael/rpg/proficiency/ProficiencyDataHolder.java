@@ -22,7 +22,7 @@ public class ProficiencyDataHolder {
     //--------------------------------------------------------------------------------------------
     // Names of all Proficiencies
     //--------------------------------------------------------------------------------------------
-    /** The name of the Woodwork ProficiencyType. Used for global identification */
+    /** The name of the Woodwork ProficiencyType. Used for global identification *
     public static final String WOODWORK_PROFICIENCY_NAME = "Woodwork";
 
 
@@ -30,13 +30,13 @@ public class ProficiencyDataHolder {
     //--------------------------------------------------------------------------------------------
     // Generally forbidden results to craft
     //--------------------------------------------------------------------------------------------
-    /** A list of general non-craft-able materials. Only adding of {@code Material} is allowed.*/
+    /** A list of general non-craft-able materials. Only adding of {@code Material} is allowed.*
     private static ArrayList<Material> generalForbiddenCraftingResult = new ArrayList<>();
 
     /**
      * Adds a non-existing {@code Material} to the list. materials which are already stored in list are not added again.
      * @param material The {@code Material} to add to list
-     */
+     *
     public static void addGeneralForbiddenCraftingResult(Material material) {
         if (material == null) return;
         if (isForbiddenCraftingResult(material)) return;
@@ -48,7 +48,7 @@ public class ProficiencyDataHolder {
      * Checks if the given {@code Material} is legal to craft.
      * @param material The {@code Material} to check
      * @return {@code True} if the Material is in the list
-     */
+     *
     public static boolean isForbiddenCraftingResult(Material material) {
         if (material == null) return false;
         return generalForbiddenCraftingResult.contains(material);
@@ -62,14 +62,14 @@ public class ProficiencyDataHolder {
 
     /**
      * List which contains each special items grouped by ProficiencyType.
-     */
+     *
     private static HashMap<String,HashMap<ItemStack, ItemConfiguration>> itemsOfAllProficiencies = new HashMap<>();
 
     /**
      * Adds a given List with the specified Key to the list. If the ProficiencyType is already registered nothing is added
      * @param key The representational name of the proficiency
      * @param list The list of {@code ItemStack} to add
-     */
+     *
     public static void addItemsToAllProficiencies(String key, HashMap<ItemStack, ItemConfiguration> list) {
         if (itemsOfAllProficiencies.containsKey(key)) return;
         itemsOfAllProficiencies.put(key,list);
@@ -83,7 +83,7 @@ public class ProficiencyDataHolder {
     /**
      * Provides a list with all items of all proficiency combined
      * @return The combined list of all items
-     */
+     *
     public static @NotNull HashMap<ItemStack,ItemConfiguration> getAllItemsByRepresentation() {
         HashMap<ItemStack, ItemConfiguration> result = new HashMap<>();
         for(HashMap<ItemStack, ItemConfiguration> list : itemsOfAllProficiencies.values()) {
@@ -96,7 +96,7 @@ public class ProficiencyDataHolder {
      * Provides a list of items by a specified proficiency
      * @param key The representational name of the proficiency
      * @return The list of items by the proficiency. If the proficiency does not exist return a empty list.
-     */
+     *
     public static HashMap<ItemStack,ItemConfiguration> getProficiencyItems(String key) {
         if (itemsOfAllProficiencies.containsKey(key)) return itemsOfAllProficiencies.get(key);
         return new HashMap<>();
@@ -138,6 +138,6 @@ public class ProficiencyDataHolder {
         return recipes.get(recipe);
     }
 
-
+    */
 
 }

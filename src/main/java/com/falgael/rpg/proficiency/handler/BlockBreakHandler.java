@@ -1,8 +1,9 @@
 package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.proficiency.general.Utils;
-import com.falgael.rpg.proficiency.items.CustomTools;
+import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.blocks.BlockBreak;
+import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
 
 import org.bukkit.block.data.Ageable;
@@ -38,11 +39,16 @@ public class BlockBreakHandler implements Listener {
         int droppedBlocks = 0;
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
-        CustomTools customTools = CustomTools.getItem(item);
-        Bukkit.getLogger().info("Custom Tool not found: " + customTools.isNone());
-        if (!customTools.isNone() && customTools.getProficiencyType() == block.getProficiency()) {
-                experienceAmount *= customTools.getItemConfiguration().getExperienceModifier();
-                droppedBlocks = customTools.getItemConfiguration().calculateDroppedBlocks();
+        CustomTool customTool = CustomTool.getItem(item);
+        Bukkit.getLogger().info("Custom Tool not found: " + customTool.isNone());
+        if (!customTool.isNone() && customTool.getProficiencyType() == block.getProficiency()) {
+
+            if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
+                BlockBreakEffect blockBreakEffect = customTool.getItemConfiguration().getBlockBreakEffect();
+                experienceAmount *= blockBreakEffect.getExperienceModifier();
+                droppedBlocks = blockBreakEffect.calculateDroppedBlocks();
+
+            }
         }
 
         if (droppedBlocks != 0) {

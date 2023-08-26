@@ -1,8 +1,9 @@
 package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.proficiency.general.Utils;
-import com.falgael.rpg.proficiency.items.CustomTools;
+import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.blocks.HarvestBlock;
+import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerHarvestBlockEvent;
@@ -21,10 +22,15 @@ public class HarvestBlockHandler implements Listener {
         int droppedBlocks = 0;
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
-        CustomTools customTools = CustomTools.getItem(item);
-        if (!customTools.isNone() && customTools.getProficiencyType() == block.getProficiency()) {
-            experienceAmount *= customTools.getItemConfiguration().getExperienceModifier();
-            droppedBlocks = customTools.getItemConfiguration().calculateDroppedBlocks();
+        CustomTool customTool = CustomTool.getItem(item);
+        if (!customTool.isNone() && customTool.getProficiencyType() == block.getProficiency()) {
+
+            if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
+                BlockBreakEffect blockBreakEffect = customTool.getItemConfiguration().getBlockBreakEffect();
+                experienceAmount *= blockBreakEffect.getExperienceModifier();
+                droppedBlocks = blockBreakEffect.calculateDroppedBlocks();
+
+            }
         }
 
         if (droppedBlocks != 0) {

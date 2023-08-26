@@ -1,6 +1,6 @@
 package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiency.blocks.CustomBlocks;
+import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.recipe.RecipeBuilder;
 import com.falgael.rpg.recipe.RecipeType;
 import org.bukkit.Material;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.Recipe;
 public enum CustomRecipe {
     // Note Loading these Recipes is placed in initializer
 
-    TEST(new RecipeBuilder(CustomBlocks.WOODWORK_COMPRESSED_OAK.getItem(), "TEST_Recipe", RecipeType.SHAPELESS)
+    TEST(new RecipeBuilder(CustomItem.WOODWORK_COMPRESSED_OAK.getItem(), "TEST_Recipe", RecipeType.SHAPELESS)
             .addIngredient(new ItemStack(Material.LIGHT, 64)).create()),
 
 

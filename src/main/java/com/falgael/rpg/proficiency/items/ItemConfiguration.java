@@ -1,8 +1,7 @@
 package com.falgael.rpg.proficiency.items;
 
-import org.bukkit.Bukkit;
-
-import java.util.UUID;
+import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
+import com.falgael.rpg.proficiency.items.effects.CustomPotionEffect;
 
 /**
  * Contains special information about an items.
@@ -11,65 +10,52 @@ import java.util.UUID;
  */
 public class ItemConfiguration {
 
-    private final String name;
-
     /** Indicates if the items has a block break effect */
     private boolean hasBlockBreakEffect;
-    /** The rate of items that should have been dropped. Has to be at least 1.0f */
-    private float blockBreakDropRate = 1.0f;
-    /** The experience multiplier */
-    private int experienceModifier = 1;
+
+    private BlockBreakEffect blockBreakEffect = null;
+
+    private boolean hasHeldEffect;
+
+    private CustomPotionEffect customPotionEffect;
 
 
     /** Creates a default configuration without special modification */
     public ItemConfiguration() {
-        name = UUID.randomUUID().toString();
-        hasBlockBreakEffect = false;
+        this(null,null);
     }
 
-    /**
-     * Creates a new configuration.
-     * @param experienceModifier The experience modifier
-     * @param blockBreakDropRate The rate of blocks dropping
-     */
-    public ItemConfiguration(String name, int experienceModifier, float blockBreakDropRate) {
-        this.name = name;
-        hasBlockBreakEffect = true;
-        this.blockBreakDropRate = Math.max(blockBreakDropRate, 1.0f);
-        this.experienceModifier = Math.max(experienceModifier, 1);
+    public ItemConfiguration(BlockBreakEffect blockBreakEffect) {
+        this(blockBreakEffect, null);
     }
 
-    public ItemConfiguration(String name) {
-        this(name, 1, 1.0f);
+    public ItemConfiguration(CustomPotionEffect customPotionEffect) {
+        this(null, customPotionEffect);
+    }
+
+    public ItemConfiguration(BlockBreakEffect blockBreakEffect, CustomPotionEffect customPotionEffect) {
+        hasBlockBreakEffect = blockBreakEffect != null;
+        hasHeldEffect = customPotionEffect != null;
+        this.blockBreakEffect = blockBreakEffect;
+        this.customPotionEffect = customPotionEffect;
+    }
+
+    public boolean hasBlockBreakEffect() {
+        return hasBlockBreakEffect;
+    }
+
+    public BlockBreakEffect getBlockBreakEffect() {
+        return blockBreakEffect;
+    }
+
+    public boolean hasCustomPotionEffect() {
+        return hasHeldEffect;
+    }
+
+    public CustomPotionEffect getCustomPotionEffect() {
+        return customPotionEffect;
     }
 
 
-    /**
-     * Calculates the amount of blocks been dropped. This works with special percentages.
-     * @return A full number of blocks influenced by the percentages
-     */
-    public int calculateDroppedBlocks() {
-        if (!hasBlockBreakEffect) return 1;
-        double value = (Math.random()) * Math.ceil(blockBreakDropRate);
-        Bukkit.getLogger().info("Item drop value is: " + value + " Ceil is: " + Math.ceil(blockBreakDropRate));
-        if (value > blockBreakDropRate) return (int) Math.ceil(blockBreakDropRate) - 1;
-        return (int) Math.floor(blockBreakDropRate) - 1;
-    }
-
-    /**
-     * @return The percentage of {@link ItemConfiguration#blockBreakDropRate}
-     */
-    public float getPercentageOfDroppedBlocks() {
-        return blockBreakDropRate - 1.0f;
-    }
-
-    /** @return the current experience Modifier */
-    public int getExperienceModifier() {
-        return experienceModifier;
-    }
-
-    public String getName() {
-        return name;
-    }
 
 }

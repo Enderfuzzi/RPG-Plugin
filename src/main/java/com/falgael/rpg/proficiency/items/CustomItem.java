@@ -1,4 +1,4 @@
-package com.falgael.rpg.proficiency.blocks;
+package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
@@ -8,7 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public enum CustomBlocks {
+public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     // Misc
     //--------------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@ public enum CustomBlocks {
 
     private final ProficiencyType type;
 
-    CustomBlocks(ProficiencyType type, ItemStack itemStack) {
+    CustomItem(ProficiencyType type, ItemStack itemStack) {
         this.type = type;
         this.itemStack = itemStack;
     }

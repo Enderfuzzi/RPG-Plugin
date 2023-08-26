@@ -1,7 +1,7 @@
 package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiency.blocks.CustomBlocks;
-import com.falgael.rpg.proficiency.items.CustomTools;
+import com.falgael.rpg.proficiency.items.CustomItem;
+import com.falgael.rpg.proficiency.items.CustomTool;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -12,12 +12,12 @@ public class TestHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        for (CustomTools customTools : CustomTools.values()) {
-            event.getPlayer().getInventory().addItem(customTools.getItem());
+        for (CustomTool customTool : CustomTool.values()) {
+            event.getPlayer().getInventory().addItem(customTool.getItem());
         }
 
-        for (CustomBlocks customBlocks : CustomBlocks.values()) {
-            event.getPlayer().getInventory().addItem(customBlocks.getItem());
+        for (CustomItem customItem : CustomItem.values()) {
+            event.getPlayer().getInventory().addItem(customItem.getItem());
         }
     }
 

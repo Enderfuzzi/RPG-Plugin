@@ -2,8 +2,8 @@ package com.falgael.rpg.villager;
 
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
-import com.falgael.rpg.proficiency.blocks.CustomBlocks;
-import com.falgael.rpg.proficiency.items.CustomTools;
+import com.falgael.rpg.proficiency.items.CustomItem;
+import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.recipe.MerchantRecipeBuilder;
 import org.bukkit.Bukkit;
@@ -27,15 +27,15 @@ public enum CustomVillager {
 
     MISC_TIER_I(ProficiencyType.MISC.getName() + "_TIER_I", ProficiencyType.MISC,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyType.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
                     .create(), 0),
 
@@ -46,66 +46,66 @@ public enum CustomVillager {
 
     WOODWORK_TIER_I(ProficiencyType.WOODWORK.getName() + "_TIER_I", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), org.bukkit.entity.Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_COMMON_AXE.getItem()).addIngredients(CustomTools.WOODWORK_SIMPLE_AXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_COMMON_AXE.getItem()).addIngredients(CustomTool.WOODWORK_SIMPLE_AXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),4)).create())
                     .create(),1),
     WOODWORK_TIER_II(ProficiencyType.WOODWORK.getName() + "_TIER_II", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.COMMON.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_ADVANCED_AXE.getItem()).addIngredients(CustomTools.WOODWORK_COMMON_AXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ADVANCED_AXE.getItem()).addIngredients(CustomTool.WOODWORK_COMMON_AXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),32)).create())
                     .create(), 5),
 
     WOODWORK_TIER_III(ProficiencyType.WOODWORK.getName() + "_TIER_III", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(CustomBlocks.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_ELITE_AXE.getItem()).addIngredients(CustomTools.WOODWORK_ADVANCED_AXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ELITE_AXE.getItem()).addIngredients(CustomTool.WOODWORK_ADVANCED_AXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),8)).create())
             .create(), 10),
 
     WOODWORK_TIER_IV(ProficiencyType.WOODWORK.getName() + "_TIER_IV", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ELITE.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_EPIC_AXE.getItem()).addIngredients(CustomTools.WOODWORK_ELITE_AXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_EPIC_AXE.getItem()).addIngredients(CustomTool.WOODWORK_ELITE_AXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),
 
     WOODWORK_TIER_V(ProficiencyType.WOODWORK.getName() + "_TIER_V", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.EPIC.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTools.WOODWORK_EPIC_AXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTool.WOODWORK_EPIC_AXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),64)).create())
                     .create(), 40),
 
     WOODWORK_TIER_VI(ProficiencyType.WOODWORK.getName() + "_TIER_VI", ProficiencyType.WOODWORK,
@@ -121,41 +121,41 @@ public enum CustomVillager {
 
     STONEWORK_TIER_I(ProficiencyType.STONEWORK.getName() + "_TIER_I", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.STONEWORK),Villager.Profession.TOOLSMITH)
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomBlocks.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.STONE, 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.STONE, 32)).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_COMMON_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_SIMPLE_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_COMMON_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_SIMPLE_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),4)).create())
 
                     .create(), 1),
 
     STONEWORK_TIER_II(ProficiencyType.STONEWORK.getName() + "_TIER_II", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_COMMON_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_COMMON_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),32)).create())
 
                     .create(), 5),
 
     STONEWORK_TIER_III(ProficiencyType.STONEWORK.getName() + "_TIER_III", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ADVANCED_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),8)).create())
                     .create(), 10),
 
     STONEWORK_TIER_IV(ProficiencyType.STONEWORK.getName() + "_TIER_IV", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_ELITE_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ELITE_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),
 
     STONEWORK_TIER_V(ProficiencyType.STONEWORK.getName() + "_TIER_V", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.STONEWORK_LEGENDARY_PICKAXE.getItem()).addIngredients(CustomTools.STONEWORK_EPIC_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_GOLD_NUGGET.getItem(),64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_LEGENDARY_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_EPIC_PICKAXE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),64)).create())
                     .create(), 40),
 
     STONEWORK_TIER_VI(ProficiencyType.STONEWORK.getName() + "_TIER_VI", ProficiencyType.STONEWORK,
@@ -170,8 +170,8 @@ public enum CustomVillager {
 
     FARMING_TIER_I(ProficiencyType.FARMING.getName() + "_TIER_I", ProficiencyType.FARMING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.FARMING), Villager.Profession.FARMER)
-                    .addRecipe(new MerchantRecipeBuilder(CustomTools.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTools.FARMING_SIMPLE_HOE.getItem())
-                            .addIngredients(Utils.modifyAmount(CustomBlocks.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTool.FARMING_SIMPLE_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
 
                     .create(), 1),
 

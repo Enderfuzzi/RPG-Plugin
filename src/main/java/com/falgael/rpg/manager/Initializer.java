@@ -1,6 +1,7 @@
 package com.falgael.rpg.manager;
 
 import com.falgael.rpg.proficiency.CustomRecipe;
+import com.falgael.rpg.proficiency.handler.ItemHeldHandler;
 import org.bukkit.Bukkit;
 
 /**
@@ -9,16 +10,11 @@ import org.bukkit.Bukkit;
  * @version 0.0.1
  */
 public class Initializer {
-    /** indicates if initialized was already used */
-    private static boolean initialized = false;
 
     /** Calls each registered initializer. This Function can only be called once*/
     public static void initialize() {
-        if (initialized) {
-            Bukkit.getLogger().warning("[" + Initializer.class.getSimpleName() + "]: try to call the initialization more than once");
-            return;
-        }
         DataStoreManagement.initialize();
+        ItemHeldHandler.startCheck();
 
         loadRecipes();
     }

@@ -1,14 +1,14 @@
 package com.falgael.rpg.proficiency;
 
-import com.falgael.rpg.proficiency.blocks.CustomBlocks;
+import com.falgael.rpg.proficiency.items.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public enum ForbiddenCrafting {
 
     NONE(Material.AIR, new ItemStack(Material.AIR)),
-    COMPRESSED_OAK_WOOD(Material.AIR, CustomBlocks.WOODWORK_COMPRESSED_OAK.getItem()),
-    COMPRESSED_STONE(Material.AIR, CustomBlocks.STONEWORK_COMPRESSED_STONE.getItem()),
+    COMPRESSED_OAK_WOOD(Material.AIR, CustomItem.WOODWORK_COMPRESSED_OAK.getItem()),
+    COMPRESSED_STONE(Material.AIR, CustomItem.STONEWORK_COMPRESSED_STONE.getItem()),
 
     ;
     private final ItemStack result;
