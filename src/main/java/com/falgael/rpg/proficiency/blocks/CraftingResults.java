@@ -23,8 +23,8 @@ public enum CraftingResults {
     ACACIA_TRAPDOOR(ProficiencyType.WOODWORK, Material.ACACIA_TRAPDOOR,4, InventoryType.WORKBENCH),
     ACACIA_BUTTON(ProficiencyType.WOODWORK, Material.ACACIA_BUTTON,1, InventoryType.WORKBENCH),
     ACACIA_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.ACACIA_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    ACACIA_BOAT(ProficiencyType.WOODWORK, Material.ACACIA_BOAT,1, InventoryType.WORKBENCH),
-    ACACIA_CHEST_BOAT(ProficiencyType.WOODWORK, Material.ACACIA_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    ACACIA_BOAT(ProficiencyType.WOODWORK, Material.ACACIA_BOAT,5, InventoryType.WORKBENCH),
+    ACACIA_CHEST_BOAT(ProficiencyType.WOODWORK, Material.ACACIA_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
 
     BAMBOO_PLANKS(ProficiencyType.WOODWORK, Material.BAMBOO_PLANKS,4, InventoryType.WORKBENCH),
@@ -38,6 +38,9 @@ public enum CraftingResults {
     BAMBOO_TRAPDOOR(ProficiencyType.WOODWORK, Material.BAMBOO_TRAPDOOR,4, InventoryType.WORKBENCH),
     BAMBOO_BUTTON(ProficiencyType.WOODWORK, Material.BAMBOO_BUTTON,1, InventoryType.WORKBENCH),
     BAMBOO_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.BAMBOO_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
+    BAMBOO_MOSAIC(ProficiencyType.WOODWORK,Material.BAMBOO_MOSAIC,2, InventoryType.WORKBENCH),
+    BAMBOO_MOSAIC_SLAB(ProficiencyType.WOODWORK,Material.BAMBOO_MOSAIC_SLAB,3, InventoryType.WORKBENCH),
+    BAMBOO_MOSAIC_STAIRS(ProficiencyType.WOODWORK,Material.BAMBOO_MOSAIC_STAIRS,6, InventoryType.WORKBENCH),
 
 
     BIRCH_PLANKS(ProficiencyType.WOODWORK, Material.BIRCH_PLANKS,4,InventoryType.WORKBENCH),
@@ -51,8 +54,8 @@ public enum CraftingResults {
     BIRCH_TRAPDOOR(ProficiencyType.WOODWORK, Material.BIRCH_TRAPDOOR,4, InventoryType.WORKBENCH),
     BIRCH_BUTTON(ProficiencyType.WOODWORK, Material.BIRCH_BUTTON,1, InventoryType.WORKBENCH),
     BIRCH_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.BIRCH_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    BIRCH_BOAT(ProficiencyType.WOODWORK, Material.BIRCH_BOAT,1, InventoryType.WORKBENCH),
-    BIRCH_CHEST_BOAT(ProficiencyType.WOODWORK, Material.BIRCH_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    BIRCH_BOAT(ProficiencyType.WOODWORK, Material.BIRCH_BOAT,5, InventoryType.WORKBENCH),
+    BIRCH_CHEST_BOAT(ProficiencyType.WOODWORK, Material.BIRCH_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     CHERRY_PLANKS(ProficiencyType.WOODWORK, Material.CHERRY_PLANKS, 4, InventoryType.WORKBENCH),
     CHERRY_SLAB(ProficiencyType.WOODWORK, Material.CHERRY_SLAB,3, InventoryType.WORKBENCH),
@@ -65,8 +68,8 @@ public enum CraftingResults {
     CHERRY_TRAPDOOR(ProficiencyType.WOODWORK, Material.CHERRY_TRAPDOOR,4, InventoryType.WORKBENCH),
     CHERRY_BUTTON(ProficiencyType.WOODWORK, Material.CHERRY_BUTTON,1, InventoryType.WORKBENCH),
     CHERRY_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.CHERRY_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    CHERRY_BOAT(ProficiencyType.WOODWORK, Material.CHERRY_BOAT,1, InventoryType.WORKBENCH),
-    CHERRY_CHEST_BOAT(ProficiencyType.WOODWORK, Material.CHERRY_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    CHERRY_BOAT(ProficiencyType.WOODWORK, Material.CHERRY_BOAT,5, InventoryType.WORKBENCH),
+    CHERRY_CHEST_BOAT(ProficiencyType.WOODWORK, Material.CHERRY_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     CRIMSON_PLANKS(ProficiencyType.WOODWORK, Material.CRIMSON_PLANKS,4, InventoryType.WORKBENCH),
     CRIMSON_SLAB(ProficiencyType.WOODWORK, Material.CRIMSON_SLAB,3, InventoryType.WORKBENCH),
@@ -77,8 +80,8 @@ public enum CraftingResults {
     CRIMSON_HANGING_SIGN(ProficiencyType.WOODWORK, Material.CRIMSON_HANGING_SIGN,12, InventoryType.WORKBENCH),
     CRIMSON_DOOR(ProficiencyType.WOODWORK, Material.CRIMSON_DOOR,4, InventoryType.WORKBENCH),
     CRIMSON_TRAPDOOR(ProficiencyType.WOODWORK, Material.CRIMSON_TRAPDOOR,4, InventoryType.WORKBENCH),
-    CRIMSON_BUTTON(ProficiencyType.WOODWORK, Material.CRIMSON_BUTTON,1, InventoryType.WORKBENCH),
-    CRIMSON_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.CRIMSON_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
+    CRIMSON_BUTTON(ProficiencyType.WOODWORK, Material.CRIMSON_BUTTON,5, InventoryType.WORKBENCH),
+    CRIMSON_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.CRIMSON_PRESSURE_PLATE,2, InventoryType.WORKBENCH),
 
 
     DARK_OAK_PLANKS(ProficiencyType.WOODWORK, Material.DARK_OAK_PLANKS,4, InventoryType.WORKBENCH),
@@ -92,8 +95,8 @@ public enum CraftingResults {
     DARK_OAK_TRAPDOOR(ProficiencyType.WOODWORK, Material.DARK_OAK_TRAPDOOR,4, InventoryType.WORKBENCH),
     DARK_OAK_BUTTON(ProficiencyType.WOODWORK, Material.DARK_OAK_BUTTON,1, InventoryType.WORKBENCH),
     DARK_OAK_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.DARK_OAK_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    DARK_OAK_BOAT(ProficiencyType.WOODWORK, Material.DARK_OAK_BOAT,1, InventoryType.WORKBENCH),
-    DARK_OAK_CHEST_BOAT(ProficiencyType.WOODWORK, Material.DARK_OAK_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    DARK_OAK_BOAT(ProficiencyType.WOODWORK, Material.DARK_OAK_BOAT,5, InventoryType.WORKBENCH),
+    DARK_OAK_CHEST_BOAT(ProficiencyType.WOODWORK, Material.DARK_OAK_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
 
     JUNGLE_PLANKS(ProficiencyType.WOODWORK, Material.JUNGLE_PLANKS,4, InventoryType.WORKBENCH),
@@ -107,8 +110,8 @@ public enum CraftingResults {
     JUNGLE_TRAPDOOR(ProficiencyType.WOODWORK, Material.JUNGLE_TRAPDOOR,4, InventoryType.WORKBENCH),
     JUNGLE_BUTTON(ProficiencyType.WOODWORK, Material.JUNGLE_BUTTON,1, InventoryType.WORKBENCH),
     JUNGLE_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.JUNGLE_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    JUNGLE_BOAT(ProficiencyType.WOODWORK, Material.JUNGLE_BOAT,1, InventoryType.WORKBENCH),
-    JUNGLE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.JUNGLE_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    JUNGLE_BOAT(ProficiencyType.WOODWORK, Material.JUNGLE_BOAT,5, InventoryType.WORKBENCH),
+    JUNGLE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.JUNGLE_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     MANGROVE_PLANKS(ProficiencyType.WOODWORK, Material.MANGROVE_PLANKS, 4, InventoryType.WORKBENCH),
     MANGROVE_SLAB(ProficiencyType.WOODWORK, Material.MANGROVE_SLAB,3, InventoryType.WORKBENCH),
@@ -121,8 +124,8 @@ public enum CraftingResults {
     MANGROVE_TRAPDOOR(ProficiencyType.WOODWORK, Material.MANGROVE_TRAPDOOR,4, InventoryType.WORKBENCH),
     MANGROVE_BUTTON(ProficiencyType.WOODWORK, Material.MANGROVE_BUTTON,1, InventoryType.WORKBENCH),
     MANGROVE_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.MANGROVE_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    MANGROVE_BOAT(ProficiencyType.WOODWORK, Material.MANGROVE_BOAT,1, InventoryType.WORKBENCH),
-    MANGROVE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.MANGROVE_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    MANGROVE_BOAT(ProficiencyType.WOODWORK, Material.MANGROVE_BOAT,5, InventoryType.WORKBENCH),
+    MANGROVE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.MANGROVE_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
 
     OAK_PLANKS(ProficiencyType.WOODWORK,Material.OAK_PLANKS,4,InventoryType.WORKBENCH),
@@ -136,8 +139,8 @@ public enum CraftingResults {
     OAK_TRAPDOOR(ProficiencyType.WOODWORK, Material.OAK_TRAPDOOR,4, InventoryType.WORKBENCH),
     OAK_BUTTON(ProficiencyType.WOODWORK, Material.OAK_BUTTON,1, InventoryType.WORKBENCH),
     OAK_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.OAK_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    OAK_BOAT(ProficiencyType.WOODWORK, Material.OAK_BOAT,1, InventoryType.WORKBENCH),
-    OAK_CHEST_BOAT(ProficiencyType.WOODWORK, Material.OAK_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    OAK_BOAT(ProficiencyType.WOODWORK, Material.OAK_BOAT,5, InventoryType.WORKBENCH),
+    OAK_CHEST_BOAT(ProficiencyType.WOODWORK, Material.OAK_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
 
     SPRUCE_PLANKS(ProficiencyType.WOODWORK, Material.SPRUCE_PLANKS, 4, InventoryType.WORKBENCH),
@@ -151,8 +154,8 @@ public enum CraftingResults {
     SPRUCE_TRAPDOOR(ProficiencyType.WOODWORK, Material.SPRUCE_TRAPDOOR,4, InventoryType.WORKBENCH),
     SPRUCE_BUTTON(ProficiencyType.WOODWORK, Material.SPRUCE_BUTTON,1, InventoryType.WORKBENCH),
     SPRUCE_PRESSURE_PLATE(ProficiencyType.WOODWORK, Material.SPRUCE_PRESSURE_PLATE,1, InventoryType.WORKBENCH),
-    SPRUCE_BOAT(ProficiencyType.WOODWORK, Material.SPRUCE_BOAT,1, InventoryType.WORKBENCH),
-    SPRUCE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.SPRUCE_CHEST_BOAT,1, InventoryType.WORKBENCH),
+    SPRUCE_BOAT(ProficiencyType.WOODWORK, Material.SPRUCE_BOAT,5, InventoryType.WORKBENCH),
+    SPRUCE_CHEST_BOAT(ProficiencyType.WOODWORK, Material.SPRUCE_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     WARPED_PLANKS(ProficiencyType.WOODWORK, Material.WARPED_PLANKS, 4, InventoryType.WORKBENCH),
     WARPED_SLAB(ProficiencyType.WOODWORK, Material.WARPED_SLAB,3, InventoryType.WORKBENCH),
@@ -170,6 +173,12 @@ public enum CraftingResults {
 
     CRAFTING_TABLE(ProficiencyType.WOODWORK, Material.CRAFTING_TABLE, 4, InventoryType.WORKBENCH),
     STICK(ProficiencyType.WOODWORK, Material.STICK,1, InventoryType.WORKBENCH),
+    SCAFFOLDING(ProficiencyType.WOODWORK, Material.SCAFFOLDING,8, InventoryType.WORKBENCH),
+
+    CHEST(ProficiencyType.WOODWORK, Material.CHEST,8, InventoryType.WORKBENCH),
+    TRAPPED_CHEST(ProficiencyType.WOODWORK, Material.TRAPPED_CHEST,8, InventoryType.WORKBENCH),
+    BARREL(ProficiencyType.WOODWORK, Material.BARREL, 8, InventoryType.WORKBENCH),
+
 
     //--------------------------------------------------------------------------------------------
     // STONEWORK
