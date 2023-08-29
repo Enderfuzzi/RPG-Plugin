@@ -192,14 +192,10 @@ public enum BlockBreak {
     }
 
     public boolean ageable() {
-        switch (this) {
-            case WHEAT:
-            case CARROT:
-            case POTATO:
-            case BEETROOT:
-            case NETHER_WART: return true;
-            default: return false;
-        }
+        return switch (this) {
+            case WHEAT, CARROT, POTATO, BEETROOT, NETHER_WART -> true;
+            default -> false;
+        };
     }
 
 
