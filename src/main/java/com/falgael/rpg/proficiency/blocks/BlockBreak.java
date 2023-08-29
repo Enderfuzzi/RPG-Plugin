@@ -79,6 +79,11 @@ public enum BlockBreak {
 
     STONE(ProficiencyType.STONEWORK, Material.STONE, 1),
     COBBLESTONE(ProficiencyType.STONEWORK, Material.COBBLESTONE, 1),
+    ANDESITE(ProficiencyType.STONEWORK, Material.ANDESITE,3),
+    GRANITE(ProficiencyType.STONEWORK, Material.GRANITE,3),
+    DIORITE(ProficiencyType.STONEWORK, Material.DIORITE,3),
+
+
 
     COBBLED_DEEPSLATE(ProficiencyType.STONEWORK, Material.DEEPSLATE,3),
     COAL_ORE(ProficiencyType.STONEWORK, Material.COAL_ORE,2),
@@ -105,6 +110,7 @@ public enum BlockBreak {
 
     SAND(ProficiencyType.STONEWORK, Material.SAND,1),
     GRAVEL(ProficiencyType.STONEWORK, Material.GRAVEL,1),
+    TUFF(ProficiencyType.STONEWORK, Material.TUFF, 1),
 
     NETHERRACK(ProficiencyType.STONEWORK, Material.NETHERRACK, 1),
     SOUL_SAND(ProficiencyType.STONEWORK, Material.SOUL_SAND,2),
