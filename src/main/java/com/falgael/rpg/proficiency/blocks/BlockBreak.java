@@ -79,20 +79,38 @@ public enum BlockBreak {
 
     STONE(ProficiencyType.STONEWORK, Material.STONE, 1),
     COBBLESTONE(ProficiencyType.STONEWORK, Material.COBBLESTONE, 1),
+
     COBBLED_DEEPSLATE(ProficiencyType.STONEWORK, Material.DEEPSLATE,3),
     COAL_ORE(ProficiencyType.STONEWORK, Material.COAL_ORE,2),
+    DEEPSLATE_COAL_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_COAL_ORE,3),
     COPPER_ORE(ProficiencyType.STONEWORK, Material.COPPER_ORE, 1),
+    DEEPSLATE_COPPER_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_COPPER_ORE,2),
     IRON_ORE(ProficiencyType.STONEWORK, Material.IRON_ORE,3),
+    DEEPSLATE_IRON_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_IRON_ORE,4),
     GOLD_ORE(ProficiencyType.STONEWORK, Material.GOLD_ORE, 5),
+    DEEPSLATE_GOLD_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_GOLD_ORE,6),
     REDSTONE_ORE(ProficiencyType.STONEWORK, Material.REDSTONE_ORE, 5),
+    DEEPSLATE_REDSTONE_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_REDSTONE_ORE,6),
     DIAMOND_ORE(ProficiencyType.STONEWORK, Material.DIAMOND_ORE, 10),
+    DEEPSLATE_DIAMOND_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_DIAMOND_ORE,11),
     EMERALD_ORE(ProficiencyType.STONEWORK, Material.EMERALD_ORE,10),
+    DEEPSLATE_EMERALD_ORE(ProficiencyType.STONEWORK, Material.DEEPSLATE_EMERALD_ORE,11),
+
+
     ANCIENT_DEBRIS(ProficiencyType.STONEWORK, Material.ANCIENT_DEBRIS, 20),
 
 
+    OBSIDIAN(ProficiencyType.STONEWORK, Material.OBSIDIAN,15),
+    END_STONE(ProficiencyType.STONEWORK, Material.END_STONE,5),
 
     SAND(ProficiencyType.STONEWORK, Material.SAND,1),
     GRAVEL(ProficiencyType.STONEWORK, Material.GRAVEL,1),
+
+    NETHERRACK(ProficiencyType.STONEWORK, Material.NETHERRACK, 1),
+    SOUL_SAND(ProficiencyType.STONEWORK, Material.SOUL_SAND,2),
+    SOUL_SOIL(ProficiencyType.STONEWORK, Material.SOUL_SOIL,2),
+    BASALT(ProficiencyType.STONEWORK, Material.BASALT, 2),
+
 
     //--------------------------------------------------------------------------------------------
     // Farming
