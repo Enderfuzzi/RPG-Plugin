@@ -184,6 +184,17 @@ public enum CraftingResults {
     // STONEWORK
     //--------------------------------------------------------------------------------------------
 
+    COBBLESTONE_SLAB(ProficiencyType.STONEWORK, Material.COBBLESTONE_SLAB, 3,InventoryType.WORKBENCH),
+    COBBLESTONE_STAIRS(ProficiencyType.STONEWORK, Material.COBBLESTONE_STAIRS, 6, InventoryType.WORKBENCH),
+
+
+
+
+    FURNACE(ProficiencyType.STONEWORK, Material.FURNACE, 8, InventoryType.WORKBENCH),
+    DROPPER(ProficiencyType.STONEWORK, Material.DROPPER, 16, InventoryType.WORKBENCH),
+    DISPENSER(ProficiencyType.STONEWORK, Material.DISPENSER,16, InventoryType.WORKBENCH),
+    OBSERVER(ProficiencyType.STONEWORK, Material.OBSERVER,16, InventoryType.WORKBENCH),
+    PISTON(ProficiencyType.STONEWORK, Material.PISTON, 8, InventoryType.WORKBENCH),
 
     ;
 
