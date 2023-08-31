@@ -81,7 +81,7 @@ public enum CustomVillager {
     WOODWORK_TIER_III(ProficiencyType.WOODWORK.getName() + "_TIER_III", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
@@ -91,6 +91,7 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_SHEARS.getItem()).addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 24)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ELITE_AXE.getItem()).addIngredients(CustomTool.WOODWORK_ADVANCED_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),8)).create())
             .create(), 10),
@@ -98,6 +99,7 @@ public enum CustomVillager {
     WOODWORK_TIER_IV(ProficiencyType.WOODWORK.getName() + "_TIER_IV", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ELITE.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BIRCH_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CHERRY_LOG,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CRIMSON_STEM,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
@@ -113,6 +115,15 @@ public enum CustomVillager {
 
     WOODWORK_TIER_V(ProficiencyType.WOODWORK.getName() + "_TIER_V", ProficiencyType.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.EPIC.getRepresentation() + ProficiencyType.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART_BLOCK,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LEAVES,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_WART_BLOCK,64)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTool.WOODWORK_EPIC_AXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),64)).create())

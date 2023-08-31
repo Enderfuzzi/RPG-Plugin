@@ -72,6 +72,10 @@ public enum CustomTool {
             .addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
             new ItemConfiguration(new BlockBreakEffect(6,7.0f))),
 
+    WOODWORK_SHEARS(ProficiencyType.WOODWORK, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
+            .addProficiency(ProficiencyType.WOODWORK).addLore("Harvest Leaves").create(), new ItemConfiguration(new CustomPotionEffect.CustomPotionEffectBuilder(EquipmentSlot.HAND)
+            .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,0,true,false)).create())),
+
 
     //--------------------------------------------------------------------------------------------
     // Stonework
@@ -237,8 +241,8 @@ public enum CustomTool {
             if (!keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
 
             if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
-            if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
-            if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
+            //if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
+            //if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
             return customTool;
         }
         return NONE;

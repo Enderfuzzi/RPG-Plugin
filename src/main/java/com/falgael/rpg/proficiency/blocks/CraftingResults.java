@@ -172,12 +172,20 @@ public enum CraftingResults {
 
 
     CRAFTING_TABLE(ProficiencyType.WOODWORK, Material.CRAFTING_TABLE, 4, InventoryType.WORKBENCH),
+    CARTOGRAPHY_TABLE(ProficiencyType.WOODWORK, Material.CARTOGRAPHY_TABLE, 4, InventoryType.WORKBENCH),
+    FLETCHING_TABLE(ProficiencyType.WOODWORK, Material.FLETCHING_TABLE,4, InventoryType.WORKBENCH),
+    LOOM(ProficiencyType.WOODWORK, Material.LOOM, 4, InventoryType.WORKBENCH),
+
     STICK(ProficiencyType.WOODWORK, Material.STICK,1, InventoryType.WORKBENCH),
     SCAFFOLDING(ProficiencyType.WOODWORK, Material.SCAFFOLDING,8, InventoryType.WORKBENCH),
+    CHISELED_BOOKSHELF(ProficiencyType.WOODWORK, Material.CHISELED_BOOKSHELF,8, InventoryType.WORKBENCH),
+    BOOKSHELF(ProficiencyType.WOODWORK,Material.BOOKSHELF,6, InventoryType.WORKBENCH),
+    JUKEBOX(ProficiencyType.WOODWORK, Material.JUKEBOX, 16, InventoryType.WORKBENCH),
 
     CHEST(ProficiencyType.WOODWORK, Material.CHEST,8, InventoryType.WORKBENCH),
     TRAPPED_CHEST(ProficiencyType.WOODWORK, Material.TRAPPED_CHEST,8, InventoryType.WORKBENCH),
     BARREL(ProficiencyType.WOODWORK, Material.BARREL, 8, InventoryType.WORKBENCH),
+    BOWL(ProficiencyType.WOODWORK, Material.BOWL,3, InventoryType.WORKBENCH),
 
 
     //--------------------------------------------------------------------------------------------
