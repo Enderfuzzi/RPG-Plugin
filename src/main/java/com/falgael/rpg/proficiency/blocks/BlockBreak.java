@@ -109,8 +109,10 @@ public enum BlockBreak {
     END_STONE(ProficiencyType.STONEWORK, Material.END_STONE,5),
 
     SAND(ProficiencyType.STONEWORK, Material.SAND,1),
+    RED_SAND(ProficiencyType.STONEWORK, Material.RED_SAND, 1),
     GRAVEL(ProficiencyType.STONEWORK, Material.GRAVEL,1),
     TUFF(ProficiencyType.STONEWORK, Material.TUFF, 1),
+    CLAY(ProficiencyType.STONEWORK, Material.CLAY, 1),
 
     NETHERRACK(ProficiencyType.STONEWORK, Material.NETHERRACK, 1),
     SOUL_SAND(ProficiencyType.STONEWORK, Material.SOUL_SAND,2),

@@ -192,11 +192,31 @@ public enum CraftingResults {
     // STONEWORK
     //--------------------------------------------------------------------------------------------
 
-    COBBLESTONE_SLAB(ProficiencyType.STONEWORK, Material.COBBLESTONE_SLAB, 3,InventoryType.WORKBENCH),
-    COBBLESTONE_STAIRS(ProficiencyType.STONEWORK, Material.COBBLESTONE_STAIRS, 6, InventoryType.WORKBENCH),
+    MOSSY_COBBLESTONE(ProficiencyType.STONEWORK, Material.MOSSY_COBBLESTONE, 2, InventoryType.WORKBENCH),
 
+    ANDESITE(ProficiencyType.STONEWORK, Material.ANDESITE, 4, InventoryType.WORKBENCH),
+    DIORITE(ProficiencyType.STONEWORK, Material.DIORITE, 4, InventoryType.WORKBENCH),
+    GRANITE(ProficiencyType.STONEWORK, Material.GRANITE, 4, InventoryType.WORKBENCH),
 
+    BRICKS(ProficiencyType.STONEWORK, Material.BRICKS, 8, InventoryType.WORKBENCH),
+    QUARTZ_BLOCK(ProficiencyType.STONEWORK, Material.QUARTZ_BLOCK, 8, InventoryType.WORKBENCH),
 
+    WHITE_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.WHITE_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    ORANGE_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.ORANGE_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    MAGENTA_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.MAGENTA_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    LIGHT_BLUE_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.LIGHT_BLUE_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    YELLOW_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.YELLOW_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    LIME_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.LIME_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    PINK_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.PINK_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    GRAY_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.GRAY_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    LIGHT_GRAY_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.LIGHT_GRAY_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    CYAN_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.CYAN_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    PURPLE_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.PURPLE_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    BLUE_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.BLUE_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    BROWN_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.BROWN_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    GREEN_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.GREEN_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    RED_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.RED_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
+    BLACK_CONCRETE_POWDER(ProficiencyType.STONEWORK, Material.BLACK_CONCRETE_POWDER,8,InventoryType.WORKBENCH),
 
     FURNACE(ProficiencyType.STONEWORK, Material.FURNACE, 8, InventoryType.WORKBENCH),
     DROPPER(ProficiencyType.STONEWORK, Material.DROPPER, 16, InventoryType.WORKBENCH),
