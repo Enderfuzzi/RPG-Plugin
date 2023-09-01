@@ -146,6 +146,8 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.STONE, 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.SAND, 64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.RED_SAND, 64)).create())
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_COMMON_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_SIMPLE_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),4)).create())
@@ -154,6 +156,11 @@ public enum CustomVillager {
 
     STONEWORK_TIER_II(ProficiencyType.STONEWORK.getName() + "_TIER_II", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.IRON_INGOT, 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COPPER_INGOT, 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.GOLD_INGOT, 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.LAPIS_LAZULI, 16)).create())
+
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_COMMON_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(),32)).create())
@@ -162,6 +169,12 @@ public enum CustomVillager {
 
     STONEWORK_TIER_III(ProficiencyType.STONEWORK.getName() + "_TIER_III", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COAL,32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.IRON_INGOT,8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COPPER_INGOT,8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GOLD_INGOT,4)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LAPIS_LAZULI,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),8)).create())
