@@ -29,6 +29,7 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new HarvestBlockHandler(), this);
         Bukkit.getPluginManager().registerEvents(new TestHandler(), this);
         Bukkit.getPluginManager().registerEvents(new ItemHeldHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new ItemBurnHandler(), this);
 
 
         for (CustomCommand command : CustomCommand.values()) {
