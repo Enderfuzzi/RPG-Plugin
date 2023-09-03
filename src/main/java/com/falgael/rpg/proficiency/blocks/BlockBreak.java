@@ -139,12 +139,42 @@ public enum BlockBreak {
     BROWN_MUSHROOM_BLOCK(ProficiencyType.FARMING, Material.BROWN_MUSHROOM_BLOCK,4),
     RED_MUSHROOM_BLOCK(ProficiencyType.FARMING, Material.RED_MUSHROOM_BLOCK,4),
     MUSHROOM_STEM(ProficiencyType.FARMING, Material.MUSHROOM_STEM, 3),
+    CRIMSON_FUNGUS(ProficiencyType.FARMING, Material.CRIMSON_FUNGUS, 6),
+    WARPED_FUNGUS(ProficiencyType.FARMING, Material.WARPED_FUNGUS, 6),
+
 
     TORCH_FLOWER(ProficiencyType.FARMING, Material.TORCHFLOWER, 3),
+    SUNFLOWER(ProficiencyType.FARMING, Material.SUNFLOWER,2),
+    CORN_FLOWER(ProficiencyType.FARMING, Material.CORNFLOWER, 2),
+    AZALEA(ProficiencyType.FARMING,Material.AZALEA, 2),
+    FLOWERING_AZALEA(ProficiencyType.FARMING, Material.FLOWERING_AZALEA, 4),
 
-    NETHER_WART(ProficiencyType.FARMING, Material.NETHER_WART,3),
-    CHORUS_PLANT(ProficiencyType.FARMING, Material.CHORUS_PLANT, 5),
-    CHORUS_FLOWER(ProficiencyType.FARMING, Material.CHORUS_FLOWER, 5),
+    DANDELION(ProficiencyType.FARMING, Material.DANDELION, 1),
+    POPPY(ProficiencyType.FARMING, Material.POPPY,1),
+    BLUE_ORCHID(ProficiencyType.FARMING, Material.BLUE_ORCHID,1),
+    ALLIUM(ProficiencyType.FARMING, Material.ALLIUM,1),
+    AZURE_BLUET(ProficiencyType.FARMING, Material.AZURE_BLUET,1),
+    RED_TULIP(ProficiencyType.FARMING, Material.RED_TULIP,1),
+    ORANGE_TULIP(ProficiencyType.FARMING, Material.ORANGE_TULIP, 1),
+    WHITE_TULIP(ProficiencyType.FARMING, Material.WHITE_TULIP, 1),
+    PINK_TULIP(ProficiencyType.FARMING, Material.PINK_TULIP,1),
+    OXEYE_DAISY(ProficiencyType.FARMING, Material.OXEYE_DAISY,1),
+    LILY_OF_THE_VALLEY(ProficiencyType.FARMING, Material.LILY_OF_THE_VALLEY, 1),
+    VINES(ProficiencyType.FARMING, Material.VINE,1),
+    TALL_GRASS(ProficiencyType.FARMING, Material.TALL_GRASS, 4),
+    LARGE_FERN(ProficiencyType.FARMING, Material.LARGE_FERN, 4),
+    LILAC(ProficiencyType.FARMING, Material.LILAC, 4),
+    ROSE_BUSH(ProficiencyType.FARMING, Material.ROSE_BUSH, 4),
+    PEONY(ProficiencyType.FARMING, Material.PEONY,4),
+    PITCHER_PLANT(ProficiencyType.FARMING, Material.PITCHER_PLANT,2),
+
+    SEA_PICKLE(ProficiencyType.FARMING, Material.SEA_PICKLE, 6),
+    KELP(ProficiencyType.FARMING, Material.KELP, 6),
+
+
+    NETHER_WART(ProficiencyType.FARMING, Material.NETHER_WART,6),
+    CHORUS_PLANT(ProficiencyType.FARMING, Material.CHORUS_PLANT, 10),
+    CHORUS_FLOWER(ProficiencyType.FARMING, Material.CHORUS_FLOWER, 10),
 
 
 

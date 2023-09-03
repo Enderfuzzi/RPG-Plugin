@@ -15,6 +15,8 @@ public enum HarvestBlock {
 
     SWEET_BERRIES(ProficiencyType.FARMING, Material.SWEET_BERRY_BUSH, 3),
 
+    HONEY(ProficiencyType.FARMING, Material.BEE_NEST,10),
+
     ;
     private static final HashMap<Material, HarvestBlock> LIST_OF_BLOCKS = new HashMap<>();
 
