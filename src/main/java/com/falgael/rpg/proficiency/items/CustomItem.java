@@ -35,7 +35,7 @@ public enum CustomItem {
     STONEWORK_COMPRESSED_STONE(ProficiencyType.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyType.STONEWORK).setCompressed(true).create()),
 
     STONEWORK_INFINITE_COAL(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted(true)
-            .addLore("Burning until end of time").setName("Infinite Fuel").create()),
+            .addBurnModifierLore("50% Burn Speed").addLore("Burning until end of time").setName("Infinite Fuel").create()),
 
 
     //--------------------------------------------------------------------------------------------
@@ -71,18 +71,12 @@ public enum CustomItem {
 
     public static boolean isStatOMeter(ItemStack heldItem) {
         if (heldItem == null) return false;
-        Bukkit.getLogger().info("Not NULL");
         ItemMeta heldItemMeta = heldItem.getItemMeta();
-        Bukkit.getLogger().info("held Item: " + heldItem.getType());
         if (!MISC_STAT_O_METER.getItem().getType().equals(heldItem.getType())) return false;
-        Bukkit.getLogger().info("Type is same");
         ItemMeta statItemMeta = MISC_STAT_O_METER.itemStack.getItemMeta();
         if (statItemMeta == null || heldItemMeta == null) return false;
-        Bukkit.getLogger().info("Stats not null");
         if (!statItemMeta.getDisplayName().equals(heldItemMeta.getDisplayName())) return false;
-        Bukkit.getLogger().info("Names Equal");
         if (!statItemMeta.isUnbreakable() || !heldItemMeta.isUnbreakable()) return false;
-        Bukkit.getLogger().info("Both unbreakable");
         return true;
     }
 

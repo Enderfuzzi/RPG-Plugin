@@ -67,14 +67,21 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder addExperienceModifierLore(String text) {
-        this.lore.add(ItemModifier.EXPERIENCE.getRepresentation() + text);
+    private ItemBuilder addLore(String text, ItemModifier modifier) {
+        this.lore.add(modifier.getRepresentation() + text);
         return this;
     }
 
+    public ItemBuilder addExperienceModifierLore(String text) {
+        return addLore(text, ItemModifier.EXPERIENCE);
+    }
+
     public ItemBuilder addLootModifierLore(String text) {
-        this.lore.add(ItemModifier.LOOT.getRepresentation() + text);
-        return this;
+        return addLore(text, ItemModifier.LOOT);
+    }
+
+    public ItemBuilder addBurnModifierLore(String text) {
+        return addLore(text, ItemModifier.BURN_TIME);
     }
 
     public ItemBuilder setCompressed(boolean compressed) {
