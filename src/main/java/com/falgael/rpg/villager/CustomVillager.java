@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.MerchantRecipe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -182,6 +183,25 @@ public enum CustomVillager {
 
     STONEWORK_TIER_IV(ProficiencyType.STONEWORK.getName() + "_TIER_IV", ProficiencyType.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.STONEWORK), Villager.Profession.TOOLSMITH)
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WHITE_CONCRETE,1)).addIngredients(new ItemStack(Material.WHITE_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ORANGE_CONCRETE,1)).addIngredients(new ItemStack(Material.ORANGE_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MAGENTA_CONCRETE,1)).addIngredients(new ItemStack(Material.MAGENTA_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LIGHT_BLUE_CONCRETE,1)).addIngredients(new ItemStack(Material.LIGHT_BLUE_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.YELLOW_CONCRETE,1)).addIngredients(new ItemStack(Material.YELLOW_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LIME_CONCRETE,1)).addIngredients(new ItemStack(Material.LIME_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PINK_CONCRETE,1)).addIngredients(new ItemStack(Material.PINK_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GRAY_CONCRETE,1)).addIngredients(new ItemStack(Material.GRAY_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LIGHT_GRAY_CONCRETE,1)).addIngredients(new ItemStack(Material.LIGHT_GRAY_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CYAN_CONCRETE,1)).addIngredients(new ItemStack(Material.CYAN_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PURPLE_CONCRETE,1)).addIngredients(new ItemStack(Material.PURPLE_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLUE_CONCRETE,1)).addIngredients(new ItemStack(Material.BLUE_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BROWN_CONCRETE,1)).addIngredients(new ItemStack(Material.BROWN_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GREEN_CONCRETE,1)).addIngredients(new ItemStack(Material.GREEN_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RED_CONCRETE,1)).addIngredients(new ItemStack(Material.RED_CONCRETE_POWDER)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLACK_CONCRETE,1)).addIngredients(new ItemStack(Material.BLACK_CONCRETE_POWDER)).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.STONEWORK_INFINITE_COAL.getItem()).addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 4)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ELITE_PICKAXE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),
