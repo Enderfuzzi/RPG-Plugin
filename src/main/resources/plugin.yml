@@ -9,3 +9,6 @@ commands:
   experience:
     description: "Manipulate the experience amount of a Player"
     usage: /<command> <Player> <Proficiency> <modifier> <amount>
+  spawn_chest:
+    description: "Spawn a Chest with items of a Proficiency"
+    usage: /<command> <Proficiency>

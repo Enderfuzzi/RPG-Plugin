@@ -2,6 +2,7 @@ package com.falgael.rpg.commands.chest;
 
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
@@ -44,7 +45,7 @@ public class SpawnItemChest implements CommandExecutor {
 
         Block block = player.getLocation().getBlock();
         block.setType(Material.CHEST);
-        if (block instanceof Chest chest) {
+        if (block.getState() instanceof Chest chest) {
             Inventory inventory = chest.getBlockInventory();
             for (CustomTool tool : CustomTool.getItemsOfProficiency(proficiencyType)) {
                 inventory.addItem(tool.getItem());
