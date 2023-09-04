@@ -12,10 +12,6 @@ public class TestHandler implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        for (CustomTool customTool : CustomTool.values()) {
-            event.getPlayer().getInventory().addItem(customTool.getItem());
-        }
-
         for (CustomItem customItem : CustomItem.values()) {
             event.getPlayer().getInventory().addItem(customItem.getItem());
         }

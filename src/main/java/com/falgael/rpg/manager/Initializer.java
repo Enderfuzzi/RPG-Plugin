@@ -3,7 +3,6 @@ package com.falgael.rpg.manager;
 import com.falgael.rpg.proficiency.CustomRecipe;
 import com.falgael.rpg.proficiency.handler.ItemHeldHandler;
 import org.bukkit.Bukkit;
-
 /**
  * Holds all initializer and calls them.
  * @author falgael
