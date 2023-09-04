@@ -13,7 +13,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public enum CustomTool {
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration()),
@@ -180,6 +182,48 @@ public enum CustomTool {
             .addSpeedAttribute(1.3).addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
             new ItemConfiguration(new BlockBreakEffect(6, 7.0f))),
 
+    FARMING_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
+            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+100 More Wool").addExperienceModifierLore("+300% Experience")
+            .addLore("Shears Sheep").create(), new ItemConfiguration(new BlockBreakEffect(4, 2.0f), new CustomPotionEffect.CustomPotionEffectBuilder(EquipmentSlot.HAND)
+            .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,0,true,false)).create())),
+
+    //--------------------------------------------------------------------------------------------
+    // Hunting
+    //--------------------------------------------------------------------------------------------
+
+    HUNTING_SIMPLE_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.WOODEN_SWORD).setRarity(Rarity.SIMPLE).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+50% More Loot").addLore("Simple tool for hunting")
+            .addSpeedAttribute(0.1).create(),
+            new ItemConfiguration(new BlockBreakEffect(1, 1.5f))),
+
+    HUNTING_COMMON_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.STONE_SWORD).setRarity(Rarity.COMMON).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+100% More Loot").addLore("Common tool for hunting")
+            .addSpeedAttribute(0.3).create(),
+            new ItemConfiguration(new BlockBreakEffect(1, 2f))),
+
+    HUNTING_ADVANCED_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.IRON_SWORD).setRarity(Rarity.ADVANCED).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+150% More Loot").addExperienceModifierLore("+100% Experience")
+            .addLore("Advanced tool for hunting").addSpeedAttribute(0.5).create(),
+            new ItemConfiguration(new BlockBreakEffect(2, 2.5f))),
+
+    HUNTING_ELITE_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.GOLDEN_SWORD).setRarity(Rarity.ELITE).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+200% More Loot").addExperienceModifierLore("+100% Experience")
+            .addLore("Elite tool for hunting")
+            .addSpeedAttribute(0.75).create(),
+            new ItemConfiguration(new BlockBreakEffect(2, 3.0f))),
+
+    HUNTING_EPIC_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.DIAMOND_SWORD).setRarity(Rarity.EPIC).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+350% More Loot").addExperienceModifierLore("+200% Experience")
+            .addLore("Forged in the depth")
+            .addSpeedAttribute(1.0).create(),
+            new ItemConfiguration(new BlockBreakEffect(3, 4.5f))),
+
+    HUNTING_LEGENDARY_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.NETHERITE_SWORD).setRarity(Rarity.LEGENDARY).setName("Sword")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+600% More Loot").addExperienceModifierLore("+500% Experience")
+            .addLore("Harvest the Weak")
+            .addSpeedAttribute(1.3).addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
+            new ItemConfiguration(new BlockBreakEffect(6, 7.0f))),
+
 
     ;
 
@@ -225,6 +269,10 @@ public enum CustomTool {
         return LIST_OF_ITEMS;
     }
 
+    public static List<CustomTool> getItemsOfProficiency(ProficiencyType type) {
+        return  Arrays.stream(CustomTool.values()).filter(customTool -> customTool.proficiencyType == type).toList();
+    }
+
     public static CustomTool getItem(ItemStack key) {
         for (CustomTool customTool : CustomTool.values()) {
             if (key.getType() != customTool.itemStack.getType()) continue;
@@ -238,7 +286,7 @@ public enum CustomTool {
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;
 
             if (keyMeta.hasLore() ^ toolMeta.hasLore()) continue;
-            if (!keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
+            if (keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
 
             if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
             //if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
@@ -246,6 +294,13 @@ public enum CustomTool {
             return customTool;
         }
         return NONE;
+    }
+
+    public boolean isWeapon() {
+        return switch (this) {
+
+            default -> false;
+        };
     }
 
 }
