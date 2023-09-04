@@ -224,6 +224,20 @@ public enum CraftingResults {
     OBSERVER(ProficiencyType.STONEWORK, Material.OBSERVER,16, InventoryType.WORKBENCH),
     PISTON(ProficiencyType.STONEWORK, Material.PISTON, 8, InventoryType.WORKBENCH),
 
+    //--------------------------------------------------------------------------------------------
+    // WOODWORK
+    //--------------------------------------------------------------------------------------------
+
+    HONEY_BLOCK(ProficiencyType.FARMING, Material.HONEY_BLOCK, 8, InventoryType.WORKBENCH),
+    SUGAR(ProficiencyType.FARMING, Material.SUGAR, 3, InventoryType.WORKBENCH),
+    GOLDEN_APPLE(ProficiencyType.FARMING, Material.GOLDEN_APPLE, 16, InventoryType.WORKBENCH),
+    GOLDEN_CARROT(ProficiencyType.FARMING, Material.GOLDEN_CARROT, 8, InventoryType.WORKBENCH),
+    BREAD(ProficiencyType.FARMING, Material.BREAD, 3, InventoryType.WORKBENCH),
+    COOKIE(ProficiencyType.FARMING, Material.COOKIE, 8, InventoryType.WORKBENCH),
+    PUMPKIN_PIE(ProficiencyType.FARMING, Material.PUMPKIN_PIE,8,InventoryType.WORKBENCH),
+    CAKE(ProficiencyType.FARMING, Material.CAKE,16, InventoryType.WORKBENCH),
+
+
     ;
 
 

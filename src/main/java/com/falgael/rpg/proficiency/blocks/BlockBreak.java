@@ -161,6 +161,9 @@ public enum BlockBreak {
     OXEYE_DAISY(ProficiencyType.FARMING, Material.OXEYE_DAISY,1),
     LILY_OF_THE_VALLEY(ProficiencyType.FARMING, Material.LILY_OF_THE_VALLEY, 1),
     VINES(ProficiencyType.FARMING, Material.VINE,1),
+    WEEPING_VINES(ProficiencyType.FARMING, Material.WEEPING_VINES, 3),
+    TWISTING_VINES(ProficiencyType.FARMING, Material.TWISTING_VINES, 3),
+
     TALL_GRASS(ProficiencyType.FARMING, Material.TALL_GRASS, 4),
     LARGE_FERN(ProficiencyType.FARMING, Material.LARGE_FERN, 4),
     LILAC(ProficiencyType.FARMING, Material.LILAC, 4),
@@ -237,8 +240,6 @@ public enum BlockBreak {
             default -> false;
         };
     }
-
-
 
 
 }
