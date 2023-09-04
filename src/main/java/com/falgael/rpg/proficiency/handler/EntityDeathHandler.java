@@ -45,9 +45,9 @@ public class EntityDeathHandler implements Listener {
                     event.getEntity().getWorld().dropItemNaturally(event.getEntity().getLocation(),tmp);
                 }
             }
-        }
 
-        Utils.increaseExperience(event.getEntity().getKiller(), customEntity.getProficiency(), experienceAmount);
+            Utils.increaseExperience(event.getEntity().getKiller(), customEntity.getProficiency(), experienceAmount);
+        }
     }
 
 }

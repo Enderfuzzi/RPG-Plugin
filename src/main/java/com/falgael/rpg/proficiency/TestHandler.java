@@ -2,8 +2,10 @@ package com.falgael.rpg.proficiency;
 
 import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -20,6 +22,13 @@ public class TestHandler implements Listener {
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent event) {
         event.getPlayer().getInventory().clear();
+    }
+
+    @EventHandler
+    public void onHit(EntityDamageEvent event) {
+        Bukkit.getLogger().info("Damage: " + event.getDamage());
+
+
     }
 
 }

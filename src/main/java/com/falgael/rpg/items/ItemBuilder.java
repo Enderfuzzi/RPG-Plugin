@@ -102,7 +102,7 @@ public class ItemBuilder {
 
     private void addAttribute(Attribute attribute, double value, String attributeName) {
         UUID uuid = this.name == null ? UUID.randomUUID() : UUID.nameUUIDFromBytes((ChatColor.stripColor(this.name) + attributeName).getBytes());
-        attributes.put(attribute, new AttributeModifier(uuid,attributeName,value,AttributeModifier.Operation.ADD_SCALAR, equipmentSlot));
+        attributes.put(attribute, new AttributeModifier(uuid,attributeName,value,AttributeModifier.Operation.ADD_NUMBER, equipmentSlot));
     }
 
     public ItemBuilder addSpeedAttribute(double value) {
@@ -152,8 +152,10 @@ public class ItemBuilder {
         if (name != null) itemMeta.setDisplayName(buildName());
 
         itemMeta.setUnbreakable(true);
-        itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+
+        // Item stats are visible
+        //itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        //itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
         if (proficiency != ProficiencyType.NONE) lore.add(0,proficiency.getRepresentation());

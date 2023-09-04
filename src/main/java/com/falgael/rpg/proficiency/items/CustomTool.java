@@ -21,18 +21,18 @@ public enum CustomTool {
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration()),
 
     MIGHTY_DEATH(ProficiencyType.MISC, new ItemBuilder(Material.NETHERITE_SWORD).setRarity(Rarity.LEGENDARY).setName("Mighty Death")
-            .addProficiency(ProficiencyType.MISC).addLore("Death is the only solution").addDamageAttribute(10000).addSpeedAttribute(3)
+            .addProficiency(ProficiencyType.HUNTING).addLore("Death is the only solution").addDamageAttribute(10000).addSpeedAttribute(3)
             .addHealthAttribute(0).addArmorAttribute(5.0).create(),
             new ItemConfiguration(new BlockBreakEffect(1,1.0f), new CustomPotionEffect.CustomPotionEffectBuilder(EquipmentSlot.HAND)
                     .addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION,110,10,false,false)).create())),
 
-    MIGHTY_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.NETHERITE_AXE).setRarity(Rarity.LEGENDARY).setName("Mighty Axe")
+    MIGHTY_AXE(ProficiencyType.MISC, new ItemBuilder(Material.NETHERITE_AXE).setRarity(Rarity.LEGENDARY).setName("Mighty Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLootModifierLore("+10000% More Wood").addExperienceModifierLore("+100000% Experience")
             .addLore("Foraging is the only solution").addSpeedAttribute(3).addHealthAttribute(10).addArmorAttribute(5.0).create(),
             new ItemConfiguration(new BlockBreakEffect(10000,10000.0f))),
 
 
-    MIGHTY_PICKAXE(ProficiencyType.STONEWORK, new ItemBuilder(Material.NETHERITE_PICKAXE).setRarity(Rarity.LEGENDARY).setName("Mighty Pickaxe")
+    MIGHTY_PICKAXE(ProficiencyType.MISC, new ItemBuilder(Material.NETHERITE_PICKAXE).setRarity(Rarity.LEGENDARY).setName("Mighty Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLootModifierLore("+10000% More Stone").addExperienceModifierLore("+100000% Experience")
             .addLore("Mining is the only solution").addSpeedAttribute(3).addHealthAttribute(10).addArmorAttribute(5.0).create(),
             new ItemConfiguration(new BlockBreakEffect(10000,10000.0f))),
@@ -193,41 +193,41 @@ public enum CustomTool {
 
     HUNTING_SIMPLE_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.WOODEN_SWORD).setRarity(Rarity.SIMPLE).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+50% More Loot").addLore("Simple tool for hunting")
-            .addSpeedAttribute(0.1).create(),
+            .addSpeedAttribute(0.1).addDamageAttribute(5).create(),
             new ItemConfiguration(new BlockBreakEffect(1, 1.5f))),
 
     HUNTING_COMMON_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.STONE_SWORD).setRarity(Rarity.COMMON).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+100% More Loot").addLore("Common tool for hunting")
-            .addSpeedAttribute(0.3).create(),
+            .addSpeedAttribute(0.3).addDamageAttribute(6).create(),
             new ItemConfiguration(new BlockBreakEffect(1, 2f))),
 
     HUNTING_ADVANCED_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.IRON_SWORD).setRarity(Rarity.ADVANCED).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+150% More Loot").addExperienceModifierLore("+100% Experience")
-            .addLore("Advanced tool for hunting").addSpeedAttribute(0.5).create(),
+            .addLore("Advanced tool for hunting").addSpeedAttribute(0.5).addDamageAttribute(8).create(),
             new ItemConfiguration(new BlockBreakEffect(2, 2.5f))),
 
     HUNTING_ELITE_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.GOLDEN_SWORD).setRarity(Rarity.ELITE).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+200% More Loot").addExperienceModifierLore("+100% Experience")
             .addLore("Elite tool for hunting")
-            .addSpeedAttribute(0.75).create(),
+            .addSpeedAttribute(0.6).addDamageAttribute(10).create(),
             new ItemConfiguration(new BlockBreakEffect(2, 3.0f))),
 
     HUNTING_EPIC_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.DIAMOND_SWORD).setRarity(Rarity.EPIC).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+350% More Loot").addExperienceModifierLore("+200% Experience")
             .addLore("Forged in the depth")
-            .addSpeedAttribute(1.0).create(),
+            .addSpeedAttribute(0.75).addArmorAttribute(0.2).addDamageAttribute(12).create(),
             new ItemConfiguration(new BlockBreakEffect(3, 4.5f))),
 
     HUNTING_LEGENDARY_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.NETHERITE_SWORD).setRarity(Rarity.LEGENDARY).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+600% More Loot").addExperienceModifierLore("+500% Experience")
-            .addLore("Harvest the Weak")
-            .addSpeedAttribute(1.3).addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
-            new ItemConfiguration(new BlockBreakEffect(6, 7.0f))),
+            .addLore("Harvest the Weak").addSpeedAttribute(1.0).addHealthAttribute(0.4).addArmorAttribute(0.4).addDamageAttribute(16).create(),
+            new ItemConfiguration(new BlockBreakEffect(6, 7.0f), new CustomPotionEffect.CustomPotionEffectBuilder(
+                    EquipmentSlot.HAND).addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 110, 0, true, false)).create())),
 
 
     ;
 
-
+    //TODO Change Attribute Values
 
 
     private final ItemStack itemStack;
@@ -298,7 +298,7 @@ public enum CustomTool {
 
     public boolean isWeapon() {
         return switch (this) {
-
+            case HUNTING_SIMPLE_SWORD, HUNTING_COMMON_SWORD, HUNTING_ADVANCED_SWORD, HUNTING_ELITE_SWORD, HUNTING_EPIC_SWORD, HUNTING_LEGENDARY_SWORD -> true;
             default -> false;
         };
     }
