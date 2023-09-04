@@ -36,8 +36,9 @@ public final class RPG extends JavaPlugin {
 
         for (CustomCommand command : CustomCommand.values()) {
             this.getCommand(command.getKey()).setExecutor(command.getCommand());
-            this.getCommand(command.getKey()).setTabCompleter(command.getTabCompleter());
             Bukkit.getLogger().info("[" + RPG.class.getSimpleName() + "]: Registered Command: " + command.getKey());
+            if (command.getTabCompleter() == null) continue;
+            this.getCommand(command.getKey()).setTabCompleter(command.getTabCompleter());
         }
 
     }

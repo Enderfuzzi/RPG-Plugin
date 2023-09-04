@@ -12,3 +12,6 @@ commands:
   spawn_chest:
     description: "Spawn a Chest with items of a Proficiency"
     usage: /<command> <Proficiency>
+  spawn_spawner:
+    description: "Spawn a modified Spawner"
+    usage: /<command>
