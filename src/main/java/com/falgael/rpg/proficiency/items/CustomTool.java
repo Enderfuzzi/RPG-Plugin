@@ -182,10 +182,16 @@ public enum CustomTool {
             .addSpeedAttribute(1.3).addHealthAttribute(0.2).addArmorAttribute(0.2).create(),
             new ItemConfiguration(new BlockBreakEffect(6, 7.0f))),
 
-    FARMING_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
+    FARMING_ADVANCED_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+100 More Wool").addExperienceModifierLore("+300% Experience")
             .addLore("Shears Sheep").create(), new ItemConfiguration(new BlockBreakEffect(4, 2.0f), new CustomPotionEffect.CustomPotionEffectBuilder(EquipmentSlot.HAND)
             .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,0,true,false)).create())),
+
+    FARMING_EPIC_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.EPIC).setName("Shears")
+            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+200 More Wool").addExperienceModifierLore("+500% Experience")
+            .addLore("Shears Sheep").create(), new ItemConfiguration(new BlockBreakEffect(6, 3.0f), new CustomPotionEffect.CustomPotionEffectBuilder(EquipmentSlot.HAND)
+            .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,1,true,false))
+            .addPotionEffect(new PotionEffect(PotionEffectType.SPEED,110,0,true,false)).create())),
 
     //--------------------------------------------------------------------------------------------
     // Hunting

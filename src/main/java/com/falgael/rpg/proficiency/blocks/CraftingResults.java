@@ -186,7 +186,7 @@ public enum CraftingResults {
     TRAPPED_CHEST(ProficiencyType.WOODWORK, Material.TRAPPED_CHEST,8, InventoryType.WORKBENCH),
     BARREL(ProficiencyType.WOODWORK, Material.BARREL, 8, InventoryType.WORKBENCH),
     BOWL(ProficiencyType.WOODWORK, Material.BOWL,3, InventoryType.WORKBENCH),
-
+    BEEHIVE(ProficiencyType.WOODWORK, Material.BEEHIVE, 6, InventoryType.WORKBENCH),
 
     //--------------------------------------------------------------------------------------------
     // STONEWORK
@@ -224,8 +224,13 @@ public enum CraftingResults {
     OBSERVER(ProficiencyType.STONEWORK, Material.OBSERVER,16, InventoryType.WORKBENCH),
     PISTON(ProficiencyType.STONEWORK, Material.PISTON, 8, InventoryType.WORKBENCH),
 
+    NETHER_BRICKS(ProficiencyType.STONEWORK, Material.NETHER_BRICKS, 4),
+    RED_NETHER_BRICKS(ProficiencyType.STONEWORK, Material.RED_NETHER_BRICKS, 4),
+    NETHER_BRICK_FENCE(ProficiencyType.STONEWORK, Material.NETHER_BRICK_FENCE, 8),
+
+
     //--------------------------------------------------------------------------------------------
-    // WOODWORK
+    // Farming
     //--------------------------------------------------------------------------------------------
 
     HONEY_BLOCK(ProficiencyType.FARMING, Material.HONEY_BLOCK, 8, InventoryType.WORKBENCH),
@@ -236,6 +241,45 @@ public enum CraftingResults {
     COOKIE(ProficiencyType.FARMING, Material.COOKIE, 8, InventoryType.WORKBENCH),
     PUMPKIN_PIE(ProficiencyType.FARMING, Material.PUMPKIN_PIE,8,InventoryType.WORKBENCH),
     CAKE(ProficiencyType.FARMING, Material.CAKE,16, InventoryType.WORKBENCH),
+
+    NETHER_WART_BLOCK(ProficiencyType.FARMING, Material.NETHER_WART_BLOCK, 9, InventoryType.WORKBENCH),
+    HONEYCOMB_BLOCK(ProficiencyType.FARMING, Material.HONEYCOMB_BLOCK, 8, InventoryType.WORKBENCH),
+    CANDLE(ProficiencyType.FARMING, Material.CANDLE, 2, InventoryType.WORKBENCH),
+
+    WAXED_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_COPPER_BLOCK,2),
+    WAXED_EXPOSED_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_EXPOSED_COPPER,2),
+    WAXED_WEATHERED_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_WEATHERED_COPPER,2),
+    WAXED_OXIDIZED_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_OXIDIZED_COPPER,2),
+    WAXED_CUT_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_CUT_COPPER,2),
+    WAXED_EXPOSED_CUT_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_EXPOSED_CUT_COPPER,2),
+    WAXED_WEATHERED_CUT_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_WEATHERED_CUT_COPPER,2),
+    WAXED_OXIDIZED_CUT_COPPER_BLOCK(ProficiencyType.FARMING, Material.WAXED_OXIDIZED_CUT_COPPER,2),
+    WAXED_CUT_COPPER_SLAB(ProficiencyType.FARMING, Material.WAXED_CUT_COPPER_SLAB,2),
+    WAXED_EXPOSED_CUT_COPPER_SLAB(ProficiencyType.FARMING, Material.WAXED_EXPOSED_CUT_COPPER_SLAB,2),
+    WAXED_WEATHERED_CUT_COPPER_SLAB(ProficiencyType.FARMING, Material.WAXED_WEATHERED_CUT_COPPER_SLAB,2),
+    WAXED_OXIDIZED_CUT_COPPER_SLAB(ProficiencyType.FARMING, Material.WAXED_OXIDIZED_CUT_COPPER_SLAB,2),
+    WAXED_CUT_COPPER_STAIRS(ProficiencyType.FARMING, Material.WAXED_CUT_COPPER_STAIRS,2),
+    WAXED_EXPOSED_CUT_COPPER_STAIRS(ProficiencyType.FARMING, Material.WAXED_EXPOSED_CUT_COPPER_STAIRS,2),
+    WAXED_WEATHERED_CUT_COPPER_STAIRS(ProficiencyType.FARMING, Material.WAXED_WEATHERED_CUT_COPPER_STAIRS,2),
+    WAXED_OXIDIZED_CUT_COPPER_STAIRS(ProficiencyType.FARMING, Material.WAXED_OXIDIZED_CUT_COPPER_STAIRS,2),
+
+
+    WHITE_DYE(ProficiencyType.FARMING, Material.WHITE_DYE, 2),
+    LIGHT_GRAY_DYE(ProficiencyType.FARMING, Material.LIGHT_GRAY_DYE, 2),
+    GRAY_DYE(ProficiencyType.FARMING, Material.GRAY_DYE, 2),
+    BLACK_DYE(ProficiencyType.FARMING, Material.BLACK_DYE, 2),
+    BROWN_DYE(ProficiencyType.FARMING, Material.BROWN_DYE, 2),
+    RED_DYE(ProficiencyType.FARMING, Material.RED_DYE, 2),
+    ORANGE_DYE(ProficiencyType.FARMING, Material.ORANGE_DYE, 2),
+    YELLOW_DYE(ProficiencyType.FARMING, Material.YELLOW_DYE, 2),
+    LIME_DYE(ProficiencyType.FARMING, Material.LIME_DYE, 2),
+    GREEN_DYE(ProficiencyType.FARMING, Material.GREEN_DYE, 2),
+    CYAN_DYE(ProficiencyType.FARMING, Material.CYAN_DYE, 2),
+    LIGHT_BLUE_DYE(ProficiencyType.FARMING, Material.LIGHT_BLUE_DYE, 2),
+    BLUE_DYE(ProficiencyType.FARMING, Material.BLUE_DYE, 2),
+    PURPLE_DYE(ProficiencyType.FARMING, Material.PURPLE_DYE, 2),
+    MAGENTA_DYE(ProficiencyType.FARMING, Material.MAGENTA_DYE, 2),
+    PINK_DYE(ProficiencyType.FARMING, Material.PINK_DYE, 2),
 
 
     ;
@@ -252,6 +296,10 @@ public enum CraftingResults {
         this.result = new ItemStack(result);
         this.experienceAmount = experienceAmount;
         this.inventoryType = inventoryType;
+    }
+
+    CraftingResults(ProficiencyType type, Material result, long experienceAmount) {
+        this(type,result,experienceAmount,InventoryType.WORKBENCH);
     }
 
     public static CraftingResults getResult(ItemStack toCheck) {

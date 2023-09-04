@@ -224,10 +224,89 @@ public enum CustomVillager {
 
     FARMING_TIER_I(ProficiencyType.FARMING.getName() + "_TIER_I", ProficiencyType.FARMING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.FARMING), Villager.Profession.FARMER)
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.WHEAT,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.CARROT,32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.POTATO,32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BEETROOT,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.NETHER_WART,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.MELON,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.PUMPKIN,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.HONEY_BLOCK,4)).create())
+
+
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTool.FARMING_SIMPLE_HOE.getItem())
                             .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
 
                     .create(), 1),
+
+    FARMING_TIER_II(ProficiencyType.FARMING.getName() + "_TIER_II", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WHEAT_SEEDS, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BEETROOT_SEEDS, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MELON_SEEDS, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PUMPKIN_SEEDS, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CARROT, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.POTATO, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BEE_SPAWN_EGG)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_ADVANCED_HOE.getItem()).addIngredients(CustomTool.FARMING_COMMON_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 32)).create())
+                    .create(), 5),
+
+    FARMING_TIER_III(ProficiencyType.FARMING.getName() + "_TIER_III", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.FLOWER_POT, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.POPPY, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLUE_ORCHID, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.AZURE_BLUET, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ORANGE_TULIP, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PINK_TULIP, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RED_TULIP, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WHITE_TULIP, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OXEYE_DAISY, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CORNFLOWER, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LILY_OF_THE_VALLEY, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.TORCHFLOWER, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WITHER_ROSE, 16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_GOLD_NUGGET.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_ELITE_HOE.getItem()).addIngredients(CustomTool.FARMING_ADVANCED_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 8)).create())
+                    .create(), 10),
+
+    FARMING_TIER_IV(ProficiencyType.FARMING.getName() + "_TIER_IV", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_EPIC_HOE.getItem()).addIngredients(CustomTool.FARMING_ELITE_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 32)).create())
+                    .create(), 20),
+
+    FARMING_TIER_V(ProficiencyType.FARMING.getName() + "_TIER_V", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_LEGENDARY_HOE.getItem()).addIngredients(CustomTool.FARMING_EPIC_HOE.getItem())
+                            .addIngredients(Utils.modifyAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .create(), 40),
+
+    FARMING_TIER_VI(ProficiencyType.FARMING.getName() + "_TIER_VI", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+
+
+
+                    .create(), 60),
 
     ;
     private final String key;

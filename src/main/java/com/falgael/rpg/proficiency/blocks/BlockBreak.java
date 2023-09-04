@@ -179,6 +179,7 @@ public enum BlockBreak {
     CHORUS_PLANT(ProficiencyType.FARMING, Material.CHORUS_PLANT, 10),
     CHORUS_FLOWER(ProficiencyType.FARMING, Material.CHORUS_FLOWER, 10),
 
+    COCOA(ProficiencyType.FARMING, Material.COCOA, 2),
 
 
     ;
@@ -236,7 +237,7 @@ public enum BlockBreak {
 
     public boolean ageable() {
         return switch (this) {
-            case WHEAT, CARROT, POTATO, BEETROOT, NETHER_WART -> true;
+            case WHEAT, CARROT, POTATO, BEETROOT, NETHER_WART, COCOA -> true;
             default -> false;
         };
     }
