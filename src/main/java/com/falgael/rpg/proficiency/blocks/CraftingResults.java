@@ -281,6 +281,12 @@ public enum CraftingResults {
     MAGENTA_DYE(ProficiencyType.FARMING, Material.MAGENTA_DYE, 2),
     PINK_DYE(ProficiencyType.FARMING, Material.PINK_DYE, 2),
 
+    LEATHER_HELMET(ProficiencyType.FARMING, Material.LEATHER_HELMET, 5),
+    LEATHER_CHESTPLATE(ProficiencyType.FARMING, Material.LEATHER_CHESTPLATE,8),
+    LEATHER_LEGGINS(ProficiencyType.FARMING, Material.LEATHER_LEGGINGS, 7),
+    LEATHER_BOOTS(ProficiencyType.FARMING, Material.LEATHER_BOOTS,4),
+
+
 
     ;
 

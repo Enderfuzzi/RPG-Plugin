@@ -230,6 +230,17 @@ public enum CustomTool {
             new ItemConfiguration(new BlockBreakEffect(6, 7.0f), new CustomPotionEffect.CustomPotionEffectBuilder(
                     EquipmentSlot.HAND).addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 110, 0, true, false)).create())),
 
+    HUNTING_COMMON_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.COMMON).setName("Bow")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+100% More Loot").addExperienceModifierLore("+100% Experience")
+            .addLore("Common tool for hunting").create(), new ItemConfiguration(new BlockBreakEffect(2,2))),
+
+    HUNTING_ELITE_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.ELITE).setName("Bow")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+200% More Loot").addExperienceModifierLore("+200% Experience")
+            .addLore("Advanced tool for hunting").create(), new ItemConfiguration(new BlockBreakEffect(2,2))),
+
+    HUNTING_EPIC_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.EPIC).setName("Bow")
+            .addProficiency(ProficiencyType.HUNTING).addLootModifierLore("+350% More Loot").addExperienceModifierLore("+300% Experience")
+            .addLore("Epic tool for hunting").create(), new ItemConfiguration(new BlockBreakEffect(2,2))),
 
     ;
 
@@ -304,7 +315,8 @@ public enum CustomTool {
 
     public boolean isWeapon() {
         return switch (this) {
-            case HUNTING_SIMPLE_SWORD, HUNTING_COMMON_SWORD, HUNTING_ADVANCED_SWORD, HUNTING_ELITE_SWORD, HUNTING_EPIC_SWORD, HUNTING_LEGENDARY_SWORD -> true;
+            case HUNTING_SIMPLE_SWORD, HUNTING_COMMON_SWORD, HUNTING_ADVANCED_SWORD, HUNTING_ELITE_SWORD,
+                    HUNTING_EPIC_SWORD, HUNTING_LEGENDARY_SWORD, HUNTING_COMMON_BOW, HUNTING_ELITE_BOW, HUNTING_EPIC_BOW -> true;
             default -> false;
         };
     }
