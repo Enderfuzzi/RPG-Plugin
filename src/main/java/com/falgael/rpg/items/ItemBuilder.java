@@ -100,30 +100,13 @@ public class ItemBuilder {
         return this;
     }
     //TODO Rebuild the Attributes for further usage
-    private void addAttribute(Attribute attribute, double value, String attributeName) {
-        UUID uuid = this.name == null ? UUID.randomUUID() : UUID.nameUUIDFromBytes((ChatColor.stripColor(this.name) + attributeName).getBytes());
-        attributes.put(attribute, new AttributeModifier(uuid,attributeName,value,AttributeModifier.Operation.ADD_NUMBER, equipmentSlot));
-    }
-
-    public ItemBuilder addSpeedAttribute(double value) {
-        addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,value,"Movement Speed");
+    public ItemBuilder addAttribute(Attribute attribute, double value, String attributeName) {
+        attributes.put(attribute, new AttributeModifier(UUID.nameUUIDFromBytes(attributeName.getBytes()),attributeName,value,AttributeModifier.Operation.ADD_NUMBER, equipmentSlot));
         return this;
     }
 
-    public ItemBuilder addHealthAttribute(double value) {
-        addAttribute(Attribute.GENERIC_MAX_HEALTH,value,"Health");
-        return this;
-    }
-
-
-    public ItemBuilder addDamageAttribute(double value) {
-        addAttribute(Attribute.GENERIC_ATTACK_DAMAGE,value,"Attack Damage");
-        return this;
-    }
-
-    public ItemBuilder addArmorAttribute(double value) {
-        addAttribute(Attribute.GENERIC_ARMOR,value,"Armor");
-        return this;
+    public ItemBuilder addAttribute(Attribute attribute, double value) {
+        return addAttribute(attribute,value, attribute.name());
     }
 
     public ItemBuilder addProficiency(ProficiencyType proficiency) {
