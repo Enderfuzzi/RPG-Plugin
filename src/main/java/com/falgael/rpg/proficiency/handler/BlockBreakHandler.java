@@ -43,8 +43,8 @@ public class BlockBreakHandler implements Listener {
         CustomTool customTool = CustomTool.getItem(item);
         Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
 
-        long experienceAmount = Utils.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency());
-        int droppedBlocks = Utils.calculateLoot(customTool, block.getProficiency());
+        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency());
+        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency());
 
 
         /*
@@ -79,7 +79,7 @@ public class BlockBreakHandler implements Listener {
             event.setDropItems(false);
         }
 
-        Utils.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        ItemConfiguration.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
 
 

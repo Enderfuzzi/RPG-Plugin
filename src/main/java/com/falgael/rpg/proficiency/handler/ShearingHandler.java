@@ -3,6 +3,7 @@ package com.falgael.rpg.proficiency.handler;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.Bukkit;
@@ -56,8 +57,8 @@ public class ShearingHandler implements Listener {
             CustomTool customTool = CustomTool.getItem(event.getItem());
             Bukkit.getLogger().info("Custom Tool None: " + customTool.isNone());
 
-            experienceAmount = Utils.calculateExperience(customTool, 4L, ProficiencyType.FARMING);
-            droppedBlocks = Utils.calculateLoot(customTool, ProficiencyType.FARMING);
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, 4L, ProficiencyType.FARMING);
+            droppedBlocks = ItemConfiguration.calculateLoot(customTool, ProficiencyType.FARMING);
 
             /*
             if (!customTool.isNone()) {
@@ -85,7 +86,7 @@ public class ShearingHandler implements Listener {
             Bukkit.getLogger().info("Sheep Color: " + sheep.getColor());
 
             Material material = WOOL_BY_DYE.getOrDefault(sheep.getColor(), Material.AIR);
-            Utils.dropAdditionalLoot(new ItemStack(material, droppedBlocks), 1, sheep.getWorld(), sheep.getLocation());
+            ItemConfiguration.dropAdditionalLoot(new ItemStack(material, droppedBlocks), 1, sheep.getWorld(), sheep.getLocation());
 
 
 

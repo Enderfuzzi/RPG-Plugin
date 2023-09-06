@@ -1,10 +1,16 @@
 package com.falgael.rpg.proficiency.items;
 
+import com.falgael.rpg.proficiency.general.ProficiencyType;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.inventory.EquipmentSlot;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Contains special information about an items.
@@ -122,5 +128,60 @@ public class ItemConfiguration {
             return new ItemConfiguration(equipmentSlot, flags, potionEffects);
         }
     }
+
+    public static long calculateExperience(CustomTool tool, long baseExperience, ProficiencyType type) {
+        if (tool.getProficiencyType() != type) return baseExperience;
+        return calculateExperience(tool,baseExperience);
+    }
+
+    public static long calculateExperience(CustomTool tool, long baseExperience) {
+        if (tool.isNone()) return baseExperience;
+
+        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier))
+            return baseExperience * Math.round(tool.getItemConfiguration().getValue(ItemConfigurationFlag.EXPERIENCE_Multiplier));
+
+        return baseExperience;
+    }
+
+
+    public static int calculateLoot(CustomTool tool, ProficiencyType type) {
+        if (tool.getProficiencyType() != type) return 0;
+
+        return calculateLoot(tool);
+
+    }
+
+    public static int calculateLoot(CustomTool tool) {
+        if (tool.isNone()) return 0;
+
+        if (!tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LOOT_Multiplier)) return 1;
+
+        float lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_Multiplier);
+        double value = lootValue - Math.floor(lootValue);
+        if (value == 0) return (int) lootValue - 1;
+        if (Math.random() < value) return (int) Math.ceil(lootValue) - 1;
+        return (int) Math.floor(lootValue) - 1;
+    }
+
+
+    public static void dropAdditionalLoot(List<ItemStack> drops, int dropAmount, World world, Location location) {
+        if (dropAmount < 1) return;
+        if (drops.isEmpty()) return;
+        if (world == null || location == null) return;
+
+        for (ItemStack itemStack : drops) {
+            if (itemStack.getType() == Material.AIR) continue;
+            if (itemStack.getAmount() <= 0) continue;
+
+            ItemStack tmp = itemStack.clone();
+            tmp.setAmount(dropAmount);
+            world.dropItemNaturally(location,tmp);
+        }
+    }
+
+    public static void dropAdditionalLoot(ItemStack drop, int dropAmount, World world, Location location) {
+        dropAdditionalLoot(List.of(drop), dropAmount, world, location);
+    }
+
 
 }

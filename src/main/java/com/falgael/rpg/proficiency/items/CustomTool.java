@@ -45,8 +45,7 @@ public enum CustomTool {
 
 
     WOODWORK_SIMPLE_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.WOODEN_AXE).setRarity(Rarity.SIMPLE).setName("Axe")
-            .addProficiency(ProficiencyType.WOODWORK).addLootModifierLore("+50% More Wood").addLore("Simple tool for harvesting")
-            .addDamageAttribute(0.5).create(),
+            .addProficiency(ProficiencyType.WOODWORK).addLootModifierLore("+50% More Wood").addLore("Simple tool for harvesting").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_Multiplier, 1.5f).create()),
     WOODWORK_COMMON_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.STONE_AXE).setRarity(Rarity.COMMON).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLootModifierLore("+100% More Wood").addLore("Common tool for harvesting").addSpeedAttribute(0.1)
@@ -95,7 +94,8 @@ public enum CustomTool {
     STONEWORK_ADVANCED_PICKAXE(ProficiencyType.STONEWORK, new ItemBuilder(Material.IRON_PICKAXE).setRarity(Rarity.ADVANCED).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLootModifierLore("+150% More Stone").addExperienceModifierLore("+100% Experience")
             .addLore("Advanced tool for harvesting").addSpeedAttribute(0.2).addDamageAttribute(1.2).create(),
-            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier,2f).addFlag(ItemConfigurationFlag.LOOT_Multiplier, 2.5f).create()),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier,2f)
+                    .addFlag(ItemConfigurationFlag.LOOT_Multiplier, 2.5f).create()),
 
     STONEWORK_ELITE_PICKAXE( ProficiencyType.STONEWORK, new ItemBuilder(Material.GOLDEN_PICKAXE).setRarity(Rarity.ELITE).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLootModifierLore("+200% More Stone").addExperienceModifierLore("+100% Experience")
@@ -183,13 +183,13 @@ public enum CustomTool {
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier,6f).addFlag(ItemConfigurationFlag.LOOT_Multiplier, 7f).create()),
 
     FARMING_ADVANCED_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
-            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+100 More Wool").addExperienceModifierLore("+300% Experience")
+            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+100% More Wool").addExperienceModifierLore("+300% Experience")
             .addLore("Shears Sheep").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier,4f).addFlag(ItemConfigurationFlag.LOOT_Multiplier,2f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,0,true,false)).create()),
 
     FARMING_EPIC_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.EPIC).setName("Shears")
-            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+200 More Wool").addExperienceModifierLore("+500% Experience")
+            .addProficiency(ProficiencyType.FARMING).addLootModifierLore("+200% More Wool").addExperienceModifierLore("+500% Experience")
             .addLore("Shears Sheep").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier,6f).addFlag(ItemConfigurationFlag.LOOT_Multiplier,3f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING,110,1,true,false))
@@ -325,8 +325,8 @@ public enum CustomTool {
     public boolean isWeapon() {
         return switch (this) {
 
-            //case HUNTING_SIMPLE_SWORD, HUNTING_COMMON_SWORD, HUNTING_ADVANCED_SWORD, HUNTING_ELITE_SWORD,
-            //        HUNTING_EPIC_SWORD, HUNTING_LEGENDARY_SWORD, HUNTING_COMMON_BOW, HUNTING_ELITE_BOW, HUNTING_EPIC_BOW -> true;
+            case HUNTING_SIMPLE_SWORD, HUNTING_COMMON_SWORD, HUNTING_ADVANCED_SWORD, HUNTING_ELITE_SWORD,
+                    HUNTING_EPIC_SWORD, HUNTING_LEGENDARY_SWORD, HUNTING_COMMON_BOW, HUNTING_ELITE_BOW, HUNTING_EPIC_BOW -> true;
             default -> false;
         };
     }

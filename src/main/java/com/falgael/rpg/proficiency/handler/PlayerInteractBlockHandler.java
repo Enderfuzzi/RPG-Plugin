@@ -3,6 +3,7 @@ package com.falgael.rpg.proficiency.handler;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Beehive;
 import org.bukkit.event.EventHandler;
@@ -22,7 +23,7 @@ public class PlayerInteractBlockHandler implements Listener {
             if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4L;
             CustomTool customTool = CustomTool.getItem(event.getItem());
 
-            experienceAmount = Utils.calculateExperience(customTool, experienceAmount,ProficiencyType.FARMING);
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount,ProficiencyType.FARMING);
             /*
             if (!customTool.isNone() && customTool.getProficiencyType() == ProficiencyType.FARMING) {
                 if (customTool.getItemConfiguration().hasBlockBreakEffect())

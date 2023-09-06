@@ -5,6 +5,7 @@ import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiency.blocks.CustomEntity;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
@@ -42,9 +43,9 @@ public class EntityDeathHandler implements Listener {
         Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
 
         if (customTool.isWeapon()) {
-            droppedBlocks =  Utils.calculateLoot(customTool);
-            experienceAmount = Utils.calculateExperience(customTool, experienceAmount);
-            Utils.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
+            droppedBlocks =  ItemConfiguration.calculateLoot(customTool);
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount);
+            ItemConfiguration.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
         }
         /*
         if (!customTool.isNone() && customTool.isWeapon()) {
