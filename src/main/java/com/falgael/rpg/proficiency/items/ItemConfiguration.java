@@ -137,8 +137,8 @@ public class ItemConfiguration {
     public static long calculateExperience(CustomTool tool, long baseExperience) {
         if (tool.isNone()) return baseExperience;
 
-        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.EXPERIENCE_Multiplier))
-            return baseExperience * Math.round(tool.getItemConfiguration().getValue(ItemConfigurationFlag.EXPERIENCE_Multiplier));
+        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER))
+            return baseExperience * Math.round(tool.getItemConfiguration().getValue(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER));
 
         return baseExperience;
     }
@@ -154,9 +154,9 @@ public class ItemConfiguration {
     public static int calculateLoot(CustomTool tool) {
         if (tool.isNone()) return 0;
 
-        if (!tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LOOT_Multiplier)) return 1;
+        if (!tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LOOT_MULTIPLIER)) return 1;
 
-        float lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_Multiplier);
+        float lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_MULTIPLIER);
         double value = lootValue - Math.floor(lootValue);
         if (value == 0) return (int) lootValue - 1;
         if (Math.random() < value) return (int) Math.ceil(lootValue) - 1;
@@ -181,6 +181,22 @@ public class ItemConfiguration {
 
     public static void dropAdditionalLoot(ItemStack drop, int dropAmount, World world, Location location) {
         dropAdditionalLoot(List.of(drop), dropAmount, world, location);
+    }
+
+    public static double calculateDamage(CustomTool customTool, double baseValue) {
+        if (customTool.isNone()) return baseValue;
+
+        double result = baseValue;
+
+        if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_ADDITIVE)) {
+            result += customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_ADDITIVE);
+        }
+
+        if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER)) {
+            result *= customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_MULTIPLIER);
+        }
+
+        return result;
     }
 
 

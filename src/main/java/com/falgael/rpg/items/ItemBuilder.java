@@ -99,7 +99,7 @@ public class ItemBuilder {
         this.equipmentSlot = equipmentSlot;
         return this;
     }
-
+    //TODO Rebuild the Attributes for further usage
     private void addAttribute(Attribute attribute, double value, String attributeName) {
         UUID uuid = this.name == null ? UUID.randomUUID() : UUID.nameUUIDFromBytes((ChatColor.stripColor(this.name) + attributeName).getBytes());
         attributes.put(attribute, new AttributeModifier(uuid,attributeName,value,AttributeModifier.Operation.ADD_NUMBER, equipmentSlot));
@@ -114,6 +114,7 @@ public class ItemBuilder {
         addAttribute(Attribute.GENERIC_MAX_HEALTH,value,"Health");
         return this;
     }
+
 
     public ItemBuilder addDamageAttribute(double value) {
         addAttribute(Attribute.GENERIC_ATTACK_DAMAGE,value,"Attack Damage");

@@ -3,10 +3,10 @@ package com.falgael.rpg.proficiency.items;
 public enum ItemConfigurationFlag {
 
 
-        LOOT_Multiplier,
-        EXPERIENCE_Multiplier,
-        DAMAGE_Additive,
-        DAMAGE_Multiplier,
+        LOOT_MULTIPLIER,
+        EXPERIENCE_MULTIPLIER,
+        DAMAGE_ADDITIVE,
+        DAMAGE_MULTIPLIER,
 
 
 }
