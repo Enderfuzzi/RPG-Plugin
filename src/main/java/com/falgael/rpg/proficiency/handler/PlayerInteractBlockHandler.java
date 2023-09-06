@@ -17,16 +17,20 @@ public class PlayerInteractBlockHandler implements Listener {
         if (!event.hasBlock()) return;
         if (event.getClickedBlock().getBlockData() instanceof Beehive beehive) {
             if (beehive.getHoneyLevel() != beehive.getMaximumHoneyLevel()) return;
-            long experienceAmount = 0;
-            if (event.getItem().isSimilar(new ItemStack(Material.GLASS_BOTTLE))) experienceAmount = 8;
-            if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4;
+            long experienceAmount = 0L;
+            if (event.getItem().isSimilar(new ItemStack(Material.GLASS_BOTTLE))) experienceAmount = 8L;
+            if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4L;
             CustomTool customTool = CustomTool.getItem(event.getItem());
+
+            experienceAmount = Utils.calculateExperience(customTool, experienceAmount,ProficiencyType.FARMING);
+            /*
             if (!customTool.isNone() && customTool.getProficiencyType() == ProficiencyType.FARMING) {
                 if (customTool.getItemConfiguration().hasBlockBreakEffect())
                 experienceAmount *= customTool.getItemConfiguration().getBlockBreakEffect().getExperienceModifier();
             }
-            Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
 
+             */
+            if (experienceAmount != 0) Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
         }
     }
 

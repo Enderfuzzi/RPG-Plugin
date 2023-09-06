@@ -21,11 +21,18 @@ public class HarvestBlockHandler implements Listener {
         HarvestBlock block = HarvestBlock.getBlock(event.getHarvestedBlock().getType());
         if (block.isNone()) return;
 
-        long experienceAmount = block.getExperienceAmount();
-        int droppedBlocks = 0;
+        //long experienceAmount = block.getExperienceAmount();
+        //int droppedBlocks = 0;
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
         CustomTool customTool = CustomTool.getItem(item);
+
+        int droppedBlocks = Utils.calculateLoot(customTool, block.getProficiency());
+        long experienceAmount = Utils.calculateExperience(customTool,block.getExperienceAmount(),block.getProficiency());
+
+        Utils.dropAdditionalLoot(event.getItemsHarvested(),droppedBlocks,event.getHarvestedBlock().getWorld(),event.getHarvestedBlock().getLocation());
+
+        /*
         if (!customTool.isNone() && customTool.getProficiencyType() == block.getProficiency()) {
 
             if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
@@ -47,7 +54,7 @@ public class HarvestBlockHandler implements Listener {
             }
 
         }
-
+        */
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
     }
 

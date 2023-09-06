@@ -3,6 +3,8 @@ package com.falgael.rpg.proficiency.handler;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.blocks.BlockBreak;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.proficiency.items.ItemConfigurationFlag;
 import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
 
@@ -35,14 +37,18 @@ public class BlockBreakHandler implements Listener {
 
 
 
-        long experienceAmount = block.getExperienceAmount();
-        int droppedBlocks = 0;
+        //long experienceAmount = block.getExperienceAmount();
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
 
         CustomTool customTool = CustomTool.getItem(item);
-        Bukkit.getLogger().info("Custom Tool not found: " + customTool.isNone());
-        if (!customTool.isNone() && customTool.getProficiencyType() == block.getProficiency()) {
+        Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
 
+        long experienceAmount = Utils.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency());
+        int droppedBlocks = Utils.calculateLoot(customTool, block.getProficiency());
+
+
+        /*
+        if (!customTool.isNone() && customTool.getProficiencyType() == block.getProficiency()) {
             if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
                 BlockBreakEffect blockBreakEffect = customTool.getItemConfiguration().getBlockBreakEffect();
                 experienceAmount *= blockBreakEffect.getExperienceModifier();
@@ -50,7 +56,8 @@ public class BlockBreakHandler implements Listener {
 
             }
         }
-
+        */
+        /*
         if (droppedBlocks != 0) {
             // Get the natural Drops and modify them
             List<ItemStack> toDrop = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
@@ -64,6 +71,16 @@ public class BlockBreakHandler implements Listener {
                 }
                 event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(),tmp);
             }
+            */
+
+        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
+        if (BlockBreak.getBlock(event.getBlock().getType()).hasAlternativeDrop()) {
+            drops = List.of(new ItemStack(BlockBreak.getBlock(event.getBlock().getType()).getAlternativeDrop(), droppedBlocks));
+            event.setDropItems(false);
+        }
+
+        Utils.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+
 
 
             /*
@@ -74,8 +91,6 @@ public class BlockBreakHandler implements Listener {
             }
             event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(toDrop, droppedBlocks));
             */
-
-        }
 
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
 

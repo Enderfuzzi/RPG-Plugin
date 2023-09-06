@@ -43,12 +43,21 @@ public class ItemHeldHandler implements Listener {
             for (Player player : activePlayer) {
                 CustomTool tool = CustomTool.getItem(player.getInventory().getItemInMainHand());
                 if (!tool.isNone()) {
+                    if (tool.getItemConfiguration().hasPotionEffect() && tool.getItemConfiguration().getEquipmentSlot() == EquipmentSlot.HAND) {
+                        for (PotionEffect potionEffect : tool.getItemConfiguration().getPotionEffects()) {
+                            player.addPotionEffect(potionEffect);
+                        }
+                    }
+
+                    /*
                     if (tool.getItemConfiguration().hasCustomPotionEffect() && tool.getItemConfiguration().getCustomPotionEffect().getSlot() == EquipmentSlot.HAND) {
                         for (PotionEffect potionEffect : tool.getItemConfiguration().getCustomPotionEffect().getPotionEffects()) {
                             player.addPotionEffect(potionEffect);
                         }
 
                     }
+
+                     */
                 }
 
                 if (CustomItem.isStatOMeter(player.getInventory().getItemInMainHand())) {
@@ -65,6 +74,7 @@ public class ItemHeldHandler implements Listener {
 
 
     public void applyEffects() {
+        /*
         for (Player player : activePlayer) {
             CustomTool tool = CustomTool.getItem(player.getInventory().getItemInMainHand());
             if (tool.isNone()) continue;
@@ -76,6 +86,8 @@ public class ItemHeldHandler implements Listener {
 
             }
         }
+        */
+
     }
 
 

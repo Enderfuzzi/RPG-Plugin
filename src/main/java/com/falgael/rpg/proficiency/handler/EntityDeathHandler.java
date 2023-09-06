@@ -38,9 +38,15 @@ public class EntityDeathHandler implements Listener {
         int droppedBlocks = 0;
 
         ItemStack item = event.getEntity().getKiller().getInventory().getItemInMainHand();
-
         CustomTool customTool = CustomTool.getItem(item);
-        Bukkit.getLogger().info("Custom Tool not found: " + customTool.isNone());
+        Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
+
+        if (customTool.isWeapon()) {
+            droppedBlocks =  Utils.calculateLoot(customTool);
+            experienceAmount = Utils.calculateExperience(customTool, experienceAmount);
+            Utils.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
+        }
+        /*
         if (!customTool.isNone() && customTool.isWeapon()) {
 
             if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
@@ -59,7 +65,7 @@ public class EntityDeathHandler implements Listener {
                 }
             }
         }
-
+        */
 
         Utils.increaseExperience(event.getEntity().getKiller(), customEntity.getProficiency(), experienceAmount);
     }

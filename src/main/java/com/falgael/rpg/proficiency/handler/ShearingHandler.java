@@ -44,14 +44,22 @@ public class ShearingHandler implements Listener {
     public void onShear(PlayerShearEntityEvent event) {
         if (event.isCancelled()) return;
 
-        long experienceAmount = 0;
+        long experienceAmount = 0L;
         int droppedBlocks = 0;
         if (event.getEntity() instanceof Sheep sheep) {
+            /*
             experienceAmount = 4;
             droppedBlocks = 0;
 
+
+             */
             CustomTool customTool = CustomTool.getItem(event.getItem());
-            Bukkit.getLogger().info("Custom Tool: " + customTool.isNone());
+            Bukkit.getLogger().info("Custom Tool None: " + customTool.isNone());
+
+            experienceAmount = Utils.calculateExperience(customTool, 4L, ProficiencyType.FARMING);
+            droppedBlocks = Utils.calculateLoot(customTool, ProficiencyType.FARMING);
+
+            /*
             if (!customTool.isNone()) {
 
                 Bukkit.getLogger().info("Custom Block Break: " + customTool.getItemConfiguration().hasBlockBreakEffect());
@@ -62,17 +70,29 @@ public class ShearingHandler implements Listener {
 
                 }
             }
+
+             */
+            /*
             Bukkit.getLogger().info("Sheep Color: " + sheep.getColor());
+
             Material material = WOOL_BY_DYE.getOrDefault(sheep.getColor(), Material.AIR);
             if (material != Material.AIR && droppedBlocks != 0) {
                 sheep.getWorld().dropItemNaturally(sheep.getLocation(), new ItemStack(material, droppedBlocks));
             }
 
 
+             */
+            Bukkit.getLogger().info("Sheep Color: " + sheep.getColor());
+
+            Material material = WOOL_BY_DYE.getOrDefault(sheep.getColor(), Material.AIR);
+            Utils.dropAdditionalLoot(new ItemStack(material, droppedBlocks), 1, sheep.getWorld(), sheep.getLocation());
+
+
+
 
         }
 
-        if (experienceAmount != 0) Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
+        Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
 
     }
 
