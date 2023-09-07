@@ -2,6 +2,7 @@ package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
+import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import org.bukkit.Material;
@@ -10,6 +11,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.lang.module.Configuration;
 
 public class PlayerInteractBlockHandler implements Listener {
 
@@ -33,6 +36,18 @@ public class PlayerInteractBlockHandler implements Listener {
              */
             if (experienceAmount != 0) Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
         }
+
+        CustomItem customItem = CustomItem.getItem(event.getItem());
+        if (customItem.isNone()) return;
+        if (customItem.hasConfiguration()) {
+            ItemConfiguration configuration = customItem.getConfiguration();
+            if (configuration.hasAction()) {
+                configuration.getAction().accept(event);
+            }
+        }
+
+
+
     }
 
 }

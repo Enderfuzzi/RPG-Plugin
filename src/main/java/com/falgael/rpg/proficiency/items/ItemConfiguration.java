@@ -4,9 +4,12 @@ import com.falgael.rpg.proficiency.general.ProficiencyType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.event.Event;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.util.Consumer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,10 +74,13 @@ public class ItemConfiguration {
 
     private ArrayList<PotionEffect> potionEffects;
 
-    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects) {
+    private Consumer<PlayerInteractEvent> action;
+
+    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, Consumer<PlayerInteractEvent> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
+        this.action = action;
     }
 
     public EquipmentSlot getEquipmentSlot() {
@@ -101,6 +107,13 @@ public class ItemConfiguration {
         return potionEffects;
     }
 
+    public boolean hasAction() {
+        return action != null;
+    }
+
+    public Consumer<PlayerInteractEvent> getAction() {
+        return action;
+    }
 
 
     public static class Builder {
@@ -108,9 +121,11 @@ public class ItemConfiguration {
         private HashMap<ItemConfigurationFlag,Float> flags;
         private ArrayList<PotionEffect> potionEffects;
 
+        private Consumer<PlayerInteractEvent> action = null;
+
         public Builder(EquipmentSlot equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
-            flags = new HashMap<ItemConfigurationFlag, Float>();
+            flags = new HashMap<>();
             potionEffects = new ArrayList<>();
         }
 
@@ -124,8 +139,13 @@ public class ItemConfiguration {
             return this;
         }
 
+        public Builder addAction(Consumer<PlayerInteractEvent> action) {
+            this.action = action;
+            return this;
+        }
+
         public ItemConfiguration create() {
-            return new ItemConfiguration(equipmentSlot, flags, potionEffects);
+            return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
         }
     }
 

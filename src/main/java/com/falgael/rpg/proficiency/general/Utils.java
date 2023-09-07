@@ -5,9 +5,15 @@ import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfigurationFlag;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.checkerframework.checker.units.qual.A;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Utils {
 
@@ -30,6 +36,7 @@ public class Utils {
         for (int i = 0; i < split.length; i++) split[i] = split[i].substring(0,1).toUpperCase() + split[i].substring(1);
         return String.join(" ", split);
     }
+
 
     private static void testCalculation(CustomTool tool) {
         double lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_MULTIPLIER);

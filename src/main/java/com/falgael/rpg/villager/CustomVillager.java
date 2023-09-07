@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.MerchantRecipe;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -232,6 +233,13 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.PUMPKIN,16)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.HONEY_BLOCK,4)).create())
 
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_BEEF,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_CHICKEN,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_PORKCHOP,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_MUTTON,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_RABBIT,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_SALMON,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.COOKED_COD,8)).create())
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_COMMON_HOE.getItem()).addIngredients(CustomTool.FARMING_SIMPLE_HOE.getItem())
                             .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
@@ -248,7 +256,17 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CARROT, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.POTATO, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BEE_SPAWN_EGG)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BEE_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COW_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PIG_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHICKEN_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RABBIT_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SALMON_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COD_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.TROPICAL_FISH_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PUFFERFISH_SPAWN_EGG)).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 16)).create())
+
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_ADVANCED_HOE.getItem()).addIngredients(CustomTool.FARMING_COMMON_HOE.getItem())
                             .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 32)).create())
@@ -256,6 +274,22 @@ public enum CustomVillager {
 
     FARMING_TIER_III(ProficiencyType.FARMING.getName() + "_TIER_III", ProficiencyType.FARMING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.FARMING), Villager.Profession.FARMER)
+
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_BEEF, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_CHICKEN, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_PORKCHOP, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_MUTTON, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_RABBIT, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_COD, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.COOKED_SALMON, 8)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_GOLD_NUGGET.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_ELITE_HOE.getItem()).addIngredients(CustomTool.FARMING_ADVANCED_HOE.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 8)).create())
+                    .create(), 10),
+
+    FARMING_TIER_IV(ProficiencyType.FARMING.getName() + "_TIER_IV", ProficiencyType.FARMING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.FARMING), Villager.Profession.FARMER)
 
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.FLOWER_POT, 32)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
@@ -275,16 +309,6 @@ public enum CustomVillager {
 
 
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WITHER_ROSE, 16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
-
-                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_GOLD_NUGGET.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_ELITE_HOE.getItem()).addIngredients(CustomTool.FARMING_ADVANCED_HOE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 8)).create())
-                    .create(), 10),
-
-    FARMING_TIER_IV(ProficiencyType.FARMING.getName() + "_TIER_IV", ProficiencyType.FARMING,
-            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.FARMING), Villager.Profession.FARMER)
-
-
 
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_EPIC_HOE.getItem()).addIngredients(CustomTool.FARMING_ELITE_HOE.getItem())
                             .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 32)).create())
@@ -307,6 +331,62 @@ public enum CustomVillager {
 
                     .create(), 60),
 
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
+
+    HUNTING_TIER_I(ProficiencyType.HUNTING.getName() + "_TIER_I", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.ROTTEN_FLESH,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.GUNPOWDER,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.STRING,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.BONE,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.SPIDER_EYE,8)).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.MISC_IRON_NUGGET.getItem()).addIngredients(new ItemStack(Material.ENDER_PEARL,4)).create())
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_SWORD.getItem()).addIngredients(CustomTool.HUNTING_SIMPLE_SWORD.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_BOW.getItem()).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 8)).create())
+                    .create(),1),
+    HUNTING_TIER_II(ProficiencyType.HUNTING.getName() + "_TIER_II", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ADVANCED_SWORD.getItem()).addIngredients(CustomTool.HUNTING_COMMON_SWORD.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_IRON_NUGGET.getItem(), 32)).create())
+                    .create(),5),
+    HUNTING_TIER_III(ProficiencyType.HUNTING.getName() + "_TIER_III", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_SWORD.getItem()).addIngredients(CustomTool.HUNTING_ADVANCED_SWORD.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_BOW.getItem()).addIngredients(CustomTool.HUNTING_COMMON_BOW.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 16)).create())
+                    .create(),10),
+    HUNTING_TIER_IV(ProficiencyType.HUNTING.getName() + "_TIER_IV", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_SWORD.getItem()).addIngredients(CustomTool.HUNTING_ELITE_SWORD.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_BOW.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .create(),20),
+    HUNTING_TIER_V(ProficiencyType.HUNTING.getName() + "_TIER_V", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_LEGENDARY_SWORD.getItem()).addIngredients(CustomTool.HUNTING_EPIC_SWORD.getItem())
+                            .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .create(),40),
+    HUNTING_TIER_VI(ProficiencyType.HUNTING.getName() + "_TIER_VI", ProficiencyType.HUNTING,
+            new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, ProficiencyType.HUNTING), Villager.Profession.WEAPONSMITH)
+
+
+                    .create(),60),
 
 
     ;

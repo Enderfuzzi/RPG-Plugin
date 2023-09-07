@@ -42,6 +42,7 @@ public enum CustomEntity {
     DROWNED(ProficiencyType.HUNTING, EntityType.DROWNED, 4),
     ELDER_GUARDIAN(ProficiencyType.HUNTING, EntityType.ELDER_GUARDIAN, 40),
     ENDER_DRAGON(ProficiencyType.HUNTING, EntityType.ENDER_DRAGON, 250),
+    ENDERMAN(ProficiencyType.HUNTING, EntityType.ENDERMAN, 10),
     ENDERMITE(ProficiencyType.HUNTING, EntityType.ENDERMITE, 5),
     EVOKER(ProficiencyType.HUNTING, EntityType.EVOKER, 10),
     GHAST(ProficiencyType.HUNTING, EntityType.GHAST, 5),

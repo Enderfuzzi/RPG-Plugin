@@ -3,11 +3,16 @@ package com.falgael.rpg.proficiency.items;
 import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
+import com.falgael.rpg.proficiency.general.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
 
 public enum CustomItem {
 
@@ -44,16 +49,51 @@ public enum CustomItem {
 
     FARMING_COMPRESSED_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyType.FARMING).setCompressed(true).create()),
 
+    FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted(true).setRarity(Rarity.ADVANCED).setName("Planter").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((event) -> {
+                if (event.getClickedBlock().getType() == Material.FARMLAND) {
+                    Location location = event.getClickedBlock().getLocation();
+                    ArrayList<Location> candidates = new ArrayList<>();
+
+                    location.subtract(1,0,1);
+
+                    for (int j = 0; j < 3; j++) {
+                        for (int i = 0; i< 3; i++) {
+                            if (location.getBlock().getType() == Material.FARMLAND) candidates.add(location.clone());
+                            location.add(0,0,1);
+                        }
+                        location.subtract(0,0,3);
+                        location.add(1,0,0);
+                    }
+
+                    for (Location loc : candidates) {
+                       loc.add(0,1,0);
+                       if (loc.getBlock().getType() == Material.AIR) loc.getBlock().setType(Material.WHEAT);
+                    }
+
+
+
+
+                }
+            }).create()),
 
     ;
+
+    private final ItemConfiguration configuration;
+
 
     private final ItemStack itemStack;
 
     private final ProficiencyType type;
 
     CustomItem(ProficiencyType type, ItemStack itemStack) {
+        this(type, itemStack, null);
+    }
+
+    CustomItem(ProficiencyType type, ItemStack itemStack, ItemConfiguration itemConfiguration) {
         this.type = type;
         this.itemStack = itemStack;
+        this.configuration = itemConfiguration;
     }
 
     public ItemStack getItem() {
@@ -68,6 +108,13 @@ public enum CustomItem {
         return NONE == this;
     }
 
+    public boolean hasConfiguration() {
+        return configuration != null;
+    }
+
+    public ItemConfiguration getConfiguration() {
+        return configuration;
+    }
 
     public static boolean isStatOMeter(ItemStack heldItem) {
         if (heldItem == null) return false;
@@ -81,6 +128,7 @@ public enum CustomItem {
     }
 
     public static CustomItem getItem(ItemStack key) {
+        if (key == null) return NONE;
         for (CustomItem customItem : CustomItem.values()) {
             if (key.getType() != customItem.itemStack.getType()) continue;
 
