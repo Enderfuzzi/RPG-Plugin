@@ -8,11 +8,16 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public enum CustomItem {
 
@@ -53,6 +58,8 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((event) -> {
                 if (event.getClickedBlock().getType() == Material.FARMLAND) {
                     Location location = event.getClickedBlock().getLocation();
+                    placeCropsInRadius(location, 5, Material.WHEAT, event.getPlayer(), Material.WHEAT_SEEDS, Material.FARMLAND);
+                    /*
                     ArrayList<Location> candidates = new ArrayList<>();
 
                     location.subtract(1,0,1);
@@ -71,6 +78,8 @@ public enum CustomItem {
                        if (loc.getBlock().getType() == Material.AIR) loc.getBlock().setType(Material.WHEAT);
                     }
 
+
+                     */
 
 
 
@@ -150,5 +159,81 @@ public enum CustomItem {
         }
         return NONE;
     }
+
+    private static void placeCropsInRadius(Location location, int radius, Material toPlace) {
+        ArrayList<Location> candidates = new ArrayList<>();
+
+        location.subtract(Math.floor(radius / 2),0,Math.floor(radius / 2));
+
+        for (int j = 0; j < radius; j++) {
+            for (int i = 0; i< radius; i++) {
+                if (location.getBlock().getType() == Material.FARMLAND) candidates.add(location.clone());
+                location.add(0,0,1);
+            }
+            location.subtract(0,0,radius);
+            location.add(1,0,0);
+        }
+
+        for (Location loc : candidates) {
+            loc.add(0,1,0);
+            if (loc.getBlock().getType() == Material.AIR) loc.getBlock().setType(toPlace);
+        }
+    }
+
+    private static void placeCropsInRadius(Location location, int radius, Material toPlace, Player player, Material consume, Material toPlaceOn) {
+        ArrayList<Location> candidates = new ArrayList<>();
+
+        location.subtract(Math.floor(radius / 2),0,Math.floor(radius / 2));
+
+        location.add(0,1,0);
+
+        for (int j = 0; j < radius; j++) {
+            for (int i = 0; i< radius; i++) {
+                if (location.getBlock().getType() == Material.AIR && location.getBlock().getRelative(BlockFace.DOWN).getType() == toPlaceOn) candidates.add(location.clone());
+                location.add(0,0,1);
+            }
+            location.subtract(0,0,radius);
+            location.add(1,0,0);
+        }
+
+        HashMap<Integer, ? extends ItemStack> playerItems = player.getInventory().all(consume);
+        if (playerItems.isEmpty()) return;
+
+        /*
+        for (int i = 0; i < candidates.size(); i++) {
+            candidates.get(i).add(0,1,0);
+            if (candidates.get(i).getBlock().getType() != Material.AIR) {
+                candidates.remove(i);
+                i--;
+            }
+        }
+
+
+         */
+
+        int amountToPlace = candidates.size();
+        ArrayList<Integer> indexToRemove = new ArrayList<>();
+        for (Map.Entry<Integer, ? extends ItemStack> entry : playerItems.entrySet()) {
+            if (entry == null) continue;
+            if (amountToPlace < entry.getValue().getAmount()) {
+                player.getInventory().getItem(entry.getKey()).setAmount(entry.getValue().getAmount() - amountToPlace);
+                amountToPlace = 0;
+                break;
+            } else if (amountToPlace - entry.getValue().getAmount() == 0) {
+                indexToRemove.add(entry.getKey());
+                amountToPlace = 0;
+                break;
+            }
+            amountToPlace -= entry.getValue().getAmount();
+            indexToRemove.add(entry.getKey());
+        }
+        if (amountToPlace > 0) return;
+
+        playerItems.keySet().removeIf(indexToRemove::contains);
+
+
+        for (Location loc : candidates) loc.getBlock().setType(toPlace);
+    }
+
 
 }
