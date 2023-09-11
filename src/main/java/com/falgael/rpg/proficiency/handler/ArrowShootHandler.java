@@ -23,7 +23,7 @@ public class ArrowShootHandler implements Listener {
         if (event.getEntity().getShooter() instanceof Player player) {
             CustomTool customTool = CustomTool.getItem(player.getInventory().getItemInMainHand());
             if (customTool.isNone()) return;
-            arrow.setDamage(ItemConfiguration.calculateDamage(customTool,arrow.getDamage()));
+            arrow.setDamage(ItemConfiguration.calculateDamage(customTool,arrow.getDamage(), player));
             arrow.setMetadata(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER.name(), new FixedMetadataValue(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME),
                     customTool.getItemConfiguration().getValue(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER)));
         }
