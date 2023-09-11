@@ -79,7 +79,7 @@ public enum CustomTool {
             .addAttribute(Attribute.GENERIC_MAX_HEALTH, 8).addAttribute(Attribute.GENERIC_ARMOR, 3).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1)
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_RESTRICTION,50.f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50.f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0, true,false)).create()),
 
     WOODWORK_SHEARS(ProficiencyType.WOODWORK, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
@@ -214,6 +214,27 @@ public enum CustomTool {
             .addLore("Shears Sheep").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,3f)
                    .create()),
+
+    FARMING_COMMON_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.STONE_SWORD).setRarity(Rarity.SIMPLE).setName("Sword")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"100").addLore(ItemModifier.EXPERIENCE, "100")
+            .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2)
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 5f).create()),
+
+    FARMING_ADVANCED_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.IRON_SWORD).setRarity(Rarity.ADVANCED).setName("Sword")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"300").addLore(ItemModifier.EXPERIENCE, "300")
+            .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.7)
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 15).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 15f).create()),
+
+    FARMING_ELITE_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.GOLDEN_SWORD).setRarity(Rarity.ELITE).setName("Sword")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"500").addLore(ItemModifier.EXPERIENCE, "500")
+            .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.5)
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 25).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 30f).create()),
 
     //--------------------------------------------------------------------------------------------
     // Hunting

@@ -3,14 +3,10 @@ package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiency.blocks.CustomEntity;
-import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
-import com.falgael.rpg.proficiency.items.ItemConfigurationFlag;
-import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

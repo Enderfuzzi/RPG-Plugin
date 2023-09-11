@@ -4,14 +4,11 @@ import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.blocks.HarvestBlock;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
-import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerHarvestBlockEvent;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.List;
 
 public class HarvestBlockHandler implements Listener {
 

@@ -1,6 +1,5 @@
 package com.falgael.rpg.proficiency.handler;
 
-import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import org.bukkit.entity.Player;

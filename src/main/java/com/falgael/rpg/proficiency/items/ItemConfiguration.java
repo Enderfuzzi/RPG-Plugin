@@ -7,7 +7,6 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -190,8 +189,8 @@ public class ItemConfiguration {
 
     private static boolean matchLevelRequirement(CustomTool tool, Player player) {
         if (tool == null || tool.isNone() || player == null) return true;
-        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_RESTRICTION)) {
-            return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_RESTRICTION);
+        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
+            return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
         }
         return true;
     }

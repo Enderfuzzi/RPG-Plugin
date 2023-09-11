@@ -4,8 +4,6 @@ import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.blocks.BlockBreak;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
-import com.falgael.rpg.proficiency.items.ItemConfigurationFlag;
-import com.falgael.rpg.proficiency.items.effects.BlockBreakEffect;
 import org.bukkit.Bukkit;
 
 import org.bukkit.block.data.Ageable;
