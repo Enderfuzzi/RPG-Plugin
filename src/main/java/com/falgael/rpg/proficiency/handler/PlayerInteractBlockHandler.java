@@ -26,7 +26,7 @@ public class PlayerInteractBlockHandler implements Listener {
             if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4L;
             CustomTool customTool = CustomTool.getItem(event.getItem());
 
-            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount,ProficiencyType.FARMING);
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount, ProficiencyType.FARMING, event.getPlayer());
             /*
             if (!customTool.isNone() && customTool.getProficiencyType() == ProficiencyType.FARMING) {
                 if (customTool.getItemConfiguration().hasBlockBreakEffect())
@@ -34,7 +34,7 @@ public class PlayerInteractBlockHandler implements Listener {
             }
 
              */
-            if (experienceAmount != 0) Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
+            Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
         }
 
         CustomItem customItem = CustomItem.getItem(event.getItem());

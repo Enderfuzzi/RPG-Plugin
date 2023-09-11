@@ -25,8 +25,8 @@ public class HarvestBlockHandler implements Listener {
 
         CustomTool customTool = CustomTool.getItem(item);
 
-        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency());
-        long experienceAmount = ItemConfiguration.calculateExperience(customTool,block.getExperienceAmount(),block.getProficiency());
+        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+        long experienceAmount = ItemConfiguration.calculateExperience(customTool,block.getExperienceAmount(),block.getProficiency(), event.getPlayer());
 
         ItemConfiguration.dropAdditionalLoot(event.getItemsHarvested(),droppedBlocks,event.getHarvestedBlock().getWorld(),event.getHarvestedBlock().getLocation());
 
