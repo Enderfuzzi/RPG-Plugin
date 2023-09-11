@@ -120,6 +120,8 @@ public enum BlockBreak {
     SOUL_SAND(ProficiencyType.STONEWORK, Material.SOUL_SAND,2),
     SOUL_SOIL(ProficiencyType.STONEWORK, Material.SOUL_SOIL,2),
     BASALT(ProficiencyType.STONEWORK, Material.BASALT, 2),
+    NETHER_QUARTZ_ORE(ProficiencyType.STONEWORK, Material.NETHER_QUARTZ_ORE,8),
+    NETHER_GOLD_ORE(ProficiencyType.STONEWORK, Material.NETHER_GOLD_ORE, 8),
 
 
     //--------------------------------------------------------------------------------------------
