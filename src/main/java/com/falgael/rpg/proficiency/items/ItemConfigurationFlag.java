@@ -7,6 +7,7 @@ public enum ItemConfigurationFlag {
         EXPERIENCE_MULTIPLIER,
         DAMAGE_ADDITIVE,
         DAMAGE_MULTIPLIER,
+        LEVEL_RESTRICTION,
 
 
 }

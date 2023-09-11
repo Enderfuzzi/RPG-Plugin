@@ -31,6 +31,11 @@ public class Utils {
 
     }
 
+    public static int getPlayerLevel(Player player, ProficiencyType proficiencyType) {
+        return PlayerManager.getProficiencyData(player.getUniqueId()).getLevel(proficiencyType);
+    }
+
+
     public static String getMaterialName(Material material) {
         String[] split = material.name().toLowerCase().split("_");
         for (int i = 0; i < split.length; i++) split[i] = split[i].substring(0,1).toUpperCase() + split[i].substring(1);

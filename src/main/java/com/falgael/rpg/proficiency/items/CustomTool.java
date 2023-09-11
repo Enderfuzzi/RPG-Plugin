@@ -78,6 +78,7 @@ public enum CustomTool {
             .addAttribute(Attribute.GENERIC_MAX_HEALTH, 8).addAttribute(Attribute.GENERIC_ARMOR, 3).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1)
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_RESTRICTION,50.f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0, true,false)).create()),
 
     WOODWORK_SHEARS(ProficiencyType.WOODWORK, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
@@ -273,7 +274,7 @@ public enum CustomTool {
     ;
 
 
-
+    //TODO Add Level Requirements
     //TODO Change Attribute Values
 
 

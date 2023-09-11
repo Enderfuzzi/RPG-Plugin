@@ -15,6 +15,12 @@ public class ItemBurnHandler implements Listener {
         if (event.isCancelled()) return;
         CustomItem customItem = CustomItem.getItem(event.getFuel());
         if (customItem.isNone()) return;
+
+        if (customItem.hasConfiguration() && customItem.getConfiguration().hasAction()) {
+            customItem.getConfiguration().getAction().accept(event);
+        }
+
+        /*
         if (customItem == CustomItem.STONEWORK_INFINITE_COAL) {
             if (event.getBlock().getState() instanceof Furnace furnace) {
                 ItemStack fuel = furnace.getInventory().getFuel();
@@ -25,5 +31,7 @@ public class ItemBurnHandler implements Listener {
             event.setBurnTime(100);
             event.setBurning(false);
         }
+
+         */
     }
 }

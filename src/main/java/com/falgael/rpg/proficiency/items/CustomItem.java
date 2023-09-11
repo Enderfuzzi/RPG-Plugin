@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiency.items;
 
+import com.falgael.rpg.RPG;
 import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
@@ -8,16 +9,18 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.BlastFurnace;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.Furnace;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.FurnaceBurnEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public enum CustomItem {
 
@@ -44,8 +47,39 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     STONEWORK_COMPRESSED_STONE(ProficiencyType.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyType.STONEWORK).setCompressed(true).create()),
 
-    STONEWORK_INFINITE_COAL(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted(true)
-            .addBurnModifierLore("50% Burn Speed").addLore("Burning until end of time").setName("Infinite Fuel").create()),
+
+    STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ADVANCED).visibleEnchanted(true)
+            .addBurnModifierLore("10% Burn Speed").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+                if (!(e instanceof FurnaceBurnEvent event)) return;
+                if (event.getBlock().getState() instanceof Furnace furnace) furnaceItemBurn(furnace, 0.1,event);
+    }).create()),
+    STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, new ItemBuilder(Material.CHARCOAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted(true)
+            .addBurnModifierLore("50% Burn Speed").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+               if (!(e instanceof FurnaceBurnEvent event)) return;
+               if (event.getBlock().getState() instanceof Furnace furnace) {
+                   furnaceItemBurn(furnace, 0.5,event);
+                   /*
+                   ItemStack fuel = furnace.getInventory().getFuel();
+                   fuel.setAmount(fuel.getAmount() + 1);
+                   furnace.getInventory().setFuel(fuel);
+
+                   if (furnace.getCookTime() < furnace.getCookTimeTotal() * 0.5)
+                       furnace.setCookTime((short) (furnace.getCookTimeTotal() * 0.5));
+
+                   furnace.update();
+
+                   event.setBurnTime(furnace.getCookTimeTotal() * 0.5);
+                   event.setBurning(false);
+
+                    */
+               }
+    }).create()),
+
+    STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.EPIC).visibleEnchanted(true)
+            .addBurnModifierLore("75% Burn Speed").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+                if (!(e instanceof FurnaceBurnEvent event)) return;
+                if (event.getBlock().getState() instanceof Furnace furnace) furnaceItemBurn(furnace, 0.75,event);
+    }).create()),
 
 
     //--------------------------------------------------------------------------------------------
@@ -55,7 +89,8 @@ public enum CustomItem {
     FARMING_COMPRESSED_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyType.FARMING).setCompressed(true).create()),
 
     FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted(true).setRarity(Rarity.ADVANCED).setName("Planter").create(),
-            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((event) -> {
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((e) -> {
+                if (!(e instanceof PlayerInteractEvent event)) return;
                 if (event.getClickedBlock().getType() == Material.FARMLAND) {
                     Location location = event.getClickedBlock().getLocation();
                     placeCropsInRadius(location, 5, Material.WHEAT, event.getPlayer(), Material.WHEAT_SEEDS, Material.FARMLAND);
@@ -234,6 +269,21 @@ public enum CustomItem {
 
         for (Location loc : candidates) loc.getBlock().setType(toPlace);
     }
+
+    private static void furnaceItemBurn(Furnace furnace, double speedIncrease, FurnaceBurnEvent event ) {
+        ItemStack fuel = furnace.getInventory().getFuel();
+        fuel.setAmount(fuel.getAmount() + 1);
+        furnace.getInventory().setFuel(fuel);
+
+        if (furnace.getCookTime() < furnace.getCookTimeTotal() * speedIncrease)
+            furnace.setCookTime((short) (furnace.getCookTimeTotal() * speedIncrease));
+
+        furnace.update();
+
+        event.setBurnTime((short) (furnace.getCookTimeTotal() * (1 - speedIncrease)));
+        event.setBurning(false);
+    }
+
 
 
 }

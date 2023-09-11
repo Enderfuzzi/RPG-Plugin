@@ -201,7 +201,7 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RED_CONCRETE,1)).addIngredients(new ItemStack(Material.RED_CONCRETE_POWDER)).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLACK_CONCRETE,1)).addIngredients(new ItemStack(Material.BLACK_CONCRETE_POWDER)).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomItem.STONEWORK_INFINITE_COAL.getItem()).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomItem.STONEWORK_INFINITE_COAL_TIER_II.getItem()).addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(), 4)).create())
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_EPIC_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ELITE_PICKAXE.getItem())
                             .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),32)).create())
                     .create(), 20),

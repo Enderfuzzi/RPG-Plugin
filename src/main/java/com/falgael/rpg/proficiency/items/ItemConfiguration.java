@@ -1,9 +1,11 @@
 package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.proficiency.general.ProficiencyType;
+import com.falgael.rpg.proficiency.general.Utils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -21,62 +23,15 @@ import java.util.List;
  * @version 0.0.1
  */
 public class ItemConfiguration {
-    /*
-    /** Indicates if the items has a block break effect *
-    private boolean hasBlockBreakEffect;
-
-    private BlockBreakEffect blockBreakEffect = null;
-
-    private boolean hasHeldEffect;
-
-    private CustomPotionEffect customPotionEffect;
-
-
-    /** Creates a default configuration without special modification *
-    public ItemConfiguration() {
-        this(null,null);
-    }
-
-    public ItemConfiguration(BlockBreakEffect blockBreakEffect) {
-        this(blockBreakEffect, null);
-    }
-
-    public ItemConfiguration(CustomPotionEffect customPotionEffect) {
-        this(null, customPotionEffect);
-    }
-
-    public ItemConfiguration(BlockBreakEffect blockBreakEffect, CustomPotionEffect customPotionEffect) {
-        hasBlockBreakEffect = blockBreakEffect != null;
-        hasHeldEffect = customPotionEffect != null;
-        this.blockBreakEffect = blockBreakEffect;
-        this.customPotionEffect = customPotionEffect;
-    }
-
-    public boolean hasBlockBreakEffect() {
-        return hasBlockBreakEffect;
-    }
-
-    public BlockBreakEffect getBlockBreakEffect() {
-        return blockBreakEffect;
-    }
-
-    public boolean hasCustomPotionEffect() {
-        return hasHeldEffect;
-    }
-
-    public CustomPotionEffect getCustomPotionEffect() {
-        return customPotionEffect;
-    }
-    */
     private EquipmentSlot equipmentSlot;
 
     private HashMap<ItemConfigurationFlag,Float> flags;
 
     private ArrayList<PotionEffect> potionEffects;
 
-    private Consumer<PlayerInteractEvent> action;
+    private Consumer<Event> action;
 
-    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, Consumer<PlayerInteractEvent> action) {
+    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, Consumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
@@ -111,7 +66,7 @@ public class ItemConfiguration {
         return action != null;
     }
 
-    public Consumer<PlayerInteractEvent> getAction() {
+    public Consumer<Event> getAction() {
         return action;
     }
 
@@ -121,7 +76,7 @@ public class ItemConfiguration {
         private HashMap<ItemConfigurationFlag,Float> flags;
         private ArrayList<PotionEffect> potionEffects;
 
-        private Consumer<PlayerInteractEvent> action = null;
+        private Consumer<Event> action = null;
 
         public Builder(EquipmentSlot equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
@@ -139,7 +94,7 @@ public class ItemConfiguration {
             return this;
         }
 
-        public Builder addAction(Consumer<PlayerInteractEvent> action) {
+        public Builder addAction(Consumer<Event> action) {
             this.action = action;
             return this;
         }
@@ -147,6 +102,11 @@ public class ItemConfiguration {
         public ItemConfiguration create() {
             return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
         }
+    }
+
+    public static long calculateExperience(CustomTool tool, long baseExperience, ProficiencyType type, Player player) {
+        if (matchLevelRequirement(tool, player)) return calculateExperience(tool, baseExperience, type);
+        return baseExperience;
     }
 
     public static long calculateExperience(CustomTool tool, long baseExperience, ProficiencyType type) {
@@ -163,6 +123,10 @@ public class ItemConfiguration {
         return baseExperience;
     }
 
+    public static int calculateLoot(CustomTool tool, ProficiencyType type, Player player) {
+        if (matchLevelRequirement(tool,player)) return calculateLoot(tool, type);
+        return 0;
+    }
 
     public static int calculateLoot(CustomTool tool, ProficiencyType type) {
         if (tool.getProficiencyType() != type) return 0;
@@ -203,6 +167,11 @@ public class ItemConfiguration {
         dropAdditionalLoot(List.of(drop), dropAmount, world, location);
     }
 
+    public static double calculateDamage(CustomTool customTool, double baseValue, Player player) {
+        if (matchLevelRequirement(customTool, player)) return calculateDamage(customTool, baseValue);
+        return baseValue;
+    }
+
     public static double calculateDamage(CustomTool customTool, double baseValue) {
         if (customTool.isNone()) return baseValue;
 
@@ -217,6 +186,14 @@ public class ItemConfiguration {
         }
 
         return result;
+    }
+
+    private static boolean matchLevelRequirement(CustomTool tool, Player player) {
+        if (tool == null || tool.isNone() || player == null) return true;
+        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_RESTRICTION)) {
+            return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_RESTRICTION);
+        }
+        return true;
     }
 
 

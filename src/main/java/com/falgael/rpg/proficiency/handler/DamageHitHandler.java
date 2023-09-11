@@ -15,7 +15,7 @@ public class DamageHitHandler implements Listener {
         if (event.isCancelled()) return;
         if (!(event.getDamager() instanceof Player player)) return;
         CustomTool customTool = CustomTool.getItem(player.getInventory().getItemInMainHand());
-        event.setDamage(ItemConfiguration.calculateDamage(customTool, event.getDamage()));
+        event.setDamage(ItemConfiguration.calculateDamage(customTool, event.getDamage(), player));
     }
 
 
