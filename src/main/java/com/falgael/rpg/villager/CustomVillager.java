@@ -177,6 +177,8 @@ public enum CustomVillager {
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GOLD_INGOT,4)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LAPIS_LAZULI,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
 
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.QUARTZ_BLOCK,16)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
+
                     .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ELITE_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem())
                             .addIngredients(Utils.modifyItemAmount(CustomItem.MISC_GOLD_NUGGET.getItem(),8)).create())
                     .create(), 10),
