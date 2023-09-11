@@ -3,6 +3,7 @@ package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiency.blocks.CustomEntity;
+import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
@@ -46,8 +47,8 @@ public class EntityDeathHandler implements Listener {
         Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
 
         if (customTool.isWeapon()) {
-            droppedBlocks =  ItemConfiguration.calculateLoot(customTool);
-            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount);
+            droppedBlocks =  ItemConfiguration.calculateLoot(customTool, customEntity.getProficiency(), event.getEntity().getKiller());
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount, customEntity.getProficiency(),event.getEntity().getKiller());
             ItemConfiguration.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
         }
         /*

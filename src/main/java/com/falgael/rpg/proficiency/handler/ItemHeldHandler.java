@@ -41,28 +41,18 @@ public class ItemHeldHandler implements Listener {
     public static void startCheck() {
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME), new Thread(() -> {
             for (Player player : activePlayer) {
-                CustomTool tool = CustomTool.getItem(player.getInventory().getItemInMainHand());
-                if (!tool.isNone()) {
-                    if (tool.getItemConfiguration().hasPotionEffect() && tool.getItemConfiguration().getEquipmentSlot() == EquipmentSlot.HAND) {
-                        for (PotionEffect potionEffect : tool.getItemConfiguration().getPotionEffects()) {
-                            player.addPotionEffect(potionEffect);
-                        }
-                    }
+                applyEffects(CustomTool.getItem(player.getInventory().getItemInMainHand()), player, EquipmentSlot.HAND);
+                applyEffects(CustomTool.getItem(player.getInventory().getItemInOffHand()), player, EquipmentSlot.OFF_HAND);
 
-                    /*
-                    if (tool.getItemConfiguration().hasCustomPotionEffect() && tool.getItemConfiguration().getCustomPotionEffect().getSlot() == EquipmentSlot.HAND) {
-                        for (PotionEffect potionEffect : tool.getItemConfiguration().getCustomPotionEffect().getPotionEffects()) {
-                            player.addPotionEffect(potionEffect);
-                        }
 
-                    }
-
-                     */
-                }
 
                 if (CustomItem.isStatOMeter(player.getInventory().getItemInMainHand())) {
                     loreModification(player,player.getInventory().getItemInMainHand());
                 }
+                if (CustomItem.isStatOMeter(player.getInventory().getItemInOffHand())) {
+                    loreModification(player,player.getInventory().getItemInOffHand());
+                }
+
 
             }
         }), 200,100);
@@ -137,5 +127,14 @@ public class ItemHeldHandler implements Listener {
 
         item.setItemMeta(itemMeta);
     }
+
+    private static void applyEffects(CustomTool tool, Player player, EquipmentSlot slot) {
+        if (tool.isNone()) return;
+        if (!tool.getItemConfiguration().hasPotionEffect()) return;
+        if (tool.getItemConfiguration().getEquipmentSlot() != slot) return;
+
+        for (PotionEffect potionEffect : tool.getItemConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
+    }
+
 
 }

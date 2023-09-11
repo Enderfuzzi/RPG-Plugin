@@ -5,7 +5,6 @@ import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -16,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 public class ItemBuilder {
@@ -26,7 +26,9 @@ public class ItemBuilder {
 
     private Material material;
 
-    private ArrayList<String> lore = new ArrayList<>();
+    //private ArrayList<String> lore = new ArrayList<>();
+
+    private HashMap<ItemModifier, String> lore = new HashMap<>();
 
     private int amount = 1;
 
@@ -38,7 +40,7 @@ public class ItemBuilder {
 
     private EquipmentSlot equipmentSlot = EquipmentSlot.HAND;
 
-    private boolean isCurrency = false;
+    private boolean currency = false;
 
     private boolean visibleEnchanted = false;
 
@@ -63,15 +65,15 @@ public class ItemBuilder {
     }
 
     public ItemBuilder addLore(String lore) {
-        this.lore.add(lore);
+        this.lore.put(ItemModifier.DEFAULT, lore);
         return this;
     }
 
-    private ItemBuilder addLore(String text, ItemModifier modifier) {
-        this.lore.add(modifier.getRepresentation() + text);
+    public ItemBuilder addLore(ItemModifier modifier, String lore) {
+        this.lore.put(modifier, lore);
         return this;
     }
-
+    /*
     public ItemBuilder addExperienceModifierLore(String text) {
         return addLore(text, ItemModifier.EXPERIENCE);
     }
@@ -84,14 +86,16 @@ public class ItemBuilder {
         return addLore(text, ItemModifier.BURN_TIME);
     }
 
-    public ItemBuilder setCompressed(boolean compressed) {
-        this.compressed = compressed;
+
+     */
+    public ItemBuilder setCompressed() {
+        this.compressed = true;
         this.rarity = Rarity.ELITE;
         return this;
     }
 
     public ItemBuilder setRarity(Rarity itemType) {
-        this.rarity = itemType;
+        if (!compressed) this.rarity = itemType;
         return this;
     }
 
@@ -99,6 +103,7 @@ public class ItemBuilder {
         this.equipmentSlot = equipmentSlot;
         return this;
     }
+
     //TODO Rebuild the Attributes for further usage
     public ItemBuilder addAttribute(Attribute attribute, double value, String attributeName) {
         attributes.put(attribute, new AttributeModifier(UUID.nameUUIDFromBytes(attributeName.getBytes()),attributeName,value,AttributeModifier.Operation.ADD_NUMBER, equipmentSlot));
@@ -110,21 +115,19 @@ public class ItemBuilder {
     }
 
     public ItemBuilder addProficiency(ProficiencyType proficiency) {
-        this.proficiency = proficiency;
+        if (!currency) this.proficiency = proficiency;
         return this;
     }
 
-    public ItemBuilder setCurrency(boolean isCurrency) {
-        this.isCurrency = isCurrency;
-        if (isCurrency) {
-            lore.add("Currency");
-            proficiency = ProficiencyType.MISC;
-        }
+    public ItemBuilder setCurrency() {
+        this.currency = true;
+        lore.put(ItemModifier.CURRENCY, "");
+        proficiency = ProficiencyType.MISC;
         return this;
     }
 
-    public ItemBuilder visibleEnchanted(boolean flag) {
-        visibleEnchanted = flag;
+    public ItemBuilder visibleEnchanted() {
+        visibleEnchanted = true;
         return this;
     }
 
@@ -142,10 +145,11 @@ public class ItemBuilder {
         //itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
-        if (proficiency != ProficiencyType.NONE) lore.add(0,proficiency.getRepresentation());
-        itemMeta.setLore(lore);
 
-        if (compressed || isCurrency || visibleEnchanted) {
+
+        itemMeta.setLore(buildLore());
+
+        if (compressed || currency || visibleEnchanted) {
             if (compressed) itemMeta.setDisplayName(buildCompressedName());
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
             itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
@@ -163,6 +167,17 @@ public class ItemBuilder {
 
     private String buildCompressedName() {
         return rarity.getRepresentation() + "Compressed " + Utils.getMaterialName(material);
+    }
+
+    private ArrayList<String> buildLore() {
+        ArrayList<String> result = new ArrayList<>();
+        result.add(proficiency.getRepresentation());
+
+        for (ItemModifier itemModifier : ItemModifier.values()) {
+            if (lore.containsKey(itemModifier)) result.add(itemModifier.createLore(lore.get(itemModifier)));
+        }
+
+        return result;
     }
 
 

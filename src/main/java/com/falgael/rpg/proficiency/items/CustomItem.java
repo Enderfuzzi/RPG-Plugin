@@ -2,6 +2,7 @@ package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.RPG;
 import com.falgael.rpg.items.ItemBuilder;
+import com.falgael.rpg.items.ItemModifier;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.general.Utils;
@@ -29,32 +30,32 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     // Misc
     //--------------------------------------------------------------------------------------------
-    MISC_IRON_NUGGET(ProficiencyType.MISC, new ItemBuilder(Material.IRON_NUGGET).setName("Silver Coin").setCurrency(true).setRarity(Rarity.NONE).create()),
-    MISC_GOLD_NUGGET(ProficiencyType.MISC, new ItemBuilder(Material.GOLD_NUGGET).setName("Gold Coin").setCurrency(true).setRarity(Rarity.NONE).create()),
+    MISC_IRON_NUGGET(ProficiencyType.MISC, new ItemBuilder(Material.IRON_NUGGET).setName("Silver Coin").setCurrency().setRarity(Rarity.NONE).create()),
+    MISC_GOLD_NUGGET(ProficiencyType.MISC, new ItemBuilder(Material.GOLD_NUGGET).setName("Gold Coin").setCurrency().setRarity(Rarity.NONE).create()),
 
-    MISC_STAT_O_METER(ProficiencyType.MISC, new ItemBuilder(Material.AMETHYST_SHARD).setName("Stat-O-Meter").visibleEnchanted(true).setRarity(Rarity.LEGENDARY).create()),
+    MISC_STAT_O_METER(ProficiencyType.MISC, new ItemBuilder(Material.AMETHYST_SHARD).setName("Stat-O-Meter").visibleEnchanted().setRarity(Rarity.LEGENDARY).create()),
 
 
     //--------------------------------------------------------------------------------------------
     // Woodwork
     //--------------------------------------------------------------------------------------------
-    WOODWORK_COMPRESSED_OAK(ProficiencyType.WOODWORK, new ItemBuilder(Material.OAK_WOOD).addProficiency(ProficiencyType.WOODWORK).setCompressed(true).create()),
+    WOODWORK_COMPRESSED_OAK(ProficiencyType.WOODWORK, new ItemBuilder(Material.OAK_WOOD).addProficiency(ProficiencyType.WOODWORK).setCompressed().create()),
 
 
 
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
-    STONEWORK_COMPRESSED_STONE(ProficiencyType.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyType.STONEWORK).setCompressed(true).create()),
+    STONEWORK_COMPRESSED_STONE(ProficiencyType.STONEWORK, new ItemBuilder(Material.STONE).addProficiency(ProficiencyType.STONEWORK).setCompressed().create()),
 
 
-    STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ADVANCED).visibleEnchanted(true)
-            .addBurnModifierLore("10% Burn Speed").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+    STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ADVANCED).visibleEnchanted()
+            .addLore(ItemModifier.BURN_TIME, "10").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
                 if (!(e instanceof FurnaceBurnEvent event)) return;
                 if (event.getBlock().getState() instanceof Furnace furnace) furnaceItemBurn(furnace, 0.1,event);
     }).create()),
-    STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, new ItemBuilder(Material.CHARCOAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted(true)
-            .addBurnModifierLore("50% Burn Speed").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+    STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, new ItemBuilder(Material.CHARCOAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted()
+            .addLore(ItemModifier.BURN_TIME, "50").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
                if (!(e instanceof FurnaceBurnEvent event)) return;
                if (event.getBlock().getState() instanceof Furnace furnace) {
                    furnaceItemBurn(furnace, 0.5,event);
@@ -75,8 +76,8 @@ public enum CustomItem {
                }
     }).create()),
 
-    STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.EPIC).visibleEnchanted(true)
-            .addBurnModifierLore("75% Burn Speed").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
+    STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.EPIC).visibleEnchanted()
+            .addLore(ItemModifier.BURN_TIME, "75").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
                 if (!(e instanceof FurnaceBurnEvent event)) return;
                 if (event.getBlock().getState() instanceof Furnace furnace) furnaceItemBurn(furnace, 0.75,event);
     }).create()),
@@ -86,9 +87,9 @@ public enum CustomItem {
     // Farming
     //--------------------------------------------------------------------------------------------
 
-    FARMING_COMPRESSED_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyType.FARMING).setCompressed(true).create()),
+    FARMING_COMPRESSED_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyType.FARMING).setCompressed().create()),
 
-    FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted(true).setRarity(Rarity.ADVANCED).setName("Planter").create(),
+    FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted().setRarity(Rarity.ADVANCED).setName("Planter").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((e) -> {
                 if (!(e instanceof PlayerInteractEvent event)) return;
                 if (event.getClickedBlock().getType() == Material.FARMLAND) {
@@ -162,8 +163,8 @@ public enum CustomItem {
 
     public static boolean isStatOMeter(ItemStack heldItem) {
         if (heldItem == null) return false;
+        if (MISC_STAT_O_METER.getItem().getType() != heldItem.getType()) return false;
         ItemMeta heldItemMeta = heldItem.getItemMeta();
-        if (!MISC_STAT_O_METER.getItem().getType().equals(heldItem.getType())) return false;
         ItemMeta statItemMeta = MISC_STAT_O_METER.itemStack.getItemMeta();
         if (statItemMeta == null || heldItemMeta == null) return false;
         if (!statItemMeta.getDisplayName().equals(heldItemMeta.getDisplayName())) return false;
