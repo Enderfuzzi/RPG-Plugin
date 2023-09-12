@@ -73,21 +73,21 @@ public enum CustomTool {
 
     WOODWORK_ADVANCED_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.IRON_AXE).setRarity(Rarity.ADVANCED).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 6).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.7).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).create()),
 
     WOODWORK_ELITE_AXE( ProficiencyType.WOODWORK, new ItemBuilder(Material.GOLDEN_AXE).setRarity(Rarity.ELITE).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 7).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
 
     WOODWORK_EPIC_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.DIAMOND_AXE).setRarity(Rarity.EPIC).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.2).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).create()),
@@ -126,7 +126,7 @@ public enum CustomTool {
 
     STONEWORK_ADVANCED_PICKAXE(ProficiencyType.STONEWORK, new ItemBuilder(Material.IRON_PICKAXE).setRarity(Rarity.ADVANCED).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.0).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f)
                     .addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
@@ -134,21 +134,21 @@ public enum CustomTool {
 
     STONEWORK_ELITE_PICKAXE( ProficiencyType.STONEWORK, new ItemBuilder(Material.GOLDEN_PICKAXE).setRarity(Rarity.ELITE).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
 
     STONEWORK_EPIC_PICKAXE(ProficiencyType.STONEWORK, new ItemBuilder(Material.DIAMOND_PICKAXE).setRarity(Rarity.EPIC).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_MAX_HEALTH, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).create()),
 
     STONEWORK_LEGENDARY_PICKAXE(ProficiencyType.STONEWORK, new ItemBuilder(Material.NETHERITE_PICKAXE).setRarity(Rarity.LEGENDARY).setName("Pickaxe")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"50")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.2).addAttribute(Attribute.GENERIC_MAX_HEALTH, 16)
             .addAttribute(Attribute.GENERIC_ARMOR, 6).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 1).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
@@ -169,28 +169,28 @@ public enum CustomTool {
 
     STONEWORK_ADVANCED_SHOVEL(ProficiencyType.STONEWORK, new ItemBuilder(Material.IRON_SHOVEL).setRarity(Rarity.ADVANCED).setName("Shovel")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.0).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).create()),
 
     STONEWORK_ELITE_SHOVEL( ProficiencyType.STONEWORK, new ItemBuilder(Material.GOLDEN_SHOVEL).setRarity(Rarity.ELITE).setName("Shovel")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Elite tool for harvesting")
+            .addLore("Elite tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
 
     STONEWORK_EPIC_SHOVEL(ProficiencyType.STONEWORK, new ItemBuilder(Material.DIAMOND_SHOVEL).setRarity(Rarity.EPIC).setName("Shovel")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_MAX_HEALTH, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).create()),
 
     STONEWORK_LEGENDARY_SHOVEL(ProficiencyType.STONEWORK, new ItemBuilder(Material.NETHERITE_SHOVEL).setRarity(Rarity.LEGENDARY).setName("Shovel")
             .addProficiency(ProficiencyType.STONEWORK).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"50")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.2).addAttribute(Attribute.GENERIC_MAX_HEALTH, 16)
                     .addAttribute(Attribute.GENERIC_ARMOR, 6).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 1).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
@@ -215,28 +215,28 @@ public enum CustomTool {
 
     FARMING_ADVANCED_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.IRON_HOE).setRarity(Rarity.ADVANCED).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for harvesting")
+            .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.0).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_ELITE_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.GOLDEN_HOE).setRarity(Rarity.ELITE).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Elite tool for harvesting")
+            .addLore("Elite tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_EPIC_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.DIAMOND_HOE).setRarity(Rarity.EPIC).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_MAX_HEALTH, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_LEGENDARY_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.NETHERITE_HOE).setRarity(Rarity.LEGENDARY).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"50")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.2).addAttribute(Attribute.GENERIC_MAX_HEALTH, 16)
             .addAttribute(Attribute.GENERIC_ARMOR, 6).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
@@ -244,34 +244,34 @@ public enum CustomTool {
 
     FARMING_ADVANCED_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE,"300")
-            .addLore("Shears Sheep").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).create(),
+            .addLore("Shears Sheep").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addLore(ItemModifier.LEVEL_REQUIREMENT,"10").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,4f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,2f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,10f).create()),
 
     FARMING_EPIC_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.EPIC).setName("Shears")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"500")
-            .addLore("Shears Sheep").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).create(),
+            .addLore("Shears Sheep").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addLore(ItemModifier.LEVEL_REQUIREMENT,"35").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,35f).create()),
 
     FARMING_COMMON_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.STONE_SWORD).setRarity(Rarity.SIMPLE).setName("Sword")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"100").addLore(ItemModifier.EXPERIENCE, "100")
             .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2)
-            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).create(),
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).addLore(ItemModifier.LEVEL_REQUIREMENT,"5").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 5f).create()),
 
     FARMING_ADVANCED_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.IRON_SWORD).setRarity(Rarity.ADVANCED).setName("Sword")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"300").addLore(ItemModifier.EXPERIENCE, "300")
             .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.7)
-            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 15).create(),
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 15).addLore(ItemModifier.LEVEL_REQUIREMENT,"15").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 15f).create()),
 
     FARMING_ELITE_SWORD(ProficiencyType.FARMING, new ItemBuilder(Material.GOLDEN_SWORD).setRarity(Rarity.ELITE).setName("Sword")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT,"500").addLore(ItemModifier.EXPERIENCE, "500")
             .addLore("Common tool for killing Animals").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.01).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.5)
-            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 25).create(),
+            .addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 25).addLore(ItemModifier.LEVEL_REQUIREMENT,"25").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 25f).create()),
 
@@ -292,21 +292,21 @@ public enum CustomTool {
 
     HUNTING_ADVANCED_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.IRON_SWORD).setRarity(Rarity.ADVANCED).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Advanced tool for hunting")
+            .addLore("Advanced tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 8).addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.0005).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).create()),
 
     HUNTING_ELITE_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.GOLDEN_SWORD).setRarity(Rarity.ELITE).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Elite tool for hunting")
+            .addLore("Elite tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.7).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.005).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
 
     HUNTING_EPIC_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.DIAMOND_SWORD).setRarity(Rarity.EPIC).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Forged in the depth")
+            .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.5).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 12).addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.05)
             .addAttribute(Attribute.GENERIC_MAX_HEALTH, 4).addAttribute(Attribute.GENERIC_ARMOR, 0.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
@@ -314,7 +314,7 @@ public enum CustomTool {
 
     HUNTING_LEGENDARY_SWORD(ProficiencyType.HUNTING, new ItemBuilder(Material.NETHERITE_SWORD).setRarity(Rarity.LEGENDARY).setName("Sword")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
-            .addLore("Harvest the Weak")
+            .addLore("Harvest the Weak").addLore(ItemModifier.LEVEL_REQUIREMENT,"50")
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -1.3).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 20).addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.1)
             .addAttribute(Attribute.GENERIC_MAX_HEALTH, 12).addAttribute(Attribute.GENERIC_ARMOR, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
@@ -323,21 +323,21 @@ public enum CustomTool {
 
     HUNTING_COMMON_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.COMMON).setName("Bow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE,"100")
-            .addLore("Common tool for hunting").create(),
+            .addLore("Common tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"5").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER, 1.3f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,5f).create()),
 
     HUNTING_ELITE_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.ELITE).setName("Bow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"200")
-            .addLore("Advanced tool for hunting").create(),
+            .addLore("Advanced tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"20").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER, 1.7f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,20f).create()),
 
     HUNTING_EPIC_BOW(ProficiencyType.HUNTING, new ItemBuilder(Material.BOW).setRarity(Rarity.EPIC).setName("Bow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"400")
-            .addLore("Epic tool for hunting").create(),
+            .addLore("Epic tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"35").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,5f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER, 2.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,35f).create()),
@@ -345,33 +345,33 @@ public enum CustomTool {
 
     HUNTING_COMMON_CROSSBOW(ProficiencyType.HUNTING, new ItemBuilder(Material.CROSSBOW).setRarity(Rarity.COMMON).setName("Crossbow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE, "200")
-            .addLore("Common tool for hunting").create(),
+            .addLore("Common tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"5").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,2f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER,1.5f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,5f).create()),
 
     HUNTING_ELITE_CROSSBOW(ProficiencyType.HUNTING, new ItemBuilder(Material.CROSSBOW).setRarity(Rarity.ELITE).setName("Crossbow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE, "300")
-            .addLore("Elite tool for hunting").create(),
+            .addLore("Elite tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"20").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,4f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,3f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER,2.0f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,20f).create()),
     HUNTING_EPIC_CROSSBOW(ProficiencyType.HUNTING, new ItemBuilder(Material.CROSSBOW).setRarity(Rarity.EPIC).setName("Crossbow")
             .addProficiency(ProficiencyType.HUNTING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE, "500")
-            .addLore("Epic tool for hunting").create(),
+            .addLore("Epic tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"35").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,4.5f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER,3.0f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,35f).create()),
 
     HUNTING_ADVANCED_SHIELD(ProficiencyType.HUNTING, new ItemBuilder(Material.SHIELD).setRarity(Rarity.ADVANCED).setName("Shield")
-            .addProficiency(ProficiencyType.HUNTING).addLore("Advanced tool for hunting").create(),
+            .addProficiency(ProficiencyType.HUNTING).addLore("Advanced tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15").create(),
             new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER, 1.1f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 0, true, false)).create()),
 
     HUNTING_ELITE_SHIELD(ProficiencyType.HUNTING, new ItemBuilder(Material.SHIELD).setRarity(Rarity.ELITE).setName("Shield")
-            .addProficiency(ProficiencyType.HUNTING).addLore("Elite tool for hunting").create(),
-            new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f)
+            .addProficiency(ProficiencyType.HUNTING).addLore("Elite tool for hunting").addLore(ItemModifier.LEVEL_REQUIREMENT,"25").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,25f)
                     .addFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER, 1.3f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 0, true, false))
                     .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0,true, false)).create())
@@ -556,7 +556,7 @@ public enum CustomTool {
         return true;
     }
 
-    private static final int WOOD_TO_HARVEST = 50;
+    private static final int WOOD_TO_HARVEST = 100;
 
     private static ArrayList<Location> getTreeLogs(Location location, WoodType type) {
         ArrayList<Location> result = new ArrayList<>();
@@ -580,11 +580,27 @@ public enum CustomTool {
 
             result.add(tmp);
 
+            for (int x = -1;x < 2;x++) {
+                for (int y = -1; y < 2; y++) {
+                    for (int z = -1;z < 2; z++) {
+                        if (x == 0 && y == 0 && z == 0) continue;
+                        queue.add(tmp.getBlock().getRelative(x,y,z).getLocation());
+
+
+                    }
+
+                }
+            }
+
+
+            /*
             for (BlockFace face : BlockFace.values()) {
                 if (face == BlockFace.SELF) continue;
+                tmp.getBlock().getRelative(0,1,0);
                 queue.add(tmp.getBlock().getRelative(face).getLocation());
             }
 
+             */
         }
 
 

@@ -54,6 +54,7 @@ public enum BlockBreak {
     MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.MANGROVE_WOOD,1, WoodType.MANGROVE),
     STRIPPED_MANGROVE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_LOG,2, WoodType.MANGROVE),
     STRIPPED_MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_MANGROVE_WOOD, 2, WoodType.MANGROVE),
+    MANGROVE_ROOTS(ProficiencyType.WOODWORK, Material.MANGROVE_ROOTS, 2, WoodType.MANGROVE),
 
 
     OAK_LOG(ProficiencyType.WOODWORK, Material.OAK_LOG, 1, WoodType.OAK),
