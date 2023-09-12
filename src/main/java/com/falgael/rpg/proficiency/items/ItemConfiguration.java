@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiency.items;
 
+import com.falgael.rpg.framework.PredicateConsumer;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import org.bukkit.Location;
@@ -28,9 +29,9 @@ public class ItemConfiguration {
 
     private ArrayList<PotionEffect> potionEffects;
 
-    private Consumer<Event> action;
+    private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, Consumer<Event> action) {
+    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
@@ -65,7 +66,7 @@ public class ItemConfiguration {
         return action != null;
     }
 
-    public Consumer<Event> getAction() {
+    public PredicateConsumer<Event> getAction() {
         return action;
     }
 
@@ -75,7 +76,7 @@ public class ItemConfiguration {
         private HashMap<ItemConfigurationFlag,Float> flags;
         private ArrayList<PotionEffect> potionEffects;
 
-        private Consumer<Event> action = null;
+        private PredicateConsumer<Event> action = null;
 
         public Builder(EquipmentSlot equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
@@ -93,7 +94,7 @@ public class ItemConfiguration {
             return this;
         }
 
-        public Builder addAction(Consumer<Event> action) {
+        public Builder addAction(PredicateConsumer<Event> action) {
             this.action = action;
             return this;
         }
@@ -155,10 +156,12 @@ public class ItemConfiguration {
         for (ItemStack itemStack : drops) {
             if (itemStack.getType() == Material.AIR) continue;
             if (itemStack.getAmount() <= 0) continue;
-
-            ItemStack tmp = itemStack.clone();
-            tmp.setAmount(dropAmount);
-            world.dropItemNaturally(location,tmp);
+            int tmpAmount = dropAmount;
+            while (tmpAmount - 64 > 0) {
+                world.dropItemNaturally(location,new ItemStack(itemStack.getType(), 64));
+                tmpAmount -= 64;
+            }
+            world.dropItemNaturally(location, new ItemStack(itemStack.getType(), tmpAmount));
         }
     }
 

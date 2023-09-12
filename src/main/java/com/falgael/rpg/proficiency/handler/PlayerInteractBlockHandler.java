@@ -27,13 +27,6 @@ public class PlayerInteractBlockHandler implements Listener {
             CustomTool customTool = CustomTool.getItem(event.getItem());
 
             experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount, ProficiencyType.FARMING, event.getPlayer());
-            /*
-            if (!customTool.isNone() && customTool.getProficiencyType() == ProficiencyType.FARMING) {
-                if (customTool.getItemConfiguration().hasBlockBreakEffect())
-                experienceAmount *= customTool.getItemConfiguration().getBlockBreakEffect().getExperienceModifier();
-            }
-
-             */
             Utils.increaseExperience(event.getPlayer(), ProficiencyType.FARMING, experienceAmount);
         }
 

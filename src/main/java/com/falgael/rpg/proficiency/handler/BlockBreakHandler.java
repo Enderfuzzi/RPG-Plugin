@@ -25,24 +25,24 @@ public class BlockBreakHandler implements Listener {
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
         if (block.isNone()) return;
 
-        Bukkit.getLogger().info("[" + BlockBreakHandler.class.getSimpleName() + "]: Block to harvest: " + event.getBlock().getType().name());
+        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
 
-        //Check if block is a crop which is fully grown
-        if (block.ageable() && event.getBlock().getBlockData() instanceof Ageable cropAge) {
-            Bukkit.getLogger().info("[" + BlockBreakHandler.class.getSimpleName() + "]: Ageable: " + event.getBlock().getType().name());
-            if (cropAge.getAge() != cropAge.getMaximumAge()) return;
+        if (!customTool.isNone() && customTool.getItemConfiguration().hasAction()) {
+            if (customTool.getItemConfiguration().getAction().accept(event)) return;
         }
 
-
-
-        //long experienceAmount = block.getExperienceAmount();
-        ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-
-        CustomTool customTool = CustomTool.getItem(item);
-        Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
+        Bukkit.getLogger().info("[" + BlockBreakHandler.class.getSimpleName() + "]: None: " + customTool.isNone());
 
         long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
         int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+
+        //Check if block is a crop which is fully grown
+
+
+
+        //if (event.isCancelled()) return;
+        //long experienceAmount = block.getExperienceAmount();
+
 
 
         /*
@@ -78,17 +78,6 @@ public class BlockBreakHandler implements Listener {
         }
 
         ItemConfiguration.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
-
-
-
-            /*
-            Old Code
-            Material toDrop = event.getBlock().getType();
-            if (BlockBreak.getBlock(toDrop).hasAlternativeDrop()) {
-                toDrop = BlockBreak.getBlock(toDrop).getAlternativeDrop();
-            }
-            event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(toDrop, droppedBlocks));
-            */
 
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
 

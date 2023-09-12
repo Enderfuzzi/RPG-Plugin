@@ -1,12 +1,27 @@
 package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.items.ItemModifier;
+import com.falgael.rpg.proficiency.blocks.BlockBreak;
+import com.falgael.rpg.proficiency.blocks.WoodType;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.Rarity;
+import com.falgael.rpg.proficiency.general.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.Ageable;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.Orientable;
+import org.bukkit.block.data.Rotatable;
+import org.bukkit.block.structure.StructureRotation;
+import org.bukkit.event.Event;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,9 +29,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.checkerframework.checker.units.qual.C;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public enum CustomTool {
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration.Builder(EquipmentSlot.HAND).create()),
@@ -87,7 +100,8 @@ public enum CustomTool {
             .addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50.f)
-                    .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0, true,false)).create()),
+                    .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0, true,false))
+                    .addAction(e -> calculateNextLogs(e)).create()),
 
     WOODWORK_SHEARS(ProficiencyType.WOODWORK, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.WOODWORK).addLore("Harvest Leaves")
@@ -191,34 +205,34 @@ public enum CustomTool {
     FARMING_SIMPLE_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.WOODEN_HOE).setRarity(Rarity.SIMPLE).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "50").addLore("Simple tool for harvesting").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 1.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_COMMON_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.STONE_HOE).setRarity(Rarity.COMMON).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore("Common tool for harvesting")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.005).addAttribute(Attribute.GENERIC_MAX_HEALTH, 0.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_ADVANCED_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.IRON_HOE).setRarity(Rarity.ADVANCED).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Advanced tool for harvesting")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.0).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_ELITE_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.GOLDEN_HOE).setRarity(Rarity.ELITE).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Elite tool for harvesting")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_EPIC_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.DIAMOND_HOE).setRarity(Rarity.EPIC).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
             .addLore("Forged in the depth")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_MAX_HEALTH, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_LEGENDARY_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.NETHERITE_HOE).setRarity(Rarity.LEGENDARY).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
@@ -226,7 +240,7 @@ public enum CustomTool {
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.2).addAttribute(Attribute.GENERIC_MAX_HEALTH, 16)
             .addAttribute(Attribute.GENERIC_ARMOR, 6).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50f).addAction(e -> CustomTool.cropHarvest(e)).create()),
 
     FARMING_ADVANCED_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE,"300")
@@ -444,6 +458,138 @@ public enum CustomTool {
                     FARMING_COMMON_SWORD, FARMING_ADVANCED_SWORD, FARMING_ELITE_SWORD -> true;
             default -> false;
         };
+    }
+
+    private static boolean cropHarvest(Event e) {
+        if (!(e instanceof BlockBreakEvent event)) return false;
+        BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
+        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        if (block.isNone()) return false;
+
+        // special crops
+        if (block.specialHarvest()) {
+            if (event.getBlock().getRelative(BlockFace.DOWN).getType() == event.getBlock().getType()) return false;
+            event.setCancelled(true);
+        }
+
+
+
+        // ageable crop
+        if (!block.ageable() || !(event.getBlock().getBlockData() instanceof Ageable cropAge)) return false;
+
+        event.setCancelled(true);
+
+
+        if (cropAge.getAge() != cropAge.getMaximumAge()) return true;
+
+        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
+        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+
+        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
+        ItemConfiguration.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+
+        Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
+
+        if (event.getPlayer().getInventory().contains(event.getBlock().getBlockData().getPlacementMaterial(),1)) {
+            int slot = event.getPlayer().getInventory().first(event.getBlock().getBlockData().getPlacementMaterial());
+            if (event.getPlayer().getInventory().getItem(slot).getAmount() != 1) event.getPlayer().getInventory().getItem(slot).setAmount(event.getPlayer().getInventory().getItem(slot).getAmount() - 1);
+            else event.getPlayer().getInventory().remove(event.getPlayer().getInventory().getItem(slot));
+
+            StructureRotation rotation = getSurroundedJungleLog(event.getBlock());
+            event.getBlock().setType(block.getMaterial());
+
+            if (rotation != StructureRotation.NONE) {
+                BlockData blockData = event.getBlock().getBlockData();
+                blockData.rotate(rotation);
+                event.getBlock().setBlockData(blockData);
+            }
+
+
+        } else {
+            event.getBlock().setType(Material.AIR);
+        }
+
+        return true;
+    }
+
+
+    private static StructureRotation getSurroundedJungleLog(Block target) {
+        if (getSurroundedJungleLog(target, BlockFace.EAST)) return StructureRotation.CLOCKWISE_90;
+        if (getSurroundedJungleLog(target,BlockFace.SOUTH)) return StructureRotation.CLOCKWISE_180;
+        if (getSurroundedJungleLog(target, BlockFace.WEST)) return StructureRotation.COUNTERCLOCKWISE_90;
+        return StructureRotation.NONE;
+    }
+
+    private static boolean getSurroundedJungleLog(Block target, BlockFace blockFace) {
+        if (target == null || blockFace == null) return false;
+        return target.getRelative(blockFace).getType() == Material.JUNGLE_LOG || target.getRelative(blockFace).getType() == Material.JUNGLE_WOOD;
+    }
+
+
+    private static boolean calculateNextLogs(Event e) {
+        if (!(e instanceof BlockBreakEvent event)) return false;
+        BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
+        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        if (customTool.isNone()) return false;
+        if (!block.hasWoodType()) return false;
+        ArrayList<Location> blocks = getTreeLogs(event.getBlock().getLocation(), block.getWoodType());
+        if (blocks.isEmpty()) return false;
+
+        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
+        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+
+        experienceAmount *= blocks.size();
+        droppedBlocks *=  blocks.size();
+
+        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
+        ItemConfiguration.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+
+        Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
+
+        for (Location location : blocks) {
+            Bukkit.getLogger().info("Location to remove: " + location);
+            if (event.getBlock().getLocation().equals(location)) continue;
+            location.getBlock().setType(Material.AIR);
+        }
+
+
+        return true;
+    }
+
+    private static final int WOOD_TO_HARVEST = 50;
+
+    private static ArrayList<Location> getTreeLogs(Location location, WoodType type) {
+        ArrayList<Location> result = new ArrayList<>();
+        Queue<Location> queue = new LinkedList<>();
+        queue.add(location);
+
+        Location tmp;
+
+        int iterations = 0;
+        while (!queue.isEmpty() && WOOD_TO_HARVEST > result.size()) {
+            tmp = queue.remove();
+            Bukkit.getLogger().info("Location: " + tmp);
+            iterations++;
+            if (tmp.getBlock().getType() == Material.AIR) continue;
+            if (result.contains(tmp)) continue;
+
+            BlockBreak tmpBlockBreak = BlockBreak.getBlock(tmp.getBlock().getType());
+            if (tmpBlockBreak.isNone()) continue;
+            if (!tmpBlockBreak.hasWoodType()) continue;
+            if (tmpBlockBreak.getWoodType() != type) continue;
+
+            result.add(tmp);
+
+            for (BlockFace face : BlockFace.values()) {
+                if (face == BlockFace.SELF) continue;
+                queue.add(tmp.getBlock().getRelative(face).getLocation());
+            }
+
+        }
+
+
+
+        return result;
     }
 
 }

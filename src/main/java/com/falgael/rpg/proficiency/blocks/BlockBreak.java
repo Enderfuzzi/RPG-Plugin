@@ -5,6 +5,7 @@ import org.bukkit.Material;
 
 import java.util.HashMap;
 
+
 public enum BlockBreak {
 
     NONE(ProficiencyType.NONE, Material.AIR, 0),
@@ -13,64 +14,64 @@ public enum BlockBreak {
     // Woodwork
     //--------------------------------------------------------------------------------------------
 
-    ACACIA_LOG(ProficiencyType.WOODWORK, Material.ACACIA_LOG, 1),
-    ACACIA_WOOD(ProficiencyType.WOODWORK,Material.ACACIA_WOOD,1),
-    STRIPPED_ACACIA_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_ACACIA_LOG, 2),
-    STRIPPED_ACACIA_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_ACACIA_WOOD,2),
+    ACACIA_LOG(ProficiencyType.WOODWORK, Material.ACACIA_LOG, 1, WoodType.ACACIA),
+    ACACIA_WOOD(ProficiencyType.WOODWORK,Material.ACACIA_WOOD,1, WoodType.ACACIA),
+    STRIPPED_ACACIA_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_ACACIA_LOG, 2, WoodType.ACACIA),
+    STRIPPED_ACACIA_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_ACACIA_WOOD,2, WoodType.ACACIA),
 
 
-    BIRCH_LOG(ProficiencyType.WOODWORK,Material.BIRCH_LOG,1),
-    BIRCH_WOOD(ProficiencyType.WOODWORK, Material.BIRCH_WOOD,1),
-    STRIPPED_BIRCH_LOG(ProficiencyType.WOODWORK,Material.STRIPPED_BIRCH_LOG,2),
-    STRIPPED_BIRCH_WOOD(ProficiencyType.WOODWORK,Material.STRIPPED_BIRCH_WOOD,2),
+    BIRCH_LOG(ProficiencyType.WOODWORK,Material.BIRCH_LOG,1,  WoodType.BIRCH),
+    BIRCH_WOOD(ProficiencyType.WOODWORK, Material.BIRCH_WOOD,1, WoodType.BIRCH),
+    STRIPPED_BIRCH_LOG(ProficiencyType.WOODWORK,Material.STRIPPED_BIRCH_LOG,2, WoodType.BIRCH),
+    STRIPPED_BIRCH_WOOD(ProficiencyType.WOODWORK,Material.STRIPPED_BIRCH_WOOD,2, WoodType.BIRCH),
 
 
-    CHERRY_LOG(ProficiencyType.WOODWORK,Material.CHERRY_LOG,1),
-    CHERRY_WOOD(ProficiencyType.WOODWORK,Material.CHERRY_WOOD,1),
-    STRIPPED_CHERRY_LOG(ProficiencyType.WOODWORK,Material.STRIPPED_CHERRY_LOG,2),
-    STRIPPED_CHERRY_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_CHERRY_WOOD,2),
+    CHERRY_LOG(ProficiencyType.WOODWORK,Material.CHERRY_LOG,1, WoodType.CHERRY),
+    CHERRY_WOOD(ProficiencyType.WOODWORK,Material.CHERRY_WOOD,1, WoodType.CHERRY),
+    STRIPPED_CHERRY_LOG(ProficiencyType.WOODWORK,Material.STRIPPED_CHERRY_LOG,2, WoodType.CHERRY),
+    STRIPPED_CHERRY_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_CHERRY_WOOD,2, WoodType.CHERRY),
 
 
-    CRIMSON_STEM(ProficiencyType.WOODWORK, Material.CRIMSON_STEM,2),
-    CRIMSON_HYPHAE(ProficiencyType.WOODWORK, Material.CRIMSON_HYPHAE,2),
-    STRIPPED_CRIMSON_STEM(ProficiencyType.WOODWORK, Material.STRIPPED_CRIMSON_STEM,4),
-    STRIPPED_CRIMSON_HYPHAE(ProficiencyType.WOODWORK, Material.STRIPPED_CRIMSON_HYPHAE, 4),
+    CRIMSON_STEM(ProficiencyType.WOODWORK, Material.CRIMSON_STEM,2, WoodType.CRIMSON),
+    CRIMSON_HYPHAE(ProficiencyType.WOODWORK, Material.CRIMSON_HYPHAE,2, WoodType.CRIMSON),
+    STRIPPED_CRIMSON_STEM(ProficiencyType.WOODWORK, Material.STRIPPED_CRIMSON_STEM,4, WoodType.CRIMSON),
+    STRIPPED_CRIMSON_HYPHAE(ProficiencyType.WOODWORK, Material.STRIPPED_CRIMSON_HYPHAE, 4, WoodType.CRIMSON),
 
 
-    DARK_OAK_LOG(ProficiencyType.WOODWORK,Material.DARK_OAK_LOG,1),
-    DARK_OAK_WOOD(ProficiencyType.WOODWORK, Material.DARK_OAK_WOOD, 1),
-    STRIPPED_DARK_OAK_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_DARK_OAK_LOG,2),
-    STRIPPED_DARK_OAK_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_DARK_OAK_WOOD, 2),
+    DARK_OAK_LOG(ProficiencyType.WOODWORK,Material.DARK_OAK_LOG,1, WoodType.DARK_OAK),
+    DARK_OAK_WOOD(ProficiencyType.WOODWORK, Material.DARK_OAK_WOOD, 1, WoodType.DARK_OAK),
+    STRIPPED_DARK_OAK_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_DARK_OAK_LOG,2, WoodType.DARK_OAK),
+    STRIPPED_DARK_OAK_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_DARK_OAK_WOOD, 2, WoodType.DARK_OAK),
 
 
-    JUNGLE_LOG(ProficiencyType.WOODWORK, Material.JUNGLE_LOG, 1),
-    JUNGLE_WOOD(ProficiencyType.WOODWORK, Material.JUNGLE_WOOD, 1),
-    STRIPPED_JUNGLE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_LOG,2),
-    STRIPPED_JUNGLE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_WOOD,2),
+    JUNGLE_LOG(ProficiencyType.WOODWORK, Material.JUNGLE_LOG, 1, WoodType.JUNGLE),
+    JUNGLE_WOOD(ProficiencyType.WOODWORK, Material.JUNGLE_WOOD, 1, WoodType.JUNGLE),
+    STRIPPED_JUNGLE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_LOG,2, WoodType.JUNGLE),
+    STRIPPED_JUNGLE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_WOOD,2, WoodType.JUNGLE),
 
 
-    MANGROVE_LOG(ProficiencyType.WOODWORK, Material.MANGROVE_LOG,1),
-    MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.MANGROVE_WOOD,1),
-    STRIPPED_MANGROVE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_LOG,2),
-    STRIPPED_MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_MANGROVE_WOOD, 2),
+    MANGROVE_LOG(ProficiencyType.WOODWORK, Material.MANGROVE_LOG,1, WoodType.MANGROVE),
+    MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.MANGROVE_WOOD,1, WoodType.MANGROVE),
+    STRIPPED_MANGROVE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_JUNGLE_LOG,2, WoodType.MANGROVE),
+    STRIPPED_MANGROVE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_MANGROVE_WOOD, 2, WoodType.MANGROVE),
 
 
-    OAK_LOG(ProficiencyType.WOODWORK, Material.OAK_LOG, 1),
-    OAK_WOOD(ProficiencyType.WOODWORK, Material.OAK_WOOD, 1),
-    STRIPPED_OAK_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_OAK_LOG, 2),
-    TRIPPED_OAK_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_OAK_WOOD, 2),
+    OAK_LOG(ProficiencyType.WOODWORK, Material.OAK_LOG, 1, WoodType.OAK),
+    OAK_WOOD(ProficiencyType.WOODWORK, Material.OAK_WOOD, 1, WoodType.OAK),
+    STRIPPED_OAK_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_OAK_LOG, 2, WoodType.OAK),
+    TRIPPED_OAK_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_OAK_WOOD, 2, WoodType.OAK),
 
 
-    SPRUCE_LOG(ProficiencyType.WOODWORK, Material.SPRUCE_LOG, 1),
-    SPRUCE_WOOD(ProficiencyType.WOODWORK, Material.SPRUCE_WOOD, 1),
-    STRIPPED_SPRUCE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_SPRUCE_LOG, 2),
-    STRIPPED_SPRUCE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_SPRUCE_WOOD, 2),
+    SPRUCE_LOG(ProficiencyType.WOODWORK, Material.SPRUCE_LOG, 1, WoodType.SPRUCE),
+    SPRUCE_WOOD(ProficiencyType.WOODWORK, Material.SPRUCE_WOOD, 1, WoodType.SPRUCE),
+    STRIPPED_SPRUCE_LOG(ProficiencyType.WOODWORK, Material.STRIPPED_SPRUCE_LOG, 2, WoodType.SPRUCE),
+    STRIPPED_SPRUCE_WOOD(ProficiencyType.WOODWORK, Material.STRIPPED_SPRUCE_WOOD, 2, WoodType.SPRUCE),
 
 
-    WARPED_STEM(ProficiencyType.WOODWORK, Material.WARPED_STEM,2),
-    WARPED_HYPHAE(ProficiencyType.WOODWORK, Material.WARPED_HYPHAE, 2),
-    STRIPPED_WARPED_STEM(ProficiencyType.WOODWORK, Material.STRIPPED_WARPED_STEM, 4),
-    STRIPPED_WARPED_HYPHAE(ProficiencyType.WOODWORK, Material.STRIPPED_WARPED_HYPHAE, 4),
+    WARPED_STEM(ProficiencyType.WOODWORK, Material.WARPED_STEM,2, WoodType.WARPED),
+    WARPED_HYPHAE(ProficiencyType.WOODWORK, Material.WARPED_HYPHAE, 2, WoodType.WARPED),
+    STRIPPED_WARPED_STEM(ProficiencyType.WOODWORK, Material.STRIPPED_WARPED_STEM, 4, WoodType.WARPED),
+    STRIPPED_WARPED_HYPHAE(ProficiencyType.WOODWORK, Material.STRIPPED_WARPED_HYPHAE, 4, WoodType.WARPED),
 
 
     //--------------------------------------------------------------------------------------------
@@ -199,11 +200,17 @@ public enum BlockBreak {
 
     private final long experienceAmount;
 
+    private final WoodType woodType;
 
-    BlockBreak(ProficiencyType proficiency, Material material, long experienceAmount) {
+    BlockBreak(ProficiencyType proficiency, Material material, long experienceAmount, WoodType woodType) {
         this.proficiency = proficiency;
         this.material = material;
         this.experienceAmount = experienceAmount;
+        this.woodType = woodType;
+    }
+
+    BlockBreak(ProficiencyType proficiency, Material material, long experienceAmount) {
+        this(proficiency, material, experienceAmount, null);
     }
 
     public ProficiencyType getProficiency() {
@@ -243,6 +250,33 @@ public enum BlockBreak {
             default -> false;
         };
     }
+
+    public Material getCrops() {
+        return switch (this) {
+            case WHEAT -> Material.WHEAT_SEEDS;
+            case POTATO -> Material.POTATO;
+            case CARROT -> Material.CARROT;
+            case BEETROOT -> Material.BEETROOT;
+            case COCOA -> Material.COCOA_BEANS;
+            default -> getMaterial();
+        };
+    }
+
+    public boolean specialHarvest() {
+        return switch (this) {
+            case SUGAR_CANE, CACTUS -> true;
+            default -> false;
+        };
+    }
+
+    public boolean hasWoodType() {
+        return this.woodType != null;
+    }
+
+    public WoodType getWoodType() {
+        return woodType;
+    }
+
 
 
 }
