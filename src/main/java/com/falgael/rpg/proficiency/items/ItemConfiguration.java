@@ -166,33 +166,45 @@ public class ItemConfiguration {
         dropAdditionalLoot(List.of(drop), dropAmount, world, location);
     }
 
-    public static double calculateDamage(CustomTool customTool, double baseValue, Player player) {
-        if (matchLevelRequirement(customTool, player)) return calculateDamage(customTool, baseValue);
-        return baseValue;
+    public static double calculateTotalDamage(Player player, double baseValue) {
+        double result = baseValue;
+        result += calculateDamage(player.getInventory().getItemInMainHand(), baseValue, player, EquipmentSlot.HAND);
+        result += calculateDamage(player.getInventory().getItemInOffHand(), baseValue, player, EquipmentSlot.OFF_HAND);
+        result += calculateDamage(player.getInventory().getHelmet(), baseValue, player, EquipmentSlot.HEAD);
+        result += calculateDamage(player.getInventory().getChestplate(), baseValue, player, EquipmentSlot.CHEST);
+        result += calculateDamage(player.getInventory().getLeggings(), baseValue, player, EquipmentSlot.LEGS);
+        result += calculateDamage(player.getInventory().getBoots(), baseValue, player, EquipmentSlot.FEET);
+
+        return result;
     }
 
-    public static double calculateDamage(CustomTool customTool, double baseValue) {
-        if (customTool.isNone()) return baseValue;
+    public static double calculateDamage(ItemStack item, double baseValue, Player player, EquipmentSlot equipmentSlot) {
+        return calculateDamage(CustomTool.getItem(item), baseValue, player, equipmentSlot);
+    }
 
-        double result = baseValue;
+    public static double calculateDamage(CustomTool customTool, double baseValue, Player player, EquipmentSlot equipmentSlot) {
+        if (!matchLevelRequirement(customTool, player)) return 0;
+        if (customTool.getItemConfiguration().getEquipmentSlot() != equipmentSlot) return 0;
+
+        double result = 0;
 
         if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_ADDITIVE)) {
             result += customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_ADDITIVE);
         }
 
         if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER)) {
-            result *= customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_MULTIPLIER);
+            result += (customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_MULTIPLIER) - 1) * baseValue;
         }
 
         return result;
     }
 
     private static boolean matchLevelRequirement(CustomTool tool, Player player) {
-        if (tool == null || tool.isNone() || player == null) return true;
+        if (tool == null || tool.isNone() || player == null) return false;
         if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
             return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
         }
-        return true;
+        return false;
     }
 
 
