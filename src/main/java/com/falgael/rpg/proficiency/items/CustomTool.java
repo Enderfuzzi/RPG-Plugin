@@ -1,38 +1,38 @@
 package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.items.ItemModifier;
-import com.falgael.rpg.proficiency.blocks.BlockBreak;
-import com.falgael.rpg.proficiency.blocks.WoodType;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.Rarity;
-import com.falgael.rpg.proficiency.general.Utils;
-import org.bukkit.Bukkit;
+import com.falgael.rpg.proficiency.items.effects.CropHarvest;
+import com.falgael.rpg.proficiency.items.effects.TreeHarvest;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.data.Ageable;
-import org.bukkit.block.data.BlockData;
-import org.bukkit.block.data.Orientable;
-import org.bukkit.block.data.Rotatable;
-import org.bukkit.block.structure.StructureRotation;
-import org.bukkit.event.Event;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockBurnEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.*;
 
+/**
+ * Provides the definition and effect of every custom Tool/Equipment. <br>
+ * A Tool contains a Proficiency, an ItemStack for reference and a configuration with special effects.
+ * @author falgael
+ * @version 0.0.1
+ */
 public enum CustomTool {
+    /**
+     * Value for an empty Tool. Returned if an Item is not found on search.
+     */
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration.Builder(EquipmentSlot.HAND).create()),
+
+
+    //--------------------------------------------------------------------------------------------
+    // Godlike unobtainable Tools
+    //--------------------------------------------------------------------------------------------
 
     MIGHTY_DEATH(ProficiencyType.MISC, new ItemBuilder(Material.NETHERITE_SWORD).setRarity(Rarity.LEGENDARY).setName("Mighty Death")
             .addProficiency(ProficiencyType.HUNTING).addLore("Death is the only solution").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.4)
@@ -46,7 +46,8 @@ public enum CustomTool {
             .addLore("Foraging is the only solution").addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.4).addAttribute(Attribute.GENERIC_MAX_HEALTH, 20)
             .addAttribute(Attribute.GENERIC_ARMOR, 20).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 10000f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 10000f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f)
+                    .addAction(e -> TreeHarvest.effect(e, 200)).create()),
 
 
     MIGHTY_PICKAXE(ProficiencyType.MISC, new ItemBuilder(Material.NETHERITE_PICKAXE).setRarity(Rarity.LEGENDARY).setName("Mighty Pickaxe")
@@ -65,32 +66,37 @@ public enum CustomTool {
 
     WOODWORK_SIMPLE_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.WOODEN_AXE).setRarity(Rarity.SIMPLE).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "50").addLore("Simple tool for harvesting").create(),
-            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 1.5f).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).create()),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 1.5f).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f)
+                    .addAction(e -> TreeHarvest.effect(e, 8)).create()),
     WOODWORK_COMMON_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.STONE_AXE).setRarity(Rarity.COMMON).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "100").addLore("Common tool for harvesting")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED,0.005).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 4).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -3).create(),
-            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).create()),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f)
+                    .addAction(e -> TreeHarvest.effect(e, 16)).create()),
 
     WOODWORK_ADVANCED_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.IRON_AXE).setRarity(Rarity.ADVANCED).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 6).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.7).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f)
+                    .addAction(e -> TreeHarvest.effect(e, 32)).create()),
 
     WOODWORK_ELITE_AXE( ProficiencyType.WOODWORK, new ItemBuilder(Material.GOLDEN_AXE).setRarity(Rarity.ELITE).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 7).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f)
+                    .addAction(e -> TreeHarvest.effect(e, 48)).create()),
 
     WOODWORK_EPIC_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.DIAMOND_AXE).setRarity(Rarity.EPIC).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
             .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_ATTACK_DAMAGE, 10).addAttribute(Attribute.GENERIC_ATTACK_SPEED, -2.2).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f)
+                    .addAction(e -> TreeHarvest.effect(e, 64)).create()),
 
     WOODWORK_LEGENDARY_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.NETHERITE_AXE).setRarity(Rarity.LEGENDARY).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
@@ -101,7 +107,7 @@ public enum CustomTool {
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50.f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,110,0, true,false))
-                    .addAction(e -> calculateNextLogs(e)).create()),
+                    .addAction(e -> TreeHarvest.effect(e, 100)).create()),
 
     WOODWORK_SHEARS(ProficiencyType.WOODWORK, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.WOODWORK).addLore("Harvest Leaves")
@@ -205,34 +211,34 @@ public enum CustomTool {
     FARMING_SIMPLE_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.WOODEN_HOE).setRarity(Rarity.SIMPLE).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "50").addLore("Simple tool for harvesting").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 1.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_COMMON_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.STONE_HOE).setRarity(Rarity.COMMON).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore("Common tool for harvesting")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.005).addAttribute(Attribute.GENERIC_MAX_HEALTH, 0.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_ADVANCED_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.IRON_HOE).setRarity(Rarity.ADVANCED).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "150").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Advanced tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"8")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.05).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.0).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 2.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,8f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_ELITE_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.GOLDEN_HOE).setRarity(Rarity.ELITE).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "200").addLore(ItemModifier.EXPERIENCE,"100")
             .addLore("Elite tool for harvesting").addLore(ItemModifier.LEVEL_REQUIREMENT,"15")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.1).addAttribute(Attribute.GENERIC_MAX_HEALTH, 1.5).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 3f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,15f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_EPIC_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.DIAMOND_HOE).setRarity(Rarity.EPIC).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "350").addLore(ItemModifier.EXPERIENCE,"200")
             .addLore("Forged in the depth").addLore(ItemModifier.LEVEL_REQUIREMENT,"30")
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.15).addAttribute(Attribute.GENERIC_MAX_HEALTH, 3).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,3f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4.5f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,30f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_LEGENDARY_HOE(ProficiencyType.FARMING, new ItemBuilder(Material.NETHERITE_HOE).setRarity(Rarity.LEGENDARY).setName("Hoe")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "600").addLore(ItemModifier.EXPERIENCE,"500")
@@ -240,7 +246,7 @@ public enum CustomTool {
             .addAttribute(Attribute.GENERIC_MOVEMENT_SPEED, 0.2).addAttribute(Attribute.GENERIC_MAX_HEALTH, 16)
             .addAttribute(Attribute.GENERIC_ARMOR, 6).addAttribute(Attribute.GENERIC_KNOCKBACK_RESISTANCE, 0.1).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 7f)
-                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50f).addAction(e -> CustomTool.cropHarvest(e)).create()),
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,50f).addAction(e -> CropHarvest.effect(e)).create()),
 
     FARMING_ADVANCED_SHEARS(ProficiencyType.FARMING, new ItemBuilder(Material.SHEARS).setRarity(Rarity.ADVANCED).setName("Shears")
             .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE,"300")
@@ -382,14 +388,26 @@ public enum CustomTool {
     //TODO Add Level Requirements
     //TODO Change Attribute Values
 
-
+    /**
+     * The ItemStack for Comparison
+     */
     private final ItemStack itemStack;
 
+    /**
+     * The type of Proficiency for this tool
+     */
     private final ProficiencyType proficiencyType;
 
+    /**
+     * The Configuration of this tool
+     */
     private final ItemConfiguration itemConfiguration;
 
+    /**
+     * HashMap of all defined Items sorted by their ItemStack. Used to search for an item
+     */
     private static final HashMap<ItemStack, CustomTool> LIST_OF_ITEMS = new HashMap<>();
+
     static {
         for (final CustomTool customTool : CustomTool.values()) {
             LIST_OF_ITEMS.put(customTool.itemStack, customTool);
@@ -402,30 +420,70 @@ public enum CustomTool {
         this.itemConfiguration = itemConfiguration;
     }
 
+    /**
+     *
+     * @return the ItemStack of the CustomTool
+     */
     public ItemStack getItem() {
         return itemStack;
     }
 
+    /**
+     *
+     * @return Proficiency Type of the CustomTool
+     */
     public ProficiencyType getProficiencyType() {
         return proficiencyType;
     }
 
+    /**
+     *
+     * @return Configuration of this Tool
+     */
     public ItemConfiguration getItemConfiguration() {
         return itemConfiguration;
     }
 
+    /**
+     * Checks if the current CustomTool is equals to {@link CustomTool#NONE}
+     * @return {@code true} if CustomTool equals {@link CustomTool#NONE}
+     */
     public boolean isNone() {
         return NONE == this;
     }
 
+    /**
+     *
+     * @return {@link CustomTool#LIST_OF_ITEMS}
+     */
     public static HashMap<ItemStack, CustomTool> getItems() {
         return LIST_OF_ITEMS;
     }
 
+    /**
+     * Searches for all defined Items of a certain Proficiency
+     * @param type The ProficiencyType to search for
+     * @return all Tools with specified ProficiencyType as list
+     */
     public static List<CustomTool> getItemsOfProficiency(ProficiencyType type) {
         return  Arrays.stream(CustomTool.values()).filter(customTool -> customTool.proficiencyType == type).toList();
     }
 
+    /**
+     * Searches for a matching CustomTool to an ItemStack. Compares the given ItemStack with each ItemStack of the defined CustomTools.
+     * Compares the following arguments: <br>
+     * <p>- 1. The {@link Material} </p>
+     * <p>- 2. The {@link ItemMeta} </p>
+     * <p>- 3. The {@link ItemMeta#getDisplayName()} without color </p>
+     * <p>- 4. The {@link ItemMeta#getLore()} of the item with content comparison </p>
+     * <p>- 5. The {@link ItemMeta#getAttributeModifiers()} without content comparison </p>
+     * <br>
+     *
+     * Returns {@link CustomTool#NONE} if the given ItemStack is {@code null}
+     *
+     * @param key The ItemStack to search for
+     * @return the belonging CustomTool or {@link CustomTool#NONE} if the ItemStack does not match any CustomTool
+     */
     public static CustomTool getItem(ItemStack key) {
         if (key == null) return NONE;
         for (CustomTool customTool : CustomTool.values()) {
@@ -443,13 +501,16 @@ public enum CustomTool {
             if (keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
 
             if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
-            //if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
-            //if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
+
             return customTool;
         }
         return NONE;
     }
 
+    /**
+     *
+     * @return {@code true} if the CustomTool is classified as Weapon
+     */
     public boolean isWeapon() {
         return switch (this) {
 
@@ -459,153 +520,4 @@ public enum CustomTool {
             default -> false;
         };
     }
-
-    private static boolean cropHarvest(Event e) {
-        if (!(e instanceof BlockBreakEvent event)) return false;
-        BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
-        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
-        if (block.isNone()) return false;
-
-        // special crops
-        if (block.specialHarvest()) {
-            if (event.getBlock().getRelative(BlockFace.DOWN).getType() == event.getBlock().getType()) return false;
-            event.setCancelled(true);
-        }
-
-
-
-        // ageable crop
-        if (!block.ageable() || !(event.getBlock().getBlockData() instanceof Ageable cropAge)) return false;
-
-        event.setCancelled(true);
-
-
-        if (cropAge.getAge() != cropAge.getMaximumAge()) return true;
-
-        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
-        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
-
-        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        ItemConfiguration.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
-
-        Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
-
-        if (event.getPlayer().getInventory().contains(event.getBlock().getBlockData().getPlacementMaterial(),1)) {
-            int slot = event.getPlayer().getInventory().first(event.getBlock().getBlockData().getPlacementMaterial());
-            if (event.getPlayer().getInventory().getItem(slot).getAmount() != 1) event.getPlayer().getInventory().getItem(slot).setAmount(event.getPlayer().getInventory().getItem(slot).getAmount() - 1);
-            else event.getPlayer().getInventory().remove(event.getPlayer().getInventory().getItem(slot));
-
-            StructureRotation rotation = getSurroundedJungleLog(event.getBlock());
-            event.getBlock().setType(block.getMaterial());
-
-            if (rotation != StructureRotation.NONE) {
-                BlockData blockData = event.getBlock().getBlockData();
-                blockData.rotate(rotation);
-                event.getBlock().setBlockData(blockData);
-            }
-
-
-        } else {
-            event.getBlock().setType(Material.AIR);
-        }
-
-        return true;
-    }
-
-
-    private static StructureRotation getSurroundedJungleLog(Block target) {
-        if (getSurroundedJungleLog(target, BlockFace.EAST)) return StructureRotation.CLOCKWISE_90;
-        if (getSurroundedJungleLog(target,BlockFace.SOUTH)) return StructureRotation.CLOCKWISE_180;
-        if (getSurroundedJungleLog(target, BlockFace.WEST)) return StructureRotation.COUNTERCLOCKWISE_90;
-        return StructureRotation.NONE;
-    }
-
-    private static boolean getSurroundedJungleLog(Block target, BlockFace blockFace) {
-        if (target == null || blockFace == null) return false;
-        return target.getRelative(blockFace).getType() == Material.JUNGLE_LOG || target.getRelative(blockFace).getType() == Material.JUNGLE_WOOD;
-    }
-
-
-    private static boolean calculateNextLogs(Event e) {
-        if (!(e instanceof BlockBreakEvent event)) return false;
-        BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
-        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
-        if (customTool.isNone()) return false;
-        if (!block.hasWoodType()) return false;
-        ArrayList<Location> blocks = getTreeLogs(event.getBlock().getLocation(), block.getWoodType());
-        if (blocks.isEmpty()) return false;
-
-        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
-        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
-
-        experienceAmount *= blocks.size();
-        droppedBlocks *=  blocks.size();
-
-        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        ItemConfiguration.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
-
-        Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
-
-        for (Location location : blocks) {
-            Bukkit.getLogger().info("Location to remove: " + location);
-            if (event.getBlock().getLocation().equals(location)) continue;
-            location.getBlock().setType(Material.AIR);
-        }
-
-
-        return true;
-    }
-
-    private static final int WOOD_TO_HARVEST = 100;
-
-    private static ArrayList<Location> getTreeLogs(Location location, WoodType type) {
-        ArrayList<Location> result = new ArrayList<>();
-        Queue<Location> queue = new LinkedList<>();
-        queue.add(location);
-
-        Location tmp;
-
-        int iterations = 0;
-        while (!queue.isEmpty() && WOOD_TO_HARVEST > result.size()) {
-            tmp = queue.remove();
-            Bukkit.getLogger().info("Location: " + tmp);
-            iterations++;
-            if (tmp.getBlock().getType() == Material.AIR) continue;
-            if (result.contains(tmp)) continue;
-
-            BlockBreak tmpBlockBreak = BlockBreak.getBlock(tmp.getBlock().getType());
-            if (tmpBlockBreak.isNone()) continue;
-            if (!tmpBlockBreak.hasWoodType()) continue;
-            if (tmpBlockBreak.getWoodType() != type) continue;
-
-            result.add(tmp);
-
-            for (int x = -1;x < 2;x++) {
-                for (int y = -1; y < 2; y++) {
-                    for (int z = -1;z < 2; z++) {
-                        if (x == 0 && y == 0 && z == 0) continue;
-                        queue.add(tmp.getBlock().getRelative(x,y,z).getLocation());
-
-
-                    }
-
-                }
-            }
-
-
-            /*
-            for (BlockFace face : BlockFace.values()) {
-                if (face == BlockFace.SELF) continue;
-                tmp.getBlock().getRelative(0,1,0);
-                queue.add(tmp.getBlock().getRelative(face).getLocation());
-            }
-
-             */
-        }
-
-
-
-        return result;
-    }
-
 }

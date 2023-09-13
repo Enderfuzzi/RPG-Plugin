@@ -5,19 +5,13 @@ import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.items.ItemModifier;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
+import com.falgael.rpg.proficiency.items.effects.CropPlant;
+import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.block.BlockFace;
-import org.bukkit.block.Furnace;
-import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.FurnaceBurnEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import java.util.*;
 
 public enum CustomItem {
 
@@ -46,47 +40,18 @@ public enum CustomItem {
 
 
     STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ADVANCED).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "10").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
-                if (!(e instanceof FurnaceBurnEvent event)) return false;
-                if (event.getBlock().getState() instanceof Furnace furnace)  {
-                    furnaceItemBurn(furnace, 0.1,event);
-                    return true;
-                }
-                return false;
-    }).create()),
+            .addLore(ItemModifier.BURN_TIME, "10").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addAction(e -> FurnaceBurn.effect(e, 0.1))
+            .create()),
     STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, new ItemBuilder(Material.CHARCOAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "50").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
-               if (!(e instanceof FurnaceBurnEvent event)) return false;
-               if (event.getBlock().getState() instanceof Furnace furnace) {
-                   furnaceItemBurn(furnace, 0.5,event);
-                   return true;
-                   /*
-                   ItemStack fuel = furnace.getInventory().getFuel();
-                   fuel.setAmount(fuel.getAmount() + 1);
-                   furnace.getInventory().setFuel(fuel);
-
-                   if (furnace.getCookTime() < furnace.getCookTimeTotal() * 0.5)
-                       furnace.setCookTime((short) (furnace.getCookTimeTotal() * 0.5));
-
-                   furnace.update();
-
-                   event.setBurnTime(furnace.getCookTimeTotal() * 0.5);
-                   event.setBurning(false);
-
-                    */
-               }
-               return false;
-    }).create()),
+            .addLore(ItemModifier.BURN_TIME, "50").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addAction(e -> FurnaceBurn.effect(e, 0.5))
+            .create()),
 
     STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.EPIC).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "75").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> {
-                if (!(e instanceof FurnaceBurnEvent event)) return false;
-                if (event.getBlock().getState() instanceof Furnace furnace) {
-                    furnaceItemBurn(furnace, 0.75,event);
-                    return true;
-                }
-                return false;
-    }).create()),
+            .addLore(ItemModifier.BURN_TIME, "75").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addAction(e -> FurnaceBurn.effect(e, 0.75))
+            .create()),
 
 
     //--------------------------------------------------------------------------------------------
@@ -96,39 +61,8 @@ public enum CustomItem {
     FARMING_COMPRESSED_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.HAY_BLOCK).addProficiency(ProficiencyType.FARMING).setCompressed().create()),
 
     FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted().setRarity(Rarity.ADVANCED).setName("Planter").create(),
-            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction((e) -> {
-                if (!(e instanceof PlayerInteractEvent event)) return false;
-                if (event.getClickedBlock().getType() == Material.FARMLAND) {
-                    Location location = event.getClickedBlock().getLocation();
-                    placeCropsInRadius(location, 5, Material.WHEAT, event.getPlayer(), Material.WHEAT_SEEDS, Material.FARMLAND);
-                    return true;
-                    /*
-                    ArrayList<Location> candidates = new ArrayList<>();
-
-                    location.subtract(1,0,1);
-
-                    for (int j = 0; j < 3; j++) {
-                        for (int i = 0; i< 3; i++) {
-                            if (location.getBlock().getType() == Material.FARMLAND) candidates.add(location.clone());
-                            location.add(0,0,1);
-                        }
-                        location.subtract(0,0,3);
-                        location.add(1,0,0);
-                    }
-
-                    for (Location loc : candidates) {
-                       loc.add(0,1,0);
-                       if (loc.getBlock().getType() == Material.AIR) loc.getBlock().setType(Material.WHEAT);
-                    }
-
-
-                     */
-
-
-
-                }
-                return false;
-            }).create()),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> CropPlant.effect(e, 5, Material.WHEAT, Material.FARMLAND))
+                    .create()),
 
     ;
 
@@ -202,95 +136,6 @@ public enum CustomItem {
             return customItem;
         }
         return NONE;
-    }
-
-    private static void placeCropsInRadius(Location location, int radius, Material toPlace) {
-        ArrayList<Location> candidates = new ArrayList<>();
-
-        location.subtract(Math.floor(radius / 2),0,Math.floor(radius / 2));
-
-        for (int j = 0; j < radius; j++) {
-            for (int i = 0; i< radius; i++) {
-                if (location.getBlock().getType() == Material.FARMLAND) candidates.add(location.clone());
-                location.add(0,0,1);
-            }
-            location.subtract(0,0,radius);
-            location.add(1,0,0);
-        }
-
-        for (Location loc : candidates) {
-            loc.add(0,1,0);
-            if (loc.getBlock().getType() == Material.AIR) loc.getBlock().setType(toPlace);
-        }
-    }
-
-    private static void placeCropsInRadius(Location location, int radius, Material toPlace, Player player, Material consume, Material toPlaceOn) {
-        ArrayList<Location> candidates = new ArrayList<>();
-
-        location.subtract(Math.floor(radius / 2),0,Math.floor(radius / 2));
-
-        location.add(0,1,0);
-
-        for (int j = 0; j < radius; j++) {
-            for (int i = 0; i< radius; i++) {
-                if (location.getBlock().getType() == Material.AIR && location.getBlock().getRelative(BlockFace.DOWN).getType() == toPlaceOn) candidates.add(location.clone());
-                location.add(0,0,1);
-            }
-            location.subtract(0,0,radius);
-            location.add(1,0,0);
-        }
-
-        HashMap<Integer, ? extends ItemStack> playerItems = player.getInventory().all(consume);
-        if (playerItems.isEmpty()) return;
-
-        /*
-        for (int i = 0; i < candidates.size(); i++) {
-            candidates.get(i).add(0,1,0);
-            if (candidates.get(i).getBlock().getType() != Material.AIR) {
-                candidates.remove(i);
-                i--;
-            }
-        }
-
-
-         */
-
-        int amountToPlace = candidates.size();
-        ArrayList<Integer> indexToRemove = new ArrayList<>();
-        for (Map.Entry<Integer, ? extends ItemStack> entry : playerItems.entrySet()) {
-            if (entry == null) continue;
-            if (amountToPlace < entry.getValue().getAmount()) {
-                player.getInventory().getItem(entry.getKey()).setAmount(entry.getValue().getAmount() - amountToPlace);
-                amountToPlace = 0;
-                break;
-            } else if (amountToPlace - entry.getValue().getAmount() == 0) {
-                indexToRemove.add(entry.getKey());
-                amountToPlace = 0;
-                break;
-            }
-            amountToPlace -= entry.getValue().getAmount();
-            indexToRemove.add(entry.getKey());
-        }
-        if (amountToPlace > 0) return;
-
-        playerItems.keySet().removeIf(indexToRemove::contains);
-
-
-        for (Location loc : candidates) loc.getBlock().setType(toPlace);
-    }
-
-    private static void furnaceItemBurn(Furnace furnace, double speedIncrease, FurnaceBurnEvent event ) {
-        ItemStack fuel = furnace.getInventory().getFuel();
-        fuel.setAmount(fuel.getAmount() + 1);
-        furnace.getInventory().setFuel(fuel);
-
-        if (furnace.getCookTime() < furnace.getCookTimeTotal() * speedIncrease)
-            furnace.setCookTime((short) (furnace.getCookTimeTotal() * speedIncrease));
-
-        furnace.update();
-
-        event.setBurnTime((short) (furnace.getCookTimeTotal() * (1 - speedIncrease)));
-        event.setBurning(false);
     }
 
 
