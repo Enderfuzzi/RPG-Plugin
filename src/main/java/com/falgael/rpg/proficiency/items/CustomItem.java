@@ -13,8 +13,16 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+/**
+ * Provides the definition for CustomItems.
+ * A CustomItem contains a Proficiency and an ItemStack. Optionally a configuration can be added.
+ * @author falgael
+ * @version 0.0.1
+ */
 public enum CustomItem {
-
+    /**
+     * Value for a non defined Tool. Returned if an Item is not found on search.
+     */
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR)),
 
     //--------------------------------------------------------------------------------------------
@@ -66,11 +74,19 @@ public enum CustomItem {
 
     ;
 
+    /**
+     * Configuration of the Item. This can be {@code null} if the Item has no configuration.
+     */
     private final ItemConfiguration configuration;
 
-
+    /**
+     * @return the ItemStack of the CustomTool
+     */
     private final ItemStack itemStack;
 
+    /**
+     * @return Proficiency Type of the CustomTool
+     */
     private final ProficiencyType type;
 
     CustomItem(ProficiencyType type, ItemStack itemStack) {
@@ -82,27 +98,53 @@ public enum CustomItem {
         this.itemStack = itemStack;
         this.configuration = itemConfiguration;
     }
-
+    /**
+     * @return the ItemStack of the CustomTool
+     */
     public ItemStack getItem() {
         return itemStack;
     }
-
+    /**
+     * @return Proficiency Type of the CustomTool
+     */
     public ProficiencyType getType() {
         return type;
     }
 
+    /**
+     * Checks if the current CustomTool is equals to {@link CustomItem#NONE}
+     * @return {@code true} if CustomTool equals {@link CustomItem#NONE}
+     */
     public boolean isNone() {
         return NONE == this;
     }
 
+    /**
+     * @return {@code true} if
+     */
     public boolean hasConfiguration() {
         return configuration != null;
     }
 
+    /**
+     * @return Configuration of this Tool
+     */
     public ItemConfiguration getConfiguration() {
         return configuration;
     }
 
+    /**
+     * Specific Check for a Stat-Meter. Compares the given ItemStack with each defined CustomItem. <br>
+     * Compares the following arguments: <br>
+     * <p>- 1. The {@link Material} </p>
+     * <p>- 2. The {@link ItemMeta} </p>
+     * <p>- 3. The {@link ItemMeta#getDisplayName()} with color </p>
+     * <p>- 4. The {@link ItemMeta#isUnbreakable()} </p>
+     *
+     * Returns {@code false} if the given ItemStack is {@code null}
+     * @param heldItem the item to check
+     * @return {@code true} if the given Item is a Stat-Meter
+     */
     public static boolean isStatOMeter(ItemStack heldItem) {
         if (heldItem == null) return false;
         if (MISC_STAT_O_METER.getItem().getType() != heldItem.getType()) return false;
@@ -114,6 +156,21 @@ public enum CustomItem {
         return true;
     }
 
+    /**
+     * Searches for a matching CustomItem to an ItemStack. Compares the given ItemStack with each ItemStack of the defined CustomItem.
+     * Compares the following arguments: <br>
+     * <p>- 1. The {@link Material} </p>
+     * <p>- 2. The {@link ItemMeta} </p>
+     * <p>- 3. The {@link ItemMeta#getDisplayName()} without color </p>
+     * <p>- 4. The {@link ItemMeta#getLore()} of the item with content comparison </p>
+     * <p>- 5. The {@link ItemMeta#getAttributeModifiers()} without content comparison </p>
+     * <br>
+     *
+     * Returns {@link CustomItem#NONE} if the given ItemStack is {@code null}
+     *
+     * @param key The ItemStack to search for
+     * @return the belonging CustomTool or {@link CustomItem#NONE} if the ItemStack does not match any CustomTool
+     */
     public static CustomItem getItem(ItemStack key) {
         if (key == null) return NONE;
         for (CustomItem customItem : CustomItem.values()) {
@@ -131,8 +188,6 @@ public enum CustomItem {
             if (!keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
 
             if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
-            //if (!keyMeta.hasAttributeModifiers() && !keyMeta.getAttributeModifiers().equals(toolMeta.getAttributeModifiers())) continue;
-            //if (!keyMeta.getItemFlags().equals(toolMeta.getItemFlags())) continue;
             return customItem;
         }
         return NONE;

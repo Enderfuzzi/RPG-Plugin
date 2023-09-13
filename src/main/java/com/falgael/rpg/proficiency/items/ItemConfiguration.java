@@ -11,24 +11,35 @@ import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
-import org.bukkit.util.Consumer;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /**
- * Contains special information about an items.
+ * Contains special information about an item. Uses a Builder Layout for creating Items.
  * @author falgael
  * @version 0.0.1
  */
 public class ItemConfiguration {
+    /**
+     * The Slot in which the item has an effect
+     */
     private EquipmentSlot equipmentSlot;
 
+    /**
+     * Map of {@link ItemConfigurationFlag} which can be set with a {@link Float}
+     */
     private HashMap<ItemConfigurationFlag,Float> flags;
 
+    /**
+     * List of Potion effects which are applied when using the item
+     */
     private ArrayList<PotionEffect> potionEffects;
 
+    /**
+     * A Special Action which can be defined and applied in different situations
+     */
     private PredicateConsumer<Event> action;
 
     private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
@@ -38,39 +49,71 @@ public class ItemConfiguration {
         this.action = action;
     }
 
+    /**
+     * @return The EquipmentSlot in which the Item is active
+     */
     public EquipmentSlot getEquipmentSlot() {
         return equipmentSlot;
     }
 
+    /**
+     * @return {@code true} if the Configuration has any {@link ItemConfigurationFlag} set
+     */
     public boolean hasFlags() {
         return !flags.isEmpty();
     }
 
+    /**
+     * @param flag The flag to check
+     * @return {@code true} if the Configuration has the specified {@link ItemConfigurationFlag} set
+     */
     public boolean hasFlag(ItemConfigurationFlag flag) {
         return flags.containsKey(flag);
     }
 
+    /**
+     * Returns the Value of a specific Flag. Before usage, it is necessary to check that the configuration has this flag set.
+     * @param flag The flag to search for
+     * @return the float Value of the given {@link ItemConfigurationFlag}
+     */
     public Float getValue(ItemConfigurationFlag flag) {
         return flags.getOrDefault(flag, 0.0f);
     }
 
+    /**
+     * @return {@code true} if the configuration has at least one potion effect set
+     */
     public boolean hasPotionEffect() {
         return !potionEffects.isEmpty();
     }
 
+    /**
+     * @return a List of all potion effects set for this configuration
+     */
     public ArrayList<PotionEffect> getPotionEffects() {
         return potionEffects;
     }
 
+    /**
+     * @return {@code true} if an Action is set for this Configuration
+     */
     public boolean hasAction() {
         return action != null;
     }
 
+    /**
+     * Gets the action of this configuration. It should be checked that this configuration has an action set before usage.
+     * @return the Action if set or {@code null}
+     */
     public PredicateConsumer<Event> getAction() {
         return action;
     }
 
-
+    /**
+     * Builder Class for Item creation.
+     * @author falgael
+     * @version 0.0.1
+     */
     public static class Builder {
         private EquipmentSlot equipmentSlot;
         private HashMap<ItemConfigurationFlag,Float> flags;
@@ -78,31 +121,57 @@ public class ItemConfiguration {
 
         private PredicateConsumer<Event> action = null;
 
+        /**
+         * Initializes a new Builder for Creating a new Item
+         * @param equipmentSlot the equipment slot in which the item should be active
+         */
         public Builder(EquipmentSlot equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
             flags = new HashMap<>();
             potionEffects = new ArrayList<>();
         }
 
+        /**
+         * Adds a new {@link ItemConfigurationFlag} with value to the current configuration
+         * @param flag the Flag to set
+         * @param value the Value which get assigned to the flag
+         * @return the current Builder state
+         */
         public Builder addFlag(ItemConfigurationFlag flag, Float value) {
             flags.put(flag,value);
             return this;
         }
 
+        /**
+         * Adds a new Potion effect to the current configuration
+         * @param potionEffect The effect to add
+         * @return the current Builder state
+         */
         public Builder addPotionEffect(PotionEffect potionEffect) {
             potionEffects.add(potionEffect);
             return this;
         }
 
+        /**
+         * Adds an Action to the current configuration
+         * @param action the action to add
+         * @return the current Builder state
+         */
         public Builder addAction(PredicateConsumer<Event> action) {
             this.action = action;
             return this;
         }
 
+        /**
+         * Creates the configuration with the defined arguments.
+         * @return the new Created ItemConfiguration
+         */
         public ItemConfiguration create() {
             return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
         }
     }
+
+    //TODO Add Further Java doc
 
     public static long calculateExperience(CustomTool tool, long baseExperience, ProficiencyType type, Player player) {
         if (matchLevelRequirement(tool, player)) return calculateExperience(tool, baseExperience, type);

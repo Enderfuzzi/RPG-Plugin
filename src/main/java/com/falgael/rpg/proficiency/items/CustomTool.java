@@ -421,7 +421,6 @@ public enum CustomTool {
     }
 
     /**
-     *
      * @return the ItemStack of the CustomTool
      */
     public ItemStack getItem() {
@@ -429,7 +428,6 @@ public enum CustomTool {
     }
 
     /**
-     *
      * @return Proficiency Type of the CustomTool
      */
     public ProficiencyType getProficiencyType() {
@@ -437,7 +435,6 @@ public enum CustomTool {
     }
 
     /**
-     *
      * @return Configuration of this Tool
      */
     public ItemConfiguration getItemConfiguration() {
