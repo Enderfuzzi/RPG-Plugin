@@ -35,6 +35,7 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EntityDeathHandler(), this);
         Bukkit.getPluginManager().registerEvents(new ArrowShootHandler(), this);
         Bukkit.getPluginManager().registerEvents(new DamageHitHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractHandler(), this);
 
         for (CustomCommand command : CustomCommand.values()) {
             this.getCommand(command.getKey()).setExecutor(command.getCommand());

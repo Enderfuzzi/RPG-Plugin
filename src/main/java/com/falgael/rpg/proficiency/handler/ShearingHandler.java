@@ -45,48 +45,18 @@ public class ShearingHandler implements Listener {
         if (event.isCancelled()) return;
 
         long experienceAmount = 0L;
-        int droppedBlocks = 0;
         if (event.getEntity() instanceof Sheep sheep) {
-            /*
-            experienceAmount = 4;
-            droppedBlocks = 0;
 
-
-             */
             CustomTool customTool = CustomTool.getItem(event.getItem());
             Bukkit.getLogger().info("Custom Tool None: " + customTool.isNone());
 
-            experienceAmount = ItemConfiguration.calculateExperience(customTool, 4L, ProficiencyType.FARMING);
-            droppedBlocks = ItemConfiguration.calculateLoot(customTool, ProficiencyType.FARMING);
+            experienceAmount = ItemConfiguration.calculateExperience(customTool, 4L, ProficiencyType.FARMING, event.getPlayer());
+             int droppedBlocks = ItemConfiguration.calculateLoot(customTool, ProficiencyType.FARMING);
 
-            /*
-            if (!customTool.isNone()) {
-
-                Bukkit.getLogger().info("Custom Block Break: " + customTool.getItemConfiguration().hasBlockBreakEffect());
-                if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
-                    BlockBreakEffect blockBreakEffect = customTool.getItemConfiguration().getBlockBreakEffect();
-                    experienceAmount *= blockBreakEffect.getExperienceModifier();
-                    droppedBlocks = blockBreakEffect.calculateDroppedBlocks();
-
-                }
-            }
-
-             */
-            /*
-            Bukkit.getLogger().info("Sheep Color: " + sheep.getColor());
-
-            Material material = WOOL_BY_DYE.getOrDefault(sheep.getColor(), Material.AIR);
-            if (material != Material.AIR && droppedBlocks != 0) {
-                sheep.getWorld().dropItemNaturally(sheep.getLocation(), new ItemStack(material, droppedBlocks));
-            }
-
-
-             */
             Bukkit.getLogger().info("Sheep Color: " + sheep.getColor());
 
             Material material = WOOL_BY_DYE.getOrDefault(sheep.getColor(), Material.AIR);
             ItemConfiguration.dropAdditionalLoot(new ItemStack(material, droppedBlocks), 1, sheep.getWorld(), sheep.getLocation());
-
 
 
 

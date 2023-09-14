@@ -5,7 +5,9 @@ import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.MusicInstrument;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
@@ -13,6 +15,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.MusicInstrumentMeta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,6 +46,8 @@ public class ItemBuilder {
     private boolean currency = false;
 
     private boolean visibleEnchanted = false;
+
+    private MusicInstrument musicInstrument = null;
 
     public ItemBuilder(Material material) {
         this.material = material;
@@ -131,6 +136,12 @@ public class ItemBuilder {
         return this;
     }
 
+    public ItemBuilder setMusicInstrument(MusicInstrument instrument) {
+        this.musicInstrument = instrument;
+        return this;
+    }
+
+
 
     public ItemStack create() {
         ItemStack result = new ItemStack(material,Math.max(1,amount));
@@ -140,14 +151,18 @@ public class ItemBuilder {
 
         itemMeta.setUnbreakable(true);
 
+        if (itemMeta instanceof MusicInstrumentMeta musicItemMeta) {
+            if (musicInstrument != null) musicItemMeta.setInstrument(musicInstrument);
+        }
+
         // Item stats are visible
-        //itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         //itemMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
 
         itemMeta.setAttributeModifiers(attributes);
 
-
-        itemMeta.setLore(buildLore());
+        ArrayList<String> tmpLore = buildLore();
+        if (!tmpLore.isEmpty()) itemMeta.setLore(tmpLore);
 
         if (compressed || currency || visibleEnchanted) {
             if (compressed) itemMeta.setDisplayName(buildCompressedName());
@@ -171,12 +186,11 @@ public class ItemBuilder {
 
     private ArrayList<String> buildLore() {
         ArrayList<String> result = new ArrayList<>();
-        result.add(proficiency.getRepresentation());
+        if (proficiency != ProficiencyType.NONE) result.add(proficiency.getRepresentation());
 
         for (ItemModifier itemModifier : ItemModifier.values()) {
             if (lore.containsKey(itemModifier)) result.add(itemModifier.createLore(lore.get(itemModifier)));
         }
-
         return result;
     }
 

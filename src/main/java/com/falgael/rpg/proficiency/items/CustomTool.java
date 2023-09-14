@@ -12,6 +12,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.MusicInstrumentMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -490,6 +491,7 @@ public enum CustomTool {
             if (keyMeta == null) continue;
             ItemMeta toolMeta = customTool.getItem().getItemMeta();
             if (toolMeta == null) continue;
+
 
             if (!keyMeta.hasDisplayName()) continue;
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;

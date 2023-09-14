@@ -7,11 +7,15 @@ import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.effects.CropPlant;
 import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
+import com.falgael.rpg.proficiency.items.effects.WeatherChange;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.MusicInstrument;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.MusicInstrumentMeta;
 
 /**
  * Provides the definition for CustomItems.
@@ -33,6 +37,16 @@ public enum CustomItem {
 
     MISC_STAT_O_METER(ProficiencyType.MISC, new ItemBuilder(Material.AMETHYST_SHARD).setName("Stat-O-Meter").visibleEnchanted().setRarity(Rarity.LEGENDARY).create()),
 
+    MISC_ADVANCED_WEATHER_CLEAR(ProficiencyType.MISC, new ItemBuilder(Material.GOAT_HORN).setName("Weather clearer").visibleEnchanted().setRarity(Rarity.ADVANCED).setMusicInstrument(MusicInstrument.SING).create(),
+     new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> WeatherChange.weatherClear(e,6000)).create()),
+
+    MISC_EPIC_WEATHER_CLEAR(ProficiencyType.MISC, new ItemBuilder(Material.GOAT_HORN).setName("Sunshine Creator").visibleEnchanted().setRarity(Rarity.EPIC).setMusicInstrument(MusicInstrument.PONDER).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> WeatherChange.weatherClear(e,12000)).create()),
+    MISC_EPIC_WEATHER_RAIN(ProficiencyType.MISC, new ItemBuilder(Material.GOAT_HORN).setName("Rain Creator").visibleEnchanted().setRarity(Rarity.EPIC).setMusicInstrument(MusicInstrument.SEEK).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> WeatherChange.weatherRain(e,6000)).create()),
+
+    MISC_EPIC_WEATHER_THUNDER(ProficiencyType.MISC, new ItemBuilder(Material.GOAT_HORN).setName("Thunder Creator").visibleEnchanted().setRarity(Rarity.EPIC).setMusicInstrument(MusicInstrument.FEEL).create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> WeatherChange.weatherStorm(e,6000)).create()),
 
     //--------------------------------------------------------------------------------------------
     // Woodwork
@@ -180,6 +194,12 @@ public enum CustomItem {
             if (keyMeta == null) continue;
             ItemMeta toolMeta = customItem.getItem().getItemMeta();
             if (toolMeta == null) continue;
+            Bukkit.getLogger().info("Before Music");
+            if (keyMeta instanceof MusicInstrumentMeta ^ toolMeta instanceof MusicInstrumentMeta) continue;
+            if (keyMeta instanceof MusicInstrumentMeta keyMusicMeta && toolMeta instanceof MusicInstrumentMeta toolMusicMeta) {
+                if (keyMusicMeta.getInstrument() != toolMusicMeta.getInstrument()) continue;
+            }
+            Bukkit.getLogger().info("After Music");
 
             if (!keyMeta.hasDisplayName()) continue;
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;
