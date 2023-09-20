@@ -205,7 +205,7 @@ public enum CustomItem {
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;
 
             if (keyMeta.hasLore() ^ toolMeta.hasLore()) continue;
-            if (!keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
+            if (keyMeta.hasLore() && !keyMeta.getLore().equals(toolMeta.getLore())) continue;
 
             if (keyMeta.hasAttributeModifiers() ^ toolMeta.hasAttributeModifiers()) continue;
             return customItem;
