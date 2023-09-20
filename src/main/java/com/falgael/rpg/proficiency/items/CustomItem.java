@@ -16,6 +16,8 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MusicInstrumentMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 /**
  * Provides the definition for CustomItems.
@@ -47,6 +49,20 @@ public enum CustomItem {
 
     MISC_EPIC_WEATHER_THUNDER(ProficiencyType.MISC, new ItemBuilder(Material.GOAT_HORN).setName("Thunder Creator").visibleEnchanted().setRarity(Rarity.EPIC).setMusicInstrument(MusicInstrument.FEEL).create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> WeatherChange.weatherStorm(e,6000)).create()),
+
+    MISC_SEA_BRAIN(ProficiencyType.MISC, new ItemBuilder(Material.HEART_OF_THE_SEA).setName("Sea Brain").visibleEnchanted().setRarity(Rarity.EPIC).addLore("Used to build Atlantis").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND,EquipmentSlot.OFF_HAND)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 110, 3, true, false))
+                    .addPotionEffect(new PotionEffect(PotionEffectType.DOLPHINS_GRACE, 110,1, true, false)).create()),
+
+    MISC_FALLING_FEATHER(ProficiencyType.MISC, new ItemBuilder(Material.FEATHER).setName("Light Feather").visibleEnchanted().setRarity(Rarity.ELITE).addLore("Makes you light as a feather").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, 110, 0 , true, false)).create()),
+
+    MISC_TEAR_OF_SPEED(ProficiencyType.MISC, new ItemBuilder(Material.GHAST_TEAR).setName("Tear of Speed").visibleEnchanted().setRarity(Rarity.ELITE).addLore("Increases your speed").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 110, 1, true, false)).create()),
+
 
     //--------------------------------------------------------------------------------------------
     // Woodwork
@@ -85,6 +101,13 @@ public enum CustomItem {
     FARMING_SEED_PLANTER(ProficiencyType.FARMING, new ItemBuilder(Material.ECHO_SHARD).addProficiency(ProficiencyType.FARMING).visibleEnchanted().setRarity(Rarity.ADVANCED).setName("Planter").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addAction(e -> CropPlant.effect(e, 5, Material.WHEAT, Material.FARMLAND))
                     .create()),
+
+    FARMING_LEGENDARY_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.WHEAT).addProficiency(ProficiencyType.FARMING).visibleEnchanted().setRarity(Rarity.LEGENDARY).setName("Wheat")
+            .addLore(ItemModifier.LEVEL_REQUIREMENT, "50").addLore("Provides an endless amount of food").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 50f)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 110, 0, true, false)).create()),
+
 
     ;
 

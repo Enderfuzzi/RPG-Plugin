@@ -25,7 +25,7 @@ public class ItemConfiguration {
     /**
      * The Slot in which the item has an effect
      */
-    private EquipmentSlot equipmentSlot;
+    private EquipmentSlot[] equipmentSlot;
 
     /**
      * Map of {@link ItemConfigurationFlag} which can be set with a {@link Float}
@@ -42,7 +42,7 @@ public class ItemConfiguration {
      */
     private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(EquipmentSlot equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
+    private ItemConfiguration(EquipmentSlot[] equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
@@ -52,8 +52,9 @@ public class ItemConfiguration {
     /**
      * @return The EquipmentSlot in which the Item is active
      */
-    public EquipmentSlot getEquipmentSlot() {
-        return equipmentSlot;
+    public boolean compareEquipmentSlot(EquipmentSlot toCompare) {
+        for (EquipmentSlot slot : equipmentSlot) if (slot == toCompare) return true;
+        return false;
     }
 
     /**
@@ -115,7 +116,7 @@ public class ItemConfiguration {
      * @version 0.0.1
      */
     public static class Builder {
-        private EquipmentSlot equipmentSlot;
+        private EquipmentSlot[] equipmentSlot;
         private HashMap<ItemConfigurationFlag,Float> flags;
         private ArrayList<PotionEffect> potionEffects;
 
@@ -125,7 +126,7 @@ public class ItemConfiguration {
          * Initializes a new Builder for Creating a new Item
          * @param equipmentSlot the equipment slot in which the item should be active
          */
-        public Builder(EquipmentSlot equipmentSlot) {
+        public Builder(EquipmentSlot... equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
             flags = new HashMap<>();
             potionEffects = new ArrayList<>();
@@ -256,7 +257,7 @@ public class ItemConfiguration {
 
     public static double calculateDamage(CustomTool customTool, double baseValue, Player player, EquipmentSlot equipmentSlot) {
         if (!matchLevelRequirement(customTool, player)) return 0;
-        if (customTool.getItemConfiguration().getEquipmentSlot() != equipmentSlot) return 0;
+        if (!customTool.getItemConfiguration().compareEquipmentSlot(equipmentSlot)) return 0;
 
         double result = 0;
 
@@ -271,12 +272,21 @@ public class ItemConfiguration {
         return result;
     }
 
-    private static boolean matchLevelRequirement(CustomTool tool, Player player) {
+    public static boolean matchLevelRequirement(CustomTool tool, Player player) {
         if (tool == null || tool.isNone() || player == null) return false;
         if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
             return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
         }
         return false;
+    }
+
+    public static boolean matchLevelRequirement(CustomItem item, Player player) {
+        if (item == null || item.isNone() || player == null) return true;
+        if (!item.hasConfiguration()) return true;
+        if (item.getConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
+            return Utils.getPlayerLevel(player, item.getType()) >= item.getConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
+        }
+        return true;
     }
 
 

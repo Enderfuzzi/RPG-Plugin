@@ -4,6 +4,7 @@ import com.falgael.rpg.RPG;
 import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.items.CustomTool;
+import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -11,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
@@ -41,8 +41,8 @@ public class ItemHeldHandler implements Listener {
     public static void startCheck() {
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME), new Thread(() -> {
             for (Player player : activePlayer) {
-                applyEffects(CustomTool.getItem(player.getInventory().getItemInMainHand()), player, EquipmentSlot.HAND);
-                applyEffects(CustomTool.getItem(player.getInventory().getItemInOffHand()), player, EquipmentSlot.OFF_HAND);
+                applyEffects(player.getInventory().getItemInMainHand(), player, EquipmentSlot.HAND);
+                applyEffects(player.getInventory().getItemInOffHand(), player, EquipmentSlot.OFF_HAND);
 
 
 
@@ -63,55 +63,6 @@ public class ItemHeldHandler implements Listener {
     }
 
 
-    public void applyEffects() {
-        /*
-        for (Player player : activePlayer) {
-            CustomTool tool = CustomTool.getItem(player.getInventory().getItemInMainHand());
-            if (tool.isNone()) continue;
-
-            if (tool.getItemConfiguration().hasCustomPotionEffect() && tool.getItemConfiguration().getCustomPotionEffect().getSlot() == EquipmentSlot.HAND) {
-                for (PotionEffect potionEffect : tool.getItemConfiguration().getCustomPotionEffect().getPotionEffects()) {
-                    player.addPotionEffect(potionEffect);
-                }
-
-            }
-        }
-        */
-
-    }
-
-
-    @EventHandler
-    public void onPlayerHeldItem(PlayerMoveEvent event) {
-        /*
-        Bukkit.getLogger().info("[" + ItemHeldHandler.class.getSimpleName() + "]: Held Event");
-        if (event.isCancelled()) return;
-
-        CustomTool tool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
-        if (tool.isNone()) return;
-
-        if (tool.getItemConfiguration().hasCustomPotionEffect() && tool.getItemConfiguration().getCustomPotionEffect().getSlot() == EquipmentSlot.HAND) {
-            for (PotionEffect potionEffect : tool.getItemConfiguration().getCustomPotionEffect().getPotionEffects()) {
-                event.getPlayer().addPotionEffect(potionEffect);
-            }
-
-        }
-
-        if (!CustomItem.isStatOMeter(event.getPlayer().getInventory().getItemInMainHand())) {
-            Bukkit.getLogger().info("[" + ItemHeldHandler.class.getSimpleName() + "]: Is No StatOMeter");
-            return;
-        }
-        Bukkit.getLogger().info("[" + ItemHeldHandler.class.getSimpleName() + "]: Is StatOMeter");
-        ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-        ItemMeta itemMeta = item.getItemMeta();
-
-        itemMeta.setLore(loreModification(event.getPlayer()));
-
-        item.setItemMeta(itemMeta);
-        */
-    }
-
-
     private static void loreModification(Player player, ItemStack item) {
 
         ItemMeta itemMeta = item.getItemMeta();
@@ -128,12 +79,30 @@ public class ItemHeldHandler implements Listener {
         item.setItemMeta(itemMeta);
     }
 
-    private static void applyEffects(CustomTool tool, Player player, EquipmentSlot slot) {
+    private static void applyEffects(ItemStack itemStack, Player player, EquipmentSlot slot) {
+        applyToolEffects(CustomTool.getItem(itemStack), player, slot);
+        applyItemEffects(CustomItem.getItem(itemStack), player, slot);
+    }
+
+
+    private static void applyToolEffects(CustomTool tool, Player player, EquipmentSlot slot) {
+        if (!ItemConfiguration.matchLevelRequirement(tool, player)) return;
         if (tool.isNone()) return;
         if (!tool.getItemConfiguration().hasPotionEffect()) return;
-        if (tool.getItemConfiguration().getEquipmentSlot() != slot) return;
+        if (!tool.getItemConfiguration().compareEquipmentSlot(slot)) return;
 
         for (PotionEffect potionEffect : tool.getItemConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
+    }
+
+    private static void applyItemEffects(CustomItem item, Player player, EquipmentSlot slot) {
+        if (!ItemConfiguration.matchLevelRequirement(item, player)) return;
+        if (item.isNone()) return;
+        if (!item.hasConfiguration()) return;
+
+        if (!item.getConfiguration().hasPotionEffect()) return;
+        if (!item.getConfiguration().compareEquipmentSlot(slot)) return;
+
+        for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
     }
 
 
