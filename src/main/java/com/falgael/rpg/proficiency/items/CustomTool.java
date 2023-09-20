@@ -282,6 +282,28 @@ public enum CustomTool {
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 4f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 25f).create()),
 
+
+    FARMING_ADVANCED_FISHING_ROD(ProficiencyType.FARMING, new ItemBuilder(Material.FISHING_ROD).setRarity(Rarity.ADVANCED).setName("Fishing Rod")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "100").addLore(ItemModifier.EXPERIENCE, "100")
+            .addLore("Advanced tool for fishing").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,2f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 2f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 8f).create()),
+
+    FARMING_ELITE_FISHING_ROD(ProficiencyType.FARMING, new ItemBuilder(Material.FISHING_ROD).setRarity(Rarity.ELITE).setName("Fishing Rod")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "250").addLore(ItemModifier.EXPERIENCE, "300")
+            .addLore("Elite tool for fishing").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,3.5f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 4f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 25f)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.LUCK,110,0,true,false)).create()),
+
+    FARMING_LEGENDARY_FISHING_ROD(ProficiencyType.FARMING, new ItemBuilder(Material.FISHING_ROD).setRarity(Rarity.LEGENDARY).setName("Fishing Rod")
+            .addProficiency(ProficiencyType.FARMING).addLore(ItemModifier.LOOT, "500").addLore(ItemModifier.EXPERIENCE, "600")
+            .addLore("Fishing the largest creatures").create(),
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER,6f).addFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER, 7f)
+                    .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 50f)
+                    .addPotionEffect(new PotionEffect(PotionEffectType.LUCK,110,3,true,false)).create()),
+
+
     //--------------------------------------------------------------------------------------------
     // Hunting
     //--------------------------------------------------------------------------------------------
