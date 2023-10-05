@@ -1,8 +1,11 @@
 package com.falgael.rpg.proficiency.items;
 
 import com.falgael.rpg.framework.PredicateConsumer;
+import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
+import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
+import com.falgael.rpg.tmp.EquipmentSet;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -11,10 +14,9 @@ import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Contains special information about an item. Uses a Builder Layout for creating Items.
@@ -25,32 +27,38 @@ public class ItemConfiguration {
     /**
      * The Slot in which the item has an effect
      */
-    private EquipmentSlot[] equipmentSlot;
+    private Set<EquipmentSlot> equipmentSlot;
 
     /**
      * Map of {@link ItemConfigurationFlag} which can be set with a {@link Float}
      */
-    private HashMap<ItemConfigurationFlag,Float> flags;
+    private HashMap<ConfigurationFlag,Float> flags;
 
     /**
      * List of Potion effects which are applied when using the item
      */
-    private ArrayList<PotionEffect> potionEffects;
+    private Set<PotionEffect> potionEffects;
+
+
 
     /**
      * A Special Action which can be defined and applied in different situations
      */
     private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(EquipmentSlot[] equipmentSlot, HashMap<ItemConfigurationFlag, Float> flags, ArrayList<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
+    private ItemConfiguration(Set<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Float> flags, Set<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
-        this.action = action;
+        if (action == null && flags.containsKey(ConfigurationFlag.BURN_TIME)) {
+            this.action = e -> FurnaceBurn.effect(e, flags.get(ConfigurationFlag.BURN_TIME));
+        } else {
+            this.action = action;
+        }
     }
 
     /**
-     * @return The EquipmentSlot in which the Item is active
+     * @return The EquipmentSlot in which the CustomItem is active
      */
     public boolean compareEquipmentSlot(EquipmentSlot toCompare) {
         for (EquipmentSlot slot : equipmentSlot) if (slot == toCompare) return true;
@@ -68,8 +76,8 @@ public class ItemConfiguration {
      * @param flag The flag to check
      * @return {@code true} if the Configuration has the specified {@link ItemConfigurationFlag} set
      */
-    public boolean hasFlag(ItemConfigurationFlag flag) {
-        return flags.containsKey(flag);
+    public boolean hasFlag(ConfigurationFlag flag) {
+        return hasFlags() && flags.containsKey(flag);
     }
 
     /**
@@ -77,7 +85,7 @@ public class ItemConfiguration {
      * @param flag The flag to search for
      * @return the float Value of the given {@link ItemConfigurationFlag}
      */
-    public Float getValue(ItemConfigurationFlag flag) {
+    public Float getValue(ConfigurationFlag flag) {
         return flags.getOrDefault(flag, 0.0f);
     }
 
@@ -91,7 +99,7 @@ public class ItemConfiguration {
     /**
      * @return a List of all potion effects set for this configuration
      */
-    public ArrayList<PotionEffect> getPotionEffects() {
+    public Set<PotionEffect> getPotionEffects() {
         return potionEffects;
     }
 
@@ -102,6 +110,10 @@ public class ItemConfiguration {
         return action != null;
     }
 
+
+
+
+
     /**
      * Gets the action of this configuration. It should be checked that this configuration has an action set before usage.
      * @return the Action if set or {@code null}
@@ -111,26 +123,28 @@ public class ItemConfiguration {
     }
 
     /**
-     * Builder Class for Item creation.
+     * Builder Class for CustomItem creation.
      * @author falgael
      * @version 0.0.1
      */
     public static class Builder {
-        private EquipmentSlot[] equipmentSlot;
-        private HashMap<ItemConfigurationFlag,Float> flags;
-        private ArrayList<PotionEffect> potionEffects;
+        private Set<EquipmentSlot> equipmentSlot;
+        private HashMap<ConfigurationFlag,Float> flags;
+        private Set<PotionEffect> potionEffects;
+
 
         private PredicateConsumer<Event> action = null;
 
         /**
-         * Initializes a new Builder for Creating a new Item
+         * Initializes a new Builder for Creating a new CustomItem
          * @param equipmentSlot the equipment slot in which the item should be active
          */
-        public Builder(EquipmentSlot... equipmentSlot) {
+        public Builder(Set<EquipmentSlot> equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
             flags = new HashMap<>();
-            potionEffects = new ArrayList<>();
+            potionEffects = new HashSet<>();
         }
+
 
         /**
          * Adds a new {@link ItemConfigurationFlag} with value to the current configuration
@@ -138,7 +152,7 @@ public class ItemConfiguration {
          * @param value the Value which get assigned to the flag
          * @return the current Builder state
          */
-        public Builder addFlag(ItemConfigurationFlag flag, Float value) {
+        public Builder addFlag(ConfigurationFlag flag, Float value) {
             flags.put(flag,value);
             return this;
         }
@@ -152,6 +166,19 @@ public class ItemConfiguration {
             potionEffects.add(potionEffect);
             return this;
         }
+
+        public Builder addPotionEffect(PotionEffectType potionType, int duration, int amplifier) {
+            return addPotionEffect(new PotionEffect(potionType, duration, amplifier, false, true));
+        }
+
+        public Builder addPotionEffect(PotionEffectType potionType, int amplifier) {
+            return addPotionEffect(potionType,110, amplifier);
+        }
+
+        public Builder addPotionEffect(PotionEffectType potionType) {
+            return addPotionEffect(potionType, 0);
+        }
+
 
         /**
          * Adds an Action to the current configuration
@@ -172,7 +199,7 @@ public class ItemConfiguration {
         }
     }
 
-    //TODO Add Further Java doc
+
 
     public static long calculateExperience(CustomTool tool, long baseExperience, ProficiencyType type, Player player) {
         if (matchLevelRequirement(tool, player)) return calculateExperience(tool, baseExperience, type);
@@ -187,8 +214,8 @@ public class ItemConfiguration {
     public static long calculateExperience(CustomTool tool, long baseExperience) {
         if (tool.isNone()) return baseExperience;
 
-        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER))
-            return baseExperience * Math.round(tool.getItemConfiguration().getValue(ItemConfigurationFlag.EXPERIENCE_MULTIPLIER));
+        if (tool.getItemConfiguration().hasFlag(ConfigurationFlag.EXPERIENCE))
+            return baseExperience * Math.round(tool.getItemConfiguration().getValue(ConfigurationFlag.EXPERIENCE));
 
         return baseExperience;
     }
@@ -208,9 +235,9 @@ public class ItemConfiguration {
     public static int calculateLoot(CustomTool tool) {
         if (tool.isNone()) return 0;
 
-        if (!tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LOOT_MULTIPLIER)) return 1;
+        if (!tool.getItemConfiguration().hasFlag(ConfigurationFlag.LOOT)) return 1;
 
-        float lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_MULTIPLIER);
+        float lootValue = tool.getItemConfiguration().getValue(ConfigurationFlag.LOOT);
         double value = lootValue - Math.floor(lootValue);
         if (value == 0) return (int) lootValue - 1;
         if (Math.random() < value) return (int) Math.ceil(lootValue) - 1;
@@ -261,12 +288,12 @@ public class ItemConfiguration {
 
         double result = 0;
 
-        if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_ADDITIVE)) {
-            result += customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_ADDITIVE);
+        if (customTool.getItemConfiguration().hasFlag(ConfigurationFlag.DAMAGE_ADDITIVE)) {
+            result += customTool.getItemConfiguration().getValue(ConfigurationFlag.DAMAGE_ADDITIVE);
         }
 
-        if (customTool.getItemConfiguration().hasFlag(ItemConfigurationFlag.DAMAGE_MULTIPLIER)) {
-            result += (customTool.getItemConfiguration().getValue(ItemConfigurationFlag.DAMAGE_MULTIPLIER) - 1) * baseValue;
+        if (customTool.getItemConfiguration().hasFlag(ConfigurationFlag.DAMAGE_MULTIPLIER)) {
+            result += (customTool.getItemConfiguration().getValue(ConfigurationFlag.DAMAGE_MULTIPLIER) - 1) * baseValue;
         }
 
         return result;
@@ -274,17 +301,17 @@ public class ItemConfiguration {
 
     public static boolean matchLevelRequirement(CustomTool tool, Player player) {
         if (tool == null || tool.isNone() || player == null) return false;
-        if (tool.getItemConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
-            return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
+        if (tool.getItemConfiguration().hasFlag(ConfigurationFlag.LEVEL_REQUIREMENT)) {
+            return Utils.getPlayerLevel(player, tool.getProficiencyType()) >= tool.getItemConfiguration().getValue(ConfigurationFlag.LEVEL_REQUIREMENT);
         }
         return false;
     }
 
-    public static boolean matchLevelRequirement(CustomItem item, Player player) {
-        if (item == null || item.isNone() || player == null) return true;
-        if (!item.hasConfiguration()) return true;
-        if (item.getConfiguration().hasFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT)) {
-            return Utils.getPlayerLevel(player, item.getType()) >= item.getConfiguration().getValue(ItemConfigurationFlag.LEVEL_REQUIREMENT);
+    public static boolean matchLevelRequirement(CustomItem customItem, Player player) {
+        if (customItem == null || customItem.isNone() || player == null) return true;
+        if (!customItem.hasConfiguration()) return true;
+        if (customItem.getConfiguration().hasFlag(ConfigurationFlag.LEVEL_REQUIREMENT)) {
+            return Utils.getPlayerLevel(player, customItem.getType()) >= customItem.getConfiguration().getValue(ConfigurationFlag.LEVEL_REQUIREMENT);
         }
         return true;
     }

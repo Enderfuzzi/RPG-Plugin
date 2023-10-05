@@ -41,16 +41,16 @@ public class ItemHeldHandler implements Listener {
     public static void startCheck() {
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME), new Thread(() -> {
             for (Player player : activePlayer) {
-                applyEffects(player.getInventory().getItemInMainHand(), player, EquipmentSlot.HAND);
-                applyEffects(player.getInventory().getItemInOffHand(), player, EquipmentSlot.OFF_HAND);
+                //applyEffects(player.getInventory().getItemInMainHand(), player, EquipmentSlot.HAND);
+                //applyEffects(player.getInventory().getItemInOffHand(), player, EquipmentSlot.OFF_HAND);
 
 
-
-                if (CustomItem.isStatOMeter(player.getInventory().getItemInMainHand())) {
-                    loreModification(player,player.getInventory().getItemInMainHand());
+                if (com.falgael.rpg.tmp.CustomItem.isStatOMeter(player.getInventory().getItemInMainHand())) {
+                    loreModification(player, player.getInventory().getItemInMainHand());
                 }
-                if (CustomItem.isStatOMeter(player.getInventory().getItemInOffHand())) {
-                    loreModification(player,player.getInventory().getItemInOffHand());
+
+                if (com.falgael.rpg.tmp.CustomItem.isStatOMeter(player.getInventory().getItemInOffHand())) {
+                    loreModification(player, player.getInventory().getItemInOffHand());
                 }
 
 

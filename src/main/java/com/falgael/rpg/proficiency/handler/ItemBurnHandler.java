@@ -13,25 +13,11 @@ public class ItemBurnHandler implements Listener {
     @EventHandler
     public void onItemBurn(FurnaceBurnEvent event) {
         if (event.isCancelled()) return;
-        CustomItem customItem = CustomItem.getItem(event.getFuel());
-        if (customItem.isNone()) return;
+
+        com.falgael.rpg.tmp.CustomItem customItem = com.falgael.rpg.tmp.CustomItem.getItem(event.getFuel());
 
         if (customItem.hasConfiguration() && customItem.getConfiguration().hasAction()) {
             customItem.getConfiguration().getAction().accept(event);
         }
-
-        /*
-        if (customItem == CustomItem.STONEWORK_INFINITE_COAL) {
-            if (event.getBlock().getState() instanceof Furnace furnace) {
-                ItemStack fuel = furnace.getInventory().getFuel();
-                furnace.getInventory().setFuel(Utils.modifyItemAmount(CustomItem.STONEWORK_INFINITE_COAL.getItem(), fuel.getAmount() + 1));
-                furnace.setCookTime((short) (furnace.getCookTimeTotal() * 0.5));
-                furnace.update();
-            }
-            event.setBurnTime(100);
-            event.setBurning(false);
-        }
-
-         */
     }
 }

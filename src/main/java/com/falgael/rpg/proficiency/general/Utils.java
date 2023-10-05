@@ -1,19 +1,16 @@
 package com.falgael.rpg.proficiency.general;
 
+import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.Messages;
 import com.falgael.rpg.proficiency.items.CustomTool;
-import com.falgael.rpg.proficiency.items.ItemConfigurationFlag;
+
 import com.falgael.rpg.proficiency.player.PlayerManager;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.checkerframework.checker.units.qual.A;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Utils {
 
@@ -44,7 +41,7 @@ public class Utils {
 
 
     private static void testCalculation(CustomTool tool) {
-        double lootValue = tool.getItemConfiguration().getValue(ItemConfigurationFlag.LOOT_MULTIPLIER);
+        double lootValue = tool.getItemConfiguration().getValue(ConfigurationFlag.LOOT);
         Bukkit.getLogger().info("Start Test: Estimated: " + lootValue);
         int iterations = 1000;
         int result_value = 0;

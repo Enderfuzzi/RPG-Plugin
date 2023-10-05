@@ -2,7 +2,7 @@ package com.falgael.rpg.proficiency.items;
 
 
 import com.falgael.rpg.items.ItemBuilder;
-import com.falgael.rpg.items.ItemModifier;
+import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.effects.CropPlant;
@@ -27,10 +27,10 @@ import org.bukkit.potion.PotionEffectType;
  */
 public enum CustomItem {
     /**
-     * Value for a non defined Tool. Returned if an Item is not found on search.
+     * Value for a non defined Tool. Returned if an CustomItem is not found on search.
      */
     NONE(ProficiencyType.NONE, new ItemStack(Material.AIR)),
-
+    /**
     //--------------------------------------------------------------------------------------------
     // Misc
     //--------------------------------------------------------------------------------------------
@@ -78,16 +78,16 @@ public enum CustomItem {
 
 
     STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ADVANCED).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "10").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addLore(ConfigurationFlag.BURN_TIME, "10").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
             .addAction(e -> FurnaceBurn.effect(e, 0.1))
             .create()),
     STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, new ItemBuilder(Material.CHARCOAL).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.ELITE).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "50").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addLore(ConfigurationFlag.BURN_TIME, "50").addLore("Burning until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
             .addAction(e -> FurnaceBurn.effect(e, 0.5))
             .create()),
 
     STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, new ItemBuilder(Material.COAL_BLOCK).addProficiency(ProficiencyType.STONEWORK).setRarity(Rarity.EPIC).visibleEnchanted()
-            .addLore(ItemModifier.BURN_TIME, "75").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
+            .addLore(ConfigurationFlag.BURN_TIME, "75").addLore("Burns until end of time").setName("Infinite Fuel").create(), new ItemConfiguration.Builder(EquipmentSlot.HAND)
             .addAction(e -> FurnaceBurn.effect(e, 0.75))
             .create()),
 
@@ -103,16 +103,16 @@ public enum CustomItem {
                     .create()),
 
     FARMING_LEGENDARY_WHEAT(ProficiencyType.FARMING, new ItemBuilder(Material.WHEAT).addProficiency(ProficiencyType.FARMING).visibleEnchanted().setRarity(Rarity.LEGENDARY).setName("Wheat")
-            .addLore(ItemModifier.LEVEL_REQUIREMENT, "50").addLore("Provides an endless amount of food").create(),
+            .addLore(ConfigurationFlag.LEVEL_REQUIREMENT, "50").addLore("Provides an endless amount of food").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                     .addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT, 50f)
                     .addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 110, 0, true, false)).create()),
 
-
+    */
     ;
 
     /**
-     * Configuration of the Item. This can be {@code null} if the Item has no configuration.
+     * Configuration of the CustomItem. This can be {@code null} if the CustomItem has no configuration.
      */
     private final ItemConfiguration configuration;
 
@@ -180,9 +180,10 @@ public enum CustomItem {
      *
      * Returns {@code false} if the given ItemStack is {@code null}
      * @param heldItem the item to check
-     * @return {@code true} if the given Item is a Stat-Meter
+     * @return {@code true} if the given CustomItem is a Stat-Meter
      */
     public static boolean isStatOMeter(ItemStack heldItem) {
+        /**
         if (heldItem == null) return false;
         if (MISC_STAT_O_METER.getItem().getType() != heldItem.getType()) return false;
         ItemMeta heldItemMeta = heldItem.getItemMeta();
@@ -190,7 +191,8 @@ public enum CustomItem {
         if (statItemMeta == null || heldItemMeta == null) return false;
         if (!statItemMeta.getDisplayName().equals(heldItemMeta.getDisplayName())) return false;
         if (!statItemMeta.isUnbreakable() || !heldItemMeta.isUnbreakable()) return false;
-        return true;
+        */
+        return false;
     }
 
     /**
@@ -210,19 +212,17 @@ public enum CustomItem {
      */
     public static CustomItem getItem(ItemStack key) {
         if (key == null) return NONE;
-        for (CustomItem customItem : CustomItem.values()) {
+        for (CustomItem customItem : com.falgael.rpg.proficiency.items.CustomItem.values()) {
             if (key.getType() != customItem.itemStack.getType()) continue;
 
             ItemMeta keyMeta = key.getItemMeta();
             if (keyMeta == null) continue;
             ItemMeta toolMeta = customItem.getItem().getItemMeta();
             if (toolMeta == null) continue;
-            Bukkit.getLogger().info("Before Music");
             if (keyMeta instanceof MusicInstrumentMeta ^ toolMeta instanceof MusicInstrumentMeta) continue;
             if (keyMeta instanceof MusicInstrumentMeta keyMusicMeta && toolMeta instanceof MusicInstrumentMeta toolMusicMeta) {
                 if (keyMusicMeta.getInstrument() != toolMusicMeta.getInstrument()) continue;
             }
-            Bukkit.getLogger().info("After Music");
 
             if (!keyMeta.hasDisplayName()) continue;
             if (!ChatColor.stripColor(keyMeta.getDisplayName()).equals(ChatColor.stripColor(toolMeta.getDisplayName()))) continue;

@@ -7,9 +7,10 @@ import org.bukkit.inventory.ItemStack;
 public enum ForbiddenCrafting {
 
     NONE(Material.AIR, new ItemStack(Material.AIR)),
+    /**
     COMPRESSED_OAK_WOOD(Material.AIR, CustomItem.WOODWORK_COMPRESSED_OAK.getItem()),
     COMPRESSED_STONE(Material.AIR, CustomItem.STONEWORK_COMPRESSED_STONE.getItem()),
-
+    */
     ;
     private final ItemStack result;
 

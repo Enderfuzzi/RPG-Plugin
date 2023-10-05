@@ -2,6 +2,7 @@ package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.blocks.CraftingResults;
+import com.falgael.rpg.tmp.Calculation;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -28,7 +29,7 @@ public class CraftingResultsHandler implements Listener {
             }
         }
 
-        Utils.increaseExperience(player,craftingResult.getType(),craftingResult.getExperienceAmount() * craftedAmount);
+        Utils.increaseExperience(player,craftingResult.getType(),Calculation.calculateExperience(craftingResult.getExperienceAmount() * craftedAmount, craftingResult.getType(), player));
     }
 
 

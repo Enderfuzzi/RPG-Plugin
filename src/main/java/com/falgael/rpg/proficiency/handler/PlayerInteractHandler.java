@@ -9,12 +9,11 @@ public class PlayerInteractHandler implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        CustomItem customItem = CustomItem.getItem(event.getItem());
-        if (customItem.isNone()) return;
-        if (customItem.hasConfiguration() && customItem.getConfiguration().hasAction())
-            if (customItem.getConfiguration().getAction().accept(event)) return;
 
-
+        com.falgael.rpg.tmp.CustomItem customItem = com.falgael.rpg.tmp.CustomItem.getItem(event.getItem());
+       if (customItem.hasConfiguration() && customItem.getConfiguration().hasAction()) {
+           if (customItem.getConfiguration().getAction().accept(event)) return;
+       }
     }
 
 

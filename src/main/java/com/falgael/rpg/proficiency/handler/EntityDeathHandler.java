@@ -6,6 +6,7 @@ import com.falgael.rpg.proficiency.blocks.CustomEntity;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.tmp.Calculation;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -34,39 +35,15 @@ public class EntityDeathHandler implements Listener {
         CustomEntity customEntity = CustomEntity.getEntity(event.getEntity().getType());
         if (!customEntity.isNone()) return;
 
-        long experienceAmount = customEntity.getExperienceAmount();
-        int droppedBlocks = 0;
-
-
         ItemStack item = event.getEntity().getKiller().getInventory().getItemInMainHand();
         CustomTool customTool = CustomTool.getItem(item);
         Bukkit.getLogger().info("Custom Tool found: " + !customTool.isNone());
 
-        if (customTool.isWeapon()) {
-            droppedBlocks =  ItemConfiguration.calculateLoot(customTool, customEntity.getProficiency(), event.getEntity().getKiller());
-            experienceAmount = ItemConfiguration.calculateExperience(customTool, experienceAmount, customEntity.getProficiency(),event.getEntity().getKiller());
-            ItemConfiguration.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
-        }
-        /*
-        if (!customTool.isNone() && customTool.isWeapon()) {
 
-            if (customTool.getItemConfiguration().hasBlockBreakEffect()) {
-                BlockBreakEffect blockBreakEffect = customTool.getItemConfiguration().getBlockBreakEffect();
-                experienceAmount *= blockBreakEffect.getExperienceModifier();
-                droppedBlocks = blockBreakEffect.calculateDroppedBlocks();
-            }
+        int droppedBlocks =  Calculation.calculateLoot(customEntity.getProficiency(), event.getEntity().getKiller());
+        long experienceAmount = Calculation.calculateExperience(customEntity.getExperienceAmount(), customEntity.getProficiency(),event.getEntity().getKiller());
+        Calculation.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
 
-            if (droppedBlocks != 0) {
-                // Get the natural Drops and modify them
-                for (ItemStack drop : event.getDrops()) {
-                    ItemStack tmp = drop.clone();
-                    tmp.setAmount(droppedBlocks);
-                    //Override the Drops if an alternative is given
-                    event.getEntity().getWorld().dropItemNaturally(event.getEntity().getLocation(),tmp);
-                }
-            }
-        }
-        */
 
         Utils.increaseExperience(event.getEntity().getKiller(), customEntity.getProficiency(), experienceAmount);
     }

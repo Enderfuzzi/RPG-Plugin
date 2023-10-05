@@ -14,7 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RPG extends JavaPlugin {
 
-    public static final String PLUGIN_NAME = "RPG-0.0.1";
+    public static final String PLUGIN_NAME = "RPG-0.0.2";
 
     @Override
     public void onEnable() {

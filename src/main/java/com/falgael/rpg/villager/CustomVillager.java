@@ -25,7 +25,7 @@ public enum CustomVillager {
     //--------------------------------------------------------------------------------------------
     // Misc
     //--------------------------------------------------------------------------------------------
-
+    /**
     MISC_TIER_I(ProficiencyType.MISC.getName() + "_TIER_I", ProficiencyType.MISC,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + ProficiencyType.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(CustomItem.MISC_IRON_NUGGET.getItem()).create())
@@ -389,7 +389,7 @@ public enum CustomVillager {
 
 
                     .create(),60),
-
+    */
 
     ;
     private final String key;
