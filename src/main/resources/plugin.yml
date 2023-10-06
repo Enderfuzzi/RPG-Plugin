@@ -15,3 +15,6 @@ commands:
   spawn_spawner:
     description: "Spawn a modified Spawner"
     usage: /<command>
+  get:
+    description: "gets an item or a group of items"
+    usage: /<command> <item|set|proficiency> <name>

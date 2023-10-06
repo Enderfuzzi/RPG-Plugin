@@ -4,6 +4,7 @@ import com.falgael.rpg.commands.chest.SpawnItemChest;
 import com.falgael.rpg.commands.chest.SpawnItemChestTabComplete;
 import com.falgael.rpg.commands.experience.ManipulateExperience;
 import com.falgael.rpg.commands.experience.ManipulateExperienceTabComplete;
+import com.falgael.rpg.commands.items.GetItem;
 import com.falgael.rpg.commands.spawner.SpawnerSpawn;
 import com.falgael.rpg.commands.villager.VillagerSpawn;
 import com.falgael.rpg.commands.villager.VillagerSpawnTabComplete;
@@ -18,6 +19,8 @@ public enum CustomCommand {
     SPAWN_CHEST("spawn_chest", new SpawnItemChest(), new SpawnItemChestTabComplete()),
 
     SPAWN_SPAWNER("spawn_spawner", new SpawnerSpawn(), null),
+
+    GET_ITEM("get", new GetItem(), new GetItem());
 
     ;
 
