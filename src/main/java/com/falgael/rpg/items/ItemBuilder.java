@@ -35,7 +35,7 @@ public class ItemBuilder {
 
     private int amount = 1;
 
-    private Rarity rarity = Rarity.COMMON;
+    private Rarity rarity = Rarity.NONE;
 
     private Multimap<Attribute, AttributeModifier> attributes = ArrayListMultimap.create();
 
@@ -105,9 +105,8 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setCurrency() {
-        this.currency = true;
-        proficiency = ProficiencyType.MISC;
+    public ItemBuilder setCurrency(boolean currency) {
+        this.currency = currency;
         return this;
     }
 
@@ -152,11 +151,12 @@ public class ItemBuilder {
         ArrayList<String> tmpLore = buildLore();
         if (!tmpLore.isEmpty()) itemMeta.setLore(tmpLore);
 
-        if (currency || visibleEnchanted) {
-            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-            itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
+        if (configuration != null) {
+            if (configuration.hasFlag(ConfigurationFlag.CURRENCY) || configuration.hasFlag(ConfigurationFlag.ENCHANTED)) {
+                itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                itemMeta.addEnchant(Enchantment.KNOCKBACK,1,true);
+            }
         }
-
 
         result.setItemMeta(itemMeta);
         return result;
@@ -172,13 +172,7 @@ public class ItemBuilder {
         ArrayList<String> result = new ArrayList<>();
         if (proficiency != ProficiencyType.NONE) result.add(proficiency.getRepresentation());
 
-        if (configuration != null) {
-            for (ConfigurationFlag configurationFlag : ConfigurationFlag.values()) {
-                if (configuration.hasFlag(configurationFlag))
-                    result.add(configurationFlag.createLore(configuration.getValue(configurationFlag)));
-            }
-
-        }
+        if (configuration != null) result.addAll(configurationLore(configuration));
 
 
         if (lore != null) {
@@ -192,20 +186,26 @@ public class ItemBuilder {
             result.add(ConfigurationFlag.SET_BONUS.createLore(equipmentSet.getName()));
             if (equipmentSet.getProficiencyType() != ProficiencyType.NONE) result.add(equipmentSet.getProficiencyType().getRepresentation());
 
-            for (ConfigurationFlag configurationFlag : ConfigurationFlag.values()) {
-                if (!equipmentSet.hasConfiguration()) break;
-                if (equipmentSet.getConfiguration().hasFlag(configurationFlag))
-                    result.add(configurationFlag.createLore(equipmentSet.getConfiguration().getValue(configurationFlag)));
-            }
+            if (equipmentSet.hasConfiguration()) result.addAll(configurationLore(equipmentSet.getConfiguration()));
 
-            if (equipmentSet.hasDescription()) {
-                equipmentSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
-            }
+            if (equipmentSet.hasDescription()) equipmentSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
+
+
             result.add(ConfigurationFlag.SET_PART_NUMBER.createLore(Integer.toString(equipmentSet.getNumberOfParts())));
         }
 
 
 
+        return result;
+    }
+
+    private static List<String> configurationLore(ItemConfiguration configuration) {
+        ArrayList<String> result = new ArrayList<>();
+        if (configuration == null) return result;
+        for (ConfigurationFlag configurationFlag : ConfigurationFlag.values()) {
+            if (!configurationFlag.hasRepresentation()) continue;
+            if (configuration.hasFlag(configurationFlag)) result.add(configurationFlag.createLore(configuration.getValue(configurationFlag)));
+        }
         return result;
     }
 

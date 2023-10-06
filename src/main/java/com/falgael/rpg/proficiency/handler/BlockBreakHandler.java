@@ -31,10 +31,14 @@ public class BlockBreakHandler implements Listener {
 
         Bukkit.getLogger().info("Custom Item is none: " + customItem.isNone());
 
+        if (customItem.isBreakingTool()) {
+            if (Calculation.performAction(event, customItem, event.getPlayer())) return;
+        }
+        /**
         if (customItem.isBreakingTool() && customItem.hasConfiguration() && customItem.getConfiguration().hasAction()) {
             if (customItem.getConfiguration().getAction().accept(event)) return;
         }
-
+        */
         long experienceAmount = Calculation.calculateExperience(block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
         Bukkit.getLogger().info("Calculated experience: " + experienceAmount);
         int droppedBlocks = Calculation.calculateLoot(block.getProficiency(), event.getPlayer());

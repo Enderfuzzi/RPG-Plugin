@@ -39,6 +39,10 @@ public class Utils {
         return String.join(" ", split);
     }
 
+    public static int floatToInt(float value) {
+        return Math.round(value);
+    }
+
 
     private static void testCalculation(CustomTool tool) {
         double lootValue = tool.getItemConfiguration().getValue(ConfigurationFlag.LOOT);

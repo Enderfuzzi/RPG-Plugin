@@ -5,6 +5,8 @@ import com.falgael.rpg.proficiency.blocks.WoodType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.tmp.Calculation;
+import com.falgael.rpg.tmp.CustomItem;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,20 +25,20 @@ public class TreeHarvest {
     public static boolean effect(Event e, int maxAmount) {
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
-        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
-        if (customTool.isNone()) return false;
+        CustomItem customItem = CustomItem.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        if (customItem.isNone()) return false;
         if (!block.hasWoodType()) return false;
         ArrayList<Location> blocks = getTreeLogs(event.getBlock().getLocation(), block.getWoodType(), maxAmount);
         if (blocks.isEmpty()) return false;
 
-        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
-        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+        long experienceAmount = Calculation.calculateExperience(block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
+        int droppedBlocks = Calculation.calculateLoot(block.getProficiency(), event.getPlayer());
 
         experienceAmount *= blocks.size();
         droppedBlocks *=  blocks.size();
 
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        ItemConfiguration.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        Calculation.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
 
@@ -73,8 +75,6 @@ public class TreeHarvest {
                     for (int z = -1;z < 2; z++) {
                         if (x == 0 && y == 0 && z == 0) continue;
                         queue.add(tmp.getBlock().getRelative(x,y,z).getLocation());
-
-
                     }
 
                 }

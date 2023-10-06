@@ -5,6 +5,7 @@ import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
+import com.falgael.rpg.proficiency.items.effects.TreeHarvest;
 import com.falgael.rpg.tmp.EquipmentSet;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -50,10 +51,17 @@ public class ItemConfiguration {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
-        if (action == null && flags.containsKey(ConfigurationFlag.BURN_TIME)) {
-            this.action = e -> FurnaceBurn.effect(e, flags.get(ConfigurationFlag.BURN_TIME));
+
+
+        if (action != null) {
+            this.action = null;
         } else {
-            this.action = action;
+            if (flags.containsKey(ConfigurationFlag.BURN_TIME)) {
+                this.action = e -> FurnaceBurn.effect(e, flags.get(ConfigurationFlag.BURN_TIME));
+            } else if (flags.containsKey(ConfigurationFlag.TREE_HARVEST)) {
+                this.action = e -> TreeHarvest.effect(e, Utils.floatToInt(flags.get(ConfigurationFlag.TREE_HARVEST)));
+            }
+
         }
     }
 
@@ -135,6 +143,12 @@ public class ItemConfiguration {
 
         private PredicateConsumer<Event> action = null;
 
+
+        public Builder() {
+            this(Set.of());
+        }
+
+
         /**
          * Initializes a new Builder for Creating a new CustomItem
          * @param equipmentSlot the equipment slot in which the item should be active
@@ -143,6 +157,10 @@ public class ItemConfiguration {
             this.equipmentSlot = equipmentSlot;
             flags = new HashMap<>();
             potionEffects = new HashSet<>();
+        }
+
+        public Builder addFlag(ConfigurationFlag flag) {
+            return addFlag(flag, 0f);
         }
 
 

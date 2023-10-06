@@ -31,15 +31,29 @@ public enum ConfigurationFlag {
 
     DEFAULT(ChatColor.DARK_PURPLE, ""),
 
+    TREE_HARVEST(),
+
+    ENCHANTED(),
+
     ;
     private final ChatColor color;
 
     private final String lore;
 
+    ConfigurationFlag() {
+        this(ChatColor.RESET,"");
+    }
 
     ConfigurationFlag(ChatColor color, String lore) {
         this.color = color;
         this.lore = lore;
+    }
+
+    public boolean hasRepresentation() {
+        return switch (this) {
+            case TREE_HARVEST, ENCHANTED -> false;
+            default -> true;
+        };
     }
 
     /**
@@ -60,7 +74,7 @@ public enum ConfigurationFlag {
             case LEVEL_REQUIREMENT, SET_PART_NUMBER -> String.format("%s %s", lore, value);
             case BURN_TIME -> String.format("-%s%% %s", value, lore);
             case CURRENCY -> lore;
-            case SET_BONUS -> String.format("%s %s",value, color + lore);
+            case SET_BONUS -> ChatColor.BOLD + String.format("%s %s",value, color + lore);
             case DEFAULT -> value;
             default -> String.format("+%s%% %s", value, lore);
         } + ChatColor.RESET;

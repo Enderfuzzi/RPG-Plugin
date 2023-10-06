@@ -22,7 +22,17 @@ public enum CustomItem {
 
     NONE(ProficiencyType.NONE, Material.AIR, Rarity.NONE),
 
-    STAT_O_METER(ProficiencyType.MISC,Material.AMETHYST_SHARD,"Stat-O-Meter",Rarity.EPIC,true),
+    //--------------------------------------------------------------------------------------------
+    // Misc
+    //--------------------------------------------------------------------------------------------
+
+
+    MISC_IRON_NUGGET(ProficiencyType.MISC, Material.IRON_NUGGET,"Silver Coin", Rarity.ADVANCED,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.CURRENCY).create()),
+    MISC_GOLD_NUGGET(ProficiencyType.MISC, Material.GOLD_NUGGET, "Gold Coin", Rarity.ELITE,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.CURRENCY).create()),
+
+    STAT_O_METER(ProficiencyType.MISC,Material.AMETHYST_SHARD,"Stat-O-Meter",Rarity.EPIC, new ItemConfiguration.Builder().addFlag(ConfigurationFlag.ENCHANTED).create()),
 
 
     //--------------------------------------------------------------------------------------------
@@ -30,7 +40,8 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
 
     TEST_WOODWORK_AXE(ProficiencyType.WOODWORK,Material.WOODEN_AXE,"Axe",Rarity.SIMPLE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.HAND)).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f).create(),
+            new ItemConfiguration.Builder(Set.of(EquipmentSlot.HAND)).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f)
+                    .addFlag(ConfigurationFlag.TREE_HARVEST,48f).create(),
             EquipmentSet.WOODWORK_TEST),
     TEST_WOODWORK_HELMET(ProficiencyType.WOODWORK, Material.LEATHER_HELMET,"Helmet",Rarity.ELITE,Set.of("Test lore to add"),
             new ItemConfiguration.Builder(Set.of(EquipmentSlot.HEAD)).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
@@ -51,13 +62,13 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
 
     STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, Material.OAK_WOOD, "Infinite Fuel",Rarity.ADVANCED, Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.1f).create(),true),
+            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.1f).addFlag(ConfigurationFlag.ENCHANTED).create()),
     STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, Material.COAL, "Infinite Fuel",Rarity.ELITE, Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.5f).create(), true),
+            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.5f).addFlag(ConfigurationFlag.ENCHANTED).create()),
     STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, Material.CHARCOAL, "Infinite Fuel",Rarity.EPIC,Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.7f).create(), true),
+            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.7f).addFlag(ConfigurationFlag.ENCHANTED).create()),
     STONEWORK_INFINITE_COAL_TIER_VI(ProficiencyType.STONEWORK, Material.COAL_BLOCK, "Infinite Fuel",Rarity.LEGENDARY,Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.85f).create(), true),
+            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.85f).addFlag(ConfigurationFlag.ENCHANTED).create()),
 
 
 
@@ -90,41 +101,33 @@ public enum CustomItem {
 
     private final EquipmentSet equipmentSet;
 
+
     CustomItem(ProficiencyType type, Material material, Rarity rarity) {
         this(type, material, material.name(),rarity);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity) {
-        this(type, material, name, rarity, null);
-    }
 
     CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore) {
         this(type, material, name, rarity, lore, null);
     }
-
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore, ItemConfiguration configuration) {
-        this(type,material,name,rarity,lore,configuration,EquipmentSet.NONE, false);
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, ItemConfiguration configuration) {
+        this(type,material,name,rarity,null,configuration,EquipmentSet.NONE);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, boolean enchanted) {
-        this(type, material, name, rarity, null, null, EquipmentSet.NONE, enchanted);
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity) {
+        this(type, material, name, rarity, null, null, EquipmentSet.NONE);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity,Set<String> lore,ItemConfiguration configuration, boolean enchanted) {
-        this(type, material, name, rarity, lore, configuration, EquipmentSet.NONE, enchanted);
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity,Set<String> lore,ItemConfiguration configuration) {
+        this(type, material, name, rarity, lore, configuration, EquipmentSet.NONE);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity,Set<String> lore, ItemConfiguration configuration, EquipmentSet equipmentSet) {
-        this(type, material,name,rarity,lore,configuration,equipmentSet,false);
-    }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore, ItemConfiguration configuration, EquipmentSet equipmentSet, boolean enchanted) {
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore, ItemConfiguration configuration, EquipmentSet equipmentSet) {
 
         this.type = type;
 
-        this.item = new ItemBuilder(material).setName(name).setRarity(rarity).addProficiency(type).addLore(lore).setConfiguration(configuration).setEquipmentSet(equipmentSet).visibleEnchanted(enchanted).create();
-
-
+        this.item = new ItemBuilder(material).setName(name).setRarity(rarity).addProficiency(type).addLore(lore).setConfiguration(configuration).setEquipmentSet(equipmentSet).create();
         this.configuration = configuration;
 
         this.equipmentSet = equipmentSet;

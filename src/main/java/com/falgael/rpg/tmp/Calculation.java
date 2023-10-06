@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
@@ -128,4 +129,18 @@ public class Calculation {
     public static double calculateTotalDamage(double base, Player player) {
         return base * calculateModifier(ConfigurationFlag.DAMAGE_MULTIPLIER,ProficiencyType.MISC,player) + calculateModifier(ConfigurationFlag.DAMAGE_ADDITIVE, ProficiencyType.MISC, player);
     }
+
+    public static boolean performAction(Event e, CustomItem item) {
+        if (e == null || item == null) return false;
+        if (!item.hasConfiguration() || !item.getConfiguration().hasAction()) return false;
+        return item.getConfiguration().getAction().accept(e);
+    }
+
+    public static boolean performAction(Event e,CustomItem item, Player player) {
+        if (player == null) return false;
+        if (!checkLevelRequirement(item, player)) return false;
+        Bukkit.getLogger().info("Accepted level requirement");
+        return performAction(e, item);
+    }
+
 }

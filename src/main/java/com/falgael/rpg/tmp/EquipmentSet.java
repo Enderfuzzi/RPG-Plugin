@@ -12,7 +12,7 @@ public enum EquipmentSet {
 
     NONE("", ProficiencyType.NONE, Rarity.NONE, 0, null, ""),
 
-    WOODWORK_TEST("Basic", ProficiencyType.WOODWORK, Rarity.SIMPLE, 4,
+    WOODWORK_TEST("Basic", ProficiencyType.MISC, Rarity.EPIC, 4,
             new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
             "for true wood specialists"),
 

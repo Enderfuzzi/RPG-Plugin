@@ -4,6 +4,8 @@ import com.falgael.rpg.proficiency.blocks.BlockBreak;
 import com.falgael.rpg.proficiency.general.Utils;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import com.falgael.rpg.tmp.Calculation;
+import com.falgael.rpg.tmp.CustomItem;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -21,7 +23,7 @@ public class CropHarvest {
     public static boolean effect(Event e) {
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
-        CustomTool customTool = CustomTool.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        CustomItem customItem = CustomItem.getItem(event.getPlayer().getInventory().getItemInMainHand());
         if (block.isNone()) return false;
 
         // special crops
@@ -38,11 +40,11 @@ public class CropHarvest {
 
         if (cropAge.getAge() != cropAge.getMaximumAge()) return true;
 
-        long experienceAmount = ItemConfiguration.calculateExperience(customTool, block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
-        int droppedBlocks = ItemConfiguration.calculateLoot(customTool, block.getProficiency(), event.getPlayer());
+        long experienceAmount = Calculation.calculateExperience(block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
+        int droppedBlocks = Calculation.calculateLoot(block.getProficiency(), event.getPlayer());
 
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        ItemConfiguration.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        Calculation.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
         Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
 
@@ -59,8 +61,6 @@ public class CropHarvest {
                 blockData.rotate(rotation);
                 event.getBlock().setBlockData(blockData);
             }
-
-
         } else {
             event.getBlock().setType(Material.AIR);
         }
