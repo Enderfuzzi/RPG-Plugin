@@ -1,11 +1,12 @@
 package com.falgael.rpg.proficiency.handler;
 
 import com.falgael.rpg.RPG;
-import com.falgael.rpg.proficiency.items.CustomItem;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.proficiency.player.PlayerManager;
+import com.falgael.rpg.tmp.Calculation;
+import com.falgael.rpg.tmp.CustomItem;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -41,18 +42,9 @@ public class ItemHeldHandler implements Listener {
     public static void startCheck() {
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME), new Thread(() -> {
             for (Player player : activePlayer) {
-                //applyEffects(player.getInventory().getItemInMainHand(), player, EquipmentSlot.HAND);
-                //applyEffects(player.getInventory().getItemInOffHand(), player, EquipmentSlot.OFF_HAND);
-
-
-                if (com.falgael.rpg.tmp.CustomItem.isStatOMeter(player.getInventory().getItemInMainHand())) {
-                    loreModification(player, player.getInventory().getItemInMainHand());
-                }
-
-                if (com.falgael.rpg.tmp.CustomItem.isStatOMeter(player.getInventory().getItemInOffHand())) {
-                    loreModification(player, player.getInventory().getItemInOffHand());
-                }
-
+                Calculation.applyPotionEffects(player);
+                checkStatOMeter(player.getInventory().getItemInMainHand(), player);
+                checkStatOMeter(player.getInventory().getItemInOffHand(), player);
 
             }
         }), 200,100);
@@ -79,6 +71,14 @@ public class ItemHeldHandler implements Listener {
         item.setItemMeta(itemMeta);
     }
 
+    private static void checkStatOMeter(ItemStack item, Player player) {
+        if (CustomItem.isStatOMeter(item)) {
+            loreModification(player, item);
+        }
+    }
+
+
+    /**
     private static void applyEffects(ItemStack itemStack, Player player, EquipmentSlot slot) {
         applyToolEffects(CustomTool.getItem(itemStack), player, slot);
         applyItemEffects(CustomItem.getItem(itemStack), player, slot);
@@ -104,6 +104,6 @@ public class ItemHeldHandler implements Listener {
 
         for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
     }
-
+    */
 
 }

@@ -5,22 +5,22 @@ import com.falgael.rpg.items.ItemBuilder;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
-import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MusicInstrumentMeta;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 public enum CustomItem {
 
-    NONE(ProficiencyType.NONE, Material.AIR, Rarity.NONE),
+    NONE(ProficiencyType.NONE, Material.AIR,"", Rarity.NONE, null),
 
     //--------------------------------------------------------------------------------------------
     // Misc
@@ -39,36 +39,73 @@ public enum CustomItem {
     // Woodwork
     //--------------------------------------------------------------------------------------------
 
-    TEST_WOODWORK_AXE(ProficiencyType.WOODWORK,Material.WOODEN_AXE,"Axe",Rarity.SIMPLE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.HAND)).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f)
-                    .addFlag(ConfigurationFlag.TREE_HARVEST,48f).create(),
-            EquipmentSet.WOODWORK_TEST),
-    TEST_WOODWORK_HELMET(ProficiencyType.WOODWORK, Material.LEATHER_HELMET,"Helmet",Rarity.ELITE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.HEAD)).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
-            EquipmentSet.WOODWORK_TEST),
-    TEST_WOODWORK_CHESTPLATE(ProficiencyType.WOODWORK, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.ELITE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.CHEST)).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
-            EquipmentSet.WOODWORK_TEST),
-    TEST_WOODWORK_LEGGINGS(ProficiencyType.WOODWORK, Material.LEATHER_LEGGINGS,"Leggings",Rarity.ELITE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.LEGS)).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
-            EquipmentSet.WOODWORK_TEST),
-    TEST_WOODWORK_BOOTS(ProficiencyType.WOODWORK, Material.LEATHER_BOOTS,"Boots",Rarity.ELITE,Set.of("Test lore to add"),
-            new ItemConfiguration.Builder(Set.of(EquipmentSlot.FEET)).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
-            EquipmentSet.WOODWORK_TEST),
+    WOODWORK_BASIC_SIMPLE_AXE(ProficiencyType.WOODWORK,Material.WOODEN_AXE,"Axe",Rarity.SIMPLE,"Simple lumberjack axe",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f)
+                    .addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
+            EquipmentSet.LUMBERJACK_TIER_I),
+    WOODWORK_BASIC_SIMPLE_HELMET(ProficiencyType.WOODWORK, Material.LEATHER_HELMET,"Helmet",Rarity.SIMPLE,"Simple lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
+            EquipmentSet.LUMBERJACK_TIER_I),
+    WOODWORK_BASIC_SIMPLE_CHESTPLATE(ProficiencyType.WOODWORK, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.SIMPLE,"Simple lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
+            EquipmentSet.LUMBERJACK_TIER_I),
+    WOODWORK_BASIC_SIMPLE_LEGGINGS(ProficiencyType.WOODWORK, Material.LEATHER_LEGGINGS,"Leggings",Rarity.SIMPLE,"Simple lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
+            EquipmentSet.LUMBERJACK_TIER_I),
+    WOODWORK_BASIC_SIMPLE_BOOTS(ProficiencyType.WOODWORK, Material.LEATHER_BOOTS,"Boots",Rarity.SIMPLE,"Simple lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
+            EquipmentSet.LUMBERJACK_TIER_I),
+
+
+    WOODWORK_BASIC_COMMON_AXE(ProficiencyType.WOODWORK,Material.STONE_AXE,"Axe",Rarity.COMMON,"Common lumberjack axe",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ConfigurationFlag.EXPERIENCE,2f).addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
+            EquipmentSet.LUMBERJACK_TIER_II),
+    WOODWORK_BASIC_COMMON_HELMET(ProficiencyType.WOODWORK, Material.CHAINMAIL_HELMET,"Helmet",Rarity.COMMON,"Common lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.LUMBERJACK_TIER_II),
+    WOODWORK_BASIC_COMMON_CHESTPLATE(ProficiencyType.WOODWORK, Material.CHAINMAIL_CHESTPLATE,"Chestplate",Rarity.COMMON,"Common lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.LUMBERJACK_TIER_II),
+    WOODWORK_BASIC_COMMON_LEGGINGS(ProficiencyType.WOODWORK, Material.CHAINMAIL_LEGGINGS,"Leggings",Rarity.COMMON,"Common lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.LUMBERJACK_TIER_II),
+    WOODWORK_BASIC_COMMON_BOOTS(ProficiencyType.WOODWORK, Material.CHAINMAIL_BOOTS,"Boots",Rarity.COMMON,"Common lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.LUMBERJACK_TIER_II),
+
+
+    WOODWORK_BASIC_ADVANCED_AXE(ProficiencyType.WOODWORK,Material.IRON_AXE,"Axe",Rarity.ADVANCED,"Advanced lumberjack axe",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ConfigurationFlag.EXPERIENCE,3f).addFlag(ConfigurationFlag.LOOT, 1.5f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
+            EquipmentSet.LUMBERJACK_TIER_III),
+    WOODWORK_BASIC_ADVANCED_HELMET(ProficiencyType.WOODWORK, Material.IRON_HELMET,"Helmet",Rarity.ADVANCED,"Advanced lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.LUMBERJACK_TIER_III),
+    WOODWORK_BASIC_ADVANCED_CHESTPLATE(ProficiencyType.WOODWORK, Material.IRON_CHESTPLATE,"Chestplate",Rarity.ADVANCED,"Advanced lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.LUMBERJACK_TIER_III),
+    WOODWORK_BASIC_ADVANCED_LEGGINGS(ProficiencyType.WOODWORK, Material.IRON_LEGGINGS,"Leggings",Rarity.ADVANCED,"Advanced lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.LUMBERJACK_TIER_III),
+    WOODWORK_BASIC_ADVANCED_BOOTS(ProficiencyType.WOODWORK, Material.IRON_BOOTS,"Boots",Rarity.ADVANCED,"Advanced lumberjack protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET).addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.LUMBERJACK_TIER_III),
 
 
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
 
-    STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, Material.OAK_WOOD, "Infinite Fuel",Rarity.ADVANCED, Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.1f).addFlag(ConfigurationFlag.ENCHANTED).create()),
-    STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, Material.COAL, "Infinite Fuel",Rarity.ELITE, Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.5f).addFlag(ConfigurationFlag.ENCHANTED).create()),
-    STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, Material.CHARCOAL, "Infinite Fuel",Rarity.EPIC,Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.7f).addFlag(ConfigurationFlag.ENCHANTED).create()),
-    STONEWORK_INFINITE_COAL_TIER_VI(ProficiencyType.STONEWORK, Material.COAL_BLOCK, "Infinite Fuel",Rarity.LEGENDARY,Set.of("Burns until end of time"),
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.BURN_TIME, 0.85f).addFlag(ConfigurationFlag.ENCHANTED).create()),
+    STONEWORK_INFINITE_COAL_TIER_I(ProficiencyType.STONEWORK, Material.OAK_WOOD, "Infinite Fuel",Rarity.ADVANCED, "Burns until end of time",
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.BURN_TIME, 0.1f).addFlag(ConfigurationFlag.ENCHANTED).create()),
+    STONEWORK_INFINITE_COAL_TIER_II(ProficiencyType.STONEWORK, Material.COAL, "Infinite Fuel",Rarity.ELITE, "Burns until end of time",
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.BURN_TIME, 0.5f).addFlag(ConfigurationFlag.ENCHANTED).create()),
+    STONEWORK_INFINITE_COAL_TIER_III(ProficiencyType.STONEWORK, Material.CHARCOAL, "Infinite Fuel",Rarity.EPIC,"Burns until end of time",
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.BURN_TIME, 0.7f).addFlag(ConfigurationFlag.ENCHANTED).create()),
+    STONEWORK_INFINITE_COAL_TIER_VI(ProficiencyType.STONEWORK, Material.COAL_BLOCK, "Infinite Fuel",Rarity.LEGENDARY,"Burns until end of time",
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.BURN_TIME, 0.85f).addFlag(ConfigurationFlag.ENCHANTED).create()),
 
 
 
@@ -102,34 +139,27 @@ public enum CustomItem {
     private final EquipmentSet equipmentSet;
 
 
-    CustomItem(ProficiencyType type, Material material, Rarity rarity) {
-        this(type, material, material.name(),rarity);
-    }
-
-
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore) {
-        this(type, material, name, rarity, lore, null);
-    }
     CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, ItemConfiguration configuration) {
-        this(type,material,name,rarity,null,configuration,EquipmentSet.NONE);
+        this(type,material,name,rarity, "", configuration, EquipmentSet.NONE);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity) {
-        this(type, material, name, rarity, null, null, EquipmentSet.NONE);
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration) {
+        this(type,material,name,rarity, List.of(lore), configuration, EquipmentSet.NONE);
     }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity,Set<String> lore,ItemConfiguration configuration) {
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, List<String> lore,ItemConfiguration configuration) {
         this(type, material, name, rarity, lore, configuration, EquipmentSet.NONE);
     }
 
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration, EquipmentSet equipmentSet) {
+        this(type, material, name, rarity, List.of(lore), configuration, equipmentSet);
+    }
 
-    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, Set<String> lore, ItemConfiguration configuration, EquipmentSet equipmentSet) {
 
+    CustomItem(ProficiencyType type, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, EquipmentSet equipmentSet) {
         this.type = type;
-
         this.item = new ItemBuilder(material).setName(name).setRarity(rarity).addProficiency(type).addLore(lore).setConfiguration(configuration).setEquipmentSet(equipmentSet).create();
         this.configuration = configuration;
-
         this.equipmentSet = equipmentSet;
     }
 
@@ -211,7 +241,7 @@ public enum CustomItem {
 
     public boolean isBreakingTool() {
         return switch (this) {
-            case TEST_WOODWORK_AXE -> true;
+            case WOODWORK_BASIC_SIMPLE_AXE -> true;
             default -> false;
         };
     }

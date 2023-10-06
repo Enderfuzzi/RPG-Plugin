@@ -81,7 +81,10 @@ public enum ConfigurationFlag {
     }
 
     public String createLore(float value) {
-        return createLore(Integer.toString((int) (value * 100f)));
+        return switch (this) {
+            case LEVEL_REQUIREMENT -> createLore(Integer.toString((int) (value)));
+            default -> createLore(Integer.toString((int) (value * 100f)));
+        };
     }
 
 }

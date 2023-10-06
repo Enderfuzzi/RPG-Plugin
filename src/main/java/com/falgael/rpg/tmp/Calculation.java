@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
 
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class Calculation {
         if (flag == null || type == null || player == null) return 0L;
         float multiplier = 1f;
 
-        Set<com.falgael.rpg.tmp.CustomItem> itemSet = getEquippedItems(player);
+        List<com.falgael.rpg.tmp.CustomItem> itemSet = getEquippedItems(player);
         for (com.falgael.rpg.tmp.CustomItem customItem : itemSet) {
             if (!checkProficiency(customItem, type)) continue;
             if (!checkLevelRequirement(customItem, player)) continue;
@@ -68,8 +69,8 @@ public class Calculation {
         return true;
     }
 
-    private static Set<com.falgael.rpg.tmp.CustomItem> getEquippedItems(Player player) {
-        Set<com.falgael.rpg.tmp.CustomItem> result = new HashSet<>();
+    private static List<com.falgael.rpg.tmp.CustomItem> getEquippedItems(Player player) {
+        List<com.falgael.rpg.tmp.CustomItem> result = new ArrayList<>();
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             com.falgael.rpg.tmp.CustomItem item = getItem(player, slot);
             if (item == com.falgael.rpg.tmp.CustomItem.NONE) continue;
@@ -78,8 +79,8 @@ public class Calculation {
         return result;
     }
 
-    private static Set<EquipmentSet> getFulfilledSets(Set<com.falgael.rpg.tmp.CustomItem> equippedItems, Player player) {
-        Set<EquipmentSet> result = new HashSet<>();
+    private static List<EquipmentSet> getFulfilledSets(List<CustomItem> equippedItems, Player player) {
+        List<EquipmentSet> result = new ArrayList<>();
         HashMap<EquipmentSet, Integer> setOccurrence = new HashMap<>();
         for (com.falgael.rpg.tmp.CustomItem customItem : equippedItems) {
             if (!checkLevelRequirement(customItem, player)) continue;
@@ -142,5 +143,24 @@ public class Calculation {
         Bukkit.getLogger().info("Accepted level requirement");
         return performAction(e, item);
     }
+
+    public static void applyPotionEffects(Player player) {
+        List<CustomItem> equippedItems = getEquippedItems(player);
+        for (CustomItem item : equippedItems) {
+            if (!checkLevelRequirement(item, player)) continue;
+            if (!item.hasConfiguration()) continue;
+            if (!item.getConfiguration().hasPotionEffect()) continue;
+            for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
+
+        }
+
+        List<EquipmentSet> fulfilledSets = getFulfilledSets(equippedItems, player);
+        for (EquipmentSet set : fulfilledSets) {
+            if (!set.hasConfiguration() || !set.getConfiguration().hasPotionEffect()) continue;
+            for (PotionEffect potionEffect : set.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
+        }
+
+    }
+
 
 }

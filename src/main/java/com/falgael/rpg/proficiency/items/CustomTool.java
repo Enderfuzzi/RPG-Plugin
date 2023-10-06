@@ -27,7 +27,7 @@ public enum CustomTool {
     /**
      * Value for an empty Tool. Returned if an CustomItem is not found on search.
      */
-    NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration.Builder(Set.of(EquipmentSlot.HAND)).create()),
+    NONE(ProficiencyType.NONE, new ItemStack(Material.AIR), new ItemConfiguration.Builder(EquipmentSlot.HAND).create()),
 
     /**
     //--------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ public enum CustomTool {
     //--------------------------------------------------------------------------------------------
 
 
-    WOODWORK_SIMPLE_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.WOODEN_AXE).setRarity(Rarity.SIMPLE).setName("Axe")
+    WOODWORK_BASIC_SIMPLE_AXE(ProficiencyType.WOODWORK, new ItemBuilder(Material.WOODEN_AXE).setRarity(Rarity.SIMPLE).setName("Axe")
             .addProficiency(ProficiencyType.WOODWORK).addLore(ConfigurationFlag.LOOT, "50").addLore("Simple tool for harvesting").create(),
             new ItemConfiguration.Builder(EquipmentSlot.HAND).addFlag(ItemConfigurationFlag.LOOT_MULTIPLIER, 1.5f).addFlag(ItemConfigurationFlag.LEVEL_REQUIREMENT,0f)
                     .addAction(e -> TreeHarvest.effect(e, 8)).create()),

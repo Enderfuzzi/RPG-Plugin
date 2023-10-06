@@ -28,7 +28,7 @@ public class ItemConfiguration {
     /**
      * The Slot in which the item has an effect
      */
-    private Set<EquipmentSlot> equipmentSlot;
+    private List<EquipmentSlot> equipmentSlot;
 
     /**
      * Map of {@link ItemConfigurationFlag} which can be set with a {@link Float}
@@ -38,7 +38,7 @@ public class ItemConfiguration {
     /**
      * List of Potion effects which are applied when using the item
      */
-    private Set<PotionEffect> potionEffects;
+    private List<PotionEffect> potionEffects;
 
 
 
@@ -47,7 +47,7 @@ public class ItemConfiguration {
      */
     private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(Set<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Float> flags, Set<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
+    private ItemConfiguration(List<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Float> flags, List<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
@@ -107,7 +107,7 @@ public class ItemConfiguration {
     /**
      * @return a List of all potion effects set for this configuration
      */
-    public Set<PotionEffect> getPotionEffects() {
+    public List<PotionEffect> getPotionEffects() {
         return potionEffects;
     }
 
@@ -136,16 +136,16 @@ public class ItemConfiguration {
      * @version 0.0.1
      */
     public static class Builder {
-        private Set<EquipmentSlot> equipmentSlot;
+        private List<EquipmentSlot> equipmentSlot;
         private HashMap<ConfigurationFlag,Float> flags;
-        private Set<PotionEffect> potionEffects;
+        private List<PotionEffect> potionEffects;
 
 
         private PredicateConsumer<Event> action = null;
 
 
         public Builder() {
-            this(Set.of());
+            this((EquipmentSlot[]) null);
         }
 
 
@@ -153,10 +153,13 @@ public class ItemConfiguration {
          * Initializes a new Builder for Creating a new CustomItem
          * @param equipmentSlot the equipment slot in which the item should be active
          */
-        public Builder(Set<EquipmentSlot> equipmentSlot) {
-            this.equipmentSlot = equipmentSlot;
+        public Builder(EquipmentSlot... equipmentSlot) {
+            if (equipmentSlot == null) this.equipmentSlot = new ArrayList<>();
+            else this.equipmentSlot = List.of(equipmentSlot);
+
             flags = new HashMap<>();
-            potionEffects = new HashSet<>();
+            potionEffects = new ArrayList<>();
+
         }
 
         public Builder addFlag(ConfigurationFlag flag) {

@@ -12,8 +12,45 @@ public enum EquipmentSet {
 
     NONE("", ProficiencyType.NONE, Rarity.NONE, 0, null, ""),
 
+
+    //--------------------------------------------------------------------------------------------
+    // Woodwork
+    //--------------------------------------------------------------------------------------------
+
+    LUMBERJACK_TIER_I("Lumberjack I", ProficiencyType.WOODWORK, Rarity.SIMPLE,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 1f).addFlag(ConfigurationFlag.LOOT,0.5f).create(),
+            "For wood specialists"),
+    LUMBERJACK_TIER_II("Lumberjack II", ProficiencyType.WOODWORK, Rarity.COMMON,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 1f).addFlag(ConfigurationFlag.LOOT,1f).create(),
+            "For wood specialists"),
+    LUMBERJACK_TIER_III("Lumberjack III", ProficiencyType.WOODWORK, Rarity.ADVANCED,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 2f).addFlag(ConfigurationFlag.LOOT,1.5f).create(),
+            "For wood specialists"),
+    LUMBERJACK_TIER_IV("Lumberjack IV", ProficiencyType.WOODWORK, Rarity.ELITE,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 2f).addFlag(ConfigurationFlag.LOOT,2f).create(),
+            "For wood specialists"),
+    LUMBERJACK_TIER_V("Lumberjack V", ProficiencyType.WOODWORK, Rarity.EPIC,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 3f).addFlag(ConfigurationFlag.LOOT,3f).create(),
+            "For wood specialists"),
+    LUMBERJACK_TIER_VI("Lumberjack VI", ProficiencyType.WOODWORK, Rarity.LEGENDARY,5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 5f).addFlag(ConfigurationFlag.LOOT,4f).create(),
+            "For wood specialists"),
+
+    BASIC_STONEWORK("Basic Stonework", ProficiencyType.STONEWORK, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f).create(),
+            "For stone specialists"),
+
+    BASIC_FARMING("Basic Farming", ProficiencyType.FARMING, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 1f).addFlag(ConfigurationFlag.LOOT, 0.5f).create()),
+
+    BASIC_HUNTING("Basic Hunting", ProficiencyType.HUNTING, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT,0.5f).create()),
+
+
+
+
     WOODWORK_TEST("Basic", ProficiencyType.MISC, Rarity.EPIC, 4,
-            new ItemConfiguration.Builder(null).addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).create(),
             "for true wood specialists"),
 
 

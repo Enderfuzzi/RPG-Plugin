@@ -29,7 +29,6 @@ public class ItemBuilder {
 
     private Material material;
 
-    //private ArrayList<String> lore = new ArrayList<>();
 
     private ArrayList<String> lore = new ArrayList<>();
 
@@ -73,9 +72,9 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder addLore(Set<String> lore) {
+    public ItemBuilder addLore(List<String> lore) {
         if (lore == null) return this;
-        this.lore.addAll(lore.stream().toList());
+        this.lore.addAll(lore);
         return this;
     }
 
@@ -177,6 +176,7 @@ public class ItemBuilder {
 
         if (lore != null) {
             for (String defaultLore : lore) {
+                if (defaultLore.equals("")) continue;
                 result.add(ConfigurationFlag.DEFAULT.createLore(defaultLore));
             }
         }
