@@ -57,9 +57,11 @@ public class ItemConfiguration {
             this.action = null;
         } else {
             if (flags.containsKey(ConfigurationFlag.BURN_TIME)) {
-                this.action = e -> FurnaceBurn.effect(e, flags.get(ConfigurationFlag.BURN_TIME));
+                this.action = e -> ItemEffect.furnaceFuelBurn(e, flags.get(ConfigurationFlag.BURN_TIME));
             } else if (flags.containsKey(ConfigurationFlag.TREE_HARVEST)) {
-                this.action = e -> TreeHarvest.effect(e, Utils.floatToInt(flags.get(ConfigurationFlag.TREE_HARVEST)));
+                this.action = e -> ItemEffect.treeHarvest(e, Utils.floatToInt(flags.get(ConfigurationFlag.TREE_HARVEST)));
+            } else if (flags.containsKey(ConfigurationFlag.CROP_HARVEST)) {
+                this.action = e -> ItemEffect.cropHarvest(e);
             }
 
         }

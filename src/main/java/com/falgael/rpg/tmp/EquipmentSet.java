@@ -36,16 +36,64 @@ public enum EquipmentSet {
             new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 5f).addFlag(ConfigurationFlag.LOOT,4f).create(),
             "For wood specialists"),
 
-    BASIC_STONEWORK("Basic Stonework", ProficiencyType.STONEWORK, Rarity.COMMON, 5,
+
+    //--------------------------------------------------------------------------------------------
+    // Stonework
+    //--------------------------------------------------------------------------------------------
+
+    MINER_TIER_I("Miner I", ProficiencyType.STONEWORK, Rarity.SIMPLE, 5,
             new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 0.5f).create(),
             "For stone specialists"),
+    MINER_TIER_II("Miner II", ProficiencyType.STONEWORK, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT, 1f).create(),
+            "For stone specialists"),
+    MINER_TIER_III("Miner III", ProficiencyType.STONEWORK, Rarity.ADVANCED, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,2f).addFlag(ConfigurationFlag.LOOT, 1.5f).create(),
+            "For stone specialists"),
+    MINER_TIER_IV("Miner IV", ProficiencyType.STONEWORK, Rarity.ELITE, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,2f).addFlag(ConfigurationFlag.LOOT, 2.0f).create(),
+            "For stone specialists"),
+    MINER_TIER_V("Miner V", ProficiencyType.STONEWORK, Rarity.EPIC, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,3f).addFlag(ConfigurationFlag.LOOT, 3f).create(),
+            "For stone specialists"),
+    MINER_TIER_VI("Miner VI", ProficiencyType.STONEWORK, Rarity.LEGENDARY, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,5f).addFlag(ConfigurationFlag.LOOT, 4f).create(),
+            "For stone specialists"),
 
-    BASIC_FARMING("Basic Farming", ProficiencyType.FARMING, Rarity.COMMON, 5,
+    //--------------------------------------------------------------------------------------------
+    // Farming
+    //--------------------------------------------------------------------------------------------
+
+    FARMER_TIER_I("Farmer I", ProficiencyType.FARMING, Rarity.SIMPLE, 5,
             new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 1f).addFlag(ConfigurationFlag.LOOT, 0.5f).create()),
+    FARMER_TIER_II("Farmer II", ProficiencyType.FARMING, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 1f).addFlag(ConfigurationFlag.LOOT, 1f).create()),
+    FARMER_TIER_III("Farmer III", ProficiencyType.FARMING, Rarity.ADVANCED, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 2f).addFlag(ConfigurationFlag.LOOT, 1.5f).create()),
+    FARMER_TIER_IV("Farmer IV", ProficiencyType.FARMING, Rarity.ELITE, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 2f).addFlag(ConfigurationFlag.LOOT, 2f).create()),
+    FARMER_TIER_V("Farmer V", ProficiencyType.FARMING, Rarity.EPIC, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 3f).addFlag(ConfigurationFlag.LOOT, 3f).create()),
+    FARMER_TIER_VI("Farmer VI", ProficiencyType.FARMING, Rarity.LEGENDARY, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE, 5f).addFlag(ConfigurationFlag.LOOT, 4f).create()),
 
-    BASIC_HUNTING("Basic Hunting", ProficiencyType.HUNTING, Rarity.COMMON, 5,
+
+    //--------------------------------------------------------------------------------------------
+    // Hunting
+    //--------------------------------------------------------------------------------------------
+
+    HUNTER_TIER_I("Hunter I", ProficiencyType.HUNTING, Rarity.SIMPLE, 5,
             new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT,0.5f).create()),
-
+    HUNTER_TIER_II("Hunter II", ProficiencyType.HUNTING, Rarity.COMMON, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,1f).addFlag(ConfigurationFlag.LOOT,1f).create()),
+    HUNTER_TIER_III("Hunter III", ProficiencyType.HUNTING, Rarity.ADVANCED, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,2f).addFlag(ConfigurationFlag.LOOT,1.5f).create()),
+    HUNTER_TIER_IV("Hunter IV", ProficiencyType.HUNTING, Rarity.ELITE, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,2f).addFlag(ConfigurationFlag.LOOT,2f).create()),
+    HUNTER_TIER_V("Hunter V", ProficiencyType.HUNTING, Rarity.EPIC, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,3f).addFlag(ConfigurationFlag.LOOT,3f).create()),
+    HUNTER_TIER_VI("Hunter VI", ProficiencyType.HUNTING, Rarity.LEGENDARY, 5,
+            new ItemConfiguration.Builder().addFlag(ConfigurationFlag.EXPERIENCE,5f).addFlag(ConfigurationFlag.LOOT,4f).create()),
 
 
 

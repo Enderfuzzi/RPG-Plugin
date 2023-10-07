@@ -23,7 +23,6 @@ public class CropHarvest {
     public static boolean effect(Event e) {
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
-        CustomItem customItem = CustomItem.getItem(event.getPlayer().getInventory().getItemInMainHand());
         if (block.isNone()) return false;
 
         // special crops

@@ -33,6 +33,8 @@ public enum ConfigurationFlag {
 
     TREE_HARVEST(),
 
+    CROP_HARVEST(),
+
     ENCHANTED(),
 
     ;
@@ -51,7 +53,7 @@ public enum ConfigurationFlag {
 
     public boolean hasRepresentation() {
         return switch (this) {
-            case TREE_HARVEST, ENCHANTED -> false;
+            case TREE_HARVEST, ENCHANTED, CROP_HARVEST -> false;
             default -> true;
         };
     }

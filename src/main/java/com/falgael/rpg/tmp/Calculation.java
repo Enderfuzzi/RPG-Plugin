@@ -76,6 +76,7 @@ public class Calculation {
             if (item == com.falgael.rpg.tmp.CustomItem.NONE) continue;
             result.add(item);
         }
+        Bukkit.getLogger().info("Equipped Items: " + Arrays.toString(result.toArray()));
         return result;
     }
 
