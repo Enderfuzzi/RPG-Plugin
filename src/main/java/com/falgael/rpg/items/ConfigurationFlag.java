@@ -32,6 +32,7 @@ public enum ConfigurationFlag {
     DEFAULT(ChatColor.DARK_PURPLE, ""),
 
     TREE_HARVEST(),
+    VEIN_MINING(),
 
     CROP_HARVEST(),
 
@@ -53,7 +54,7 @@ public enum ConfigurationFlag {
 
     public boolean hasRepresentation() {
         return switch (this) {
-            case TREE_HARVEST, ENCHANTED, CROP_HARVEST -> false;
+            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING -> false;
             default -> true;
         };
     }
@@ -75,6 +76,7 @@ public enum ConfigurationFlag {
         return getRepresentation() + switch (this) {
             case LEVEL_REQUIREMENT, SET_PART_NUMBER -> String.format("%s %s", lore, value);
             case BURN_TIME -> String.format("-%s%% %s", value, lore);
+            case DAMAGE_ADDITIVE -> String.format("+%s %s", value, lore);
             case CURRENCY -> lore;
             case SET_BONUS -> ChatColor.BOLD + String.format("%s %s",value, color + lore);
             case DEFAULT -> value;
@@ -84,7 +86,7 @@ public enum ConfigurationFlag {
 
     public String createLore(float value) {
         return switch (this) {
-            case LEVEL_REQUIREMENT -> createLore(Integer.toString((int) (value)));
+            case LEVEL_REQUIREMENT, DAMAGE_ADDITIVE -> createLore(Integer.toString((int) (value)));
             default -> createLore(Integer.toString((int) (value * 100f)));
         };
     }

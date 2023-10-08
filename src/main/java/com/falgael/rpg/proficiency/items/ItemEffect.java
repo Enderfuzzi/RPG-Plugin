@@ -56,10 +56,8 @@ public class ItemEffect {
             int slot = event.getPlayer().getInventory().first(event.getBlock().getBlockData().getPlacementMaterial());
             if (event.getPlayer().getInventory().getItem(slot).getAmount() != 1) event.getPlayer().getInventory().getItem(slot).setAmount(event.getPlayer().getInventory().getItem(slot).getAmount() - 1);
             else event.getPlayer().getInventory().remove(event.getPlayer().getInventory().getItem(slot));
-
             StructureRotation rotation = getSurroundedJungleLog(event.getBlock());
             event.getBlock().setType(block.getMaterial());
-
             if (rotation != StructureRotation.NONE) {
                 BlockData blockData = event.getBlock().getBlockData();
                 blockData.rotate(rotation);
@@ -91,14 +89,9 @@ public class ItemEffect {
         if (event.getClickedBlock().getType() != Material.FARMLAND) return false;
         Location location = event.getClickedBlock().getLocation();
         Player player = event.getPlayer();
-
-
         ArrayList<Location> candidates = new ArrayList<>();
-
         location.subtract(Math.floor(radius / 2),0,Math.floor(radius / 2));
-
         location.add(0,1,0);
-
         for (int j = 0; j < radius; j++) {
             for (int i = 0; i< radius; i++) {
                 if (location.getBlock().getType() == Material.AIR && location.getBlock().getRelative(BlockFace.DOWN).getType() == toPlaceOn) candidates.add(location.clone());
@@ -110,7 +103,6 @@ public class ItemEffect {
 
         HashMap<Integer, ? extends ItemStack> playerItems = player.getInventory().all(toPlace.createBlockData().getPlacementMaterial());
         if (playerItems.isEmpty()) return false;
-
         int amountToPlace = candidates.size();
         ArrayList<Integer> indexToRemove = new ArrayList<>();
         for (Map.Entry<Integer, ? extends ItemStack> entry : playerItems.entrySet()) {
@@ -128,10 +120,7 @@ public class ItemEffect {
             indexToRemove.add(entry.getKey());
         }
         if (amountToPlace > 0) return false;
-
         playerItems.keySet().removeIf(indexToRemove::contains);
-
-
         for (Location loc : candidates) loc.getBlock().setType(toPlace);
         return true;
     }
@@ -139,24 +128,18 @@ public class ItemEffect {
     public static boolean furnaceFuelBurn(Event e, double speedIncrease) {
         if (!(e instanceof FurnaceBurnEvent event)) return false;
         if (!(event.getBlock().getState() instanceof Furnace furnace)) return false;
-
-
         ItemStack fuel = furnace.getInventory().getFuel();
         fuel.setAmount(fuel.getAmount() + 1);
         furnace.getInventory().setFuel(fuel);
-
         if (furnace.getCookTime() < furnace.getCookTimeTotal() * speedIncrease)
             furnace.setCookTime((short) (furnace.getCookTimeTotal() * speedIncrease));
-
         furnace.update();
-
         event.setBurnTime((short) (furnace.getCookTimeTotal() * (1 - speedIncrease)));
         event.setBurning(false);
-
         return true;
     }
 
-
+    /**
     public static boolean treeHarvest(Event e, int maxAmount) {
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
@@ -221,6 +204,8 @@ public class ItemEffect {
         return result;
     }
 
+     */
+
     public static boolean weatherClear(Event e, int duration) {
         if (!(e instanceof PlayerInteractEvent event)) return false;
         if (!setItemCooldown(event, duration)) return false;
@@ -253,5 +238,82 @@ public class ItemEffect {
         event.getPlayer().setCooldown(event.getItem().getType(),duration);
         return true;
     }
+
+
+
+    private interface Predicate {
+        boolean accept(Block start, Block current);
+    }
+
+    public static boolean veinMining(Event e, int maxAmount) {
+        return veinHarvest(e, maxAmount, (start, current) -> {
+            BlockBreak startBlock = BlockBreak.getBlock(start.getType());
+            BlockBreak currentBlock = BlockBreak.getBlock(current.getType());
+
+            if (startBlock.isNone() || currentBlock.isNone()) return false;
+            if (!startBlock.veinMining() || !currentBlock.veinMining()) return false;
+            if (start.getType() != current.getType()) return false;
+            return true;
+        });
+    }
+
+    public static boolean treeHarvest(Event e, int maxAmount) {
+        return veinHarvest(e, maxAmount, (start, current) -> {
+            BlockBreak startBlock = BlockBreak.getBlock(start.getType());
+            BlockBreak currentBlock = BlockBreak.getBlock(current.getType());
+
+            if (startBlock.isNone() || currentBlock.isNone()) return false;
+            if (!startBlock.hasWoodType() || !currentBlock.hasWoodType()) return false;
+            if (startBlock.getWoodType() != currentBlock.getWoodType()) return false;
+            return true;
+        });
+    }
+
+    private static ArrayList<Location> getSurroundedBlocks(Location startLocation, int maxBlocks, Predicate consumer) {
+        ArrayList<Location> result = new ArrayList<>();
+        Queue<Location> queue = new LinkedList<>();
+        queue.add(startLocation);
+        while (!queue.isEmpty() && maxBlocks > result.size()) {
+            Location tmp = queue.remove();
+            if (tmp.getBlock().getType() == Material.AIR) continue;
+            if (!consumer.accept(startLocation.getBlock(),tmp.getBlock())) continue;
+            if (result.contains(tmp)) continue;
+            result.add(tmp);
+            for (int x = -1;x < 2;x++) {
+                for (int y = -1; y < 2; y++) {
+                    for (int z = -1;z < 2; z++) {
+                        if (x == 0 && y == 0 && z == 0) continue;
+                        queue.add(tmp.getBlock().getRelative(x,y,z).getLocation());
+                    }
+
+                }
+            }
+        }
+        return result;
+    }
+
+    private static boolean veinHarvest(Event e, int maxAmount, Predicate consumer) {
+        if (!(e instanceof BlockBreakEvent event)) return false;
+        BlockBreak block = BlockBreak.getBlock(event.getBlock().getType());
+        ArrayList<Location> blocks = getSurroundedBlocks(event.getBlock().getLocation(), maxAmount, consumer);
+        if (blocks.isEmpty()) return false;
+        long experienceAmount = Calculation.calculateExperience(block.getExperienceAmount(), block.getProficiency(), event.getPlayer());
+        int droppedBlocks = Calculation.calculateLoot(block.getProficiency(), event.getPlayer());
+        experienceAmount *= blocks.size();
+        Bukkit.getLogger().info("Dropped Blocks: " + droppedBlocks + 1);
+        Bukkit.getLogger().info("Additional Blocks: " + blocks.size());
+        droppedBlocks = ((droppedBlocks + 1) * blocks.size()) - 1;
+        Bukkit.getLogger().info("Dropped Blocks modified: " + droppedBlocks);
+        List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
+        Calculation.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        Utils.increaseExperience(event.getPlayer(),block.getProficiency(),experienceAmount);
+        for (Location location : blocks) {
+            Bukkit.getLogger().info("Location to remove: " + location);
+            if (event.getBlock().getLocation().equals(location)) continue;
+            location.getBlock().setType(Material.AIR);
+        }
+        return true;
+    }
+
 
 }

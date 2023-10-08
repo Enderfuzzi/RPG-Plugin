@@ -62,6 +62,8 @@ public class ItemConfiguration {
                 this.action = e -> ItemEffect.treeHarvest(e, Utils.floatToInt(flags.get(ConfigurationFlag.TREE_HARVEST)));
             } else if (flags.containsKey(ConfigurationFlag.CROP_HARVEST)) {
                 this.action = e -> ItemEffect.cropHarvest(e);
+            } else if (flags.containsKey(ConfigurationFlag.VEIN_MINING)) {
+                this.action = e -> ItemEffect.veinMining(e, Utils.floatToInt(flags.get(ConfigurationFlag.VEIN_MINING)));
             }
 
         }

@@ -62,7 +62,7 @@ public class Calculation {
     private static boolean checkLevelRequirement(com.falgael.rpg.tmp.CustomItem item, Player player) {
         if (item == null || item == com.falgael.rpg.tmp.CustomItem.NONE || player == null) return true;
         if (!item.hasConfiguration()) return true;
-
+        if (!item.getProficiency().levelCheck()) return true;
         if (item.getConfiguration().hasFlag(ConfigurationFlag.LEVEL_REQUIREMENT)) {
             return Utils.getPlayerLevel(player, item.getProficiency()) >= item.getConfiguration().getValue(ConfigurationFlag.LEVEL_REQUIREMENT);
         }
@@ -99,6 +99,7 @@ public class Calculation {
 
     public static int calculateLoot(ProficiencyType type, Player player) {
         float lootValue = calculateModifier(ConfigurationFlag.LOOT, type, player);
+        Bukkit.getLogger().info("Loot value: " + lootValue);
         double value = lootValue - Math.floor(lootValue);
         if (value == 0) return (int) lootValue - 1;
         if (Math.random() < value) return (int) Math.ceil(lootValue) - 1;
@@ -129,7 +130,7 @@ public class Calculation {
 
 
     public static double calculateTotalDamage(double base, Player player) {
-        return base * calculateModifier(ConfigurationFlag.DAMAGE_MULTIPLIER,ProficiencyType.MISC,player) + calculateModifier(ConfigurationFlag.DAMAGE_ADDITIVE, ProficiencyType.MISC, player);
+        return base * calculateModifier(ConfigurationFlag.DAMAGE_MULTIPLIER,ProficiencyType.HUNTING,player) + (calculateModifier(ConfigurationFlag.DAMAGE_ADDITIVE, ProficiencyType.HUNTING, player) - 1);
     }
 
     public static boolean performAction(Event e, CustomItem item) {

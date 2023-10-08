@@ -7,6 +7,7 @@ import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -242,6 +243,7 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2f)
                     .addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.VEIN_MINING, 3f)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
             EquipmentSet.MINER_TIER_II),
@@ -274,6 +276,7 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3f)
                     .addFlag(ConfigurationFlag.LOOT, 1.5f)
+                    .addFlag(ConfigurationFlag.VEIN_MINING, 5f)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
             EquipmentSet.MINER_TIER_III),
@@ -310,6 +313,7 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,4f)
                     .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.VEIN_MINING, 8f)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
             EquipmentSet.MINER_TIER_IV),
@@ -346,6 +350,7 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,5f)
                     .addFlag(ConfigurationFlag.LOOT, 3f)
+                    .addFlag(ConfigurationFlag.VEIN_MINING, 12f)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f).create(),
             EquipmentSet.MINER_TIER_V),
     STONEWORK_BASIC_EPIC_SHOVEL(ProficiencyType.STONEWORK,Material.DIAMOND_SHOVEL,"Shovel",Rarity.EPIC,"Epic miner shovel",
@@ -381,6 +386,7 @@ public enum CustomItem {
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,6f)
                     .addFlag(ConfigurationFlag.LOOT, 5f)
+                    .addFlag(ConfigurationFlag.VEIN_MINING, 20f)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING).create(),
             EquipmentSet.MINER_TIER_VI),
@@ -609,7 +615,226 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     // Hunting
     //--------------------------------------------------------------------------------------------
+    
+    
+    HUNTING_BASIC_SIMPLE_SWORD(ProficiencyType.HUNTING,Material.WOODEN_SWORD,"Sword",Rarity.SIMPLE,"Simple hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LOOT, 0.5f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
+            EquipmentSet.HUNTER_TIER_I),
+    HUNTING_BASIC_SIMPLE_HELMET(ProficiencyType.HUNTING, Material.LEATHER_HELMET,"Helmet",Rarity.SIMPLE,"Simple hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
+            EquipmentSet.HUNTER_TIER_I),
+    HUNTING_BASIC_SIMPLE_CHESTPLATE(ProficiencyType.HUNTING, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.SIMPLE,"Simple hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
+            EquipmentSet.HUNTER_TIER_I),
+    HUNTING_BASIC_SIMPLE_LEGGINGS(ProficiencyType.HUNTING, Material.LEATHER_LEGGINGS,"Leggings",Rarity.SIMPLE,"Simple hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
+            EquipmentSet.HUNTER_TIER_I),
+    HUNTING_BASIC_SIMPLE_BOOTS(ProficiencyType.HUNTING, Material.LEATHER_BOOTS,"Boots",Rarity.SIMPLE,"Simple hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
+            EquipmentSet.HUNTER_TIER_I),
 
+
+    HUNTING_BASIC_COMMON_SWORD(ProficiencyType.HUNTING,Material.STONE_SWORD,"Sword",Rarity.COMMON,"Common hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.CROP_HARVEST)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
+            EquipmentSet.HUNTER_TIER_II),
+    HUNTING_BASIC_COMMON_BOW(ProficiencyType.HUNTING,Material.BOW,"Bow",Rarity.COMMON,"Common hunter Bow",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 0.5f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,7f).create(),
+            EquipmentSet.HUNTER_TIER_II),
+    HUNTING_BASIC_COMMON_HELMET(ProficiencyType.HUNTING, Material.CHAINMAIL_HELMET,"Helmet",Rarity.COMMON,"Common hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.HUNTER_TIER_II),
+    HUNTING_BASIC_COMMON_CHESTPLATE(ProficiencyType.HUNTING, Material.CHAINMAIL_CHESTPLATE,"Chestplate",Rarity.COMMON,"Common hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.HUNTER_TIER_II),
+    HUNTING_BASIC_COMMON_LEGGINGS(ProficiencyType.HUNTING, Material.CHAINMAIL_LEGGINGS,"Leggings",Rarity.COMMON,"Common hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.HUNTER_TIER_II),
+    HUNTING_BASIC_COMMON_BOOTS(ProficiencyType.HUNTING, Material.CHAINMAIL_BOOTS,"Boots",Rarity.COMMON,"Common hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5f).create(),
+            EquipmentSet.HUNTER_TIER_II),
+
+
+    HUNTING_BASIC_ADVANCED_SWORD(ProficiencyType.HUNTING,Material.IRON_SWORD,"Sword",Rarity.ADVANCED,"Advanced hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LOOT, 1.5f)
+                    .addFlag(ConfigurationFlag.CROP_HARVEST)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
+            EquipmentSet.HUNTER_TIER_III),
+    HUNTING_BASIC_ADVANCED_SHIELD(ProficiencyType.HUNTING, Material.SHIELD, "Shield", Rarity.ADVANCED, "Advanced hunter shield",
+            new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15f).create(),
+            EquipmentSet.HUNTER_TIER_III),
+
+    HUNTING_BASIC_ADVANCED_HELMET(ProficiencyType.HUNTING, Material.IRON_HELMET,"Helmet",Rarity.ADVANCED,"Advanced hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.HUNTER_TIER_III),
+    HUNTING_BASIC_ADVANCED_CHESTPLATE(ProficiencyType.HUNTING, Material.IRON_CHESTPLATE,"Chestplate",Rarity.ADVANCED,"Advanced hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.HUNTER_TIER_III),
+    HUNTING_BASIC_ADVANCED_LEGGINGS(ProficiencyType.HUNTING, Material.IRON_LEGGINGS,"Leggings",Rarity.ADVANCED,"Advanced hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.HUNTER_TIER_III),
+    HUNTING_BASIC_ADVANCED_BOOTS(ProficiencyType.HUNTING, Material.IRON_BOOTS,"Boots",Rarity.ADVANCED,"Advanced hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10f).create(),
+            EquipmentSet.HUNTER_TIER_III),
+
+
+    HUNTING_BASIC_ELITE_SWORD(ProficiencyType.HUNTING,Material.GOLDEN_SWORD,"Sword",Rarity.ELITE,"Elite hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,4f)
+                    .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.CROP_HARVEST)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_SHIELD(ProficiencyType.HUNTING, Material.SHIELD, "Shield", Rarity.ELITE, "Elite hunter shield",
+            new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LOOT, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_BOW(ProficiencyType.HUNTING,Material.BOW,"Bow",Rarity.ELITE,"Elite hunter Bow",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,4f)
+                    .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_CROSSBOW(ProficiencyType.HUNTING,Material.CROSSBOW,"Crossbow",Rarity.ELITE,"Elite hunter Crossbow",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,4f)
+                    .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+
+    HUNTING_BASIC_ELITE_HELMET(ProficiencyType.HUNTING, Material.GOLDEN_HELMET,"Helmet",Rarity.ELITE,"Elite hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_CHESTPLATE(ProficiencyType.HUNTING, Material.GOLDEN_CHESTPLATE,"Chestplate",Rarity.ELITE,"Elite hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_LEGGINGS(ProficiencyType.HUNTING, Material.GOLDEN_LEGGINGS,"Leggings",Rarity.ELITE,"Elite hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+    HUNTING_BASIC_ELITE_BOOTS(ProficiencyType.HUNTING, Material.GOLDEN_BOOTS,"Boots",Rarity.ELITE,"Elite hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20f).create(),
+            EquipmentSet.HUNTER_TIER_IV),
+
+
+    HUNTING_BASIC_EPIC_SWORD(ProficiencyType.HUNTING,Material.DIAMOND_SWORD,"Sword",Rarity.EPIC,"Epic hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,5f)
+                    .addFlag(ConfigurationFlag.LOOT, 3f)
+                    .addFlag(ConfigurationFlag.CROP_HARVEST)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_BOW(ProficiencyType.HUNTING,Material.BOW,"Bow",Rarity.EPIC,"Epic hunter Bow",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,5f)
+                    .addFlag(ConfigurationFlag.LOOT, 3f)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_CROSSBOW(ProficiencyType.HUNTING,Material.CROSSBOW,"Crossbow",Rarity.EPIC,"Epic hunter Crossbow",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,5f)
+                    .addFlag(ConfigurationFlag.LOOT, 3f)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_HELMET(ProficiencyType.HUNTING, Material.DIAMOND_HELMET,"Helmet",Rarity.EPIC,"Epic hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_CHESTPLATE(ProficiencyType.HUNTING, Material.DIAMOND_CHESTPLATE,"Chestplate",Rarity.EPIC,"Epic hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LOOT, 2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_LEGGINGS(ProficiencyType.HUNTING, Material.DIAMOND_LEGGINGS,"Leggings",Rarity.EPIC,"Epic hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+    HUNTING_BASIC_EPIC_BOOTS(ProficiencyType.HUNTING, Material.DIAMOND_BOOTS,"Boots",Rarity.EPIC,"Epic hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35f).create(),
+            EquipmentSet.HUNTER_TIER_V),
+
+
+    HUNTING_BASIC_LEGENDARY_SWORD(ProficiencyType.HUNTING,Material.NETHERITE_SWORD,"Sword",Rarity.LEGENDARY,"Legendary hunter Sword",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,6f)
+                    .addFlag(ConfigurationFlag.LOOT, 5f)
+                    .addFlag(ConfigurationFlag.CROP_HARVEST)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE, 1).create(),
+            EquipmentSet.HUNTER_TIER_VI),
+    HUNTING_BASIC_LEGENDARY_HELMET(ProficiencyType.HUNTING, Material.NETHERITE_HELMET,"Helmet",Rarity.LEGENDARY,"Legendary hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f).create(),
+            EquipmentSet.HUNTER_TIER_VI),
+    HUNTING_BASIC_LEGENDARY_CHESTPLATE(ProficiencyType.HUNTING, Material.NETHERITE_CHESTPLATE,"Chestplate",Rarity.LEGENDARY,"Legendary hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,4f)
+                    .addFlag(ConfigurationFlag.LOOT, 3f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f).create(),
+            EquipmentSet.HUNTER_TIER_VI),
+    HUNTING_BASIC_LEGENDARY_LEGGINGS(ProficiencyType.HUNTING, Material.NETHERITE_LEGGINGS,"Leggings",Rarity.LEGENDARY,"Legendary hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LOOT,1f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f).create(),
+            EquipmentSet.HUNTER_TIER_VI),
+    HUNTING_BASIC_LEGENDARY_BOOTS(ProficiencyType.HUNTING, Material.NETHERITE_BOOTS,"Boots",Rarity.LEGENDARY,"Legendary hunter protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3f)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55f).create(),
+            EquipmentSet.HUNTER_TIER_VI),
     ;
 
 
@@ -696,24 +921,20 @@ public enum CustomItem {
 
         for (CustomItem current : CustomItem.values()) {
             if (itemStack.getType() != current.getItem().getType()) continue;
-            Bukkit.getLogger().info("After type comparison");
             ItemMeta itemMeta = itemStack.getItemMeta();
             if (itemMeta == null) continue;
             ItemMeta currentMeta = current.getItem().getItemMeta();
             if (currentMeta == null) continue;
 
-            Bukkit.getLogger().info("After meta comparison");
 
             if (itemMeta instanceof MusicInstrumentMeta ^ currentMeta instanceof MusicInstrumentMeta) continue;
             if (itemMeta instanceof MusicInstrumentMeta itemMusicMeta && currentMeta instanceof MusicInstrumentMeta currentMusicMeta) {
                 if (itemMusicMeta.getInstrument() != currentMusicMeta.getInstrument()) continue;
             }
 
-            Bukkit.getLogger().info("After music comparison");
-
             if (itemMeta.hasDisplayName() ^ currentMeta.hasDisplayName()) continue;
             if (itemMeta.hasDisplayName() && !itemMeta.getDisplayName().equals(currentMeta.getDisplayName())) continue;
-            Bukkit.getLogger().info("After name comparison");
+
             if (!itemMeta.isUnbreakable()) continue;
             if (!itemMeta.getDisplayName().equals(currentMeta.getDisplayName())) continue;
 
@@ -728,7 +949,14 @@ public enum CustomItem {
     }
 
     public static boolean isStatOMeter(ItemStack itemStack) {
-       return CustomItem.getItem(itemStack) == STAT_O_METER;
+        if (itemStack == null) return false;
+        if (itemStack.getType() != STAT_O_METER.item.getType()) return false;
+        if (!itemStack.hasItemMeta()) return false;
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemMeta == null) return false;
+        if (!itemMeta.hasDisplayName()) return false;
+        if (!itemMeta.getDisplayName().equals(STAT_O_METER.getItem().getItemMeta().getDisplayName())) return false;
+        return true;
     }
 
     public ArrayList<CustomItem> getItemsOfSet() {

@@ -52,4 +52,11 @@ public enum ProficiencyType {
         return result;
     }
 
+    public boolean levelCheck() {
+        return switch (this) {
+            case MISC, NONE -> false;
+            default -> true;
+        };
+    }
+
 }
