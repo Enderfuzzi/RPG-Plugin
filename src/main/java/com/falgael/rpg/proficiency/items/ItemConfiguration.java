@@ -4,9 +4,6 @@ import com.falgael.rpg.framework.PredicateConsumer;
 import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Utils;
-import com.falgael.rpg.proficiency.items.effects.FurnaceBurn;
-import com.falgael.rpg.proficiency.items.effects.TreeHarvest;
-import com.falgael.rpg.tmp.EquipmentSet;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -28,17 +25,17 @@ public class ItemConfiguration {
     /**
      * The Slot in which the item has an effect
      */
-    private List<EquipmentSlot> equipmentSlot;
+    private final List<EquipmentSlot> equipmentSlot;
 
     /**
      * Map of {@link ItemConfigurationFlag} which can be set with a {@link Float}
      */
-    private HashMap<ConfigurationFlag,Float> flags;
+    private final HashMap<ConfigurationFlag, Double> flags;
 
     /**
      * List of Potion effects which are applied when using the item
      */
-    private List<PotionEffect> potionEffects;
+    private final List<PotionEffect> potionEffects;
 
 
 
@@ -47,25 +44,21 @@ public class ItemConfiguration {
      */
     private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(List<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Float> flags, List<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
+    private ItemConfiguration(List<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Double> flags, List<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
 
 
         if (action != null) {
-            this.action = null;
+            this.action = action;
         } else {
-            if (flags.containsKey(ConfigurationFlag.BURN_TIME)) {
-                this.action = e -> ItemEffect.furnaceFuelBurn(e, flags.get(ConfigurationFlag.BURN_TIME));
-            } else if (flags.containsKey(ConfigurationFlag.TREE_HARVEST)) {
-                this.action = e -> ItemEffect.treeHarvest(e, Utils.floatToInt(flags.get(ConfigurationFlag.TREE_HARVEST)));
-            } else if (flags.containsKey(ConfigurationFlag.CROP_HARVEST)) {
-                this.action = e -> ItemEffect.cropHarvest(e);
-            } else if (flags.containsKey(ConfigurationFlag.VEIN_MINING)) {
-                this.action = e -> ItemEffect.veinMining(e, Utils.floatToInt(flags.get(ConfigurationFlag.VEIN_MINING)));
+            for (ConfigurationFlag flag : ConfigurationFlag.values()) {
+                if (flags.containsKey(flag) && flag.getAction(flags.get(flag)) != null) {
+                    this.action = flag.getAction(flags.get(flag));
+                    break;
+                }
             }
-
         }
     }
 
@@ -97,8 +90,8 @@ public class ItemConfiguration {
      * @param flag The flag to search for
      * @return the float Value of the given {@link ItemConfigurationFlag}
      */
-    public Float getValue(ConfigurationFlag flag) {
-        return flags.getOrDefault(flag, 0.0f);
+    public Double getValue(ConfigurationFlag flag) {
+        return flags.getOrDefault(flag, 0.0);
     }
 
     /**
@@ -141,7 +134,7 @@ public class ItemConfiguration {
      */
     public static class Builder {
         private List<EquipmentSlot> equipmentSlot;
-        private HashMap<ConfigurationFlag,Float> flags;
+        private HashMap<ConfigurationFlag,Double> flags;
         private List<PotionEffect> potionEffects;
 
 
@@ -166,8 +159,12 @@ public class ItemConfiguration {
 
         }
 
+        public Builder addFlag(ConfigurationFlag flag, Integer value) {
+            return addFlag(flag, value.doubleValue());
+        }
+
         public Builder addFlag(ConfigurationFlag flag) {
-            return addFlag(flag, 0f);
+            return addFlag(flag, 0);
         }
 
 
@@ -177,7 +174,7 @@ public class ItemConfiguration {
          * @param value the Value which get assigned to the flag
          * @return the current Builder state
          */
-        public Builder addFlag(ConfigurationFlag flag, Float value) {
+        public Builder addFlag(ConfigurationFlag flag, Double value) {
             flags.put(flag,value);
             return this;
         }
@@ -262,7 +259,7 @@ public class ItemConfiguration {
 
         if (!tool.getItemConfiguration().hasFlag(ConfigurationFlag.LOOT)) return 1;
 
-        float lootValue = tool.getItemConfiguration().getValue(ConfigurationFlag.LOOT);
+        double lootValue = tool.getItemConfiguration().getValue(ConfigurationFlag.LOOT);
         double value = lootValue - Math.floor(lootValue);
         if (value == 0) return (int) lootValue - 1;
         if (Math.random() < value) return (int) Math.ceil(lootValue) - 1;

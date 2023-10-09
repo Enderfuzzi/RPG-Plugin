@@ -17,15 +17,20 @@ import java.util.*;
 
 public class Calculation {
 
-    private static float calculateModifier(ConfigurationFlag flag, ProficiencyType type, Player player) {
+    private static double calculateModifier(ConfigurationFlag flag, ProficiencyType type, Player player) {
         if (flag == null || type == null || player == null) return 0L;
-        float multiplier = 1f;
+        double multiplier = 1;
 
         List<com.falgael.rpg.tmp.CustomItem> itemSet = getEquippedItems(player);
         for (com.falgael.rpg.tmp.CustomItem customItem : itemSet) {
+            Bukkit.getLogger().info("Start check");
+            Bukkit.getLogger().info("Proficiency check: " + !checkProficiency(customItem, type));
             if (!checkProficiency(customItem, type)) continue;
+            Bukkit.getLogger().info("Proficiency check successful");
             if (!checkLevelRequirement(customItem, player)) continue;
+            Bukkit.getLogger().info("Level check successful");
             if (!customItem.hasConfiguration()) continue;
+            Bukkit.getLogger().info("configuration check successful");
 
             multiplier += customItem.getConfiguration().getValue(flag);
         }
@@ -52,7 +57,7 @@ public class Calculation {
     }
 
     private static boolean checkProficiency(com.falgael.rpg.tmp.CustomItem item, ProficiencyType type) {
-        return item.getProficiency() == type || item.getProficiency() == ProficiencyType.MISC || item.getProficiency() == ProficiencyType.NONE;
+        return item.getProficiency() == type || item.getProficiency() == ProficiencyType.MISC || item.getProficiency() == ProficiencyType.NONE || type == ProficiencyType.MISC;
     }
 
     private static boolean checkProficiency(EquipmentSet set, ProficiencyType type) {
@@ -60,7 +65,7 @@ public class Calculation {
     }
 
     private static boolean checkLevelRequirement(com.falgael.rpg.tmp.CustomItem item, Player player) {
-        if (item == null || item == com.falgael.rpg.tmp.CustomItem.NONE || player == null) return true;
+        if (item == null || item.isNone() || player == null) return true;
         if (!item.hasConfiguration()) return true;
         if (!item.getProficiency().levelCheck()) return true;
         if (item.getConfiguration().hasFlag(ConfigurationFlag.LEVEL_REQUIREMENT)) {
@@ -73,7 +78,7 @@ public class Calculation {
         List<com.falgael.rpg.tmp.CustomItem> result = new ArrayList<>();
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             com.falgael.rpg.tmp.CustomItem item = getItem(player, slot);
-            if (item == com.falgael.rpg.tmp.CustomItem.NONE) continue;
+            if (item.isNone()) continue;
             result.add(item);
         }
         Bukkit.getLogger().info("Equipped Items: " + Arrays.toString(result.toArray()));
@@ -98,7 +103,7 @@ public class Calculation {
     }
 
     public static int calculateLoot(ProficiencyType type, Player player) {
-        float lootValue = calculateModifier(ConfigurationFlag.LOOT, type, player);
+        double lootValue = calculateModifier(ConfigurationFlag.LOOT, type, player);
         Bukkit.getLogger().info("Loot value: " + lootValue);
         double value = lootValue - Math.floor(lootValue);
         if (value == 0) return (int) lootValue - 1;
@@ -129,9 +134,14 @@ public class Calculation {
     }
 
 
-    public static double calculateTotalDamage(double base, Player player) {
-        return base * calculateModifier(ConfigurationFlag.DAMAGE_MULTIPLIER,ProficiencyType.HUNTING,player) + (calculateModifier(ConfigurationFlag.DAMAGE_ADDITIVE, ProficiencyType.HUNTING, player) - 1);
+    public static double calculateTotalDamage(double base, Player player, ProficiencyType type) {
+        return base * calculateModifier(ConfigurationFlag.DAMAGE_MULTIPLIER, type, player) + (calculateModifier(ConfigurationFlag.DAMAGE_ADDITIVE, type, player) - 1);
     }
+
+    public static double calculateTotalDamage(double base, Player player) {
+        return calculateTotalDamage(base, player, ProficiencyType.MISC);
+    }
+
 
     public static boolean performAction(Event e, CustomItem item) {
         if (e == null || item == null) return false;

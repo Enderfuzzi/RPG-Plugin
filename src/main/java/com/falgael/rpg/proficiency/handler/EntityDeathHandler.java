@@ -33,7 +33,7 @@ public class EntityDeathHandler implements Listener {
         }
 
         CustomEntity customEntity = CustomEntity.getEntity(event.getEntity().getType());
-        if (!customEntity.isNone()) return;
+        if (customEntity.isNone()) return;
 
         ItemStack item = event.getEntity().getKiller().getInventory().getItemInMainHand();
         CustomTool customTool = CustomTool.getItem(item);

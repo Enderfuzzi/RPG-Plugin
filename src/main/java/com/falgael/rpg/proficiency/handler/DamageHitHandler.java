@@ -1,5 +1,6 @@
 package com.falgael.rpg.proficiency.handler;
 
+import com.falgael.rpg.proficiency.blocks.CustomEntity;
 import com.falgael.rpg.proficiency.items.CustomTool;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import com.falgael.rpg.tmp.Calculation;
@@ -16,8 +17,18 @@ public class DamageHitHandler implements Listener {
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.isCancelled()) return;
         if (!(event.getDamager() instanceof Player player)) return;
+
+        CustomEntity customEntity = CustomEntity.getEntity(event.getEntity().getType());
+        Bukkit.getLogger().info("[" + DamageHitHandler.class.getSimpleName() + "] Entity type: " + event.getEntity().getType());
+        Bukkit.getLogger().info("[" + DamageHitHandler.class.getSimpleName() + "] Entity found: " + !customEntity.isNone());
+        if (customEntity.isNone()) return;
+
+
         double baseDamage = event.getDamage();
-        double modifiedDamage = Calculation.calculateTotalDamage(baseDamage, player);
+        double modifiedDamage = Calculation.calculateTotalDamage(baseDamage, player, customEntity.getProficiency());
+
+
+
 
         Bukkit.getLogger().info("[" + DamageHitHandler.class.getSimpleName() + "] Base damage: " + baseDamage + " Modified Damage: " + modifiedDamage);
 

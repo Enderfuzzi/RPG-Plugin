@@ -1,13 +1,17 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.framework.PredicateConsumer;
+import com.falgael.rpg.proficiency.items.ItemEffect;
 import org.bukkit.ChatColor;
+import org.bukkit.event.Event;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+
 
 /**
  * Provides possible Configuration modifiers for the Lore of an CustomItem created by {@link ItemBuilder}
  * @author falgael
- * @version 0.0.1
+ * @version 0.0.2
  */
 public enum ConfigurationFlag {
 
@@ -25,7 +29,7 @@ public enum ConfigurationFlag {
 
     CURRENCY(ChatColor.DARK_PURPLE, "Currency"),
 
-    SET_BONUS(ChatColor.GRAY, "Set"),
+    SET_BONUS(ChatColor.WHITE, "set"),
 
     SET_PART_NUMBER(ChatColor.GRAY, "Required Parts: "),
 
@@ -33,9 +37,10 @@ public enum ConfigurationFlag {
 
     TREE_HARVEST(),
     VEIN_MINING(),
-
+    WEATHER_CLEAR(),
+    WEATHER_RAIN(),
+    WEATHER_THUNDER(),
     CROP_HARVEST(),
-
     ENCHANTED(),
 
     ;
@@ -54,7 +59,7 @@ public enum ConfigurationFlag {
 
     public boolean hasRepresentation() {
         return switch (this) {
-            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING -> false;
+            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING, WEATHER_CLEAR, WEATHER_RAIN, WEATHER_THUNDER -> false;
             default -> true;
         };
     }
@@ -84,11 +89,26 @@ public enum ConfigurationFlag {
         } + ChatColor.RESET;
     }
 
-    public String createLore(float value) {
+    public String createLore(Double value) {
         return switch (this) {
-            case LEVEL_REQUIREMENT, DAMAGE_ADDITIVE -> createLore(Integer.toString((int) (value)));
+            case LEVEL_REQUIREMENT, DAMAGE_ADDITIVE -> createLore(Integer.toString(value.intValue()));
             default -> createLore(Integer.toString((int) (value * 100f)));
         };
     }
+
+    public PredicateConsumer<Event> getAction(Double value) {
+        return switch (this) {
+            case VEIN_MINING -> e -> ItemEffect.veinMining(e, value.intValue());
+            case BURN_TIME -> e -> ItemEffect.furnaceFuelBurn(e, value);
+            case TREE_HARVEST -> e -> ItemEffect.treeHarvest(e, value.intValue());
+            case CROP_HARVEST -> ItemEffect::cropHarvest;
+            case WEATHER_CLEAR -> e -> ItemEffect.weatherClear(e, value.intValue());
+            case WEATHER_RAIN -> e -> ItemEffect.weatherRain(e, value.intValue());
+            case WEATHER_THUNDER -> e -> ItemEffect.weatherStorm(e, value.intValue());
+            default -> null;
+        };
+    }
+
+
 
 }

@@ -105,7 +105,7 @@ public enum CustomEntity {
 
 
     public boolean isNone() {
-        return this != NONE;
+        return this == NONE;
     }
 
     public static CustomEntity getEntity(EntityType type) {
