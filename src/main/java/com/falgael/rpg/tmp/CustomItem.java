@@ -72,6 +72,25 @@ public enum CustomItem {
                     .addPotionEffect(PotionEffectType.SPEED).create()),
 
 
+    KING_MIDAS_CROWN(ProficiencyType.MISC, Material.GOLDEN_HELMET, "Midas Crown", Rarity.EPIC, "A Crown for the richest",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.LOOT, 2)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50).create(),
+            EquipmentSet.KING_MIDAS),
+    KING_MIDAS_CHEST(ProficiencyType.MISC, Material.GOLDEN_HELMET, "Midas Chest", Rarity.EPIC, "Protects with layered Gold",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.LOOT, 3)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50).create(),
+            EquipmentSet.KING_MIDAS),
+
+    KING_MIDAS_SWORD(ProficiencyType.MISC, Material.GOLDEN_SWORD, "Midas Sword", Rarity.EPIC, "Slaughter the poor",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.LOOT, 2)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1.5)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
+            EquipmentSet.KING_MIDAS),
+
+
     //--------------------------------------------------------------------------------------------
     // Woodwork
     //--------------------------------------------------------------------------------------------

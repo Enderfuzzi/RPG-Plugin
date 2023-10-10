@@ -11,6 +11,14 @@ import java.util.List;
 public enum EquipmentSet {
 
     NONE("", ProficiencyType.NONE, Rarity.NONE, 0, null, ""),
+    //--------------------------------------------------------------------------------------------
+    // MISC
+    //--------------------------------------------------------------------------------------------
+
+    KING_MIDAS("King Midas", ProficiencyType.MISC, Rarity.EPIC, 2,
+            new ItemConfiguration.Builder()
+                    .addFlag(ConfigurationFlag.LOOT,5).create(),
+            "From the King itself"),
 
 
     //--------------------------------------------------------------------------------------------
