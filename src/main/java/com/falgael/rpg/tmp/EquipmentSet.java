@@ -4,6 +4,7 @@ import com.falgael.rpg.items.ConfigurationFlag;
 import com.falgael.rpg.proficiency.general.ProficiencyType;
 import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,18 @@ public enum EquipmentSet {
                     .addFlag(ConfigurationFlag.EXPERIENCE,5)
                     .addFlag(ConfigurationFlag.LOOT, 4).create(),
             "For stone specialists"),
+
+    DEEP_MINER("Deep Miner", ProficiencyType.STONEWORK, Rarity.EPIC, 3,
+            new ItemConfiguration.Builder()
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addPotionEffect(PotionEffectType.NIGHT_VISION)
+                    .addPotionEffect(PotionEffectType.FAST_DIGGING, 1).create(),
+            "Mines to the deepest deep"),
+
+    GOTHMOGS_BREATH("Gothmogs Breath", ProficiencyType.STONEWORK, Rarity.LEGENDARY, 1,
+            new ItemConfiguration.Builder()
+                    .addPotionEffect(PotionEffectType.FIRE_RESISTANCE).create(), "Breath of the Lord itself"),
 
     //--------------------------------------------------------------------------------------------
     // Farming

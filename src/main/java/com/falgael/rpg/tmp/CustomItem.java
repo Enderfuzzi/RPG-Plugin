@@ -12,6 +12,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MusicInstrumentMeta;
+import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
@@ -270,6 +271,26 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
+
+
+    COMMON_MINERS_HELMET(ProficiencyType.STONEWORK, Material.CHAINMAIL_HELMET, "Miners Helmet", Rarity.COMMON, "enlightens your way in the dark",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 8)
+                    .addPotionEffect(PotionEffectType.NIGHT_VISION).create()),
+    ADVANCED_MINERS_HELMET(ProficiencyType.STONEWORK, Material.IRON_HELMET, "Miners Helmet", Rarity.ADVANCED, "enlightens your way in the dark",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 12)
+                    .addPotionEffect(PotionEffectType.NIGHT_VISION).create()),
+    ELITE_MINERS_HELMET(ProficiencyType.STONEWORK, Material.GOLDEN_HELMET, "Miners Helmet", Rarity.ELITE, "enlightens your way in the dark",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                    .addFlag(ConfigurationFlag.LOOT, 2)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)
+                    .addPotionEffect(PotionEffectType.NIGHT_VISION).create()),
+
+
 
     STONEWORK_BASIC_SIMPLE_PICKAXE(ProficiencyType.STONEWORK,Material.WOODEN_PICKAXE,"Pickaxe",Rarity.SIMPLE,"Simple miner pickaxe",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
