@@ -135,7 +135,7 @@ public class ItemBuilder {
         if (material == Material.AIR) return result;
         ItemMeta itemMeta = result.getItemMeta();
 
-        if (name != null) itemMeta.setDisplayName(buildName());
+        if (name != null) itemMeta.setDisplayName(rarity.buildItemName(name));
 
         itemMeta.setUnbreakable(true);
 
@@ -159,11 +159,6 @@ public class ItemBuilder {
 
         result.setItemMeta(itemMeta);
         return result;
-    }
-
-
-    private String buildName() {
-        return rarity.getRepresentation() + ChatColor.WHITE + name;
     }
 
 

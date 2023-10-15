@@ -190,7 +190,7 @@ public class ItemConfiguration {
         }
 
         public Builder addPotionEffect(PotionEffectType potionType, int duration, int amplifier) {
-            return addPotionEffect(new PotionEffect(potionType, duration, amplifier, false, true));
+            return addPotionEffect(new PotionEffect(potionType, duration, amplifier, true, false));
         }
 
         public Builder addPotionEffect(PotionEffectType potionType, int amplifier) {

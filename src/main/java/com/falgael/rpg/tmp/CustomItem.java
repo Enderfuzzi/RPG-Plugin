@@ -7,12 +7,10 @@ import com.falgael.rpg.proficiency.general.Rarity;
 import com.falgael.rpg.proficiency.items.ItemConfiguration;
 import org.bukkit.Material;
 import org.bukkit.MusicInstrument;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MusicInstrumentMeta;
-import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
@@ -292,6 +290,33 @@ public enum CustomItem {
 
 
 
+    DEEP_MINERS_HELMET(ProficiencyType.STONEWORK, Material.DIAMOND_HELMET,"Deep Miners Helmet",Rarity.EPIC,"Deep mining protection",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2)
+                    .addFlag(ConfigurationFlag.LOOT, 0.5)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40).create(),
+            EquipmentSet.DEEP_MINER),
+    DEEP_MINERS_CHESTPLATE(ProficiencyType.STONEWORK, Material.DIAMOND_CHESTPLATE,"Deep Miners Chestplate",Rarity.EPIC,"Deep mining protection",
+            new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,3)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40).create(),
+            EquipmentSet.DEEP_MINER),
+    DEEP_MINERS_LEGGINGS(ProficiencyType.STONEWORK, Material.DIAMOND_LEGGINGS,"Deep Miners Leggings",Rarity.EPIC,"Deep mining protection",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2)
+                    .addFlag(ConfigurationFlag.LOOT, 0.5)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40).create(),
+            EquipmentSet.DEEP_MINER),
+    DEEP_MINERS_BOOTS(ProficiencyType.STONEWORK, Material.DIAMOND_BOOTS,"Deep Miners Boots",Rarity.EPIC,"Deep mining protection",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,2)
+                    .addFlag(ConfigurationFlag.LOOT, 0.5)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40).create(),
+            EquipmentSet.DEEP_MINER),
+
+
+
     STONEWORK_BASIC_SIMPLE_PICKAXE(ProficiencyType.STONEWORK,Material.WOODEN_PICKAXE,"Pickaxe",Rarity.SIMPLE,"Simple miner pickaxe",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
@@ -517,6 +542,7 @@ public enum CustomItem {
     //--------------------------------------------------------------------------------------------
     // Farming
     //--------------------------------------------------------------------------------------------
+
 
     FARMING_BASIC_SIMPLE_HOE(ProficiencyType.FARMING,Material.WOODEN_HOE,"Hoe",Rarity.SIMPLE,"Simple farmer hoe",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -745,10 +771,42 @@ public enum CustomItem {
             EquipmentSet.FARMER_TIER_VI),
 
 
+    BAKERS_HEAD(ProficiencyType.FARMING, Material.IRON_HELMET, "Baker's head", Rarity.ADVANCED, "For every true baker",
+            new ItemConfiguration.Builder(EquipmentSlot.HEAD)
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 3)
+                    .addFlag(ConfigurationFlag.LOOT, 3)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(), EquipmentSet.NONE),
+
+    BUTCHER_LEGGINGS(ProficiencyType.FARMING, Material.IRON_LEGGINGS, "Butcher apron", Rarity.ADVANCED, "Protection against animal blood",
+            new ItemConfiguration.Builder(EquipmentSlot.LEGS)
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,15).create(),
+            EquipmentSet.BUTCHER),
+
+    BUTCHER_BOOTS(ProficiencyType.FARMING, Material.IRON_BOOTS, "Butcher boots", Rarity.ADVANCED, "Protection against animal blood",
+            new ItemConfiguration.Builder(EquipmentSlot.FEET)
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(),
+            EquipmentSet.BUTCHER),
+
+
     //--------------------------------------------------------------------------------------------
     // Hunting
     //--------------------------------------------------------------------------------------------
-    
+
+
+    NARSIL(ProficiencyType.HUNTING,Material.NETHERITE_SWORD,"Narsil",Rarity.UNIQUE,"The Red and White flame",
+            new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                    .addFlag(ConfigurationFlag.EXPERIENCE,6)
+                    .addFlag(ConfigurationFlag.LOOT, 6)
+                    .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,75)
+                    .addPotionEffect(PotionEffectType.INCREASE_DAMAGE, 2)
+                    .addPotionEffect(PotionEffectType.REGENERATION)
+                    .addPotionEffect(PotionEffectType.ABSORPTION).create(),
+            EquipmentSet.NONE),
     
     HUNTING_BASIC_SIMPLE_SWORD(ProficiencyType.HUNTING,Material.WOODEN_SWORD,"Sword",Rarity.SIMPLE,"Simple hunter Sword",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)

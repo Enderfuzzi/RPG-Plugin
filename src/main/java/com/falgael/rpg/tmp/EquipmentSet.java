@@ -134,6 +134,12 @@ public enum EquipmentSet {
                     .addFlag(ConfigurationFlag.EXPERIENCE, 5)
                     .addFlag(ConfigurationFlag.LOOT, 4).create()),
 
+    BUTCHER("Butcher", ProficiencyType.FARMING, Rarity.COMMON, 2,
+            new ItemConfiguration.Builder()
+                    .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                    .addFlag(ConfigurationFlag.LOOT, 1)
+                    .addFlag(ConfigurationFlag.DAMAGE_ADDITIVE,2).create()),
+
 
     //--------------------------------------------------------------------------------------------
     // Hunting

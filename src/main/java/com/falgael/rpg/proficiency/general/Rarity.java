@@ -10,7 +10,10 @@ public enum Rarity {
     ADVANCED(ChatColor.DARK_AQUA ,"Advanced "),
     ELITE(ChatColor.LIGHT_PURPLE, "Elite "),
     EPIC(ChatColor.RED, "Epic "),
-    LEGENDARY(ChatColor.GOLD,"Legendary ");
+    LEGENDARY(ChatColor.GOLD,"Legendary "),
+    UNIQUE(ChatColor.GOLD, ""),
+
+    ;
 
     private final ChatColor color;
 
@@ -27,6 +30,14 @@ public enum Rarity {
 
     public String getRepresentation() {
         return  color + representation;
+    }
+
+
+    public String buildItemName(String value) {
+        return switch (this) {
+            case UNIQUE -> color + value;
+            default -> getRepresentation() + ChatColor.WHITE + value;
+        };
     }
 
 }
