@@ -1,42 +1,57 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.commands.CustomCommand;
-import com.falgael.rpg.manager.Disabler;
-import com.falgael.rpg.manager.Initializer;
-import com.falgael.rpg.proficiency.handler.*;
-import com.falgael.rpg.proficiency.TestHandler;
-import com.falgael.rpg.proficiency.player.PlayerManager;
-import com.falgael.rpg.villager.VillagerHandler;
+import com.falgael.rpg.handler.*;
+import com.falgael.rpg.manager.*;
+import com.falgael.rpg.handler.TestHandler;
+import com.falgael.rpg.old.PlayerManager;
+import com.falgael.rpg.recipe.CustomRecipes;
+import com.falgael.rpg.handler.VillagerHandler;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class RPG extends JavaPlugin {
-
-    public static final String PLUGIN_NAME = "RPG-0.0.2";
+    
+    private DataStoreManagement storeManager;
+    private PlayerExperienceManagement playerExperienceManager;
+    private ProficiencyCalculationAdapter proficiencyAdapter;
+    private ItemHeldHandler itemHeldHandler;
 
     @Override
     public void onEnable() {
+
+        storeManager = new DataStoreManager(this);
+        playerExperienceManager = new PlayerExperienceManager(this, storeManager);
+
+
+        proficiencyAdapter = new ProficiencyCalculation(playerExperienceManager);
+
+
+        new CustomRecipes(this);
+
+
         getLogger().info(this.getName() + " enabled");
         sendMessageToAll("Plugin enabled");
-        Initializer.initialize();
         Bukkit.getPluginManager().registerEvents(new PlayerManager(),this);
-        Bukkit.getPluginManager().registerEvents(new VillagerHandler(),this);
-        Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(),this);
-        Bukkit.getPluginManager().registerEvents(new CraftingResultsHandler(),this);
+        Bukkit.getPluginManager().registerEvents(new VillagerHandler(proficiencyAdapter),this);
+        Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(proficiencyAdapter),this);
+        Bukkit.getPluginManager().registerEvents(new CraftingResultsHandler(proficiencyAdapter),this);
         Bukkit.getPluginManager().registerEvents(new ForbiddenCraftingHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new HarvestBlockHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new TestHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new ItemHeldHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new ItemBurnHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new ShearingHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInteractBlockHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new EntityDeathHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new ArrowShootHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new DamageHitHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInteractHandler(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerFishHandler(), this);
+        Bukkit.getPluginManager().registerEvents(new HarvestBlockHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new TestHandler(proficiencyAdapter), this);
+
+        itemHeldHandler = new ItemHeldHandler(this,playerExperienceManager);
+        Bukkit.getPluginManager().registerEvents(itemHeldHandler, this);
+
+        Bukkit.getPluginManager().registerEvents(new ItemBurnHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new ShearingHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractBlockHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new EntityDeathHandler(proficiencyAdapter, this), this);
+        Bukkit.getPluginManager().registerEvents(new ArrowShootHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new DamageHitHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerInteractHandler(proficiencyAdapter), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerFishHandler(proficiencyAdapter), this);
 
         for (CustomCommand command : CustomCommand.values()) {
             this.getCommand(command.getKey()).setExecutor(command.getCommand());
@@ -51,7 +66,7 @@ public final class RPG extends JavaPlugin {
     @Override
     public void onDisable() {
 
-        Disabler.disable();
+        itemHeldHandler.stopCheck();
 
 
         getLogger().info("RPG disabled");

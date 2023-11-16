@@ -1,8 +1,8 @@
 package com.falgael.rpg.commands.items;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.tmp.CustomItem;
-import com.falgael.rpg.tmp.EquipmentSet;
+import com.falgael.rpg.items.Items;
+import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.items.set.ItemSet;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,7 +45,7 @@ public class GetItem implements CommandExecutor, TabCompleter {
 
         if (args[0].equals(ITEM)) {
             try {
-                CustomItem item = CustomItem.valueOf(args[1]);
+                Items item = Items.valueOf(args[1]);
                 player.getInventory().addItem(item.getItem());
             } catch (IllegalArgumentException e) {
                 player.sendMessage("Unknown name: " + ITEM);
@@ -57,8 +57,8 @@ public class GetItem implements CommandExecutor, TabCompleter {
 
         if (args[0].equals(SET)) {
             try {
-                EquipmentSet set = EquipmentSet.valueOf(args[1]);
-                CustomItem.getItemsOfSet(set).forEach(v -> player.getInventory().addItem(v.getItem()));
+                ItemSet set = ItemSet.valueOf(args[1]);
+                Items.getItemsOfSet(set).forEach(v -> player.getInventory().addItem(v.getItem()));
             } catch (IllegalArgumentException e) {
                 player.sendMessage("Unknown name: " + SET);
                 return false;
@@ -68,8 +68,8 @@ public class GetItem implements CommandExecutor, TabCompleter {
 
         if (args[0].equals(PROFICIENCY)) {
             try {
-                ProficiencyType type = ProficiencyType.valueOf(args[1]);
-                CustomItem.getItemsOfProficiency(type).forEach(v -> player.getInventory().addItem(v.getItem()));
+                Proficiency type = Proficiency.valueOf(args[1]);
+                Items.getItemsOfProficiency(type).forEach(v -> player.getInventory().addItem(v.getItem()));
             } catch (IllegalArgumentException e) {
                 player.sendMessage("Unknown name: " + PROFICIENCY);
                 return false;
@@ -103,14 +103,14 @@ public class GetItem implements CommandExecutor, TabCompleter {
             List<String> result = new ArrayList<>();
             if (args[0].equals(ITEM)) {
                 Bukkit.getLogger().info("Equals item");
-                for (CustomItem item : CustomItem.values()) result.add(item.name());
+                for (Items item : Items.values()) result.add(item.name());
             }
             if (args[0].equals(SET)) {
-                for (EquipmentSet set : EquipmentSet.values()) result.add(set.name());
+                for (ItemSet set : ItemSet.values()) result.add(set.name());
             }
             if (args[0].equals(PROFICIENCY)) {
-                for (ProficiencyType type : ProficiencyType.values()) {
-                    if (type == ProficiencyType.NONE) continue;
+                for (Proficiency type : Proficiency.values()) {
+                    if (type == Proficiency.NONE) continue;
                     result.add(type.name());
                 }
             }

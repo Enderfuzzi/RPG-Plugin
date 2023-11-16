@@ -2,6 +2,7 @@ package com.falgael.rpg.recipe;
 
 import com.falgael.rpg.RPG;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.*;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
@@ -10,16 +11,14 @@ import org.bukkit.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
 public class RecipeBuilder {
 
-    private static Plugin plugin =  Bukkit.getPluginManager().getPlugin(RPG.PLUGIN_NAME);
+    private Plugin plugin;
 
     private ItemStack result;
 
     private ArrayList<ItemStack> ingredients = new ArrayList<>();
-
-    private RecipeChoice recipeChoice;
 
     private String key;
 
@@ -31,8 +30,18 @@ public class RecipeBuilder {
 
     private CraftingBookCategory craftingBookCategory = CraftingBookCategory.MISC;
 
+    public enum RecipeType {
+        STONECUTTER,
+        SHAPELESS,
+        SHAPED
+    }
 
-    public RecipeBuilder(ItemStack result, String key, RecipeType type) {
+    public RecipeBuilder(Plugin plugin, Material result, String key, RecipeType type) {
+        this(plugin, result, key, type);
+    }
+
+    public RecipeBuilder(Plugin plugin, ItemStack result, String key, RecipeType type) {
+        this.plugin = plugin;
         this.result = result;
         this.key = key;
         this.type = type;
@@ -60,8 +69,7 @@ public class RecipeBuilder {
         return this;
     }
 
-    public Recipe create() {
-        NamespacedKey namespacedKey = new NamespacedKey(plugin,key);
+    public Recipe create(NamespacedKey namespacedKey) {
         switch (type) {
             case STONECUTTER:
                 return new StonecuttingRecipe(namespacedKey,result,new RecipeChoice.ExactChoice(ingredients));
@@ -82,6 +90,12 @@ public class RecipeBuilder {
     }
 
 
+    public Recipe create(Plugin plugin) {
+        return create(new NamespacedKey(plugin, key));
+    }
+
+
 
 
 }
+*/

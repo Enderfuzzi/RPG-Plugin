@@ -1,7 +1,7 @@
 package com.falgael.rpg.commands.experience;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.proficiency.player.PlayerManager;
+import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.old.PlayerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -34,7 +34,7 @@ public class ManipulateExperienceTabComplete implements TabCompleter {
         if (!command.getName().equals("experience")) return null;
 
         if (args.length == 1)  return PlayerManager.getPlayerNames();
-        if (args.length == 2)  return ProficiencyType.proficiencies();
+        if (args.length == 2)  return Proficiency.proficiencies();
         if (args.length == 3)  return new ArrayList<>(Arrays.asList("add", "remove"));
 
         return null;

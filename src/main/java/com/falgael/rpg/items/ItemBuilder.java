@@ -1,13 +1,12 @@
 package com.falgael.rpg.items;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.proficiency.general.Rarity;
-import com.falgael.rpg.proficiency.items.ItemConfiguration;
-import com.falgael.rpg.tmp.EquipmentSet;
+import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.ConfigurationFlag;
+import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.proficiency.Rarity;
+import com.falgael.rpg.items.set.ItemSet;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.MusicInstrument;
 import org.bukkit.attribute.Attribute;
@@ -25,7 +24,7 @@ public class ItemBuilder {
 
     private String name;
 
-    private ProficiencyType proficiency = ProficiencyType.NONE;
+    private List<Proficiency> proficiency = new ArrayList<>();
 
     private Material material;
 
@@ -46,7 +45,7 @@ public class ItemBuilder {
 
     private MusicInstrument musicInstrument = null;
 
-    private EquipmentSet equipmentSet = EquipmentSet.NONE;
+    private ItemSet itemSet = ItemSet.NONE;
 
     private ItemConfiguration configuration;
 
@@ -99,10 +98,16 @@ public class ItemBuilder {
         return addAttribute(attribute,value, attribute.name());
     }
 
-    public ItemBuilder addProficiency(ProficiencyType proficiency) {
-        if (!currency) this.proficiency = proficiency;
+    public ItemBuilder addProficiency(Proficiency proficiency) {
+        this.proficiency.add(proficiency);
         return this;
     }
+
+    public ItemBuilder addProficiency(List<Proficiency> proficiency) {
+        this.proficiency = proficiency;
+        return this;
+    }
+
 
     public ItemBuilder setCurrency(boolean currency) {
         this.currency = currency;
@@ -119,8 +124,8 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setEquipmentSet(EquipmentSet equipmentSet) {
-        this.equipmentSet = equipmentSet;
+    public ItemBuilder setEquipmentSet(ItemSet itemSet) {
+        this.itemSet = itemSet;
         return this;
     }
 
@@ -135,7 +140,8 @@ public class ItemBuilder {
         if (material == Material.AIR) return result;
         ItemMeta itemMeta = result.getItemMeta();
 
-        if (name != null) itemMeta.setDisplayName(rarity.buildItemName(name));
+        if (name != null) itemMeta.setDisplayName(rarity.getColor() + name);
+        if (rarity != Rarity.NONE)
 
         itemMeta.setUnbreakable(true);
 
@@ -164,7 +170,12 @@ public class ItemBuilder {
 
     private ArrayList<String> buildLore() {
         ArrayList<String> result = new ArrayList<>();
-        if (proficiency != ProficiencyType.NONE) result.add(proficiency.getRepresentation());
+        result.add(rarity.getRepresentation());
+        if (!currency) {
+            proficiency.forEach(e -> {
+                if (e != Proficiency.NONE) result.add(e.getRepresentation());
+            });
+        }
 
         if (configuration != null) result.addAll(configurationLore(configuration));
 
@@ -176,17 +187,19 @@ public class ItemBuilder {
             }
         }
 
-        if (equipmentSet != EquipmentSet.NONE) {
+        if (itemSet != ItemSet.NONE) {
             result.add("");
-            result.add(ConfigurationFlag.SET_BONUS.createLore(equipmentSet.getName()));
-            if (equipmentSet.getProficiencyType() != ProficiencyType.NONE) result.add(equipmentSet.getProficiencyType().getRepresentation());
+            result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getName()));
+            for (Proficiency type : itemSet.getProficiency()) {
+                if (type != Proficiency.NONE) result.add(type.getRepresentation());
+            }
 
-            if (equipmentSet.hasConfiguration()) result.addAll(configurationLore(equipmentSet.getConfiguration()));
+            if (itemSet.hasConfiguration()) result.addAll(configurationLore(itemSet.getConfiguration()));
 
-            if (equipmentSet.hasDescription()) equipmentSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
+            itemSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
 
 
-            result.add(ConfigurationFlag.SET_PART_NUMBER.createLore(Integer.toString(equipmentSet.getNumberOfParts())));
+            result.add(ConfigurationFlag.SET_PART_NUMBER.createLore(Integer.toString(itemSet.getPartNumber())));
         }
 
 
@@ -197,9 +210,9 @@ public class ItemBuilder {
     private static List<String> configurationLore(ItemConfiguration configuration) {
         ArrayList<String> result = new ArrayList<>();
         if (configuration == null) return result;
-        for (ConfigurationFlag configurationFlag : ConfigurationFlag.values()) {
-            if (!configurationFlag.hasRepresentation()) continue;
-            if (configuration.hasFlag(configurationFlag)) result.add(configurationFlag.createLore(configuration.getValue(configurationFlag)));
+        for (ConfigurationFlag RPGConfigurationFlag : ConfigurationFlag.values()) {
+            if (!RPGConfigurationFlag.hasRepresentation()) continue;
+            if (configuration.hasFlag(RPGConfigurationFlag)) result.add(RPGConfigurationFlag.createLore(configuration.getValue(RPGConfigurationFlag)));
         }
         return result;
     }

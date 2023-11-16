@@ -1,7 +1,6 @@
 package com.falgael.rpg.commands.chest;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.proficiency.player.PlayerManager;
+import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -33,7 +32,7 @@ public class SpawnItemChestTabComplete implements TabCompleter {
         if (!command.getName().equals("spawn_chest")) return null;
 
 
-        if (args.length == 1)  return ProficiencyType.proficiencies();
+        if (args.length == 1)  return Proficiency.proficiencies();
         return null;
     }
 }

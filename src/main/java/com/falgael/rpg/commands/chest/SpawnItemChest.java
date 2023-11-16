@@ -1,7 +1,7 @@
 package com.falgael.rpg.commands.chest;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.tmp.CustomItem;
+import com.falgael.rpg.items.Items;
+import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.Chest;
@@ -35,8 +35,8 @@ public class SpawnItemChest implements CommandExecutor {
             return false;
         }
 
-        ProficiencyType proficiencyType = ProficiencyType.isProficiency(args[0]);
-        if (proficiencyType == ProficiencyType.NONE) {
+        Proficiency proficiency = Proficiency.isProficiency(args[0]);
+        if (proficiency == Proficiency.NONE) {
             player.sendMessage("Unknown proficiency");
             return false;
         }
@@ -45,7 +45,7 @@ public class SpawnItemChest implements CommandExecutor {
         block.setType(Material.CHEST);
         if (block.getState() instanceof Chest chest) {
             Inventory inventory = chest.getBlockInventory();
-            for (CustomItem item : CustomItem.getItemsOfProficiency(proficiencyType)) {
+            for (Items item : Items.getItemsOfProficiency(proficiency)) {
                 inventory.addItem(item.getItem());
             }
         }

@@ -1,8 +1,8 @@
 package com.falgael.rpg.commands.experience;
 
-import com.falgael.rpg.proficiency.general.ProficiencyType;
-import com.falgael.rpg.proficiency.player.PlayerExperience;
-import com.falgael.rpg.proficiency.player.PlayerManager;
+import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.manager.ProficiencyExperienceManager;
+import com.falgael.rpg.old.PlayerManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,14 +31,14 @@ public class ManipulateExperience implements CommandExecutor {
             return false;
         }
 
-        PlayerExperience playerExperience = PlayerManager.getByPublicName(args[0]);
-        if (playerExperience == null)  {
+        ProficiencyExperienceManager proficiencyExperienceManager = PlayerManager.getByPublicName(args[0]);
+        if (proficiencyExperienceManager == null)  {
             player.sendMessage("Player name: " + args[0] + " is not found");
             return false;
         }
 
-        ProficiencyType proficiencyType = ProficiencyType.isProficiency(args[1]);
-        if (proficiencyType == ProficiencyType.NONE) {
+        Proficiency proficiency = Proficiency.isProficiency(args[1]);
+        if (proficiency == Proficiency.NONE) {
             player.sendMessage("Unknown proficiency");
             return false;
         }
@@ -52,9 +52,9 @@ public class ManipulateExperience implements CommandExecutor {
         }
 
         if (args[2].equals("add")) {
-            playerExperience.increaseExperience(proficiencyType,value);
+            proficiencyExperienceManager.increaseExperience(proficiency,value);
         } else if(args[2].equals("remove")) {
-            playerExperience.decreaseExperience(proficiencyType, value);
+            proficiencyExperienceManager.decreaseExperience(proficiency, value);
         } else {
             player.sendMessage("Only add or remove are allowed");
             return false;
