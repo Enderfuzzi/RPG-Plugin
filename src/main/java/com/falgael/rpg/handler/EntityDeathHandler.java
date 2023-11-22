@@ -2,10 +2,12 @@ package com.falgael.rpg.handler;
 
 
 import com.falgael.rpg.RPG;
+import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.Items;
 import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.misc.Calculations;
 import com.falgael.rpg.stats.EntityStats;
+import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -22,8 +24,8 @@ public class EntityDeathHandler extends MainHandler {
 
     private final Plugin plugin;
 
-    public EntityDeathHandler(ProficiencyCalculationAdapter proficiencyAdapter, Plugin plugin) {
-        super(proficiencyAdapter);
+    public EntityDeathHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter, Plugin plugin) {
+        super(proficiencyAdapter, itemAdapter, villagerAdapter);
         this.plugin = plugin;
     }
 
@@ -39,11 +41,11 @@ public class EntityDeathHandler extends MainHandler {
         EntityStats entityStats = EntityStats.getEntity(event.getEntity().getType());
         if (entityStats.isNone()) return;
 
-        if (proficiencyAdapter.performAction(event, Items.getItem(event.getEntity().getKiller().getInventory().getItemInMainHand()))) return;
+        if (proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getEntity().getKiller().getInventory().getItemInMainHand()))) return;
 
        proficiencyAdapter.calculateExperience(event.getEntity().getKiller(), entityStats.getProficiencies(), entityStats.getExperienceAmount());
 
-        int droppedBlocks =  Calculations.calculateLoot(entityStats.getProficiencies(), event.getEntity().getKiller());
+        int droppedBlocks =  proficiencyAdapter.calculateLoot(event.getEntity().getKiller(), entityStats.getProficiencies());
         proficiencyAdapter.dropAdditionalLoot(event.getDrops(), droppedBlocks, event.getEntity().getWorld(), event.getEntity().getLocation());
     }
 

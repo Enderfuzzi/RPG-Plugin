@@ -1,6 +1,9 @@
 package com.falgael.rpg.villager;
 
 
+import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.proficiency.Rarity;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.EntityType;
@@ -13,6 +16,12 @@ public class VillagerInstance {
 
     private final String name;
 
+    private final Proficiency proficiency;
+
+    private final Rarity rarity;
+
+    private final int levelRequirement;
+
     private ArrayList<MerchantRecipe> recipes;
 
     private final org.bukkit.entity.Villager.Profession profession;
@@ -20,6 +29,9 @@ public class VillagerInstance {
 
     private VillagerInstance(VillagerBuilder builder) {
         this.name = builder.name;
+        this.proficiency = builder.proficiency;
+        this.rarity = builder.rarity;
+        this.levelRequirement = builder.levelRequirement;
         this.profession = builder.profession;
         this.recipes = builder.recipes;
     }
@@ -27,7 +39,7 @@ public class VillagerInstance {
     public void spawn(World world, Location location) {
         org.bukkit.entity.Villager entity = (org.bukkit.entity.Villager) world.spawnEntity(location, EntityType.VILLAGER);
         entity.setCustomNameVisible(true);
-        entity.setCustomName(name);
+        entity.setCustomName(rarity.getColor() + name);
         entity.setCollidable(false);
         entity.setAI(false);
         entity.setCanPickupItems(false);
@@ -40,7 +52,7 @@ public class VillagerInstance {
 
     public boolean isSame(Villager villager) {
         if (!villager.isCustomNameVisible()) return false;
-        if (!villager.getCustomName().equals(name)) return false;
+        if (!ChatColor.stripColor(villager.getCustomName()).equals(name)) return false;
         if (villager.getProfession() != profession) return false;
         if (villager.isCollidable()) return false;
         if (villager.hasAI()) return false;
@@ -51,6 +63,18 @@ public class VillagerInstance {
     }
 
 
+    public Proficiency getProficiency() {
+        return proficiency;
+    }
+
+    public int getLevelRequirement() {
+        return levelRequirement;
+    }
+
+    public Rarity getRarity() {
+        return rarity;
+    }
+
 
     public static class VillagerBuilder {
         private final String name;
@@ -59,13 +83,34 @@ public class VillagerInstance {
 
         private final org.bukkit.entity.Villager.Profession profession;
 
-        public VillagerBuilder(String name, org.bukkit.entity.Villager.Profession profession) {
+        private Proficiency proficiency = Proficiency.NONE;
+
+        private Rarity rarity = Rarity.NONE;
+
+        private int levelRequirement = 0;
+
+
+        public VillagerBuilder(String name, Villager.Profession profession) {
             this.name = name;
             this.profession = profession;
         }
 
-        public VillagerBuilder addRecipe(MerchantRecipe recipe) {
-            recipes.add(recipe);
+        public VillagerBuilder level(int levelRequirement) {
+            this.levelRequirement = levelRequirement;
+            return this;
+        }
+
+        public VillagerBuilder proficiency(Proficiency proficiency) {
+            this.proficiency = proficiency;
+            return this;
+        }
+        public VillagerBuilder rarity(Rarity rarity) {
+            this.rarity = rarity;
+            return this;
+        }
+
+        public VillagerBuilder add(MerchantRecipe recipe) {
+            this.recipes.add(recipe);
             return this;
         }
 

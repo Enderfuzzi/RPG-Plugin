@@ -1,5 +1,8 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.items.DefaultItem;
+import com.falgael.rpg.items.Item;
+import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.Items;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
@@ -23,13 +26,15 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ProficiencyCalculation implements ProficiencyCalculationAdapter, PlayerMessage {
-
+    // TODO WIP change Items to Item
 
     private final PlayerExperienceManagement playerExperience;
 
+    private final ItemManagement itemManagement;
 
-    public ProficiencyCalculation(PlayerExperienceManagement playerExperience) {
+    public ProficiencyCalculation(PlayerExperienceManagement playerExperience, ItemManagement itemManagement) {
         this.playerExperience = playerExperience;
+        this.itemManagement = itemManagement;
     }
 
     @Override
@@ -53,8 +58,8 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         return multiplier;
     }
 
-    public Items getItem(Player player, EquipmentSlot slot) {
-        if (player == null || slot == null) return Items.NONE;
+    public DefaultItem getItem(Player player, EquipmentSlot slot) {
+        if (player == null || slot == null) return itemManagement.;
         return Items.getItem(player.getInventory().getItem(slot));
     }
 
@@ -82,11 +87,10 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
     @Override
-    public List<ItemSet> getFulfilledSets(Player player, List<Items> equippedItems) {
+    public List<ItemSet> getFulfilledSets(Player player, List<Item> equippedItems) {
         List<ItemSet> result = new ArrayList<>();
         HashMap<ItemSet, Integer> setOccurrence = new HashMap<>();
-        for (Items currentItem : equippedItems) {
-            if (!currentItem.hasEquipmentSet()) continue;
+        for (Item currentItem : equippedItems) {
             if (setOccurrence.containsKey(currentItem.getEquipmentSet())) {
                 setOccurrence.put(currentItem.getEquipmentSet(), setOccurrence.get(currentItem.getEquipmentSet()) + 1);
             } else {
@@ -151,21 +155,21 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
 
-    public boolean performAction(Event e, Items item) {
+    public boolean performAction(Event e, Item item) {
         if (e == null || item == null) return false;
-        if (!item.hasConfiguration() || !item.getConfiguration().hasAction()) return false;
+        if (!item.getConfiguration().hasAction()) return false;
         return item.getConfiguration().getAction().accept(e);
     }
 
-    public boolean performAction(Event e, Items item, Player player) {
+    public boolean performAction(Event e, Item item, Player player) {
         if (player == null) return false;
         if (!fulfillLevelRequirement(player, item)) return false;
         Bukkit.getLogger().info("Accepted level requirement");
         return performAction(e, item);
     }
 
-    public boolean performAction(Player player, Event e, PredicateConsumer<Items> predicate) {
-        Items item = getItem(player, EquipmentSlot.HAND);
+    public boolean performAction(Player player, Event e, PredicateConsumer<Item> predicate) {
+        Item item = getItem(player, EquipmentSlot.HAND);
         if (item.isNone()) return false;
         if (!predicate.accept(item)) return false;
         return performAction(e, item, player);

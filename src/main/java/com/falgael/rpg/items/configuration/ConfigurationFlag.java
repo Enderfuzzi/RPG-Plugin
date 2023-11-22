@@ -108,6 +108,8 @@ public enum ConfigurationFlag implements ItemEffect {
         };
     }
 
-
+    public enum Special {
+        BREAKING_TOOL
+    }
 
 }

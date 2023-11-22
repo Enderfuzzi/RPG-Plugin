@@ -19,6 +19,7 @@ public class ItemConfiguration {
 
     private final HashMap<ConfigurationFlag, Double> flags;
 
+    private final List<ConfigurationFlag.Special> specialFlags;
 
     private final List<PotionEffect> potionEffects;
 
@@ -29,9 +30,10 @@ public class ItemConfiguration {
      */
     private PredicateConsumer<Event> action;
 
-    private ItemConfiguration(List<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Double> flags, List<PotionEffect> potionEffects, PredicateConsumer<Event> action) {
+    private ItemConfiguration(List<EquipmentSlot> equipmentSlot, HashMap<ConfigurationFlag, Double> flags, List<PotionEffect> potionEffects, List<ConfigurationFlag.Special> specialFlags , PredicateConsumer<Event> action) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
+        this.specialFlags = specialFlags;
         this.potionEffects = potionEffects;
 
 
@@ -101,6 +103,9 @@ public class ItemConfiguration {
     }
 
 
+    public boolean hasSpecialFlag(ConfigurationFlag.Special flag) {
+        return specialFlags.contains(flag);
+    }
 
 
 
@@ -120,6 +125,8 @@ public class ItemConfiguration {
     public static class Builder {
         private List<EquipmentSlot> equipmentSlot;
         private HashMap<ConfigurationFlag,Double> flags;
+
+        private List<ConfigurationFlag.Special> specialFlags;
         private List<PotionEffect> potionEffects;
 
 
@@ -168,6 +175,11 @@ public class ItemConfiguration {
          */
         public Builder addFlag(ConfigurationFlag flag, Double value) {
             flags.put(flag,value);
+            return this;
+        }
+
+        public Builder addFlag(ConfigurationFlag.Special flag) {
+            this.specialFlags.add(flag);
             return this;
         }
 

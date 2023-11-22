@@ -1,9 +1,11 @@
 package com.falgael.rpg.handler;
 
+import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.Items;
 import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.misc.Calculations;
 import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Material;
 import org.bukkit.block.data.type.Beehive;
 import org.bukkit.event.EventHandler;
@@ -15,15 +17,15 @@ import java.util.List;
 
 public class PlayerInteractBlockHandler extends MainHandler {
 
-    public PlayerInteractBlockHandler(ProficiencyCalculationAdapter proficiencyAdapter) {
-        super(proficiencyAdapter);
+    public PlayerInteractBlockHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter) {
+        super(proficiencyAdapter, itemAdapter, villagerAdapter);
     }
 
     @EventHandler
     public void onPlayerInteractWithBlock(PlayerInteractEvent event) {
         if (!event.hasBlock()) return;
 
-        if (proficiencyAdapter.performAction(event, Items.getItem(event.getItem()), event.getPlayer())) return;
+        if (proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getItem()), event.getPlayer())) return;
 
         if (event.getClickedBlock().getBlockData() instanceof Beehive beehive) {
             if (beehive.getHoneyLevel() != beehive.getMaximumHoneyLevel()) return;

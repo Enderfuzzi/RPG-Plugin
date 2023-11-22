@@ -1,9 +1,12 @@
 package com.falgael.rpg.handler;
 
+import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.Items;
 import com.falgael.rpg.manager.PlayerExperienceManagement;
+import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.misc.Calculations;
 import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -18,7 +21,7 @@ import org.bukkit.plugin.Plugin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemHeldHandler implements Listener {
+public class ItemHeldHandler extends MainHandler {
 
     private int taskId;
 
@@ -37,7 +40,8 @@ public class ItemHeldHandler implements Listener {
     }
 
 
-    public ItemHeldHandler(Plugin plugin, PlayerExperienceManagement playerExperienceManager) {
+    public ItemHeldHandler(PlayerExperienceManagement playerExperienceManager, ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter, Plugin plugin) {
+        super(proficiencyAdapter,itemAdapter, villagerAdapter);
         this.playerExperienceManager = playerExperienceManager;
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Thread(() -> {
             for (Player player : activePlayer) {
@@ -74,7 +78,7 @@ public class ItemHeldHandler implements Listener {
     }
 
     private boolean checkStatOMeter(ItemStack item, Player player) {
-        if (Items.getItem(item) == Items.STAT_O_METER) {
+        if (itemAdapter.getItem(item).getID() == 0000) {
             loreModification(item, player);
             return true;
         }

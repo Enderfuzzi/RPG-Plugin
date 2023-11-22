@@ -1,8 +1,10 @@
 package com.falgael.rpg.handler;
 
 
+import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Arrow;
 
@@ -14,8 +16,8 @@ import org.bukkit.event.entity.ProjectileLaunchEvent;
 public class ArrowShootHandler extends MainHandler {
 
 
-    public ArrowShootHandler(ProficiencyCalculationAdapter proficiencyAdapter) {
-        super(proficiencyAdapter);
+    public ArrowShootHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter) {
+        super(proficiencyAdapter, itemAdapter, villagerAdapter);
     }
 
     @EventHandler
