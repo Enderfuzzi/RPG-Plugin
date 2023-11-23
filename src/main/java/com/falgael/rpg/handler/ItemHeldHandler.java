@@ -1,17 +1,12 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
+import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.manager.PlayerExperienceManagement;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
-import com.falgael.rpg.misc.Calculations;
 import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
@@ -40,12 +35,12 @@ public class ItemHeldHandler extends MainHandler {
     }
 
 
-    public ItemHeldHandler(PlayerExperienceManagement playerExperienceManager, ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter, Plugin plugin) {
-        super(proficiencyAdapter,itemAdapter, villagerAdapter);
+    public ItemHeldHandler(PlayerExperienceManagement playerExperienceManager, MainManagement mainManager, Plugin plugin) {
+        super(mainManager);
         this.playerExperienceManager = playerExperienceManager;
         taskId = Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Thread(() -> {
             for (Player player : activePlayer) {
-                Calculations.applyPotionEffects(player);
+                proficiencyAdapter.applyPotionEffects(player);
                 checkStatOMeter(player);
             }
         }), 200,100);
@@ -57,7 +52,7 @@ public class ItemHeldHandler extends MainHandler {
 
 
     private void loreModification(ItemStack item, Player player) {
-
+        if (!item.hasItemMeta()) return;
         ItemMeta itemMeta = item.getItemMeta();
 
         List<String> newLore = new ArrayList<>();
@@ -78,7 +73,7 @@ public class ItemHeldHandler extends MainHandler {
     }
 
     private boolean checkStatOMeter(ItemStack item, Player player) {
-        if (itemAdapter.getItem(item).getID() == 0000) {
+        if (itemAdapter.getItem(item).getID() == -1) {
             loreModification(item, player);
             return true;
         }

@@ -28,6 +28,7 @@ public class SpawnItemChest implements CommandExecutor {
      */
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        /*
         if (!(sender instanceof Player player)) return false;
 
         if (args.length != 1) {
@@ -51,6 +52,8 @@ public class SpawnItemChest implements CommandExecutor {
         }
 
 
+         */
+//TODO Fix command
         return true;
     }
 }

@@ -225,7 +225,7 @@ public class ItemConfiguration {
          * @return the new Created ItemConfiguration
          */
         public ItemConfiguration create() {
-            return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
+            return new ItemConfiguration(equipmentSlot, flags, potionEffects, specialFlags, action);
         }
     }
 }

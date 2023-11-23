@@ -36,6 +36,7 @@ public class GetItem implements CommandExecutor, TabCompleter {
      */
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        /*
         if (!(sender instanceof Player player)) return false;
 
         if (args.length != 2) {
@@ -77,6 +78,8 @@ public class GetItem implements CommandExecutor, TabCompleter {
             return true;
         }
 
+
+         */
         return false;
     }
 
@@ -96,6 +99,7 @@ public class GetItem implements CommandExecutor, TabCompleter {
     @Nullable
     @Override
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+        /*
         if (!(sender instanceof Player player)) return null;
         if (!command.getName().equals("get")) return null;
         if (args.length == 1) return List.of(ITEM,SET,PROFICIENCY);
@@ -116,6 +120,8 @@ public class GetItem implements CommandExecutor, TabCompleter {
             }
             if (!result.isEmpty()) return result;
         }
-        return null;
+
+         */
+        return null;//TODO Fix command
     }
 }

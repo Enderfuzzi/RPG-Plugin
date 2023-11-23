@@ -1,5 +1,6 @@
 package com.falgael.rpg.villager;
 
+import com.falgael.rpg.items.ItemManagement;
 import org.bukkit.entity.Villager;
 
 import java.util.ArrayList;
@@ -13,16 +14,16 @@ public class VillagerManager implements VillagerManagement {
 
     private List<VillagerDefinition> registeredClasses;
 
-    public VillagerManager() {
+    public VillagerManager(ItemManagement itemManager) {
         villagers = new ArrayList<>();
         registeredClasses = new ArrayList<>();
-        registeredClasses();
+        registeredClasses(itemManager);
         init();
     }
 
 
-    private void registeredClasses() {
-        registerClass(new com.falgael.rpg.woodwork.Villager());
+    private void registeredClasses(ItemManagement itemManager) {
+        registerClass(new com.falgael.rpg.woodwork.Villager(itemManager));
     }
 
     private void init() {

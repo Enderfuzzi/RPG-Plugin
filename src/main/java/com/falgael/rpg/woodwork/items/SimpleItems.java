@@ -1,5 +1,6 @@
 package com.falgael.rpg.woodwork.items;
 
+import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.ItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
@@ -16,8 +17,8 @@ import java.util.List;
 
 public class SimpleItems implements ItemDefinition {
     @Override
-    public List<Item> getItems() {
-        List<Item> results = new ArrayList<>();
+    public List<DefaultItem> getItems() {
+        List<DefaultItem> results = new ArrayList<>();
 
         results.add(
                 new Item(

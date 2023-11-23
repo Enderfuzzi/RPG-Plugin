@@ -29,9 +29,9 @@ public class VillagerSpawnTabComplete implements TabCompleter {
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player player)) return null;
         if (command.getName().equals("spawn_villager") && args.length <= 1) {
-            return CustomVillager.getVillagerKeys().stream().toList();
+            //return CustomVillager.getVillagerKeys().stream().toList();
         }
-
+        //TODO Fix command
 
         
         return null;

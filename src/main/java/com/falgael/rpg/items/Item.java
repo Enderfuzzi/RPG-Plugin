@@ -58,6 +58,7 @@ public class Item implements DefaultItem {
 
 
     private void createItemStack() {
+        if (!itemStackRepresentation.hasItemMeta()) return;
         ItemMeta itemMeta = getItemMeta();
 
         itemMeta.setDisplayName(rarity.getColor() + name);
@@ -97,12 +98,6 @@ public class Item implements DefaultItem {
     @Override
     public boolean isWeapon() {
         return false;
-    }
-
-    //TODO DEFAULT item add
-    @Override
-    public Item getDefault() {
-        return DEFAULT;
     }
 
 

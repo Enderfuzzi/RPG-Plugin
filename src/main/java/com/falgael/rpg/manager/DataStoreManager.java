@@ -19,7 +19,9 @@ public class DataStoreManager implements DataStoreManagement {
 
     private static final String DATA_PATH = File.separator + "data";
 
-    private static final String DATA_PROFICIENCY_PATH = DATA_PATH + File.separator +"proficiency";
+    private static final String DATA_PLAYER_PATH = DATA_PATH + File.separator + "player";
+
+    private static final String DATA_PROFICIENCY_PATH = DATA_PLAYER_PATH + File.separator + "proficiency";
 
 
     private Plugin plugin;
@@ -33,6 +35,7 @@ public class DataStoreManager implements DataStoreManagement {
 
         checkAndCreateDirectory(plugin.getDataFolder());
         checkAndCreateDirectory(plugin.getDataFolder() + DATA_PATH);
+        checkAndCreateDirectory(plugin.getDataFolder() + DATA_PLAYER_PATH);
         checkAndCreateDirectory(plugin.getDataFolder() + DATA_PROFICIENCY_PATH);
 
         Bukkit.getLogger().info("[" + DataStoreManager.class.getSimpleName() + "]: Finished initializing");

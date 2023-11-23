@@ -29,7 +29,7 @@ public class ItemManager implements ItemManagement{
       new ItemConfiguration.Builder().create()
     );
 
-    private HashMap<String, Item> items;
+    private HashMap<String, DefaultItem> items;
 
     private List<ItemDefinition> registeredClasses;
 
@@ -56,12 +56,22 @@ public class ItemManager implements ItemManagement{
 
 
     @Override
-    public Item getItem(ItemStack item) {
+    public DefaultItem getItem(ItemStack item) {
         if (item == null) return DEFAULT_ITEM;
         if (!item.hasItemMeta()) return DEFAULT_ITEM;
         ItemMeta meta = item.getItemMeta();
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
         String key = item.getType().toString() + "_" + ChatColor.stripColor(meta.getDisplayName());
         return items.getOrDefault(key, DEFAULT_ITEM);
+    }
+
+    @Override
+    public DefaultItem getDefault() {
+        return DEFAULT_ITEM;
+    }
+
+    @Override
+    public boolean isDefault(DefaultItem item) {
+        return item.equals(DEFAULT_ITEM);
     }
 }

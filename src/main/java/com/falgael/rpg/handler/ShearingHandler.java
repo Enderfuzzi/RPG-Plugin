@@ -1,16 +1,12 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
-import com.falgael.rpg.misc.Calculations;
+import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.villager.VillagerManagement;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Sheep;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerShearEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -40,8 +36,8 @@ public class ShearingHandler extends MainHandler {
             .put(DyeColor.BLACK, Material.BLACK_WOOL)
             .build();
 
-    public ShearingHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter) {
-        super(proficiencyAdapter, itemAdapter, villagerAdapter);
+    public ShearingHandler(MainManagement mainManager) {
+        super(mainManager);
     }
 
 

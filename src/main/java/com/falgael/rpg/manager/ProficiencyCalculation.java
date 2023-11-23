@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ProficiencyCalculation implements ProficiencyCalculationAdapter, PlayerMessage {
-    // TODO WIP change Items to Item
 
     private final PlayerExperienceManagement playerExperience;
 
@@ -42,10 +41,9 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         if (flag == null || proficiency == null || player == null) return 0L;
         double multiplier = 1;
 
-        List<Items> items = getEquippedItems(player);
-        for (Items currentItem : items) {
+        List<DefaultItem> items = getEquippedItems(player);
+        for (DefaultItem currentItem : items) {
             if (currentItem.hasProficiency(proficiency)) continue;
-            if (!currentItem.hasConfiguration()) continue;
             multiplier += currentItem.getConfiguration().getValue(flag);
         }
 
@@ -59,13 +57,12 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
     public DefaultItem getItem(Player player, EquipmentSlot slot) {
-        if (player == null || slot == null) return itemManagement.;
-        return Items.getItem(player.getInventory().getItem(slot));
+        if (player == null || slot == null) return itemManagement.getDefault();
+        return itemManagement.getItem(player.getInventory().getItem(slot));
     }
 
     @Override
-    public boolean fulfillLevelRequirement(Player player, @NotNull Items item) {
-        if (!item.hasConfiguration()) return true;
+    public boolean fulfillLevelRequirement(Player player, @NotNull DefaultItem item) {
         if (!item.getConfiguration().hasFlag(ConfigurationFlag.LEVEL_REQUIREMENT)) return true;
         for (Proficiency currentProficiency : item.getProficiencies()) {
             if (!currentProficiency.levelCheck()) continue;
@@ -74,11 +71,11 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         return true;
     }
 
-    public List<Items> getEquippedItems(Player player) {
-        List<Items> result = new ArrayList<>();
+    public List<DefaultItem> getEquippedItems(Player player) {
+        List<DefaultItem> result = new ArrayList<>();
         for (EquipmentSlot slot : EquipmentSlot.values()) {
-            Items item = getItem(player, slot);
-            if (item.isNone()) continue;
+            DefaultItem item = getItem(player, slot);
+            if (itemManagement.isDefault(item)) continue;
             if (!fulfillLevelRequirement(player, item)) continue;
             result.add(item);
         }
@@ -87,10 +84,10 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
     @Override
-    public List<ItemSet> getFulfilledSets(Player player, List<Item> equippedItems) {
+    public List<ItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems) {
         List<ItemSet> result = new ArrayList<>();
         HashMap<ItemSet, Integer> setOccurrence = new HashMap<>();
-        for (Item currentItem : equippedItems) {
+        for (DefaultItem currentItem : equippedItems) {
             if (setOccurrence.containsKey(currentItem.getEquipmentSet())) {
                 setOccurrence.put(currentItem.getEquipmentSet(), setOccurrence.get(currentItem.getEquipmentSet()) + 1);
             } else {
@@ -155,31 +152,30 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
 
-    public boolean performAction(Event e, Item item) {
+    public boolean performAction(Event e, DefaultItem item) {
         if (e == null || item == null) return false;
         if (!item.getConfiguration().hasAction()) return false;
         return item.getConfiguration().getAction().accept(e);
     }
 
-    public boolean performAction(Event e, Item item, Player player) {
+    public boolean performAction(Event e, DefaultItem item, Player player) {
         if (player == null) return false;
         if (!fulfillLevelRequirement(player, item)) return false;
         Bukkit.getLogger().info("Accepted level requirement");
         return performAction(e, item);
     }
 
-    public boolean performAction(Player player, Event e, PredicateConsumer<Item> predicate) {
-        Item item = getItem(player, EquipmentSlot.HAND);
-        if (item.isNone()) return false;
+    public boolean performAction(Player player, Event e, PredicateConsumer<DefaultItem> predicate) {
+        DefaultItem item = getItem(player, EquipmentSlot.HAND);
+        if (itemManagement.isDefault(item)) return false;
         if (!predicate.accept(item)) return false;
         return performAction(e, item, player);
     }
 
 
     public void applyPotionEffects(Player player) {
-        List<Items> equippedItems = getEquippedItems(player);
-        for (Items item : equippedItems) {
-            if (!item.hasConfiguration()) continue;
+        List<DefaultItem> equippedItems = getEquippedItems(player);
+        for (DefaultItem item : equippedItems) {
             if (!item.getConfiguration().hasPotionEffect()) continue;
             for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
         }

@@ -16,8 +16,8 @@ public class VillagerSpawn implements CommandExecutor {
             return false;
         }
 
-        CustomVillager.getVillager(args[0]).getVillager().spawn(player.getWorld(),player.getLocation());
-
+        //CustomVillager.getVillager(args[0]).getVillager().spawn(player.getWorld(),player.getLocation());
+//TODO Fix command
         return true;
 
     }

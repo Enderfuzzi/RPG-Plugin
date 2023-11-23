@@ -18,6 +18,7 @@ import java.util.Set;
 
 public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
+    /*
     NONE(Rarity.NONE, Proficiency.NONE,Villager.Profession.NONE),
 
     //--------------------------------------------------------------------------------------------
@@ -56,7 +57,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
     // Woodwork
     //--------------------------------------------------------------------------------------------
-
+    /*
     CARPENTER_1(Rarity.SIMPLE, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 1,
             new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create(),
             new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create(),
@@ -87,6 +88,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
                     .create(),1),
 
      */
+    /*
     CARPENTER_2(Rarity.COMMON, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 5,
             new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
             new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
@@ -123,7 +125,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
      */
-    
+    /*
     CARPENTER_3(Rarity.ADVANCED, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 10,
             new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
             new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
@@ -157,7 +159,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
      */
-
+/*
     CARPENTER_4(Rarity.ELITE, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 20,
             new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
             new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
@@ -190,6 +192,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
      */
+    /*
     CARPENTER_5(Rarity.EPIC, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 40,
             new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
             new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
@@ -220,6 +223,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
      */
+    /*
     CARPENTER_6(Rarity.LEGENDARY, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 50
             ),
     /*
@@ -235,7 +239,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
     // Stonework
     //--------------------------------------------------------------------------------------------
-
+/*
     MASON_1(Rarity.SIMPLE, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 1,
                     new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create(),
                     new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create(),
@@ -269,6 +273,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
  */
+    /*
     MASON_3(Rarity.ADVANCED, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 10,
 
                     new MerchantRecipeBuilder(new ItemStack(Material.COAL,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
@@ -358,9 +363,9 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
                     new MerchantRecipeBuilder(new ItemStack(Material.COOKED_COD, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
                     new MerchantRecipeBuilder(new ItemStack(Material.COOKED_SALMON, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
 
-                    new MerchantRecipeBuilder(Items.GOLD_COIN.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create(),
+                    new MerchantRecipeBuilder(Items.GOLD_COIN.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create()
             ),
-
+    /*
     FARMER_4(Rarity.ELITE, Proficiency.FARMING.getName() + "_TIER_IV", Proficiency.FARMING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, Proficiency.FARMING), CustomVillager.Profession.FARMER)
 
@@ -383,8 +388,6 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
                     .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WITHER_ROSE, 16)).addIngredients(Items.SILVER_COIN.getItem()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_EPIC_HOE.getItem()).addIngredients(CustomTool.FARMING_ELITE_HOE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 32)).create())
                     .create(), 20),
 
     FARMING_TIER_V(Proficiency.FARMING.getName() + "_TIER_V", Proficiency.FARMING,
@@ -462,8 +465,11 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
                     .create(),60),
 
 
+
+     */
     ;
 
+    /*
     private final Proficiency proficiency;
 
     private final int levelRequirement;
@@ -488,7 +494,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
         this.proficiency = proficiency;
         VillagerInstance.VillagerBuilder tmp = new VillagerInstance.VillagerBuilder(rarity.getColor() + buildName(this.name()), profession);
         for (MerchantRecipe recipe : recipes) {
-            tmp.addRecipe(recipe);
+            tmp.add(recipe);
         }
         this.villagerInstance = tmp.create();
         this.levelRequirement = levelRequirement;
@@ -503,11 +509,12 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     }
 
     public boolean isNone() {
-        return NONE == this;
+        return this == this;
     }
 
-    public static CustomVillager getVillager(String key) {
-        return villagers.getOrDefault(key, NONE);
+    public static boolean getVillager(String key) {
+        //return villagers.getOrDefault(key, NONE);
+        return true;
     }
 
     public static CustomVillager getVillager(org.bukkit.entity.Villager villager) {
@@ -530,5 +537,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
         return rarity.getRepresentation() + proficiency.getRepresentation();
     }
 
+
+     */
 
 }

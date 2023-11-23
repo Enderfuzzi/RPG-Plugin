@@ -4,7 +4,11 @@ import org.bukkit.inventory.ItemStack;
 
 public interface ItemManagement {
 
-    Item getItem(ItemStack item);
+    DefaultItem getItem(ItemStack item);
+
+    DefaultItem getDefault();
+
+    boolean isDefault(DefaultItem item);
 
 
 }

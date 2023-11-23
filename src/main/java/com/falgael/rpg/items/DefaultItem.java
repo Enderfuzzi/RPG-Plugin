@@ -29,6 +29,4 @@ public interface DefaultItem {
     boolean isBreakingTool();
     boolean isWeapon();
 
-
-    Item getDefault();
 }

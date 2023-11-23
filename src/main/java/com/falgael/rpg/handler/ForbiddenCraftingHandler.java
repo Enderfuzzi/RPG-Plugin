@@ -26,7 +26,7 @@ public class ForbiddenCraftingHandler implements Listener {
     public void preCrafting(PrepareItemCraftEvent event) {
 
         if (event.getInventory().getResult() == null) return;
-
+        /*
         for (ItemStack ingredient : event.getInventory().getMatrix()) {
             if (ingredient == null) continue;
             if (!Items.getItem(ingredient).isNone() || forbiddenIngredients.contains(ingredient)) {
@@ -34,6 +34,8 @@ public class ForbiddenCraftingHandler implements Listener {
                 return;
             }
         }
+
+         */
 
     }
 

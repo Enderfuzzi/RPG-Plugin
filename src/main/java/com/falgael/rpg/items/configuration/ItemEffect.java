@@ -1,6 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.misc.Calculations;
+import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.stats.BlockStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -23,6 +23,7 @@ import java.util.*;
 public interface ItemEffect {
 
     default boolean cropHarvest(Event e) {
+        /*
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
         if (block.isNone()) return false;
@@ -64,6 +65,9 @@ public interface ItemEffect {
         }
 
         return true;
+
+         */
+        return false;
     }
 
 
@@ -224,6 +228,7 @@ public interface ItemEffect {
     }
 
     private boolean veinHarvest(Event e, int maxAmount, Predicate consumer) {
+        /*
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
         ArrayList<Location> blocks = getSurroundedBlocks(event.getBlock().getLocation(), maxAmount, consumer);
@@ -243,6 +248,9 @@ public interface ItemEffect {
             location.getBlock().setType(Material.AIR);
         }
         return true;
+
+         */
+        return false;
     }
 
 

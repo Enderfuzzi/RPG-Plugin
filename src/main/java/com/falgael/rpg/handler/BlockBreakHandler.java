@@ -1,19 +1,13 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.items.Item;
-import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
-import com.falgael.rpg.misc.Calculations;
+import com.falgael.rpg.manager.MainManagement;
 
 import com.falgael.rpg.stats.BlockStats;
 
-import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 
 
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import org.bukkit.inventory.ItemStack;
@@ -24,8 +18,8 @@ import java.util.List;
 public class BlockBreakHandler extends MainHandler {
 
 
-    public BlockBreakHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter) {
-        super(proficiencyAdapter, itemAdapter, villagerAdapter);
+    public BlockBreakHandler(MainManagement mainManager) {
+        super(mainManager);
     }
 
     @EventHandler
@@ -35,7 +29,7 @@ public class BlockBreakHandler extends MainHandler {
         if (block.isNone()) return;
 
 
-        if (proficiencyAdapter.performAction(event.getPlayer(),event, Item::isBreakingTool)) return;
+        if (proficiencyAdapter.performAction(event.getPlayer(),event, i -> i.isBreakingTool())) return;
 
        proficiencyAdapter.calculateExperience(event.getPlayer(),block.getProficiencies(),block.getExperienceAmount());
 

@@ -1,6 +1,6 @@
 package com.falgael.rpg.manager;
 
-import com.falgael.rpg.items.Item;
+import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Items;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
@@ -20,14 +20,14 @@ public interface ProficiencyCalculationAdapter {
 
 
     double calculateMultiplier(Player player, Proficiency proficiency, ConfigurationFlag flag);
-    Items getItem(Player player, EquipmentSlot slot);
+    DefaultItem getItem(Player player, EquipmentSlot slot);
 
-    boolean fulfillLevelRequirement(Player player, Items item);
+    boolean fulfillLevelRequirement(Player player, DefaultItem item);
 
 
-    List<Items> getEquippedItems(Player player);
+    List<DefaultItem> getEquippedItems(Player player);
 
-    List<ItemSet> getFulfilledSets(Player player, List<Item> equippedItems);
+    List<ItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems);
 
     void calculateExperience(Player player, List<Proficiency> proficiencies, long baseExperience);
 
@@ -74,10 +74,10 @@ public interface ProficiencyCalculationAdapter {
     }
 
 
-    boolean performAction(Event e, Item item);
-    boolean performAction(Event e, Item item, Player player);
+    boolean performAction(Event e, DefaultItem item);
+    boolean performAction(Event e, DefaultItem item, Player player);
 
-    boolean performAction(Player player, Event e, PredicateConsumer<Item> predicate);
+    boolean performAction(Player player, Event e, PredicateConsumer<DefaultItem> predicate);
 
     void applyPotionEffects(Player player);
 

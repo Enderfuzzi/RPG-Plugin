@@ -1,15 +1,11 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
-import com.falgael.rpg.misc.Calculations;
+import com.falgael.rpg.items.DefaultItem;
+import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerFishEvent;
 
 import java.util.List;
@@ -18,14 +14,14 @@ public class PlayerFishHandler extends MainHandler {
 
     private static final long BASE_EXPERIENCE = 8L;
 
-    public PlayerFishHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter) {
-        super(proficiencyAdapter, itemAdapter, villagerAdapter);
+    public PlayerFishHandler(MainManagement mainManager) {
+        super(mainManager);
     }
 
     @EventHandler
     public void onFishEvent(PlayerFishEvent event) {
         if (event.isCancelled()) return;
-        com.falgael.rpg.items.Item handItem = itemAdapter.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        DefaultItem handItem = itemAdapter.getItem(event.getPlayer().getInventory().getItemInMainHand());
         if (event.getState() == PlayerFishEvent.State.CAUGHT_FISH) {
             if (proficiencyAdapter.performAction(event, handItem, event.getPlayer())) return;
             if (event.getCaught() instanceof Item item) {

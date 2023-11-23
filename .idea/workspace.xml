@@ -4,11 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b46bf1b-530d-4acc-aee0-55441c7904d6" name="Changes" comment="Removed unused import">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="5b46bf1b-530d-4acc-aee0-55441c7904d6" name="Changes" comment="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/MainManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/MainManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/MainVillagerDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/RPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/RPG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/chest/SpawnItemChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/chest/SpawnItemChest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/experience/ManipulateExperience.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/experience/ManipulateExperience.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/items/GetItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/items/GetItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawnTabComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawnTabComplete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ArrowShootHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ArrowShootHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/BlockBreakHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/BlockBreakHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/CraftingResultsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/CraftingResultsHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/DamageHitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/DamageHitHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/EntityDeathHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/EntityDeathHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ForbiddenCraftingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ForbiddenCraftingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/HarvestBlockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/HarvestBlockHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemBurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemBurnHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemHeldHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemHeldHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/MainHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/MainHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerFishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerFishHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractBlockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractBlockHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ShearingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ShearingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/TestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/TestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/VillagerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/VillagerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/DefaultItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/DefaultItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemEffect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/DataStoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/DataStoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculationAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculationAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/misc/Calculations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/proficiency/Utils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/CustomVillager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/CustomVillager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/Villager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/Villager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/items/SimpleItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/items/SimpleItems.java" afterDir="false" />
     </list>
+    <list id="34aa506b-cf0b-44ce-a1ad-bc2c20be162a" name="No to change" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +94,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -67,7 +110,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="savingPatch" />
+        <entry key="$PROJECT_DIR$" value="Refactor" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,37 +134,104 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2SpvbOSDF9vtaYClHgUUfAlDv6z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "R:/Users/Ole/Projekte/Spigot/RPG",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "inlay.hints"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;R:/Users/Ole/Projekte/Spigot/RPG&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="com.falgael.rpg.proficiencies.ProficiencyManager" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.falgael.rpg.utility.items" />
-      <recent name="com.falgael.rpg.proficiencies.player" />
-      <recent name="com.falgael.rpg.proficiencies.template" />
-      <recent name="com.falgael.rpg.experience.data.woodwork" />
-      <recent name="com.falgael.rpg.experience.data.foraging" />
+      <recent name="com.falgael.rpg.woodwork.items" />
+      <recent name="com.falgael.rpg.woodwork" />
+      <recent name="com.falgael.rpg.proficiency.items" />
+      <recent name="com.falgael.rpg.proficiency.handler" />
+      <recent name="com.falgael.rpg.commands.Villager" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.RPG [build]">
+    <configuration name="RPG [assemble]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="assemble" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RPG [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildDependents" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RPG [buildNeeded]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="buildNeeded" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="RPG [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -143,7 +253,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RPG [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RPG [init]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -154,28 +264,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="RPG [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
+            <option value="init" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -188,10 +277,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.RPG [build]" />
-        <item itemvalue="Gradle.RPG [jar]" />
-        <item itemvalue="Gradle.RPG [clean]" />
-        <item itemvalue="Gradle.RPG [build]" />
-        <item itemvalue="Gradle.RPG [jar]" />
+        <item itemvalue="Gradle.RPG [assemble]" />
+        <item itemvalue="Gradle.RPG [buildDependents]" />
+        <item itemvalue="Gradle.RPG [init]" />
+        <item itemvalue="Gradle.RPG [buildNeeded]" />
       </list>
     </recent_temporary>
   </component>
@@ -202,335 +291,360 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="5b46bf1b-530d-4acc-aee0-55441c7904d6" name="Changes" comment="" />
+      <changelist id="34aa506b-cf0b-44ce-a1ad-bc2c20be162a" name="No to change" comment="" />
       <created>1689856407521</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1689856407521</updated>
     </task>
-    <task id="LOCAL-00001" summary="Inital Project setup">
-      <created>1689856722143</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00087" summary="Implemented and modification of Infinite Burn item">
+      <created>1693734734577</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
       <option name="project" value="LOCAL" />
-      <updated>1689856722143</updated>
+      <updated>1693734734577</updated>
     </task>
-    <task id="LOCAL-00002" summary="Project Setup: Added Spigot dependency 1.20.1">
-      <created>1689863835661</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+    <task id="LOCAL-00088" summary="Added Concrete Traits to Tier IV">
+      <created>1693735608007</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
       <option name="project" value="LOCAL" />
-      <updated>1689863835661</updated>
+      <updated>1693735608008</updated>
     </task>
-    <task id="LOCAL-00003" summary="First runnable implementation with message on reload">
-      <created>1689868209390</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
+    <task id="LOCAL-00089" summary="Added bunch of Farming items">
+      <created>1693738669716</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
       <option name="project" value="LOCAL" />
-      <updated>1689868209390</updated>
+      <updated>1693738669716</updated>
     </task>
-    <task id="LOCAL-00004" summary="First rudiment non-functional implementation of Foraging experience class">
-      <created>1689961196530</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
+    <task id="LOCAL-00090" summary="Added a new Command for spawning a chest with items">
+      <created>1693826975988</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
       <option name="project" value="LOCAL" />
-      <updated>1689961196530</updated>
+      <updated>1693826975988</updated>
     </task>
-    <task id="LOCAL-00005" summary="Rename of Main file to match conventions">
-      <created>1689961303567</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
+    <task id="LOCAL-00091" summary="Fixed Command Error">
+      <created>1693827484852</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
       <option name="project" value="LOCAL" />
-      <updated>1689961303567</updated>
+      <updated>1693827484852</updated>
     </task>
-    <task id="LOCAL-00006" summary="Class definitions for Experience implementation">
-      <created>1689961339198</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
+    <task id="LOCAL-00092" summary="Added shearing Handler for Sheep">
+      <created>1693827618419</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
       <option name="project" value="LOCAL" />
-      <updated>1689961339198</updated>
+      <updated>1693827618419</updated>
     </task>
-    <task id="LOCAL-00007" summary="First functional implementation of Foraging Xp">
-      <created>1689970680983</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
+    <task id="LOCAL-00093" summary="Added Farming Blocks and Honey Experience">
+      <created>1693827678524</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
       <option name="project" value="LOCAL" />
-      <updated>1689970680983</updated>
+      <updated>1693827678524</updated>
     </task>
-    <task id="LOCAL-00008" summary="Overhaul of Foraging Functionality. &#10;Implemented ExperienceFramework as Abstract class providing many needed features. ExperienceData holds a list of data which is assigned to each Player. This enables looping through each experience proficiency. Renamed many Functions and updated javadoc to match the functionality.">
-      <created>1689975352876</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
+    <task id="LOCAL-00094" summary="Changes for Testing, added Handler removed getting items on join">
+      <created>1693827725683</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
       <option name="project" value="LOCAL" />
-      <updated>1689975352876</updated>
+      <updated>1693827725683</updated>
     </task>
-    <task id="LOCAL-00009" summary="Updated Javadoc">
-      <created>1689975642358</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
+    <task id="LOCAL-00095" summary="Added first implementation for Farming killing entities and hunting">
+      <created>1693827768761</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
       <option name="project" value="LOCAL" />
-      <updated>1689975642358</updated>
+      <updated>1693827768761</updated>
     </task>
-    <task id="LOCAL-00010" summary="Added a String representation to a proficiency">
-      <created>1689976459577</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
+    <task id="LOCAL-00096" summary="Change in Item Attribute Modification">
+      <created>1693839061090</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
       <option name="project" value="LOCAL" />
-      <updated>1689976459577</updated>
+      <updated>1693839061090</updated>
     </task>
-    <task id="LOCAL-00011" summary="Prepare differentiation between different proficiency's in ExperienceData.">
-      <created>1689976684238</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
+    <task id="LOCAL-00097" summary="Added Spawner command">
+      <created>1693847387835</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
       <option name="project" value="LOCAL" />
-      <updated>1689976684238</updated>
+      <updated>1693847387835</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added the Action Bar text instead of a chat message">
-      <created>1690016637646</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
+    <task id="LOCAL-00098" summary="Added Farmer Villager, Farming Blocks, Results, new Shears">
+      <created>1693865731527</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
       <option name="project" value="LOCAL" />
-      <updated>1690016637646</updated>
+      <updated>1693865731527</updated>
     </task>
-    <task id="LOCAL-00013" summary="Added Todos">
-      <created>1690024860529</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
+    <task id="LOCAL-00099" summary="Added Hunting Mobs, Farming Mobs, Bow's as Weapons with no modifications.&#10;Added hidden Cat mechanic">
+      <created>1693912464770</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
       <option name="project" value="LOCAL" />
-      <updated>1690024860529</updated>
+      <updated>1693912464770</updated>
     </task>
-    <task id="LOCAL-00014" summary="Changed Method Signature and java doc in ExperienceFramework for Breaking a block event.">
-      <created>1690054101993</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
+    <task id="LOCAL-00100" summary="Overhaul of ItemConfiguration, added Flags for configuration&#10;Changed Calculation of experience and loot modifiers and centralized the&#10;calculation. Fixed calculation of drops to match the given Percentage">
+      <created>1694002410619</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1690054101994</updated>
+      <updated>1694002410619</updated>
     </task>
-    <task id="LOCAL-00015" summary="Fixed typos in javadoc">
-      <created>1690054623172</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
+    <task id="LOCAL-00101" summary="Moved Calculation function to Item configuration">
+      <created>1694007054479</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
       <option name="project" value="LOCAL" />
-      <updated>1690054623172</updated>
+      <updated>1694007054479</updated>
     </task>
-    <task id="LOCAL-00016" summary="Added not null annotation dependency">
-      <created>1690061846165</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
+    <task id="LOCAL-00102" summary="Added Bow interaction, started working on attributes&#10;its now possible to add custom damage">
+      <created>1694015128668</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
       <option name="project" value="LOCAL" />
-      <updated>1690061846165</updated>
+      <updated>1694015128668</updated>
     </task>
-    <task id="LOCAL-00017" summary="Added functionality for Crafting Experience.&#10;Added in ExperienceFramework a new List of Craftable materials and added the necessary methods. Further added in ExperienceHandler the onCraft event and added Method to send the experience text.">
-      <created>1690064346793</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
+    <task id="LOCAL-00103" summary="Changed Structure for item attributes, fixed a few values for tools">
+      <created>1694035737917</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
       <option name="project" value="LOCAL" />
-      <updated>1690064346793</updated>
+      <updated>1694035737917</updated>
     </task>
-    <task id="LOCAL-00018" summary="Reduced amount of xp for a crafting recipe. Further only small non-functional changes and refactoring.&#10;Added javadoc.">
-      <created>1690065111841</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
+    <task id="LOCAL-00104" summary="Added Hunting Villager with a few recipes, &#10;Added the planter for wheat seeds">
+      <created>1694096696869</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
       <option name="project" value="LOCAL" />
-      <updated>1690065111841</updated>
+      <updated>1694096696869</updated>
     </task>
-    <task id="LOCAL-00019" summary="Added isCancelled() request in onBlockBreak and onCraft">
-      <created>1690126484472</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
+    <task id="LOCAL-00105" summary="Added working seed Planter with no choice currently">
+      <created>1694337405122</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
       <option name="project" value="LOCAL" />
-      <updated>1690126484472</updated>
+      <updated>1694337405122</updated>
     </task>
-    <task id="LOCAL-00020" summary="Added a few Blocks to craftingExperience and bamboo to blockBreakExperience">
-      <created>1690128938211</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
+    <task id="LOCAL-00106" summary="Added more infinitive coal versions, added Level requirements for items">
+      <created>1694430505287</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
       <option name="project" value="LOCAL" />
-      <updated>1690128938211</updated>
+      <updated>1694430505287</updated>
     </task>
-    <task id="LOCAL-00021" summary="Added serialVersionUID field">
-      <created>1690129009885</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
+    <task id="LOCAL-00107" summary="Updated the way of item Building, added the Possibility to add a Required level for a tool to work.">
+      <created>1694443488867</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
       <option name="project" value="LOCAL" />
-      <updated>1690129009885</updated>
+      <updated>1694443488867</updated>
     </task>
-    <task id="LOCAL-00022" summary="Fixed Javadoc">
-      <created>1690132207697</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
+    <task id="LOCAL-00108" summary="Added Farming items for harvest animals. Removed effect folder (no longer usage). Removed a few unused imports">
+      <created>1694471126735</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
       <option name="project" value="LOCAL" />
-      <updated>1690132207697</updated>
+      <updated>1694471126735</updated>
     </task>
-    <task id="LOCAL-00023" summary="Refactored Names.&#10;Changed name structure to match proficiency. Added a list of forbidden crafting recipes and functionality in ProficiencyHandler.">
-      <created>1690136410643</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00109" summary="Added Quartz Block trade">
+      <created>1694471572176</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
       <option name="project" value="LOCAL" />
-      <updated>1690136410643</updated>
+      <updated>1694471572176</updated>
     </task>
-    <task id="LOCAL-00024" summary="Added Netherwood and various forbidden crafting materials.">
-      <created>1690138301577</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
+    <task id="LOCAL-00110" summary="Added Nether Quartz and Nether gold ore Experience">
+      <created>1694471607605</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1690138301577</updated>
+      <updated>1694471607605</updated>
     </task>
-    <task id="LOCAL-00025" summary="Added javadoc">
-      <created>1690140570825</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
+    <task id="LOCAL-00111" summary="Added Farming Weapons to weapons list">
+      <created>1694471630874</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
       <option name="project" value="LOCAL" />
-      <updated>1690140570825</updated>
+      <updated>1694471630874</updated>
     </task>
-    <task id="LOCAL-00026" summary="Impmentet a first dirty version for saving">
-      <created>1690148718498</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
+    <task id="LOCAL-00112" summary="Added Level requirement Check">
+      <created>1694471663481</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
       <option name="project" value="LOCAL" />
-      <updated>1690148718498</updated>
+      <updated>1694471663481</updated>
     </task>
-    <task id="LOCAL-00027" summary="Overhaul for Storing Manager no functionality change">
-      <created>1690219902745</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
+    <task id="LOCAL-00113" summary="Removed unnecessary checks and added Player level requirement">
+      <created>1694471891943</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
       <option name="project" value="LOCAL" />
-      <updated>1690219902745</updated>
+      <updated>1694471891943</updated>
     </task>
-    <task id="LOCAL-00028" summary="Added javadoc">
-      <created>1690221046793</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
+    <task id="LOCAL-00114" summary="Build Pair to record">
+      <created>1694472059607</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
       <option name="project" value="LOCAL" />
-      <updated>1690221046793</updated>
+      <updated>1694472059607</updated>
     </task>
-    <task id="LOCAL-00029" summary="Removed loadProficiency data">
-      <created>1690221072717</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
+    <task id="LOCAL-00115" summary="Changed the damage calculation, added Crossbow and shield for Hunting">
+      <created>1694521350203</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
       <option name="project" value="LOCAL" />
-      <updated>1690221072717</updated>
+      <updated>1694521350203</updated>
     </task>
-    <task id="LOCAL-00030" summary="Renamed SavingManagement to DataStoreManagement">
-      <created>1690221164241</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
+    <task id="LOCAL-00116" summary="Added Special Functionality for Hoes: Can only harvest fully grown, auto replacement of crops.&#10;Start working on an Axe which can harvest full trees at once.">
+      <created>1694552658230</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
       <option name="project" value="LOCAL" />
-      <updated>1690221164241</updated>
+      <updated>1694552658230</updated>
     </task>
-    <task id="LOCAL-00031" summary="Restructured classes and Projects non functional change">
-      <created>1690227937215</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
+    <task id="LOCAL-00117" summary="Played with values">
+      <created>1694556127366</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
       <option name="project" value="LOCAL" />
-      <updated>1690227937215</updated>
+      <updated>1694556127367</updated>
     </task>
-    <task id="LOCAL-00032" summary="Removed unused function declarations">
-      <created>1690228029466</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
+    <task id="LOCAL-00118" summary="Deleted Unused classes, added Javadoc to CustomTool and ItemModifier. Outsourced effects of items and tools to extra classes for overview.">
+      <created>1694607516973</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
       <option name="project" value="LOCAL" />
-      <updated>1690228029466</updated>
+      <updated>1694607516973</updated>
     </task>
-    <task id="LOCAL-00033" summary="Experimenting with new Items">
-      <created>1690231602931</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
+    <task id="LOCAL-00119" summary="Added Javadoc">
+      <created>1694614026485</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
       <option name="project" value="LOCAL" />
-      <updated>1690231602931</updated>
+      <updated>1694614026485</updated>
     </task>
-    <task id="LOCAL-00034" summary="Added class which holds all generally forbidden items">
-      <created>1690397108016</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
+    <task id="LOCAL-00120" summary="Added Horns to toggle weather. Fixed a bug in item lore description">
+      <created>1694706010120</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
       <option name="project" value="LOCAL" />
-      <updated>1690397108016</updated>
+      <updated>1694706010120</updated>
     </task>
-    <task id="LOCAL-00035" summary="Class to create items">
-      <created>1690397163943</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
+    <task id="LOCAL-00121" summary="Fixed a bug caused by wrong if statement">
+      <created>1695208165647</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
       <option name="project" value="LOCAL" />
-      <updated>1690397163943</updated>
+      <updated>1695208165647</updated>
     </task>
-    <task id="LOCAL-00036" summary="Small Proficiency update with implementing generally forbidden crafting results.">
-      <created>1690398248493</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
+    <task id="LOCAL-00122" summary="Added Fishing rods for Farming proficiency">
+      <created>1695208477917</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
       <option name="project" value="LOCAL" />
-      <updated>1690398248493</updated>
+      <updated>1695208477918</updated>
     </task>
-    <task id="LOCAL-00037" summary="Renamed ForbiddenToCraft to forbiddenCraftingResults">
-      <created>1690398415399</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
+    <task id="LOCAL-00123" summary="Deleted unused files, added more custom items, changed appearance of rarity">
+      <created>1695216197225</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
       <option name="project" value="LOCAL" />
-      <updated>1690398415399</updated>
+      <updated>1695216197225</updated>
     </task>
-    <task id="LOCAL-00038" summary="Renamed ProficiencyExperienceFramework to ProficiencyFramework">
-      <created>1690404444994</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
+    <task id="LOCAL-00124" summary="Prepared and carry out the second huge overhaul. Prepared version 0.0.2.&#10;&#10;Changed the calculation of boni. Items are stored in only one class: CustomItem . Added ItemSets for boni. TODO: Add old items to this new Version.">
+      <created>1696522635380</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
       <option name="project" value="LOCAL" />
-      <updated>1690404444994</updated>
+      <updated>1696522635380</updated>
     </task>
-    <task id="LOCAL-00039" summary="Prepare Items for proficiencies">
-      <created>1690406098580</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
+    <task id="LOCAL-00125" summary="New Class for storing Items">
+      <created>1696522702904</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
       <option name="project" value="LOCAL" />
-      <updated>1690406098580</updated>
+      <updated>1696522702904</updated>
     </task>
-    <task id="LOCAL-00040" summary="Overhaul of general structure">
-      <created>1690484219098</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
+    <task id="LOCAL-00126" summary="Updated the effects. Added more description flags">
+      <created>1696594336517</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
       <option name="project" value="LOCAL" />
-      <updated>1690484219098</updated>
+      <updated>1696594336518</updated>
     </task>
-    <task id="LOCAL-00041" summary="Added general String representation of the Plugin and runs save now as Task">
-      <created>1690484882783</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
+    <task id="LOCAL-00127" summary="Added additional command to get Items">
+      <created>1696594359214</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
       <option name="project" value="LOCAL" />
-      <updated>1690484882783</updated>
+      <updated>1696594359214</updated>
     </task>
-    <task id="LOCAL-00042" summary="Small doc fixes and warning fixes">
-      <created>1690485626048</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
+    <task id="LOCAL-00128" summary="Added few items, Bugfixes, corrected potion application">
+      <created>1696613522841</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
       <option name="project" value="LOCAL" />
-      <updated>1690485626048</updated>
+      <updated>1696613522841</updated>
     </task>
-    <task id="LOCAL-00043" summary="Added and fixed javadoc">
-      <created>1690489533229</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
+    <task id="LOCAL-00129" summary="Added basic Woodwork, Stonework, Farming items.&#10;&#10;Added few bugfixes, Moved item Effects into class ItemEffect">
+      <created>1696688812830</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
       <option name="project" value="LOCAL" />
-      <updated>1690489533229</updated>
+      <updated>1696688812830</updated>
     </task>
-    <task id="LOCAL-00044" summary="Added First Item implementation with customized drop and experience gain.&#10;Java doc is missing in some parts.">
-      <created>1690577152550</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
+    <task id="LOCAL-00130" summary="Added basic Woodwork, Stonework, Farming items.&#10;&#10;Added Vein mining, fixed a bug resulting in less item drops than intended. Added Hunting Items">
+      <created>1696789681350</created>
+      <option name="number" value="00130" />
+      <option name="presentableId" value="LOCAL-00130" />
       <option name="project" value="LOCAL" />
-      <updated>1690577152550</updated>
+      <updated>1696789681350</updated>
     </task>
-    <task id="LOCAL-00045" summary="Removed unused imports and removing small warnings with optimization.">
-      <created>1690577547598</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+    <task id="LOCAL-00131" summary="Bugfix and change of Damage calculation. Added Rain items.&#10;Changed ConfigurationFlags to use double instead of float for more precision">
+      <created>1696868509974</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
       <option name="project" value="LOCAL" />
-      <updated>1690577547598</updated>
+      <updated>1696868509974</updated>
     </task>
-    <task id="LOCAL-00046" summary="Removed unused import">
-      <created>1690577586308</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+    <task id="LOCAL-00132" summary="Added King Midas set and items">
+      <created>1696964177627</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
       <option name="project" value="LOCAL" />
-      <updated>1690577586308</updated>
+      <updated>1696964177627</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00133" summary="Added miners helmet and unused new item sets">
+      <created>1697128987600</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1697128987600</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Added butcher set, Narsil, Baker's head and a new category unique">
+      <created>1697396579208</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1697396579209</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers">
+      <created>1700688794715</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1700688794715</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.spigotmc:spigot-api" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -556,32 +670,47 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added serialVersionUID field" />
-    <MESSAGE value="Fixed Javadoc" />
-    <MESSAGE value="Refactored Names.&#10;Changed name structure to match proficiency. Added a list of forbidden crafting recipes and functionality in ProficiencyHandler." />
-    <MESSAGE value="Added Netherwood and various forbidden crafting materials." />
-    <MESSAGE value="Impmentet a first dirty version for saving" />
-    <MESSAGE value="Overhaul for Storing Manager no functionality change" />
-    <MESSAGE value="Added javadoc" />
-    <MESSAGE value="Removed loadProficiency data" />
-    <MESSAGE value="Renamed SavingManagement to DataStoreManagement" />
-    <MESSAGE value="Restructured classes and Projects non functional change" />
-    <MESSAGE value="Removed unused function declarations" />
-    <MESSAGE value="Experimenting with new Items" />
-    <MESSAGE value="Added class which holds all generally forbidden items" />
-    <MESSAGE value="Class to create items" />
-    <MESSAGE value="Small Proficiency update with implementing generally forbidden crafting results." />
-    <MESSAGE value="Renamed ForbiddenToCraft to forbiddenCraftingResults" />
-    <MESSAGE value="Renamed ProficiencyExperienceFramework to ProficiencyFramework" />
-    <MESSAGE value="Prepare Items for proficiencies" />
-    <MESSAGE value="Overhaul of general structure" />
-    <MESSAGE value="Added general String representation of the Plugin and runs save now as Task" />
-    <MESSAGE value="Small doc fixes and warning fixes" />
-    <MESSAGE value="Added and fixed javadoc" />
-    <MESSAGE value="Added First Item implementation with customized drop and experience gain.&#10;Java doc is missing in some parts." />
-    <MESSAGE value="Removed unused imports and removing small warnings with optimization." />
-    <MESSAGE value="Removed unused import" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed unused import" />
+    <MESSAGE value="Added Level requirement Check" />
+    <MESSAGE value="Removed unnecessary checks and added Player level requirement" />
+    <MESSAGE value="Build Pair to record" />
+    <MESSAGE value="Changed the damage calculation, added Crossbow and shield for Hunting" />
+    <MESSAGE value="Added Special Functionality for Hoes: Can only harvest fully grown, auto replacement of crops.&#10;Start working on an Axe which can harvest full trees at once." />
+    <MESSAGE value="Played with values" />
+    <MESSAGE value="Deleted Unused classes, added Javadoc to CustomTool and ItemModifier. Outsourced effects of items and tools to extra classes for overview." />
+    <MESSAGE value="Added Javadoc" />
+    <MESSAGE value="Added Horns to toggle weather. Fixed a bug in item lore description" />
+    <MESSAGE value="Fixed a bug caused by wrong if statement" />
+    <MESSAGE value="Added Fishing rods for Farming proficiency" />
+    <MESSAGE value="Deleted unused files, added more custom items, changed appearance of rarity" />
+    <MESSAGE value="Prepared and carry out the second huge overhaul. Prepared version 0.0.2.&#10;&#10;Changed the calculation of boni. Items are stored in only one class: CustomItem . Added ItemSets for boni. TODO: Add old items to this new Version." />
+    <MESSAGE value="New Class for storing Items" />
+    <MESSAGE value="Updated the effects. Added more description flags" />
+    <MESSAGE value="Added additional command to get Items" />
+    <MESSAGE value="Added few items, Bugfixes, corrected potion application" />
+    <MESSAGE value="Added basic Woodwork, Stonework, Farming items.&#10;&#10;Added few bugfixes, Moved item Effects into class ItemEffect" />
+    <MESSAGE value="Added basic Woodwork, Stonework, Farming items.&#10;&#10;Added Vein mining, fixed a bug resulting in less item drops than intended. Added Hunting Items" />
+    <MESSAGE value="Bugfix and change of Damage calculation. Added Rain items.&#10;Changed ConfigurationFlags to use double instead of float for more precision" />
+    <MESSAGE value="Added King Midas set and items" />
+    <MESSAGE value="Added miners helmet and unused new item sets" />
+    <MESSAGE value="Added butcher set, Narsil, Baker's head and a new category unique" />
+    <MESSAGE value="Overhaul of structure. WIP Experimental.&#10;&#10;More trying to add non-static solutions" />
+    <MESSAGE value="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/falgael/rpg/recipe/CustomRecipes.java</url>
+          <line>29</line>
+          <properties class="com.falgael.rpg.recipe.CustomRecipes" method="getRecipes">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

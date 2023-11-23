@@ -20,7 +20,7 @@ import java.util.List;
 
 
 public enum Items implements NameBuilding {
-
+    /*
     NONE(Proficiency.NONE, Material.AIR,"", Rarity.NONE, null),
 
     //--------------------------------------------------------------------------------------------
@@ -1503,4 +1503,6 @@ public enum Items implements NameBuilding {
         return this == NONE;
     }
 
+
+     */
 }

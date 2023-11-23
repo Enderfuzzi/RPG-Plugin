@@ -1,18 +1,11 @@
 package com.falgael.rpg.handler;
 
 
-import com.falgael.rpg.RPG;
-import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
-import com.falgael.rpg.misc.Calculations;
+import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.stats.EntityStats;
-import com.falgael.rpg.villager.VillagerManagement;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -24,8 +17,8 @@ public class EntityDeathHandler extends MainHandler {
 
     private final Plugin plugin;
 
-    public EntityDeathHandler(ProficiencyCalculationAdapter proficiencyAdapter, ItemManagement itemAdapter, VillagerManagement villagerAdapter, Plugin plugin) {
-        super(proficiencyAdapter, itemAdapter, villagerAdapter);
+    public EntityDeathHandler(MainManagement mainManager, Plugin plugin) {
+        super(mainManager);
         this.plugin = plugin;
     }
 
