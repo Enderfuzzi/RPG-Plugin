@@ -1,22 +1,6 @@
 package com.falgael.rpg.nousage;
 
-import com.falgael.rpg.items.configuration.ConfigurationFlag;
-import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.NameBuilding;
-import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.proficiency.Rarity;
-import org.bukkit.Material;
-import org.bukkit.MusicInstrument;
-import org.bukkit.inventory.EquipmentSlot;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.MusicInstrumentMeta;
-import org.bukkit.potion.PotionEffectType;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public enum Items implements NameBuilding {
@@ -94,14 +78,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50)
                     .create(),
-            ItemSet.KING_MIDAS
+            OLDItemSet.KING_MIDAS
     ),
     KING_MIDAS_CHEST(Proficiency.MISC, Material.GOLDEN_HELMET, Rarity.EPIC, "Protects with layered Gold",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50)
                     .create(),
-            ItemSet.KING_MIDAS
+            OLDItemSet.KING_MIDAS
     ),
 
     KING_MIDAS_SWORD(Proficiency.MISC, Material.GOLDEN_SWORD, "Midas Sword", Rarity.EPIC, "Slaughter the poor",
@@ -110,7 +94,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.KING_MIDAS
+            OLDItemSet.KING_MIDAS
     ),
 
 
@@ -124,23 +108,23 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.LUMBERJACK_1
+            OLDItemSet.LUMBERJACK_1
     ),
     LUMBERJACK_HELMET_1(Proficiency.WOODWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
-            ItemSet.LUMBERJACK_1
+            OLDItemSet.LUMBERJACK_1
     ),
     LUMBERJACK_CHESTPLATE_1(Proficiency.WOODWORK, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
-            ItemSet.LUMBERJACK_1
+            OLDItemSet.LUMBERJACK_1
     ),
     LUMBERJACK_LEGGINGS_1(Proficiency.WOODWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
-            ItemSet.LUMBERJACK_1
+            OLDItemSet.LUMBERJACK_1
     ),
     LUMBERJACK_BOOTS_1(Proficiency.WOODWORK, Material.LEATHER_BOOTS,Rarity.SIMPLE,"Simple lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
-            ItemSet.LUMBERJACK_1
+            OLDItemSet.LUMBERJACK_1
     ),
 
 
@@ -152,13 +136,13 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.LUMBERJACK_2
+            OLDItemSet.LUMBERJACK_2
     ),
     LUMBERJACK_HELMET_2(Proficiency.WOODWORK, Material.CHAINMAIL_HELMET,Rarity.COMMON,"Common lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.LUMBERJACK_2
+            OLDItemSet.LUMBERJACK_2
     ),
 
     LUMBERJACK_CHESTPLATE_2(Proficiency.WOODWORK, Material.CHAINMAIL_CHESTPLATE, Rarity.COMMON,"Common lumberjack protection",
@@ -166,19 +150,19 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.LUMBERJACK_2
+            OLDItemSet.LUMBERJACK_2
     ),
     LUMBERJACK_LEGGINGS_2(Proficiency.WOODWORK, Material.CHAINMAIL_LEGGINGS, Rarity.COMMON,"Common lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.LUMBERJACK_2
+            OLDItemSet.LUMBERJACK_2
     ),
     LUMBERJACK_BOOTS_2(Proficiency.WOODWORK, Material.CHAINMAIL_BOOTS, Rarity.COMMON,"Common lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.LUMBERJACK_2
+            OLDItemSet.LUMBERJACK_2
     ),
 
 
@@ -190,14 +174,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.LUMBERJACK_3
+            OLDItemSet.LUMBERJACK_3
     ),
     LUMBERJACK_HELMET_3(Proficiency.WOODWORK, Material.IRON_HELMET, Rarity.ADVANCED,"Advanced lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.LUMBERJACK_3
+            OLDItemSet.LUMBERJACK_3
     ),
     LUMBERJACK_CHESTPLATE_3(Proficiency.WOODWORK, Material.IRON_CHESTPLATE, Rarity.ADVANCED,"Advanced lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -205,21 +189,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.LUMBERJACK_3
+            OLDItemSet.LUMBERJACK_3
     ),
     LUMBERJACK_LEGGINGS_3(Proficiency.WOODWORK, Material.IRON_LEGGINGS, Rarity.ADVANCED,"Advanced lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.LUMBERJACK_3
+            OLDItemSet.LUMBERJACK_3
     ),
     LUMBERJACK_BOOTS_3(Proficiency.WOODWORK, Material.IRON_BOOTS, Rarity.ADVANCED,"Advanced lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.LUMBERJACK_3
+            OLDItemSet.LUMBERJACK_3
     ),
 
 
@@ -231,14 +215,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.LUMBERJACK_4
+            OLDItemSet.LUMBERJACK_4
     ),
     LUMBERJACK_HELMET_4(Proficiency.WOODWORK, Material.GOLDEN_HELMET, Rarity.ELITE,"Elite lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.LUMBERJACK_4
+            OLDItemSet.LUMBERJACK_4
     ),
     LUMBERJACK_CHESTPLATE_4(Proficiency.WOODWORK, Material.GOLDEN_CHESTPLATE, Rarity.ELITE,"Elite lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -246,21 +230,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.LUMBERJACK_4
+            OLDItemSet.LUMBERJACK_4
     ),
     LUMBERJACK_LEGGINGS_4(Proficiency.WOODWORK, Material.GOLDEN_LEGGINGS,Rarity.ELITE,"Elite lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.LUMBERJACK_4
+            OLDItemSet.LUMBERJACK_4
     ),
     LUMBERJACK_BOOTS_4(Proficiency.WOODWORK, Material.GOLDEN_BOOTS,Rarity.ELITE,"Elite lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.LUMBERJACK_4
+            OLDItemSet.LUMBERJACK_4
     ),
 
 
@@ -272,34 +256,34 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.LUMBERJACK_5
+            OLDItemSet.LUMBERJACK_5
     ),
     LUMBERJACK_HELMET_5(Proficiency.WOODWORK, Material.DIAMOND_HELMET,Rarity.EPIC,"Epic lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.LUMBERJACK_5
+            OLDItemSet.LUMBERJACK_5
     ),
     LUMBERJACK_CHESTPLATE_5(Proficiency.WOODWORK, Material.DIAMOND_CHESTPLATE, Rarity.EPIC,"Epic lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35).create(),
-            ItemSet.LUMBERJACK_5
+            OLDItemSet.LUMBERJACK_5
     ),
     LUMBERJACK_LEGGINGS_5(Proficiency.WOODWORK, Material.DIAMOND_LEGGINGS, Rarity.EPIC,"Epic lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.LUMBERJACK_5
+            OLDItemSet.LUMBERJACK_5
     ),
     LUMBERJACK_BOOTS_5(Proficiency.WOODWORK, Material.DIAMOND_BOOTS, Rarity.EPIC,"Epic lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35).create(),
-            ItemSet.LUMBERJACK_5
+            OLDItemSet.LUMBERJACK_5
     ),
 
 
@@ -311,13 +295,13 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING, 1)
                     .create(),
-            ItemSet.LUMBERJACK_6
+            OLDItemSet.LUMBERJACK_6
     ),
     LUMBERJACK_HELMET_6(Proficiency.WOODWORK, Material.NETHERITE_HELMET, Rarity.LEGENDARY,"Legendary lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
-            ItemSet.LUMBERJACK_6
+            OLDItemSet.LUMBERJACK_6
     ),
     LUMBERJACK_CHESTPLATE_6(Proficiency.WOODWORK, Material.NETHERITE_CHESTPLATE,Rarity.LEGENDARY,"Legendary lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -325,7 +309,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.LUMBERJACK_6
+            OLDItemSet.LUMBERJACK_6
     ),
     LUMBERJACK_LEGGINGS_6(Proficiency.WOODWORK, Material.NETHERITE_LEGGINGS, Rarity.LEGENDARY,"Legendary lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
@@ -333,14 +317,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.LUMBERJACK_6
+            OLDItemSet.LUMBERJACK_6
     ),
     LUMBERJACK_BOOTS_6(Proficiency.WOODWORK, Material.NETHERITE_BOOTS, Rarity.LEGENDARY,"Legendary lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.LUMBERJACK_6
+            OLDItemSet.LUMBERJACK_6
     ),
 
 
@@ -380,14 +364,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
                     .create(),
-            ItemSet.DEEP_MINER
+            OLDItemSet.DEEP_MINER
     ),
     DEEP_MINING_CHESTPLATE(Proficiency.STONEWORK, Material.DIAMOND_CHESTPLATE, Rarity.EPIC,"Deep mining protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40).create(),
-            ItemSet.DEEP_MINER
+            OLDItemSet.DEEP_MINER
     ),
     DEEP_MINING_LEGGINGS(Proficiency.STONEWORK, Material.DIAMOND_LEGGINGS, Rarity.EPIC,"Deep mining protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
@@ -395,7 +379,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
                     .create(),
-            ItemSet.DEEP_MINER
+            OLDItemSet.DEEP_MINER
     ),
     DEEP_MINING_BOOTS(Proficiency.STONEWORK, Material.DIAMOND_BOOTS, Rarity.EPIC,"Deep mining protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
@@ -403,7 +387,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
                     .create(),
-            ItemSet.DEEP_MINER
+            OLDItemSet.DEEP_MINER
     ),
 
 
@@ -414,30 +398,30 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
     MINER_SHOVEL_1(Proficiency.STONEWORK, Material.WOODEN_SHOVEL, Rarity.SIMPLE,"Simple miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
     MINER_HELMET_1(Proficiency.STONEWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
     MINER_CHESTPLATE_1(Proficiency.STONEWORK, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.SIMPLE,"Simple miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
     MINER_LEGGINGS_1(Proficiency.STONEWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
     MINER_BOOTS_1(Proficiency.STONEWORK, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
-            ItemSet.MINER_1
+            OLDItemSet.MINER_1
     ),
 
 
@@ -449,7 +433,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
     MINER_SHOVEL_2(Proficiency.STONEWORK, Material.STONE_SHOVEL, Rarity.COMMON,"Common miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -457,29 +441,29 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
     MINER_HELMET_2(Proficiency.STONEWORK, Material.CHAINMAIL_HELMET, Rarity.SIMPLE,"Common miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5).create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
     MINER_CHESTPLATE_2(Proficiency.STONEWORK, Material.CHAINMAIL_CHESTPLATE, Rarity.SIMPLE,"Common miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5)
                     .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                     .create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
     MINER_LEGGINGS_2(Proficiency.STONEWORK, Material.CHAINMAIL_LEGGINGS, Rarity.SIMPLE,"Common miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5).create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
     MINER_BOOTS_2(Proficiency.STONEWORK, Material.CHAINMAIL_BOOTS, Rarity.SIMPLE,"Common miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5).create(),
-            ItemSet.MINER_2
+            OLDItemSet.MINER_2
     ),
 
 
@@ -491,7 +475,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
     MINER_SHOVEL_3(Proficiency.STONEWORK, Material.IRON_SHOVEL, Rarity.ADVANCED,"Advanced miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -499,14 +483,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
     MINER_HELMET_3(Proficiency.STONEWORK, Material.IRON_HELMET, Rarity.ADVANCED,"Advanced miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 10)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
     MINER_CHESTPLATE_3(Proficiency.STONEWORK, Material.IRON_CHESTPLATE, Rarity.ADVANCED,"Advanced miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -514,21 +498,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 10)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
     MINER_LEGGINGS_3(Proficiency.STONEWORK, Material.IRON_LEGGINGS, Rarity.ADVANCED,"Advanced miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 10)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
     MINER_BOOTS_3(Proficiency.STONEWORK, Material.IRON_BOOTS, Rarity.ADVANCED,"Advanced miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 10)
                     .create(),
-            ItemSet.MINER_3
+            OLDItemSet.MINER_3
     ),
 
 
@@ -540,41 +524,41 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
     MINER_SHOVEL_4(Proficiency.STONEWORK,Material.GOLDEN_SHOVEL, Rarity.ELITE,"Elite miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,4)
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20).create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
     MINER_HELMET_4(Proficiency.STONEWORK, Material.GOLDEN_HELMET,Rarity.ELITE,"Elite miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20).create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
     MINER_CHESTPLATE_4(Proficiency.STONEWORK, Material.GOLDEN_CHESTPLATE, Rarity.ELITE,"Elite miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20).create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
     MINER_LEGGINGS_4(Proficiency.STONEWORK, Material.GOLDEN_LEGGINGS, Rarity.ELITE,"Elite miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
     MINER_BOOTS_4(Proficiency.STONEWORK, Material.GOLDEN_BOOTS, Rarity.ELITE,"Elite miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.MINER_4
+            OLDItemSet.MINER_4
     ),
 
 
@@ -585,7 +569,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.VEIN_MINING, 12)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
     MINER_SHOVEL_5(Proficiency.STONEWORK, Material.DIAMOND_SHOVEL, Rarity.EPIC,"Epic miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -593,14 +577,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
     MINER_HELMET_5(Proficiency.STONEWORK, Material.DIAMOND_HELMET, Rarity.EPIC,"Epic miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
     MINER_CHESTPLATE_5(Proficiency.STONEWORK, Material.DIAMOND_CHESTPLATE, Rarity.EPIC,"Epic miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -608,21 +592,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
     MINER_LEGGINGS_5(Proficiency.STONEWORK, Material.DIAMOND_LEGGINGS, Rarity.EPIC,"Epic miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
     MINER_BOOTS_5(Proficiency.STONEWORK, Material.DIAMOND_BOOTS, Rarity.EPIC,"Epic miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.MINER_5
+            OLDItemSet.MINER_5
     ),
 
 
@@ -634,7 +618,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
     MINER_SHOVEL_6(Proficiency.STONEWORK, Material.NETHERITE_SHOVEL, Rarity.LEGENDARY,"Legendary miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -642,14 +626,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
     MINER_HELMET_6(Proficiency.STONEWORK, Material.NETHERITE_HELMET, Rarity.LEGENDARY,"Legendary miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
     MINER_CHESTPLATE_6(Proficiency.STONEWORK, Material.NETHERITE_CHESTPLATE, Rarity.LEGENDARY,"Legendary miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -657,21 +641,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
     MINER_LEGGINGS_6(Proficiency.STONEWORK, Material.NETHERITE_LEGGINGS, Rarity.LEGENDARY,"Legendary miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
     MINER_BOOTS_6(Proficiency.STONEWORK, Material.NETHERITE_BOOTS, Rarity.LEGENDARY,"Legendary miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.MINER_6
+            OLDItemSet.MINER_6
     ),
 
     INFINITE_FUEL_1(Proficiency.STONEWORK, Material.OAK_WOOD, Rarity.ADVANCED, "Burns until end of time",
@@ -703,23 +687,23 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.FARMER_1
+            OLDItemSet.FARMER_1
     ),
     FARMER_HELMET_1(Proficiency.FARMING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
-            ItemSet.FARMER_1
+            OLDItemSet.FARMER_1
     ),
     FARMER_CHESTPLATE_1(Proficiency.FARMING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
-            ItemSet.FARMER_1
+            OLDItemSet.FARMER_1
     ),
     FARMER_LEGGINGS_1(Proficiency.FARMING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
-            ItemSet.FARMER_1
+            OLDItemSet.FARMER_1
     ),
     FARMER_BOOTS_1(Proficiency.FARMING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
-            ItemSet.FARMER_1
+            OLDItemSet.FARMER_1
     ),
 
 
@@ -731,7 +715,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_SHEARS_1(Proficiency.FARMING, Material.SHEARS, Rarity.COMMON, "Common farmer shears",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -739,7 +723,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 8)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_SWORD_1(Proficiency.FARMING, Material.STONE_SWORD, Rarity.COMMON, "Common farmer knife",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -748,32 +732,32 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_HELMET_2(Proficiency.FARMING, Material.CHAINMAIL_HELMET, Rarity.COMMON,"Common farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_CHESTPLATE_2(Proficiency.FARMING, Material.CHAINMAIL_CHESTPLATE, Rarity.COMMON,"Common farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_LEGGINGS_2(Proficiency.FARMING, Material.CHAINMAIL_LEGGINGS, Rarity.COMMON,"Common farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_BOOTS_2(Proficiency.FARMING, Material.CHAINMAIL_BOOTS, Rarity.COMMON,"Common farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
 
 
@@ -785,7 +769,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
 
     FARMER_FISHING_ROD_1(Proficiency.FARMING, Material.FISHING_ROD, Rarity.ADVANCED, "Advanced farmer fishing rod",
@@ -795,7 +779,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 12)
                     .addPotionEffect(PotionEffectType.LUCK)
                     .create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
     FARMER_SWORD_2(Proficiency.FARMING, Material.IRON_SWORD, Rarity.ADVANCED, "Advanced farmer knife",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -804,32 +788,32 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
     FARMER_HELMET_3(Proficiency.FARMING, Material.IRON_HELMET,"Helmet",Rarity.ADVANCED,"Advanced farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
     FARMER_CHESTPLATE_3(Proficiency.FARMING, Material.IRON_CHESTPLATE,"Chestplate",Rarity.ADVANCED,"Advanced farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
     FARMER_LEGGINGS_3(Proficiency.FARMING, Material.IRON_LEGGINGS,"Leggings",Rarity.ADVANCED,"Advanced farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
     FARMER_BOOTS_3(Proficiency.FARMING, Material.IRON_BOOTS, Rarity.ADVANCED,"Advanced farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.FARMER_3
+            OLDItemSet.FARMER_3
     ),
 
 
@@ -841,7 +825,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_FISHING_ROD_2(Proficiency.FARMING, Material.FISHING_ROD, Rarity.ELITE, "Elite farmer fishing rod",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -850,7 +834,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)
                     .addPotionEffect(PotionEffectType.LUCK)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_SWORD_3(Proficiency.FARMING, Material.GOLDEN_SWORD, Rarity.ELITE, "Elite farmer knife",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -859,14 +843,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER,5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_HELMET_4(Proficiency.FARMING, Material.GOLDEN_HELMET, Rarity.ELITE,"Elite farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_CHESTPLATE_4(Proficiency.FARMING, Material.GOLDEN_CHESTPLATE, Rarity.ELITE,"Elite farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -874,21 +858,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_LEGGINGS_4(Proficiency.FARMING, Material.GOLDEN_LEGGINGS, Rarity.ELITE,"Elite farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
     FARMER_BOOTS_4(Proficiency.FARMING, Material.GOLDEN_BOOTS, Rarity.ELITE,"Elite farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.FARMER_4
+            OLDItemSet.FARMER_4
     ),
 
 
@@ -900,7 +884,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING)
                     .create(),
-            ItemSet.FARMER_5
+            OLDItemSet.FARMER_5
     ),
     FARMER_SHEARS_2(Proficiency.FARMING, Material.SHEARS, Rarity.EPIC, "Epic farmer shears",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -908,14 +892,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 40)
                     .create(),
-            ItemSet.FARMER_2
+            OLDItemSet.FARMER_2
     ),
     FARMER_HELMET_5(Proficiency.FARMING, Material.DIAMOND_HELMET, Rarity.EPIC,"Epic farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.FARMER_5
+            OLDItemSet.FARMER_5
     ),
     FARMER_CHESTPLATE_5(Proficiency.FARMING, Material.DIAMOND_CHESTPLATE, Rarity.EPIC,"Epic farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -923,20 +907,20 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.FARMER_5
+            OLDItemSet.FARMER_5
     ),
     FARMER_LEGGINGS_5(Proficiency.FARMING, Material.DIAMOND_LEGGINGS, Rarity.EPIC,"Epic farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.FARMER_5
+            OLDItemSet.FARMER_5
     ),
     FARMER_BOOTS_5(Proficiency.FARMING, Material.DIAMOND_BOOTS, Rarity.EPIC,"Epic farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35).create(),
-            ItemSet.FARMER_5
+            OLDItemSet.FARMER_5
     ),
 
 
@@ -948,7 +932,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .addPotionEffect(PotionEffectType.FAST_DIGGING, 1)
                     .create(),
-            ItemSet.FARMER_6
+            OLDItemSet.FARMER_6
     ),
     FARMER_FISHING_ROD_3(Proficiency.FARMING, Material.FISHING_ROD, Rarity.LEGENDARY, "Legendary farmer fishing rod",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -957,51 +941,51 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 60)
                     .addPotionEffect(PotionEffectType.LUCK,1)
                     .create(),
-            ItemSet.FARMER_6
+            OLDItemSet.FARMER_6
     ),
     FARMER_HELMET_6(Proficiency.FARMING, Material.NETHERITE_HELMET, Rarity.LEGENDARY,"Legendary farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
-            ItemSet.FARMER_6),
+            OLDItemSet.FARMER_6),
     FARMER_CHESTPLATE_6(Proficiency.FARMING, Material.NETHERITE_CHESTPLATE, Rarity.LEGENDARY,"Legendary farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,4)
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
-            ItemSet.FARMER_6),
+            OLDItemSet.FARMER_6),
     FARMER_LEGGINGS_6(Proficiency.FARMING, Material.NETHERITE_LEGGINGS, Rarity.LEGENDARY,"Legendary farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LOOT,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
-            ItemSet.FARMER_6),
+            OLDItemSet.FARMER_6),
     FARMER_BOOTS_6(Proficiency.FARMING, Material.NETHERITE_BOOTS, Rarity.LEGENDARY,"Legendary farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55).create(),
-            ItemSet.FARMER_6),
+            OLDItemSet.FARMER_6),
 
 
     BAKERS_HEAD(Proficiency.FARMING, Material.IRON_HELMET, "Baker's head", Rarity.ADVANCED, "For every true baker",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE, 3)
                     .addFlag(ConfigurationFlag.LOOT, 3)
-                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(), ItemSet.NONE),
+                    .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(), OLDItemSet.NONE),
 
     BUTCHER_LEGGINGS(Proficiency.FARMING, Material.IRON_LEGGINGS, "Butcher apron", Rarity.ADVANCED, "Protection against animal blood",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,15).create(),
-            ItemSet.BUTCHER),
+            OLDItemSet.BUTCHER),
 
     BUTCHER_BOOTS(Proficiency.FARMING, Material.IRON_BOOTS, "Butcher boots", Rarity.ADVANCED, "Protection against animal blood",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(),
-            ItemSet.BUTCHER),
+            OLDItemSet.BUTCHER),
 
 
     //--------------------------------------------------------------------------------------------
@@ -1027,23 +1011,23 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE)
                     .create(),
-            ItemSet.HUNTER_1
+            OLDItemSet.HUNTER_1
     ),
     HUNTER_HELMET_1(Proficiency.HUNTING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
-            ItemSet.HUNTER_1
+            OLDItemSet.HUNTER_1
     ),
     HUNTER_CHESTPLATE_1(Proficiency.HUNTING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
-            ItemSet.HUNTER_1
+            OLDItemSet.HUNTER_1
     ),
     HUNTER_LEGGINGS_1(Proficiency.HUNTING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
-            ItemSet.HUNTER_1
+            OLDItemSet.HUNTER_1
     ),
     HUNTER_BOOTS_1(Proficiency.HUNTING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
-            ItemSet.HUNTER_1
+            OLDItemSet.HUNTER_1
     ),
 
 
@@ -1055,7 +1039,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE)
                     .create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
     HUNTER_BOW_1(Proficiency.HUNTING,Material.BOW, Rarity.COMMON,"Common hunter Bow",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -1063,28 +1047,28 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 0.5)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,7).create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
     HUNTER_HELMET_2(Proficiency.HUNTING, Material.CHAINMAIL_HELMET, Rarity.COMMON,"Common hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5).create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
     HUNTER_CHESTPLATE_2(Proficiency.HUNTING, Material.CHAINMAIL_CHESTPLATE, Rarity.COMMON,"Common hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5).create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
     HUNTER_LEGGINGS_2(Proficiency.HUNTING, Material.CHAINMAIL_LEGGINGS, Rarity.COMMON,"Common hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5).create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
     HUNTER_BOOTS_2(Proficiency.HUNTING, Material.CHAINMAIL_BOOTS, Rarity.COMMON,"Common hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5).create(),
-            ItemSet.HUNTER_2
+            OLDItemSet.HUNTER_2
     ),
 
 
@@ -1095,41 +1079,41 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE).create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
     HUNTER_SHIELD_1(Proficiency.HUNTING, Material.SHIELD, Rarity.ADVANCED, "Advanced hunter shield",
             new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15).create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
 
     HUNTER_HELMET_3(Proficiency.HUNTING, Material.IRON_HELMET, Rarity.ADVANCED,"Advanced hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
     HUNTER_CHESTPLATE_3(Proficiency.HUNTING, Material.IRON_CHESTPLATE, Rarity.ADVANCED,"Advanced hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10).create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
     HUNTER_LEGGINGS_3(Proficiency.HUNTING, Material.IRON_LEGGINGS, Rarity.ADVANCED,"Advanced hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
     HUNTER_BOOTS_3(Proficiency.HUNTING, Material.IRON_BOOTS, Rarity.ADVANCED,"Advanced hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                     .create(),
-            ItemSet.HUNTER_3
+            OLDItemSet.HUNTER_3
     ),
 
 
@@ -1141,7 +1125,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE)
                     .create(),
-            ItemSet.HUNTER_4
+            OLDItemSet.HUNTER_4
     ),
     HUNTER_SHIELD_2(Proficiency.HUNTING, Material.SHIELD, Rarity.ELITE, "Elite hunter shield",
             new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
@@ -1149,7 +1133,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)
                     .create(),
-            ItemSet.HUNTER_4
+            OLDItemSet.HUNTER_4
     ),
     HUNTER_BOW_2(Proficiency.HUNTING,Material.BOW, Rarity.ELITE,"Elite hunter Bow",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -1158,7 +1142,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
                     .create(),
-            ItemSet.HUNTER_4
+            OLDItemSet.HUNTER_4
     ),
     HUNTER_CROSSBOW_1(Proficiency.HUNTING,Material.CROSSBOW, Rarity.ELITE,"Elite hunter Crossbow",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -1167,33 +1151,33 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
                     .create(),
-            ItemSet.HUNTER_4),
+            OLDItemSet.HUNTER_4),
 
     HUNTER_HELMET_4(Proficiency.HUNTING, Material.GOLDEN_HELMET, Rarity.ELITE,"Elite hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.HUNTER_4),
+            OLDItemSet.HUNTER_4),
     HUNTER_CHESTPLATE_4(Proficiency.HUNTING, Material.GOLDEN_CHESTPLATE, Rarity.ELITE,"Elite hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.HUNTER_4),
+            OLDItemSet.HUNTER_4),
     HUNTER_LEGGINGS_4(Proficiency.HUNTING, Material.GOLDEN_LEGGINGS, Rarity.ELITE,"Elite hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.HUNTER_4),
+            OLDItemSet.HUNTER_4),
     HUNTER_BOOTS_4(Proficiency.HUNTING, Material.GOLDEN_BOOTS, Rarity.ELITE,"Elite hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                     .create(),
-            ItemSet.HUNTER_4),
+            OLDItemSet.HUNTER_4),
 
 
     HUNTER_SWORD_5(Proficiency.HUNTING,Material.DIAMOND_SWORD, Rarity.EPIC,"Epic hunter Sword",
@@ -1204,7 +1188,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_BOW_3(Proficiency.HUNTING,Material.BOW, Rarity.EPIC,"Epic hunter Bow",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -1213,7 +1197,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_CROSSBOW_2(Proficiency.HUNTING,Material.CROSSBOW, Rarity.EPIC,"Epic hunter Crossbow",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
@@ -1222,14 +1206,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_HELMET_5(Proficiency.HUNTING, Material.DIAMOND_HELMET, Rarity.EPIC,"Epic hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_CHESTPLATE_5(Proficiency.HUNTING, Material.DIAMOND_CHESTPLATE, Rarity.EPIC,"Epic hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -1237,21 +1221,21 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_LEGGINGS_5(Proficiency.HUNTING, Material.DIAMOND_LEGGINGS, Rarity.EPIC,"Epic hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
     HUNTER_BOOTS_5(Proficiency.HUNTING, Material.DIAMOND_BOOTS, Rarity.EPIC,"Epic hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,2)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                     .create(),
-            ItemSet.HUNTER_5
+            OLDItemSet.HUNTER_5
     ),
 
 
@@ -1263,14 +1247,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .addPotionEffect(PotionEffectType.INCREASE_DAMAGE, 1)
                     .create(),
-            ItemSet.HUNTER_6
+            OLDItemSet.HUNTER_6
     ),
     HUNTER_HELMET_6(Proficiency.HUNTING, Material.NETHERITE_HELMET,"Helmet",Rarity.LEGENDARY,"Legendary hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.HUNTER_6
+            OLDItemSet.HUNTER_6
     ),
     HUNTER_CHESTPLATE_6(Proficiency.HUNTING, Material.NETHERITE_CHESTPLATE,"Chestplate",Rarity.LEGENDARY,"Legendary hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST)
@@ -1278,7 +1262,7 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT, 3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.HUNTER_6
+            OLDItemSet.HUNTER_6
     ),
     HUNTER_LEGGINGS_6(Proficiency.HUNTING, Material.NETHERITE_LEGGINGS,"Leggings",Rarity.LEGENDARY,"Legendary hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS)
@@ -1286,14 +1270,14 @@ public enum Items implements NameBuilding {
                     .addFlag(ConfigurationFlag.LOOT,1)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.HUNTER_6
+            OLDItemSet.HUNTER_6
     ),
     HUNTER_BOOTS_6(Proficiency.HUNTING, Material.NETHERITE_BOOTS,"Boots",Rarity.LEGENDARY,"Legendary hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET)
                     .addFlag(ConfigurationFlag.EXPERIENCE,3)
                     .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                     .create(),
-            ItemSet.HUNTER_6
+            OLDItemSet.HUNTER_6
     ),
     ;
 
@@ -1301,7 +1285,7 @@ public enum Items implements NameBuilding {
 
     private static final HashMap<Proficiency, ArrayList<Items>> GROUPED_BY_PROFICIENCY = new HashMap<>();
 
-    private static final HashMap<ItemSet, ArrayList<Items>> EQUIPMENT_SET_MAP = new HashMap<>();
+    private static final HashMap<OLDItemSet, ArrayList<Items>> EQUIPMENT_SET_MAP = new HashMap<>();
 
     static {
             for (Items current : Items.values()) {
@@ -1323,53 +1307,53 @@ public enum Items implements NameBuilding {
 
     private final ItemConfiguration configuration;
 
-    private final ItemSet itemSet;
+    private final OLDItemSet itemSet;
 
 
     Items(Proficiency type, Material material, String name, Rarity rarity, ItemConfiguration configuration) {
-        this(type,material,name,rarity, "", configuration, ItemSet.NONE);
+        this(type,material,name,rarity, "", configuration, OLDItemSet.NONE);
     }
     Items(Proficiency type, Material material, Rarity rarity, ItemConfiguration configuration) {
-        this(type,material,null,rarity, "", configuration, ItemSet.NONE);
+        this(type,material,null,rarity, "", configuration, OLDItemSet.NONE);
     }
 
     Items(Proficiency type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration) {
-        this(type,material,name,rarity, List.of(lore), configuration, ItemSet.NONE);
+        this(type,material,name,rarity, List.of(lore), configuration, OLDItemSet.NONE);
     }
 
     Items(Proficiency type, Material material, Rarity rarity, String lore, ItemConfiguration configuration) {
-        this(type,material,null,rarity, List.of(lore), configuration, ItemSet.NONE);
+        this(type,material,null,rarity, List.of(lore), configuration, OLDItemSet.NONE);
     }
 
-    Items(Proficiency type, Material material, Rarity rarity, List<String> lore, ItemConfiguration configuration, ItemSet itemSet) {
-        this(type, material,null , rarity, lore, configuration, ItemSet.NONE);
+    Items(Proficiency type, Material material, Rarity rarity, List<String> lore, ItemConfiguration configuration, OLDItemSet itemSet) {
+        this(type, material,null , rarity, lore, configuration, OLDItemSet.NONE);
     }
 
-    Items(Proficiency type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration, ItemSet itemSet) {
+    Items(Proficiency type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration, OLDItemSet itemSet) {
         this(type, material, name, rarity, List.of(lore), configuration, itemSet);
     }
 
-    Items(Proficiency type, Material material, Rarity rarity, String lore, ItemConfiguration configuration, ItemSet itemSet) {
+    Items(Proficiency type, Material material, Rarity rarity, String lore, ItemConfiguration configuration, OLDItemSet itemSet) {
         this(type, material, null, rarity, List.of(lore), configuration, itemSet);
     }
 
     Items(Proficiency type, Material material, String name, Rarity rarity, String lore, ItemConfiguration configuration, MusicInstrument instrument) {
-        this(type, material, name, rarity, List.of(lore), configuration, ItemSet.NONE, instrument);
+        this(type, material, name, rarity, List.of(lore), configuration, OLDItemSet.NONE, instrument);
     }
     Items(Proficiency type, Material material, Rarity rarity, String lore, ItemConfiguration configuration, MusicInstrument instrument) {
-        this(type, material, null, rarity, List.of(lore), configuration, ItemSet.NONE, instrument);
+        this(type, material, null, rarity, List.of(lore), configuration, OLDItemSet.NONE, instrument);
     }
 
 
-    Items(Proficiency type, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, ItemSet itemSet) {
+    Items(Proficiency type, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, OLDItemSet itemSet) {
         this(type, material, name, rarity, lore, configuration, itemSet, null);
     }
 
-    Items(Proficiency proficiency, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, ItemSet itemSet, MusicInstrument instrument) {
+    Items(Proficiency proficiency, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, OLDItemSet itemSet, MusicInstrument instrument) {
         this(List.of(proficiency), material, name, rarity, lore,configuration,itemSet,instrument);
     }
 
-    Items(List<Proficiency> proficiencies, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, ItemSet itemSet, MusicInstrument instrument) {
+    Items(List<Proficiency> proficiencies, Material material, String name, Rarity rarity, List<String> lore, ItemConfiguration configuration, OLDItemSet itemSet, MusicInstrument instrument) {
         this.proficiencies = proficiencies;
         if (name == null) name = buildName(this.name());
         this.item = new ItemBuilder(material).setName(name).setRarity(rarity).addProficiency(this.proficiencies)
@@ -1405,10 +1389,10 @@ public enum Items implements NameBuilding {
 
 
     public boolean hasEquipmentSet() {
-        return this.itemSet != ItemSet.NONE;
+        return this.itemSet != OLDItemSet.NONE;
     }
 
-    public ItemSet getEquipmentSet() {
+    public OLDItemSet getEquipmentSet() {
         return this.itemSet;
     }
 
@@ -1452,7 +1436,7 @@ public enum Items implements NameBuilding {
         return EQUIPMENT_SET_MAP.getOrDefault(itemSet, new ArrayList<>());
     }
 
-    public static ArrayList<Items> getItemsOfSet(ItemSet itemSet) {
+    public static ArrayList<Items> getItemsOfSet(OLDItemSet itemSet) {
         return EQUIPMENT_SET_MAP.getOrDefault(itemSet, new ArrayList<>());
     }
 

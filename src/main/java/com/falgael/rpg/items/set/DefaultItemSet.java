@@ -6,7 +6,7 @@ import com.falgael.rpg.proficiency.Rarity;
 
 import java.util.List;
 
-public interface Set {
+public interface DefaultItemSet {
     List<Proficiency> getProficiency();
     Rarity getRarity();
     String getName();
@@ -15,7 +15,9 @@ public interface Set {
     boolean validDescription();
     List<String> getDescription();
 
-    boolean hasProficiency(Proficiency proficiency);
+    default boolean hasProficiency(Proficiency proficiency) {
+        return proficiency == Proficiency.MISC || proficiency == Proficiency.NONE || hasExactProficiency(proficiency);
+    }
 
     boolean hasExactProficiency(Proficiency proficiency);
 }

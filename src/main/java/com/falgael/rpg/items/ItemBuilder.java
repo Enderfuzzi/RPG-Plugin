@@ -2,9 +2,9 @@ package com.falgael.rpg.items;
 
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
-import com.falgael.rpg.items.set.ItemSet;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import org.bukkit.Material;
@@ -45,7 +45,7 @@ public class ItemBuilder {
 
     private MusicInstrument musicInstrument = null;
 
-    private ItemSet itemSet = ItemSet.NONE;
+    private OLDItemSet itemSet = OLDItemSet.NONE;
 
     private ItemConfiguration configuration;
 
@@ -124,7 +124,7 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setEquipmentSet(ItemSet itemSet) {
+    public ItemBuilder setEquipmentSet(OLDItemSet itemSet) {
         this.itemSet = itemSet;
         return this;
     }
@@ -187,7 +187,7 @@ public class ItemBuilder {
             }
         }
 
-        if (itemSet != ItemSet.NONE) {
+        if (itemSet != OLDItemSet.NONE) {
             result.add("");
             result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getName()));
             for (Proficiency type : itemSet.getProficiency()) {

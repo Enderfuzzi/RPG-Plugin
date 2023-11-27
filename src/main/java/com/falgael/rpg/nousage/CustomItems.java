@@ -4,7 +4,7 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.ItemBuilder;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -99,7 +99,7 @@ public class CustomItems {
                             .setRarity(Rarity.valueOf(configuration.getString(sectionKey + ".name")))
                             .addProficiency(Proficiency.translate(configuration.getStringList(sectionKey + ".proficiency")))
                             .addLore(configuration.getStringList(sectionKey + ".lore"))
-                            .setEquipmentSet(ItemSet.valueOf(configuration.getString(sectionKey + ".equipment_set")))
+                            .setEquipmentSet(OLDItemSet.valueOf(configuration.getString(sectionKey + ".equipment_set")))
                             .setConfiguration(RPGConfiguration)
                             .create(),
                     RPGConfiguration

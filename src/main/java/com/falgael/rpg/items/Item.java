@@ -1,9 +1,8 @@
 package com.falgael.rpg.items;
 
-import com.falgael.rpg.items.configuration.Configuration;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.Bukkit;
@@ -25,12 +24,12 @@ public class Item implements DefaultItem {
     private final List<Proficiency> proficiencies;
     private final Rarity rarity;
     private final List<String> loreDescription;
-    private final ItemSet itemSet;
+    private final OLDItemSet itemSet;
     private final ItemConfiguration configuration;
     private ItemStack itemStackRepresentation;
 
 
-    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, List<String> loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
+    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, List<String> loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
         this.id = id;
         this.name = name;
         this.material = material;
@@ -50,15 +49,15 @@ public class Item implements DefaultItem {
 
     }
 
-    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, List<String> loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
+    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, List<String> loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
         this(id,name, material, List.of(proficiency), rarity, loreDescription, itemSet, configuration);
     }
 
-    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, String loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
+    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, String loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
         this(id, name, material, proficiencies, rarity, List.of(loreDescription), itemSet, configuration);
     }
 
-    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, String loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
+    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, String loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
         this(id,name, material, List.of(proficiency), rarity, List.of(loreDescription), itemSet, configuration);
     }
 
@@ -143,7 +142,7 @@ public class Item implements DefaultItem {
     }
 
     @Override
-    public ItemSet getEquipmentSet() {
+    public OLDItemSet getEquipmentSet() {
         return itemSet;
     }
 
@@ -172,7 +171,7 @@ public class Item implements DefaultItem {
         }
 
 
-        if (itemSet != ItemSet.NONE) {
+        if (itemSet != OLDItemSet.NONE) {
             result.add("");
             result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getName()));
             for (Proficiency type : itemSet.getProficiency()) {

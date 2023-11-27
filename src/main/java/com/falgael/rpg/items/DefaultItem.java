@@ -1,7 +1,7 @@
 package com.falgael.rpg.items;
 
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.inventory.ItemStack;
@@ -18,7 +18,7 @@ public interface DefaultItem {
     boolean hasProficiency(Proficiency proficiency);
     boolean hasExactProficiency(Proficiency proficiency);
     Rarity getRarity();
-    ItemSet getEquipmentSet();
+    OLDItemSet getEquipmentSet();
     ItemConfiguration getConfiguration();
     ItemStack getItemStackRepresentation();
 

@@ -25,9 +25,11 @@ public class PlayerInteractBlockHandler extends MainHandler {
         if (event.getClickedBlock().getBlockData() instanceof Beehive beehive) {
             if (beehive.getHoneyLevel() != beehive.getMaximumHoneyLevel()) return;
             long experienceAmount = 0L;
-            if (event.getItem().isSimilar(new ItemStack(Material.GLASS_BOTTLE))) experienceAmount = 8L;
-            if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4L;
-            proficiencyAdapter.calculateExperience( event.getPlayer(), List.of(Proficiency.FARMING), experienceAmount);
+            if (event.getItem() != null) {
+                if (event.getItem().isSimilar(new ItemStack(Material.GLASS_BOTTLE))) experienceAmount = 8L;
+                if (event.getItem().getType() == Material.SHEARS) experienceAmount = 4L;
+            }
+            proficiencyAdapter.calculateExperience(event.getPlayer(), List.of(Proficiency.FARMING), experienceAmount);
         }
     }
 

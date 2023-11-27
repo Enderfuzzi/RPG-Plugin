@@ -516,7 +516,7 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     }
 
     @Contract(pure = true)
-    public static @NotNull Set<String> getVillagerKeys() {
+    public static @NotNull DefaultItemSet<String> getVillagerKeys() {
         return villagers.keySet();
     }
 

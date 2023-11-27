@@ -4,7 +4,7 @@ import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -45,7 +45,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             multiplier += currentItem.getConfiguration().getValue(flag);
         }
 
-        for (ItemSet set : getFulfilledSets(player, items)) {
+        for (OLDItemSet set : getFulfilledSets(player, items)) {
             if (!set.hasProficiency(proficiency)) continue;
             if (!set.hasConfiguration()) continue;
             multiplier += set.getConfiguration().getValue(flag);
@@ -82,9 +82,9 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     }
 
     @Override
-    public List<ItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems) {
-        List<ItemSet> result = new ArrayList<>();
-        HashMap<ItemSet, Integer> setOccurrence = new HashMap<>();
+    public List<OLDItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems) {
+        List<OLDItemSet> result = new ArrayList<>();
+        HashMap<OLDItemSet, Integer> setOccurrence = new HashMap<>();
         for (DefaultItem currentItem : equippedItems) {
             if (setOccurrence.containsKey(currentItem.getEquipmentSet())) {
                 setOccurrence.put(currentItem.getEquipmentSet(), setOccurrence.get(currentItem.getEquipmentSet()) + 1);
@@ -179,8 +179,8 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
         }
 
-        List<ItemSet> fulfilledSets = getFulfilledSets(player, equippedItems);
-        for (ItemSet set : fulfilledSets) {
+        List<OLDItemSet> fulfilledSets = getFulfilledSets(player, equippedItems);
+        for (OLDItemSet set : fulfilledSets) {
             if (!set.hasConfiguration() || !set.getConfiguration().hasPotionEffect()) continue;
             for (PotionEffect potionEffect : set.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
         }

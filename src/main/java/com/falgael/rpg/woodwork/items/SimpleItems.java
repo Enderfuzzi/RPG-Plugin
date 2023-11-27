@@ -5,7 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.ItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.Material;
@@ -28,7 +28,7 @@ public class SimpleItems implements ItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
                         "Simple lumberjack tool",
-                        ItemSet.LUMBERJACK_1,
+                        OLDItemSet.LUMBERJACK_1,
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -50,22 +50,22 @@ public class SimpleItems implements ItemDefinition {
                             .addFlag(ConfigurationFlag.LOOT, 0.5)
                             .addPotionEffect(PotionEffectType.FAST_DIGGING)
                             .create(),
-                            ItemSet.LUMBERJACK_1
+                            OLDItemSet.LUMBERJACK_1
                             ),
                             LUMBERJACK_HELMET_1(Proficiency.WOODWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple lumberjack protection",
                             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
-                            ItemSet.LUMBERJACK_1
+                            OLDItemSet.LUMBERJACK_1
                             ),
                             LUMBERJACK_CHESTPLATE_1(Proficiency.WOODWORK, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple lumberjack protection",
                             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
-                            ItemSet.LUMBERJACK_1
+                            OLDItemSet.LUMBERJACK_1
                             ),
                             LUMBERJACK_LEGGINGS_1(Proficiency.WOODWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple lumberjack protection",
                             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
-                            ItemSet.LUMBERJACK_1
+                            OLDItemSet.LUMBERJACK_1
                             ),
                             LUMBERJACK_BOOTS_1(Proficiency.WOODWORK, Material.LEATHER_BOOTS,Rarity.SIMPLE,"Simple lumberjack protection",
                             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
-                            ItemSet.LUMBERJACK_1
+                            OLDItemSet.LUMBERJACK_1
                             ),
 */

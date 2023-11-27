@@ -2,7 +2,7 @@ package com.falgael.rpg.items;
 
 import com.falgael.rpg.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.ItemSet;
+import com.falgael.rpg.items.set.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.ChatColor;
@@ -26,7 +26,7 @@ public class ItemManager implements ItemManagement{
       Proficiency.NONE,
       Rarity.NONE,
       "",
-      ItemSet.NONE,
+      OLDItemSet.NONE,
       new ItemConfiguration.Builder().create()
     );
 
