@@ -1,4 +1,4 @@
-package com.falgael.rpg.items;
+package com.falgael.rpg.nousage;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;

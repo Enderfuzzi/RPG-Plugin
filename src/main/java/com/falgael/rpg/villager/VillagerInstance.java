@@ -1,6 +1,7 @@
 package com.falgael.rpg.villager;
 
 
+import com.falgael.rpg.items.set.NameBuilding;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.ChatColor;
@@ -12,7 +13,7 @@ import org.bukkit.inventory.MerchantRecipe;
 
 import java.util.ArrayList;
 
-public class VillagerInstance {
+public class VillagerInstance implements NameBuilding {
 
     private final String name;
 
@@ -39,7 +40,7 @@ public class VillagerInstance {
     public void spawn(World world, Location location) {
         org.bukkit.entity.Villager entity = (org.bukkit.entity.Villager) world.spawnEntity(location, EntityType.VILLAGER);
         entity.setCustomNameVisible(true);
-        entity.setCustomName(rarity.getColor() + name);
+        entity.setCustomName(rarity.getColor() + buildName(name));
         entity.setCollidable(false);
         entity.setAI(false);
         entity.setCanPickupItems(false);
@@ -52,7 +53,7 @@ public class VillagerInstance {
 
     public boolean isSame(Villager villager) {
         if (!villager.isCustomNameVisible()) return false;
-        if (!ChatColor.stripColor(villager.getCustomName()).equals(name)) return false;
+        if (!ChatColor.stripColor(villager.getCustomName()).toLowerCase().equals(buildName(name).toLowerCase())) return false;
         if (villager.getProfession() != profession) return false;
         if (villager.isCollidable()) return false;
         if (villager.hasAI()) return false;
@@ -75,6 +76,9 @@ public class VillagerInstance {
         return rarity;
     }
 
+    public String getKey() {
+        return name.toLowerCase().replace(" ", "_");
+    }
 
     public static class VillagerBuilder {
         private final String name;

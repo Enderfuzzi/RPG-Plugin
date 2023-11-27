@@ -1,9 +1,7 @@
 package com.falgael.rpg.manager;
 
 import com.falgael.rpg.items.DefaultItem;
-import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.set.ItemSet;
@@ -21,9 +19,9 @@ import org.bukkit.potion.PotionEffect;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProficiencyCalculation implements ProficiencyCalculationAdapter, PlayerMessage {
 
@@ -43,7 +41,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
 
         List<DefaultItem> items = getEquippedItems(player);
         for (DefaultItem currentItem : items) {
-            if (currentItem.hasProficiency(proficiency)) continue;
+            if (!currentItem.hasProficiency(proficiency)) continue;
             multiplier += currentItem.getConfiguration().getValue(flag);
         }
 
@@ -52,7 +50,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             if (!set.hasConfiguration()) continue;
             multiplier += set.getConfiguration().getValue(flag);
         }
-
+        Bukkit.getLogger().info("Calculated Modifier: " + multiplier + " for " + proficiency + " and " + flag.toString());
         return multiplier;
     }
 
@@ -79,7 +77,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             if (!fulfillLevelRequirement(player, item)) continue;
             result.add(item);
         }
-        Bukkit.getLogger().info("Equipped Items: " + Arrays.toString(result.toArray()));
+        Bukkit.getLogger().info("Equipped Items: " + result.stream().map(DefaultItem::getName).collect(Collectors.toList()));
         return result;
     }
 
@@ -104,6 +102,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         if (baseExperience <= 0) return;
         for (Proficiency proficiency : proficiencies) {
             long calculatedExperience = baseExperience * Double.valueOf(calculateMultiplier(player , proficiency, ConfigurationFlag.EXPERIENCE)).longValue();
+            Bukkit.getLogger().info("Calculated Experience for " + proficiency + ": " + calculatedExperience);
             playerExperience.increaseExperience(player,proficiency,calculatedExperience);
             playerExperienceMessage(player, proficiency, playerExperience.getExperience(player, proficiency), playerExperience.getExperienceBorder(player, proficiency));
         }

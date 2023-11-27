@@ -1,20 +1,7 @@
 package com.falgael.rpg.villager;
 
 import com.falgael.rpg.items.ItemStackManipulation;
-import com.falgael.rpg.items.Items;
 import com.falgael.rpg.items.set.NameBuilding;
-import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.proficiency.Rarity;
-import org.bukkit.Material;
-import org.bukkit.entity.Villager;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.MerchantRecipe;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
-
-
-import java.util.HashMap;
-import java.util.Set;
 
 public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 

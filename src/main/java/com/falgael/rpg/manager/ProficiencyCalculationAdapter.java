@@ -1,7 +1,6 @@
 package com.falgael.rpg.manager;
 
 import com.falgael.rpg.items.DefaultItem;
-import com.falgael.rpg.items.Items;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.set.ItemSet;

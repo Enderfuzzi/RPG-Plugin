@@ -1,12 +1,10 @@
 package com.falgael.rpg.woodwork;
 
 import com.falgael.rpg.items.ItemManagement;
-import com.falgael.rpg.items.Items;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import com.falgael.rpg.villager.MainVillagerDefinition;
 import com.falgael.rpg.villager.MerchantRecipeBuilder;
-import com.falgael.rpg.villager.VillagerDefinition;
 import com.falgael.rpg.villager.VillagerInstance;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -29,6 +27,7 @@ public class Villager extends MainVillagerDefinition {
                         .rarity(Rarity.SIMPLE)
                         .proficiency(Proficiency.WOODWORK)
                         .level(1)
+                        .add(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
                         /*
                         .add(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
                         .add(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())

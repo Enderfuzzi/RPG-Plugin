@@ -1,6 +1,9 @@
 package com.falgael.rpg;
 
 import com.falgael.rpg.commands.CustomCommand;
+import com.falgael.rpg.commands.ExperienceCommand;
+import com.falgael.rpg.commands.GetCommand;
+import com.falgael.rpg.commands.SpawnCommand;
 import com.falgael.rpg.handler.*;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.ItemManager;
@@ -69,12 +72,21 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerInteractHandler(mainManager), this);
         Bukkit.getPluginManager().registerEvents(new PlayerFishHandler(mainManager), this);
 
-        for (CustomCommand command : CustomCommand.values()) {
-            this.getCommand(command.getKey()).setExecutor(command.getCommand());
-            Bukkit.getLogger().info("[" + RPG.class.getSimpleName() + "]: Registered Command: " + command.getKey());
-            if (command.getTabCompleter() == null) continue;
-            this.getCommand(command.getKey()).setTabCompleter(command.getTabCompleter());
-        }
+        Bukkit.getPluginManager().registerEvents(new EntityTransformHandler(mainManager), this);
+
+
+        GetCommand getCommand = new GetCommand(itemManager);
+        this.getCommand("get").setExecutor(getCommand);
+        this.getCommand("get").setTabCompleter(getCommand);
+
+        SpawnCommand spawnCommand = new SpawnCommand(villagerManager);
+        this.getCommand("spawn").setExecutor(spawnCommand);
+        this.getCommand("spawn").setTabCompleter(spawnCommand);
+
+        ExperienceCommand experienceCommand = new ExperienceCommand(playerExperienceManager);
+        this.getCommand("experience").setExecutor(experienceCommand);
+        this.getCommand("experience").setTabCompleter(experienceCommand);
+
 
     }
 

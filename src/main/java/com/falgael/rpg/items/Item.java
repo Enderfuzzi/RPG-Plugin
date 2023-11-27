@@ -6,6 +6,7 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -26,7 +27,7 @@ public class Item implements DefaultItem {
     private final List<String> loreDescription;
     private final ItemSet itemSet;
     private final ItemConfiguration configuration;
-    private final ItemStack itemStackRepresentation;
+    private ItemStack itemStackRepresentation;
 
 
     public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, List<String> loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
@@ -39,9 +40,14 @@ public class Item implements DefaultItem {
         this.itemSet = itemSet;
         this.configuration = configuration;
 
-        itemStackRepresentation = new ItemStack(material);
+        Bukkit.getLogger().info("Material: " + material);
 
-        createItemStack();
+        if (material == Material.AIR) {
+            itemStackRepresentation = null;
+        } else {
+            itemStackRepresentation = createItemStack();
+        }
+
     }
 
     public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, List<String> loreDescription, ItemSet itemSet, ItemConfiguration configuration) {
@@ -57,9 +63,12 @@ public class Item implements DefaultItem {
     }
 
 
-    private void createItemStack() {
-        if (!itemStackRepresentation.hasItemMeta()) return;
-        ItemMeta itemMeta = getItemMeta();
+    private ItemStack createItemStack() {
+        ItemStack result = new ItemStack(material);
+        Bukkit.getLogger().info("Begin create Itemstack: " + name);
+        Bukkit.getLogger().info("ItemMeta " + result.hasItemMeta());
+        Bukkit.getLogger().info("Has item Meta");
+        ItemMeta itemMeta = result.getItemMeta();
 
         itemMeta.setDisplayName(rarity.getColor() + name);
         if (rarity != Rarity.NONE) itemMeta.setUnbreakable(true);
@@ -75,7 +84,9 @@ public class Item implements DefaultItem {
                 itemMeta.addEnchant(Enchantment.ARROW_INFINITE,1,true);
             }
         }
-        setItemMeta(itemMeta);
+        result.setItemMeta(itemMeta);
+        Bukkit.getLogger().info("End create Itemstack: " + name);
+        return result;
     }
 
     protected final void setItemMeta(ItemMeta itemMeta) {
@@ -87,7 +98,7 @@ public class Item implements DefaultItem {
     }
 
     public @NotNull String getKey() {
-        return material.toString() + "_" + name;
+        return material.toString().toLowerCase() + "_" + name.toLowerCase().replace(" ", "_");
     }
 
     @Override

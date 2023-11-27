@@ -150,6 +150,7 @@ public class ItemConfiguration {
             this.equipmentSlot = equipmentSlot;
 
             flags = new HashMap<>();
+            specialFlags = new ArrayList<>();
             potionEffects = new ArrayList<>();
         }
 

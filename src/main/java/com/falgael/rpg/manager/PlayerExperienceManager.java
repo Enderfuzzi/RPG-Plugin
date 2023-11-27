@@ -121,7 +121,7 @@ public class PlayerExperienceManager implements PlayerExperienceManagement, List
     }
 
 
-    private boolean checkUUID(UUID player) {
+    public boolean checkUUID(UUID player) {
         return proficiencyExperience.containsKey(player);
     }
 

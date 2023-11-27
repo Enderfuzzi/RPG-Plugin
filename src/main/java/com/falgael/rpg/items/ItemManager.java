@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 public class ItemManager implements ItemManagement{
 
@@ -61,9 +62,14 @@ public class ItemManager implements ItemManagement{
         if (!item.hasItemMeta()) return DEFAULT_ITEM;
         ItemMeta meta = item.getItemMeta();
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
-        String key = item.getType().toString() + "_" + ChatColor.stripColor(meta.getDisplayName());
+        return getItem(item.getType() + "_" + ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_"));
+    }
+
+
+    public DefaultItem getItem(String key) {
         return items.getOrDefault(key, DEFAULT_ITEM);
     }
+
 
     @Override
     public DefaultItem getDefault() {
@@ -73,5 +79,10 @@ public class ItemManager implements ItemManagement{
     @Override
     public boolean isDefault(DefaultItem item) {
         return item.equals(DEFAULT_ITEM);
+    }
+
+    @Override
+    public Set<String> getRegisteredKeys() {
+        return items.keySet();
     }
 }

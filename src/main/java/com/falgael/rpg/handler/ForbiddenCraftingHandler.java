@@ -1,8 +1,6 @@
 package com.falgael.rpg.handler;
 
 
-import com.falgael.rpg.items.Items;
-import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.PrepareItemCraftEvent;

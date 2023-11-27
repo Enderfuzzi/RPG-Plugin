@@ -1,15 +1,8 @@
 package com.falgael.rpg.commands.chest;
 
-import com.falgael.rpg.items.Items;
-import com.falgael.rpg.proficiency.Proficiency;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.block.Chest;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 

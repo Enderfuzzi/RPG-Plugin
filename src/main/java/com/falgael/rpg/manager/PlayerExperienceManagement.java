@@ -37,5 +37,11 @@ public interface PlayerExperienceManagement {
         return getExperienceBorder(player.getUniqueId(), proficiency);
     }
 
+    boolean checkUUID(UUID player);
+
+    default boolean checkUUID(Player player) {
+        return checkUUID(player.getUniqueId());
+    }
+
 
 }

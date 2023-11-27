@@ -4,50 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b46bf1b-530d-4acc-aee0-55441c7904d6" name="Changes" comment="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/MainManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/MainManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/MainVillagerDefinition.java" afterDir="false" />
+    <list default="true" id="5b46bf1b-530d-4acc-aee0-55441c7904d6" name="Changes" comment="First basic working version. &#10;Next: Rework Commands to test. Add all Items, fix package structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/ExperienceCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/GetCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/SpawnCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/EntityTransformHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/RPG.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/RPG.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/CustomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/CustomCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/chest/SpawnItemChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/chest/SpawnItemChest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/experience/ManipulateExperience.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/experience/ManipulateExperience.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/items/GetItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/items/GetItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawnTabComplete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/commands/villager/VillagerSpawnTabComplete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ArrowShootHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ArrowShootHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/BlockBreakHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/BlockBreakHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/CraftingResultsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/CraftingResultsHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/DamageHitHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/DamageHitHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/EntityDeathHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/EntityDeathHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ForbiddenCraftingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ForbiddenCraftingHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/HarvestBlockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/HarvestBlockHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemBurnHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemBurnHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemHeldHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ItemHeldHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/MainHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/MainHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerFishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerFishHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractBlockHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractBlockHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/PlayerInteractHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ShearingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/ShearingHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/TestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/TestHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/VillagerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/handler/VillagerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/DefaultItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/DefaultItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemDefinition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/ItemManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Items.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/Items.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/nousage/Items.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemEffect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/configuration/ItemEffect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/DataStoreManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/DataStoreManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/set/NameBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/items/set/NameBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/PlayerExperienceManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/PlayerExperienceManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/PlayerExperienceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/PlayerExperienceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculationAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/manager/ProficiencyCalculationAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/misc/Calculations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/proficiency/Utils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/CustomVillager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/CustomVillager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/villager/VillagerManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/Villager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/Villager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/items/SimpleItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/falgael/rpg/woodwork/items/SimpleItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <list id="34aa506b-cf0b-44ce-a1ad-bc2c20be162a" name="No to change" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -296,13 +280,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1689856407521</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Implemented and modification of Infinite Burn item">
-      <created>1693734734577</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1693734734577</updated>
     </task>
     <task id="LOCAL-00088" summary="Added Concrete Traits to Tier IV">
       <created>1693735608007</created>
@@ -640,7 +617,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700688794715</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="First basic working version. &#10;Next: Rework Commands to test. Add all Items, fix package structure">
+      <created>1700773986325</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1700773986326</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -670,7 +654,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added Level requirement Check" />
     <MESSAGE value="Removed unnecessary checks and added Player level requirement" />
     <MESSAGE value="Build Pair to record" />
     <MESSAGE value="Changed the damage calculation, added Crossbow and shield for Hunting" />
@@ -695,7 +678,8 @@
     <MESSAGE value="Added butcher set, Narsil, Baker's head and a new category unique" />
     <MESSAGE value="Overhaul of structure. WIP Experimental.&#10;&#10;More trying to add non-static solutions" />
     <MESSAGE value="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Overhaul of structure. WIP Experimental.&#10;&#10;Further Dynamic structures. For items and villagers" />
+    <MESSAGE value="First basic working version. &#10;Next: Rework Commands to test. Add all Items, fix package structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="First basic working version. &#10;Next: Rework Commands to test. Add all Items, fix package structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

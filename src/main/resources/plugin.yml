@@ -3,12 +3,9 @@ main: com.falgael.rpg.RPG
 api-version: 1.20
 version: 0.0.2
 commands:
-  spawn_villager:
-    description: "Spawn a villager with key"
-    usage: /<command> <arg>
   experience:
     description: "Manipulate the experience amount of a Player"
-    usage: /<command> <Player> <Proficiency> <modifier> <amount>
+    usage: /<command> <modifier> <Proficiency> <amount> [level]
   spawn_chest:
     description: "Spawn a Chest with items of a Proficiency"
     usage: /<command> <Proficiency>
@@ -17,4 +14,7 @@ commands:
     usage: /<command>
   get:
     description: "gets an item or a group of items"
-    usage: /<command> <item|set|proficiency> <name>
+    usage: /<command> <item> <key>
+  spawn:
+    description: "Spawn a villager with key"
+    usage: /<command> <villager> <key>
