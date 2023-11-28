@@ -52,7 +52,7 @@ public class GetCommand implements CommandExecutor, TabCompleter {
 
         if (args[0].equals("item")) {
             DefaultItem item = itemManager.getItem(args[1]);
-            if (itemManager.isDefault(item)) {
+            if (item.isDefault()) {
                 player.sendMessage("Unregistered Key");
                 return false;
             }

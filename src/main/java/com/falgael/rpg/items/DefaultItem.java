@@ -1,7 +1,7 @@
 package com.falgael.rpg.items;
 
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.inventory.ItemStack;
@@ -12,13 +12,13 @@ import java.util.List;
 public interface DefaultItem {
 
 
-    int getID();
+    int getId();
     String getName();
     List<Proficiency> getProficiencies();
     boolean hasProficiency(Proficiency proficiency);
     boolean hasExactProficiency(Proficiency proficiency);
     Rarity getRarity();
-    OLDItemSet getEquipmentSet();
+    DefaultItemSet getEquipmentSet();
     ItemConfiguration getConfiguration();
     ItemStack getItemStackRepresentation();
 
@@ -28,5 +28,9 @@ public interface DefaultItem {
 
     boolean isBreakingTool();
     boolean isWeapon();
+
+    default boolean isDefault() {
+        return false;
+    }
 
 }

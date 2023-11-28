@@ -7,6 +7,8 @@ import com.falgael.rpg.commands.SpawnCommand;
 import com.falgael.rpg.handler.*;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.ItemManager;
+import com.falgael.rpg.items.set.ItemSetManagement;
+import com.falgael.rpg.items.set.ItemSetManager;
 import com.falgael.rpg.manager.*;
 import com.falgael.rpg.handler.TestHandler;
 import com.falgael.rpg.old.PlayerManager;
@@ -25,6 +27,7 @@ public final class RPG extends JavaPlugin {
     private PlayerExperienceManagement playerExperienceManager;
     private ProficiencyCalculationAdapter proficiencyAdapter;
 
+    private ItemSetManagement itemSetManager;
     private ItemManagement itemManager;
     private VillagerManagement villagerManager;
     private ItemHeldHandler itemHeldHandler;
@@ -34,7 +37,8 @@ public final class RPG extends JavaPlugin {
 
         storeManager = new DataStoreManager(this);
         playerExperienceManager = new PlayerExperienceManager(this, storeManager);
-        itemManager = new ItemManager();
+        itemSetManager = new ItemSetManager();
+        itemManager = new ItemManager(itemSetManager);
         villagerManager = new VillagerManager(itemManager);
 
         proficiencyAdapter = new ProficiencyCalculation(playerExperienceManager, itemManager);

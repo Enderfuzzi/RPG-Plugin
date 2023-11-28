@@ -4,7 +4,7 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.ItemBuilder;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.configuration.file.FileConfiguration;

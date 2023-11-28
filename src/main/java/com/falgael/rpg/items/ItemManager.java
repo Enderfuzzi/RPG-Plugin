@@ -1,8 +1,9 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.ChatColor;
@@ -28,22 +29,27 @@ public class ItemManager implements ItemManagement{
       "",
       OLDItemSet.NONE,
       new ItemConfiguration.Builder().create()
-    );
+    ) {
+        @Override
+        public boolean isDefault() {
+            return true;
+        }
+    };
 
     private HashMap<String, DefaultItem> items;
 
     private List<ItemDefinition> registeredClasses;
 
 
-    public ItemManager() {
+    public ItemManager(ItemSetManagement itemSetManager) {
         items = new HashMap<>();
         registeredClasses = new ArrayList<>();
-        registeredClasses();
+        registeredClasses(itemSetManager);
         init();
     }
 
-    private void registeredClasses() {
-        registerItemClass(new SimpleItems());
+    private void registeredClasses(ItemSetManagement itemSetManager) {
+        registerItemClass(new SimpleItems(itemSetManager));
     }
 
     private void init() {
@@ -76,10 +82,6 @@ public class ItemManager implements ItemManagement{
         return DEFAULT_ITEM;
     }
 
-    @Override
-    public boolean isDefault(DefaultItem item) {
-        return item.equals(DEFAULT_ITEM);
-    }
 
     @Override
     public Set<String> getRegisteredKeys() {

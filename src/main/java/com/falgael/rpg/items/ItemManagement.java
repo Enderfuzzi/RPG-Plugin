@@ -12,8 +12,6 @@ public interface ItemManagement {
 
     DefaultItem getDefault();
 
-    boolean isDefault(DefaultItem item);
-
     Set<String> getRegisteredKeys();
 
 }

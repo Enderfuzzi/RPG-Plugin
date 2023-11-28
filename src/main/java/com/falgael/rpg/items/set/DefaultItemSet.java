@@ -20,4 +20,12 @@ public interface DefaultItemSet {
     }
 
     boolean hasExactProficiency(Proficiency proficiency);
+
+    String getKey();
+
+    int getId();
+
+    default boolean isDefault() {
+        return false;
+    }
 }

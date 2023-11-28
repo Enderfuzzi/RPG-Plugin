@@ -3,7 +3,7 @@ package com.falgael.rpg.manager;
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,7 +26,7 @@ public interface ProficiencyCalculationAdapter {
 
     List<DefaultItem> getEquippedItems(Player player);
 
-    List<OLDItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems);
+    List<DefaultItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems);
 
     void calculateExperience(Player player, List<Proficiency> proficiencies, long baseExperience);
 

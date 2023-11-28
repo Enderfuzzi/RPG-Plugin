@@ -1,12 +1,15 @@
-package com.falgael.rpg.items.set;
+package com.falgael.rpg.old;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.set.DefaultItemSet;
+import com.falgael.rpg.items.set.NameBuilding;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public enum OLDItemSet implements NameBuilding, DefaultItemSet {
@@ -326,9 +329,7 @@ public enum OLDItemSet implements NameBuilding, DefaultItemSet {
         this.configuration = configuration;
 
         this.description = new ArrayList<>();
-        for (String tmp : description) {
-            this.description.add(tmp);
-        }
+        Collections.addAll(this.description, description);
     }
 
     public List<Proficiency> getProficiency() {
@@ -341,6 +342,16 @@ public enum OLDItemSet implements NameBuilding, DefaultItemSet {
 
     public boolean hasExactProficiency(Proficiency proficiency) {
         return proficiencies.contains(proficiency);
+    }
+
+    @Override
+    public String getKey() {
+        return null;
+    }
+
+    @Override
+    public int getId() {
+        return 0;
     }
 
     public Rarity getRarity() {

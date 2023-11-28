@@ -2,7 +2,7 @@ package com.falgael.rpg.items;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.Bukkit;
@@ -24,12 +24,21 @@ public class Item implements DefaultItem {
     private final List<Proficiency> proficiencies;
     private final Rarity rarity;
     private final List<String> loreDescription;
-    private final OLDItemSet itemSet;
+    private final DefaultItemSet itemSet;
     private final ItemConfiguration configuration;
     private ItemStack itemStackRepresentation;
 
 
-    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, List<String> loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
+    public Item(
+            int id,
+            String name,
+            Material material,
+            List<Proficiency> proficiencies,
+            Rarity rarity,
+            List<String> loreDescription,
+            DefaultItemSet itemSet,
+            ItemConfiguration configuration
+    ) {
         this.id = id;
         this.name = name;
         this.material = material;
@@ -49,15 +58,42 @@ public class Item implements DefaultItem {
 
     }
 
-    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, List<String> loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
+    public Item(
+            int id,
+            String name,
+            Material material,
+            Proficiency proficiency,
+            Rarity rarity,
+            List<String> loreDescription,
+            DefaultItemSet itemSet,
+            ItemConfiguration configuration
+    ) {
         this(id,name, material, List.of(proficiency), rarity, loreDescription, itemSet, configuration);
     }
 
-    public Item(int id, String name, Material material, List<Proficiency> proficiencies, Rarity rarity, String loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
+    public Item(
+            int id,
+            String name,
+            Material material,
+            List<Proficiency> proficiencies,
+            Rarity rarity,
+            String loreDescription,
+            DefaultItemSet itemSet,
+            ItemConfiguration configuration
+    ) {
         this(id, name, material, proficiencies, rarity, List.of(loreDescription), itemSet, configuration);
     }
 
-    public Item(int id, String name, Material material, Proficiency proficiency, Rarity rarity, String loreDescription, OLDItemSet itemSet, ItemConfiguration configuration) {
+    public Item(
+            int id,
+            String name,
+            Material material,
+            Proficiency proficiency,
+            Rarity rarity,
+            String loreDescription,
+            DefaultItemSet itemSet,
+            ItemConfiguration configuration
+    ) {
         this(id,name, material, List.of(proficiency), rarity, List.of(loreDescription), itemSet, configuration);
     }
 
@@ -112,7 +148,7 @@ public class Item implements DefaultItem {
 
 
     @Override
-    public int getID() {
+    public int getId() {
         return id;
     }
 
@@ -142,7 +178,7 @@ public class Item implements DefaultItem {
     }
 
     @Override
-    public OLDItemSet getEquipmentSet() {
+    public DefaultItemSet getEquipmentSet() {
         return itemSet;
     }
 
@@ -171,14 +207,14 @@ public class Item implements DefaultItem {
         }
 
 
-        if (itemSet != OLDItemSet.NONE) {
+        if (!itemSet.isDefault()) {
             result.add("");
             result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getName()));
             for (Proficiency type : itemSet.getProficiency()) {
                 if (type != Proficiency.NONE) result.add(type.getRepresentation());
             }
 
-            if (itemSet.hasConfiguration()) result.addAll(configurationLore(itemSet.getConfiguration()));
+            result.addAll(configurationLore(itemSet.getConfiguration()));
 
             itemSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
 

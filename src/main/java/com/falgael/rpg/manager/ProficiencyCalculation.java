@@ -4,7 +4,7 @@ import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
-import com.falgael.rpg.items.set.OLDItemSet;
+import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
 import org.bukkit.Bukkit;
@@ -21,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProficiencyCalculation implements ProficiencyCalculationAdapter, PlayerMessage {
 
@@ -45,12 +44,11 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             multiplier += currentItem.getConfiguration().getValue(flag);
         }
 
-        for (OLDItemSet set : getFulfilledSets(player, items)) {
+        for (DefaultItemSet set : getFulfilledSets(player, items)) {
             if (!set.hasProficiency(proficiency)) continue;
-            if (!set.hasConfiguration()) continue;
             multiplier += set.getConfiguration().getValue(flag);
         }
-        Bukkit.getLogger().info("Calculated Modifier: " + multiplier + " for " + proficiency + " and " + flag.toString());
+        Bukkit.getLogger().info("Calculated Modifier: " + multiplier + " for " + proficiency + " and " + flag);
         return multiplier;
     }
 
@@ -73,18 +71,18 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         List<DefaultItem> result = new ArrayList<>();
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             DefaultItem item = getItem(player, slot);
-            if (itemManagement.isDefault(item)) continue;
+            if (item.isDefault()) continue;
             if (!fulfillLevelRequirement(player, item)) continue;
             result.add(item);
         }
-        Bukkit.getLogger().info("Equipped Items: " + result.stream().map(DefaultItem::getName).collect(Collectors.toList()));
+        Bukkit.getLogger().info("Equipped Items: " + result.stream().map(DefaultItem::getName).toList());
         return result;
     }
 
     @Override
-    public List<OLDItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems) {
-        List<OLDItemSet> result = new ArrayList<>();
-        HashMap<OLDItemSet, Integer> setOccurrence = new HashMap<>();
+    public List<DefaultItemSet> getFulfilledSets(Player player, List<DefaultItem> equippedItems) {
+        List<DefaultItemSet> result = new ArrayList<>();
+        HashMap<DefaultItemSet, Integer> setOccurrence = new HashMap<>();
         for (DefaultItem currentItem : equippedItems) {
             if (setOccurrence.containsKey(currentItem.getEquipmentSet())) {
                 setOccurrence.put(currentItem.getEquipmentSet(), setOccurrence.get(currentItem.getEquipmentSet()) + 1);
@@ -166,7 +164,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
 
     public boolean performAction(Player player, Event e, PredicateConsumer<DefaultItem> predicate) {
         DefaultItem item = getItem(player, EquipmentSlot.HAND);
-        if (itemManagement.isDefault(item)) return false;
+        if (item.isDefault()) return false;
         if (!predicate.accept(item)) return false;
         return performAction(e, item, player);
     }
@@ -179,9 +177,9 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             for (PotionEffect potionEffect : item.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
         }
 
-        List<OLDItemSet> fulfilledSets = getFulfilledSets(player, equippedItems);
-        for (OLDItemSet set : fulfilledSets) {
-            if (!set.hasConfiguration() || !set.getConfiguration().hasPotionEffect()) continue;
+        List<DefaultItemSet> fulfilledSets = getFulfilledSets(player, equippedItems);
+        for (DefaultItemSet set : fulfilledSets) {
+            if (!set.getConfiguration().hasPotionEffect()) continue;
             for (PotionEffect potionEffect : set.getConfiguration().getPotionEffects()) player.addPotionEffect(potionEffect);
         }
 
