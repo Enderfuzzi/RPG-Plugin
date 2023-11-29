@@ -72,7 +72,10 @@ public class ItemManager implements ItemManagement{
         if (!item.hasItemMeta()) return DEFAULT_ITEM;
         ItemMeta meta = item.getItemMeta();
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
-        return getItem(item.getType() + "_" + ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_"));
+        return getItem(
+                item.getType().toString().toLowerCase()
+                        + "_"
+                        + ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_").toLowerCase());
     }
 
 

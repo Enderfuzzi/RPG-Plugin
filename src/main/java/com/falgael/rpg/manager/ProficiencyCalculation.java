@@ -71,6 +71,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         List<DefaultItem> result = new ArrayList<>();
         for (EquipmentSlot slot : EquipmentSlot.values()) {
             DefaultItem item = getItem(player, slot);
+            Bukkit.getLogger().info("Checked Item is default: " + item.isDefault());
             if (item.isDefault()) continue;
             if (!fulfillLevelRequirement(player, item)) continue;
             result.add(item);
@@ -91,7 +92,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             }
         }
         setOccurrence.forEach((k, v) -> {if (k.getPartNumber() <= v) result.add(k);});
-        Bukkit.getLogger().info("Fulfilled Sets: " + result);
+        Bukkit.getLogger().info("Fulfilled Sets: " + result.stream().map(DefaultItemSet::getName).toList());
         return result;
     }
 
