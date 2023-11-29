@@ -1,5 +1,6 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
@@ -93,5 +94,15 @@ public class ItemManager implements ItemManagement{
     @Override
     public Set<String> getRegisteredKeys() {
         return items.keySet();
+    }
+
+    @Override
+    public List<DefaultItem> getItemsOfSet(DefaultItemSet set) {
+        List<DefaultItem> result = new ArrayList<>();
+        items.values().forEach(i -> {
+            if (i.getEquipmentSet().equals(set)) result.add(i);
+        });
+
+        return result;
     }
 }

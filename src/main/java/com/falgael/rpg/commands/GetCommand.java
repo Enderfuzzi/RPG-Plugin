@@ -2,6 +2,8 @@ package com.falgael.rpg.commands;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
+import com.falgael.rpg.items.set.DefaultItemSet;
+import com.falgael.rpg.items.set.ItemSetManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,9 +20,11 @@ import java.util.stream.Collectors;
 public class GetCommand implements CommandExecutor, TabCompleter {
 
     private final ItemManagement itemManager;
+    private final ItemSetManagement itemSetManager;
 
-    public GetCommand(ItemManagement itemManager) {
+    public GetCommand(ItemManagement itemManager, ItemSetManagement itemSetManager) {
         this.itemManager = itemManager;
+        this.itemSetManager = itemSetManager;
     }
 
 
@@ -46,7 +50,7 @@ public class GetCommand implements CommandExecutor, TabCompleter {
 
 
         if (args.length != 2) {
-            player.sendMessage("Usage: /get <item> <key>");
+            player.sendMessage("Usage: /get <item|set> <key>");
             return false;
         }
 
@@ -57,6 +61,16 @@ public class GetCommand implements CommandExecutor, TabCompleter {
                 return false;
             }
             player.getInventory().addItem(item.getItemStackRepresentation());
+            return true;
+        }
+
+        if (args[0].equals("set")) {
+            DefaultItemSet itemSet = itemSetManager.getItemSet(args[1]);
+            if (itemSet.isDefault()) {
+                player.sendMessage("Unregistered Key");
+                return false;
+            }
+            itemManager.getItemsOfSet(itemSet).forEach(i -> player.getInventory().addItem(i.getItemStackRepresentation()));
             return true;
         }
 
@@ -83,15 +97,24 @@ public class GetCommand implements CommandExecutor, TabCompleter {
         if (!(sender instanceof Player player)) return null;
         if (!command.getName().equals("get")) return null;
 
-        if (args.length == 1) return List.of("item");
+        if (args.length == 1) return List.of("item","set");
         if (args.length == 2) {
             List<String> result = new ArrayList<>();
             if (args[0].equals("item")) {
 
-                result.addAll(itemManager.getRegisteredKeys().stream().filter(e -> e.toLowerCase().startsWith(args[1].toLowerCase())).collect(Collectors.toList()));
+                result.addAll(
+                        itemManager.getRegisteredKeys().stream().filter(
+                                e -> e.toLowerCase().startsWith(args[1].toLowerCase())).toList()
+                );
 
                 //result.addAll(itemManager.getRegisteredKeys());
+            } else if (args[0].equals("set")) {
+                result.addAll(
+                        itemSetManager.getRegisteredKeys().stream().filter(
+                                e -> e.toLowerCase().startsWith(args[1].toLowerCase())).toList()
+                );
             }
+
 
             return result;
         }

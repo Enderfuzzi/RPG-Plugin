@@ -1,6 +1,5 @@
 package com.falgael.rpg;
 
-import com.falgael.rpg.commands.CustomCommand;
 import com.falgael.rpg.commands.ExperienceCommand;
 import com.falgael.rpg.commands.GetCommand;
 import com.falgael.rpg.commands.SpawnCommand;
@@ -79,7 +78,7 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new EntityTransformHandler(mainManager), this);
 
 
-        GetCommand getCommand = new GetCommand(itemManager);
+        GetCommand getCommand = new GetCommand(itemManager, itemSetManager);
         this.getCommand("get").setExecutor(getCommand);
         this.getCommand("get").setTabCompleter(getCommand);
 

@@ -14,7 +14,7 @@ commands:
     usage: /<command>
   get:
     description: "gets an item or a group of items"
-    usage: /<command> <item> <key>
+    usage: /<command> <item|set> <key>
   spawn:
     description: "Spawn a villager with key"
     usage: /<command> <villager> <key>
