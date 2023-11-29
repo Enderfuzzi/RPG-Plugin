@@ -28,7 +28,7 @@ public enum ConfigurationFlag implements ItemEffect {
 
     CURRENCY(ChatColor.DARK_PURPLE, "Currency"),
 
-    SET_BONUS(ChatColor.WHITE, "set"),
+    SET_BONUS(ChatColor.WHITE, "Set:"),
 
     SET_PART_NUMBER(ChatColor.GRAY, "Required Parts: "),
 
@@ -82,7 +82,7 @@ public enum ConfigurationFlag implements ItemEffect {
             case BURN_TIME -> String.format("-%s%% %s", value, lore);
             case DAMAGE_ADDITIVE -> String.format("+%s %s", value, lore);
             case CURRENCY -> lore;
-            case SET_BONUS -> ChatColor.BOLD + String.format("%s %s",value, color + lore);
+            case SET_BONUS -> String.format("%s %s",color + lore, value);
             case DEFAULT -> value;
             default -> String.format("+%s%% %s", value, lore);
         } + ChatColor.RESET;

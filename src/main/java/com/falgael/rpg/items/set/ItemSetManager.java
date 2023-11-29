@@ -1,14 +1,11 @@
 package com.falgael.rpg.items.set;
 
-import com.falgael.rpg.items.DefaultItem;
-import com.falgael.rpg.items.Item;
-import com.falgael.rpg.items.ItemDefinition;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
-import com.falgael.rpg.woodwork.items.SimpleItems;
+import com.falgael.rpg.woodwork.sets.BasicSets;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,11 +40,14 @@ public class ItemSetManager implements ItemSetManagement{
     }
 
     private void registeredClasses() {
-
+        registerItemClass(new BasicSets());
     }
 
     private void init() {
-        registeredClasses.forEach(c -> c.getItemSets().forEach(i -> itemSets.put(i.getKey(), i)));
+        registeredClasses.forEach(c -> c.getItemSets().forEach(i -> {
+            itemSets.put(i.getKey(), i);
+            Bukkit.getLogger().info("Registered ItemSet with name: " + i.getName() + " and id: " + i.getId());
+        }));
     }
 
     private void registerItemClass(ItemSetDefinition itemSetDefinition) {

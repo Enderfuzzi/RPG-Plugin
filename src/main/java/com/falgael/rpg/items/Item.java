@@ -209,7 +209,7 @@ public class Item implements DefaultItem {
 
         if (!itemSet.isDefault()) {
             result.add("");
-            result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getName()));
+            result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getRarity().getColor() + itemSet.getName()));
             for (Proficiency type : itemSet.getProficiency()) {
                 if (type != Proficiency.NONE) result.add(type.getRepresentation());
             }

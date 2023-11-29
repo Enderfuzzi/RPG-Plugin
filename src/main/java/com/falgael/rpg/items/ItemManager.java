@@ -3,9 +3,9 @@ package com.falgael.rpg.items;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
-import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -18,23 +18,7 @@ import java.util.Set;
 
 public class ItemManager implements ItemManagement{
 
-    private static final String DEFAULT_KEY = "AIR_NONE";
-
-    private static final Item DEFAULT_ITEM = new Item(
-            0,
-      "",
-      Material.AIR,
-      Proficiency.NONE,
-      Rarity.NONE,
-      "",
-      OLDItemSet.NONE,
-      new ItemConfiguration.Builder().create()
-    ) {
-        @Override
-        public boolean isDefault() {
-            return true;
-        }
-    };
+    private final Item DEFAULT_ITEM;
 
     private HashMap<String, DefaultItem> items;
 
@@ -44,6 +28,22 @@ public class ItemManager implements ItemManagement{
     public ItemManager(ItemSetManagement itemSetManager) {
         items = new HashMap<>();
         registeredClasses = new ArrayList<>();
+        DEFAULT_ITEM = new Item(
+                0,
+                "",
+                Material.AIR,
+                Proficiency.NONE,
+                Rarity.NONE,
+                "",
+                itemSetManager.getItemSetbyID(0),
+                new ItemConfiguration.Builder().create()
+        ) {
+            @Override
+            public boolean isDefault() {
+                return true;
+            }
+        };
+
         registeredClasses(itemSetManager);
         init();
     }
@@ -53,7 +53,11 @@ public class ItemManager implements ItemManagement{
     }
 
     private void init() {
-        registeredClasses.forEach(c -> c.getItems().forEach(i -> items.put(i.getKey(), i)));
+        registeredClasses.forEach(c -> c.getItems().forEach(i -> {
+            items.put(i.getKey(), i);
+            Bukkit.getLogger().info("Registered: " + i.getKey() + " with set " + i.getEquipmentSet().getName());
+        }
+        ));
     }
 
 
