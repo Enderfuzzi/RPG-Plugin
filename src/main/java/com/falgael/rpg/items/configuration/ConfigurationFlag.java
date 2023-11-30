@@ -1,6 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
 import com.falgael.rpg.items.ItemBuilder;
+import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Contract;
@@ -95,15 +96,15 @@ public enum ConfigurationFlag implements ItemEffect {
         };
     }
 
-    public PredicateConsumer<Event> getAction(Double value) {
+    public PredicateConsumer<Event, ProficiencyCalculationAdapter> getAction(Double value) {
         return switch (this) {
-            case VEIN_MINING -> e -> veinMining(e, value.intValue());
-            case BURN_TIME -> e -> furnaceFuelBurn(e, value);
-            case TREE_HARVEST -> e -> treeHarvest(e, value.intValue());
-            case CROP_HARVEST -> e -> cropHarvest(e);
-            case WEATHER_CLEAR -> e -> weatherClear(e, value.intValue());
-            case WEATHER_RAIN -> e -> weatherRain(e, value.intValue());
-            case WEATHER_THUNDER -> e -> weatherStorm(e, value.intValue());
+            case VEIN_MINING -> (e,p) -> veinMining(e, p, value.intValue());
+            case BURN_TIME -> (e,p) -> furnaceFuelBurn(e, value);
+            case TREE_HARVEST -> (e,p) -> treeHarvest(e, p, value.intValue());
+            case CROP_HARVEST -> (e,p) -> cropHarvest(e);
+            case WEATHER_CLEAR -> (e,p) -> weatherClear(e, value.intValue());
+            case WEATHER_RAIN -> (e,p) -> weatherRain(e, value.intValue());
+            case WEATHER_THUNDER -> (e,p) -> weatherStorm(e, value.intValue());
             default -> null;
         };
     }

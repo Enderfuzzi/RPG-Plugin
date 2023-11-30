@@ -64,6 +64,18 @@ public class Item implements DefaultItem {
             Material material,
             Proficiency proficiency,
             Rarity rarity,
+            DefaultItemSet itemSet,
+            ItemConfiguration configuration
+    ) {
+        this(id,name, material, List.of(proficiency), rarity,"",itemSet, configuration);
+    }
+
+    public Item(
+            int id,
+            String name,
+            Material material,
+            Proficiency proficiency,
+            Rarity rarity,
             List<String> loreDescription,
             DefaultItemSet itemSet,
             ItemConfiguration configuration
@@ -134,11 +146,6 @@ public class Item implements DefaultItem {
 
     public @NotNull String getKey() {
         return material.toString().toLowerCase() + "_" + name.toLowerCase().replace(" ", "_");
-    }
-
-    @Override
-    public boolean isBreakingTool() {
-        return configuration.hasSpecialFlag(ConfigurationFlag.Special.BREAKING_TOOL);
     }
 
     @Override

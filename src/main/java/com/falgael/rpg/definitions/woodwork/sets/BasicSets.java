@@ -1,4 +1,4 @@
-package com.falgael.rpg.woodwork.sets;
+package com.falgael.rpg.definitions.woodwork.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;

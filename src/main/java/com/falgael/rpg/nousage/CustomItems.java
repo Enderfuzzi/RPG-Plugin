@@ -4,6 +4,7 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.ItemBuilder;
+import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -80,7 +81,7 @@ public class CustomItems {
                 );
             }
 
-            PredicateConsumer<Event> action = null;
+            PredicateConsumer<Event, ProficiencyCalculationAdapter> action = null;
             for (Map.Entry<ConfigurationFlag, Double> entry: config.entrySet()) {
                 if (entry.getKey().getAction(entry.getValue()) != null) {
                     action = entry.getKey().getAction(entry.getValue());

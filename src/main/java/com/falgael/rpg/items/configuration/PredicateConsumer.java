@@ -1,6 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
-public interface PredicateConsumer<T> {
+public interface PredicateConsumer<T, V> {
 
-    boolean accept(T t);
+    boolean accept(T t, V v);
 }
+

@@ -175,8 +175,8 @@ public interface ItemEffect {
 
 
 
-    default boolean veinMining(Event e, int maxAmount) {
-        return veinHarvest(e, maxAmount, (start, current) -> {
+    default boolean veinMining(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount) {
+        return veinHarvest(e, proficiencyAdapter, maxAmount, (start, current) -> {
             BlockStats startBlock = BlockStats.getBlock(start.getType());
             BlockStats currentBlock = BlockStats.getBlock(current.getType());
 
@@ -187,8 +187,8 @@ public interface ItemEffect {
         });
     }
 
-    default boolean treeHarvest(Event e, int maxAmount) {
-        return veinHarvest(e, maxAmount, (start, current) -> {
+    default boolean treeHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount) {
+        return veinHarvest(e, proficiencyAdapter, maxAmount, (start, current) -> {
             BlockStats startBlock = BlockStats.getBlock(start.getType());
             BlockStats currentBlock = BlockStats.getBlock(current.getType());
 
@@ -227,20 +227,20 @@ public interface ItemEffect {
         return result;
     }
 
-    private boolean veinHarvest(Event e, int maxAmount, Predicate consumer) {
-        /*
+    private boolean veinHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount, Predicate consumer) {
+
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
         ArrayList<Location> blocks = getSurroundedBlocks(event.getBlock().getLocation(), maxAmount, consumer);
         if (blocks.isEmpty()) return false;
-        Calculations.calculateExperience(block.getExperienceAmount() * blocks.size(), block.getProficiencies(), event.getPlayer());
-        int droppedBlocks = Calculations.calculateLoot(block.getProficiencies(), event.getPlayer());
+        proficiencyAdapter.calculateExperience(event.getPlayer(), block.getProficiencies(), block.getExperienceAmount() * blocks.size());
+        int droppedBlocks = proficiencyAdapter.calculateLoot(event.getPlayer(), block.getProficiencies());
         Bukkit.getLogger().info("Dropped Blocks: " + droppedBlocks + 1);
         Bukkit.getLogger().info("Additional Blocks: " + blocks.size());
         droppedBlocks = ((droppedBlocks + 1) * blocks.size()) - 1;
         Bukkit.getLogger().info("Dropped Blocks modified: " + droppedBlocks);
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        Calculations.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        proficiencyAdapter.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
         for (Location location : blocks) {
             Bukkit.getLogger().info("Location to remove: " + location);
@@ -248,9 +248,6 @@ public interface ItemEffect {
             location.getBlock().setType(Material.AIR);
         }
         return true;
-
-         */
-        return false;
     }
 
 

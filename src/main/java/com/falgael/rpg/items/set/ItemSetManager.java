@@ -3,7 +3,7 @@ package com.falgael.rpg.items.set;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
-import com.falgael.rpg.woodwork.sets.BasicSets;
+import com.falgael.rpg.definitions.woodwork.sets.BasicSets;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 

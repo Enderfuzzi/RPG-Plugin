@@ -1,4 +1,4 @@
-package com.falgael.rpg.woodwork.items;
+package com.falgael.rpg.definitions.woodwork.items;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;
@@ -38,7 +38,12 @@ public class SimpleItems extends MainItemDefinition {
                                 .addFlag(ConfigurationFlag.LOOT, 0.5)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
                                 .create()
-                        )
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
         );
 
         result.add(

@@ -1,4 +1,4 @@
-package com.falgael.rpg.woodwork;
+package com.falgael.rpg.definitions.woodwork;
 
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.proficiency.Proficiency;

@@ -1,8 +1,10 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.definitions.misc.items.Currency;
+import com.falgael.rpg.definitions.misc.items.Statistics;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSetManagement;
-import com.falgael.rpg.woodwork.items.SimpleItems;
+import com.falgael.rpg.definitions.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -51,6 +53,8 @@ public class ItemManager implements ItemManagement{
 
     private void registeredClasses(ItemSetManagement itemSetManager) {
         registerItemClass(new SimpleItems(itemSetManager));
+        registerItemClass(new Currency(itemSetManager));
+        registerItemClass(new Statistics(itemSetManager));
     }
 
     private void init() {

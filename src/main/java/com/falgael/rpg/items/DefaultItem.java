@@ -26,10 +26,13 @@ public interface DefaultItem {
     @NotNull String getKey();
 
 
-    boolean isBreakingTool();
     boolean isWeapon();
 
     default boolean isDefault() {
+        return false;
+    }
+
+    default boolean isBreakingTool() {
         return false;
     }
 

@@ -2,7 +2,7 @@ package com.falgael.rpg.manager;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
-import com.falgael.rpg.items.configuration.PredicateConsumer;
+import com.falgael.rpg.items.configuration.SinglePredicateConsumer;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.Location;
@@ -76,7 +76,7 @@ public interface ProficiencyCalculationAdapter {
     boolean performAction(Event e, DefaultItem item);
     boolean performAction(Event e, DefaultItem item, Player player);
 
-    boolean performAction(Player player, Event e, PredicateConsumer<DefaultItem> predicate);
+    boolean performAction(Player player, Event e, SinglePredicateConsumer<DefaultItem> predicate);
 
     void applyPotionEffects(Player player);
 

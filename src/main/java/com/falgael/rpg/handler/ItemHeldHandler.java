@@ -73,7 +73,7 @@ public class ItemHeldHandler extends MainHandler {
     }
 
     private boolean checkStatOMeter(ItemStack item, Player player) {
-        if (itemAdapter.getItem(item).getId() == -1) {
+        if (itemAdapter.getItem(item).getId() == 90010) {
             loreModification(item, player);
             return true;
         }

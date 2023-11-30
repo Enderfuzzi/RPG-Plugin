@@ -4,6 +4,7 @@ import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
+import com.falgael.rpg.items.configuration.SinglePredicateConsumer;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
@@ -91,7 +92,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
                 setOccurrence.put(currentItem.getEquipmentSet(),1);
             }
         }
-        setOccurrence.forEach((k, v) -> {if (k.getPartNumber() <= v) result.add(k);});
+        setOccurrence.forEach((k, v) -> {if (k.getPartNumber() <= v && !k.isDefault()) result.add(k);});
         Bukkit.getLogger().info("Fulfilled Sets: " + result.stream().map(DefaultItemSet::getName).toList());
         return result;
     }
@@ -153,17 +154,18 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
     public boolean performAction(Event e, DefaultItem item) {
         if (e == null || item == null) return false;
         if (!item.getConfiguration().hasAction()) return false;
-        return item.getConfiguration().getAction().accept(e);
+        return item.getConfiguration().getAction().accept(e, this);
     }
 
     public boolean performAction(Event e, DefaultItem item, Player player) {
         if (player == null) return false;
+        Bukkit.getLogger().info("level requirement check");
         if (!fulfillLevelRequirement(player, item)) return false;
         Bukkit.getLogger().info("Accepted level requirement");
         return performAction(e, item);
     }
 
-    public boolean performAction(Player player, Event e, PredicateConsumer<DefaultItem> predicate) {
+    public boolean performAction(Player player, Event e, SinglePredicateConsumer<DefaultItem> predicate) {
         DefaultItem item = getItem(player, EquipmentSlot.HAND);
         if (item.isDefault()) return false;
         if (!predicate.accept(item)) return false;
