@@ -2,9 +2,9 @@ package com.falgael.rpg.items;
 
 import com.falgael.rpg.definitions.misc.items.Currency;
 import com.falgael.rpg.definitions.misc.items.Statistics;
+import com.falgael.rpg.definitions.woodwork.items.*;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSetManagement;
-import com.falgael.rpg.definitions.woodwork.items.SimpleItems;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -13,6 +13,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class ItemManager implements ItemManagement{
     private List<ItemDefinition> registeredClasses;
 
 
-    public ItemManager(ItemSetManagement itemSetManager) {
+    public ItemManager(@NotNull ItemSetManagement itemSetManager) {
         items = new HashMap<>();
         registeredClasses = new ArrayList<>();
         DEFAULT_ITEM = new Item(
@@ -52,17 +53,26 @@ public class ItemManager implements ItemManagement{
     }
 
     private void registeredClasses(ItemSetManagement itemSetManager) {
-        registerItemClass(new SimpleItems(itemSetManager));
+        //Misc
         registerItemClass(new Currency(itemSetManager));
         registerItemClass(new Statistics(itemSetManager));
+        //Woodwork
+        registerItemClass(new SimpleItems(itemSetManager));
+        registerItemClass(new CommonItems(itemSetManager));
+        registerItemClass(new AdvancedItems(itemSetManager));
+        registerItemClass(new EliteItems(itemSetManager));
+        registerItemClass(new EpicItems(itemSetManager));
+        registerItemClass(new LegendaryItems(itemSetManager));
+
     }
 
     private void init() {
         registeredClasses.forEach(c -> c.getItems().forEach(i -> {
-            items.put(i.getKey(), i);
-            Bukkit.getLogger().info("Registered: " + i.getKey() + " with set " + i.getEquipmentSet().getName());
-        }
-        ));
+                    items.put(i.getKey(), i);
+                    Bukkit.getLogger().info("Registered: " + i.getKey() + " with set " + i.getEquipmentSet().getName());
+                }
+            )
+        );
     }
 
 
