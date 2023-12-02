@@ -22,8 +22,8 @@ import java.util.*;
 
 public interface ItemEffect {
 
-    default boolean cropHarvest(Event e) {
-        /*
+    default boolean cropHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter) {
+
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
         if (block.isNone()) return false;
@@ -42,11 +42,11 @@ public interface ItemEffect {
 
         if (cropAge.getAge() != cropAge.getMaximumAge()) return true;
 
-        Calculations.calculateExperience(block.getExperienceAmount(), block.getProficiencies(), event.getPlayer());
-        int droppedBlocks = Calculations.calculateLoot(block.getProficiencies(), event.getPlayer());
+        proficiencyAdapter.calculateExperience(event.getPlayer(), block.getProficiencies(), block.getExperienceAmount());
+        int droppedBlocks = proficiencyAdapter.calculateLoot(event.getPlayer(), block.getProficiencies());
 
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        Calculations.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        proficiencyAdapter.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
 
         if (event.getPlayer().getInventory().contains(event.getBlock().getBlockData().getPlacementMaterial(),1)) {
@@ -65,9 +65,6 @@ public interface ItemEffect {
         }
 
         return true;
-
-         */
-        return false;
     }
 
 

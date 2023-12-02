@@ -101,7 +101,7 @@ public enum ConfigurationFlag implements ItemEffect {
             case VEIN_MINING -> (e,p) -> veinMining(e, p, value.intValue());
             case BURN_TIME -> (e,p) -> furnaceFuelBurn(e, value);
             case TREE_HARVEST -> (e,p) -> treeHarvest(e, p, value.intValue());
-            case CROP_HARVEST -> (e,p) -> cropHarvest(e);
+            case CROP_HARVEST -> (e,p) -> cropHarvest(e,p);
             case WEATHER_CLEAR -> (e,p) -> weatherClear(e, value.intValue());
             case WEATHER_RAIN -> (e,p) -> weatherRain(e, value.intValue());
             case WEATHER_THUNDER -> (e,p) -> weatherStorm(e, value.intValue());
