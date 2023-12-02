@@ -63,6 +63,11 @@ public class ItemManager implements ItemManagement{
         registerItemClass(new EliteItems(itemSetManager));
         registerItemClass(new EpicItems(itemSetManager));
         registerItemClass(new LegendaryItems(itemSetManager));
+        //Stonework
+
+        //Farming
+
+        //Hunting
 
     }
 
@@ -86,6 +91,7 @@ public class ItemManager implements ItemManagement{
         if (item == null) return DEFAULT_ITEM;
         if (!item.hasItemMeta()) return DEFAULT_ITEM;
         ItemMeta meta = item.getItemMeta();
+        if (!meta.isUnbreakable()) return DEFAULT_ITEM;
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
         return getItem(
                 item.getType().toString().toLowerCase()
