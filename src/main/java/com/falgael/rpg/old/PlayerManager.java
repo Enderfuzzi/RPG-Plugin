@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
+@Deprecated
 public class PlayerManager implements Listener {
 
     private static HashMap<UUID, ProficiencyExperienceManager> proficiencyData = new HashMap<>();

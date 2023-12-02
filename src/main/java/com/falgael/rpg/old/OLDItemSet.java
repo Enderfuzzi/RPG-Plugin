@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Deprecated
 public enum OLDItemSet implements NameBuilding, DefaultItemSet {
 
     NONE(Proficiency.NONE, Rarity.NONE, 0, null, ""),

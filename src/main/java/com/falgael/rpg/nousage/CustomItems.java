@@ -3,7 +3,7 @@ package com.falgael.rpg.nousage;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
-import com.falgael.rpg.items.ItemBuilder;
+import com.falgael.rpg.old.ItemBuilder;
 import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -136,8 +136,9 @@ public class CustomItems {
     }
 }
 
-
+@Deprecated
 record ItemKey(Material material, String name) {
 }
+@Deprecated
 record CustomItem(ItemStack item, ItemConfiguration configuration) {
 }

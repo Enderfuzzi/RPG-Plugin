@@ -25,7 +25,16 @@ public class VillagerManager implements VillagerManagement {
 
 
     private void registeredClasses(ItemManagement itemManager) {
+        //misc
+        registerClass(new com.falgael.rpg.definitions.misc.Villager(itemManager));
+        //woodwork
         registerClass(new com.falgael.rpg.definitions.woodwork.Villager(itemManager));
+        //stonework
+        registerClass(new com.falgael.rpg.definitions.stonework.Villager(itemManager));
+        //farming
+        registerClass(new com.falgael.rpg.definitions.farming.Villager(itemManager));
+        //hunting
+        registerClass(new com.falgael.rpg.definitions.hunting.Villager(itemManager));
     }
 
     private void init() {

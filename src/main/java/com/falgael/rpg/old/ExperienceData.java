@@ -3,6 +3,7 @@ package com.falgael.rpg.old;
 import java.io.Serial;
 import java.io.Serializable;
 
+@Deprecated
 public class ExperienceData implements Serializable {
     @Serial
     private static final long serialVersionUID = -6202896916145603976L;

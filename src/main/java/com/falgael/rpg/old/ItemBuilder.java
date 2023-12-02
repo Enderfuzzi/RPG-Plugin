@@ -1,8 +1,7 @@
-package com.falgael.rpg.items;
+package com.falgael.rpg.old;
 
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
-import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import com.google.common.collect.ArrayListMultimap;

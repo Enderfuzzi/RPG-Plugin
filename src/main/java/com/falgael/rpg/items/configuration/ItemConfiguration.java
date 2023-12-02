@@ -20,7 +20,6 @@ public class ItemConfiguration {
 
     private final HashMap<ConfigurationFlag, Double> flags;
 
-    private final List<ConfigurationFlag.Special> specialFlags;
 
     private final List<PotionEffect> potionEffects;
 
@@ -35,12 +34,10 @@ public class ItemConfiguration {
             List<EquipmentSlot> equipmentSlot,
             HashMap<ConfigurationFlag, Double> flags,
             List<PotionEffect> potionEffects,
-            List<ConfigurationFlag.Special> specialFlags ,
             PredicateConsumer<Event, ProficiencyCalculationAdapter> action
     ) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
-        this.specialFlags = specialFlags;
         this.potionEffects = potionEffects;
 
 
@@ -109,11 +106,6 @@ public class ItemConfiguration {
     }
 
 
-    public boolean hasSpecialFlag(ConfigurationFlag.Special flag) {
-        return specialFlags.contains(flag);
-    }
-
-
 
     /**
      * Gets the action of this configuration. It should be checked that this configuration has an action set before usage.
@@ -131,10 +123,7 @@ public class ItemConfiguration {
     public static class Builder {
         private List<EquipmentSlot> equipmentSlot;
         private HashMap<ConfigurationFlag,Double> flags;
-
-        private List<ConfigurationFlag.Special> specialFlags;
         private List<PotionEffect> potionEffects;
-
 
         private PredicateConsumer<Event, ProficiencyCalculationAdapter> action = null;
 
@@ -156,7 +145,6 @@ public class ItemConfiguration {
             this.equipmentSlot = equipmentSlot;
 
             flags = new HashMap<>();
-            specialFlags = new ArrayList<>();
             potionEffects = new ArrayList<>();
         }
 
@@ -182,11 +170,6 @@ public class ItemConfiguration {
          */
         public Builder addFlag(ConfigurationFlag flag, Double value) {
             flags.put(flag,value);
-            return this;
-        }
-
-        public Builder addFlag(ConfigurationFlag.Special flag) {
-            this.specialFlags.add(flag);
             return this;
         }
 
@@ -232,7 +215,7 @@ public class ItemConfiguration {
          * @return the new Created ItemConfiguration
          */
         public ItemConfiguration create() {
-            return new ItemConfiguration(equipmentSlot, flags, potionEffects, specialFlags, action);
+            return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
         }
     }
 }

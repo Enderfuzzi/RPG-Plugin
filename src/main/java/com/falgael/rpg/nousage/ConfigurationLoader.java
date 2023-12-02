@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 
+@Deprecated
 public class ConfigurationLoader implements ConfigurationLoading {
 
     private static final int DELOADING_INTERVAL = 20 * 600;

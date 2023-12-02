@@ -1,6 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.items.ItemBuilder;
+import com.falgael.rpg.old.ItemBuilder;
 import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Event;

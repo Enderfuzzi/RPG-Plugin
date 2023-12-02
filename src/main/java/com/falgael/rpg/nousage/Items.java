@@ -2,7 +2,7 @@ package com.falgael.rpg.nousage;
 
 import com.falgael.rpg.items.set.NameBuilding;
 
-
+@Deprecated
 public enum Items implements NameBuilding {
     /*
     NONE(Proficiency.NONE, Material.AIR,"", Rarity.NONE, null),

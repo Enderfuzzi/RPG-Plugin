@@ -10,7 +10,6 @@ import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.items.set.ItemSetManager;
 import com.falgael.rpg.manager.*;
 import com.falgael.rpg.handler.TestHandler;
-import com.falgael.rpg.old.PlayerManager;
 import com.falgael.rpg.recipe.CustomRecipes;
 import com.falgael.rpg.handler.VillagerHandler;
 import com.falgael.rpg.villager.VillagerManagement;
@@ -55,7 +54,6 @@ public final class RPG extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents((Listener) playerExperienceManager, this);
 
 
-        Bukkit.getPluginManager().registerEvents(new PlayerManager(),this);
         Bukkit.getPluginManager().registerEvents(new VillagerHandler(mainManager, playerExperienceManager),this);
         Bukkit.getPluginManager().registerEvents(new BlockBreakHandler(mainManager),this);
         Bukkit.getPluginManager().registerEvents(new CraftingResultsHandler(mainManager),this);
