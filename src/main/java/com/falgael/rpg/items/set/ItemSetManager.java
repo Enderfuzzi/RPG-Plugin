@@ -3,7 +3,6 @@ package com.falgael.rpg.items.set;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
-import com.falgael.rpg.definitions.woodwork.sets.BasicSets;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
@@ -40,7 +39,20 @@ public class ItemSetManager implements ItemSetManagement{
     }
 
     private void registeredClasses() {
-        registerItemClass(new BasicSets());
+        //misc
+        registerSetClass(new com.falgael.rpg.definitions.misc.sets.KingMidas());
+
+        //woodwork
+        registerSetClass(new com.falgael.rpg.definitions.woodwork.sets.BasicSets());
+
+        //stonework
+        registerSetClass(new com.falgael.rpg.definitions.stonework.sets.BasicSets());
+
+        //farming
+        registerSetClass(new com.falgael.rpg.definitions.farming.sets.BasicSets());
+
+        //hunting
+        registerSetClass(new com.falgael.rpg.definitions.hunting.sets.BasicSets());
     }
 
     private void init() {
@@ -50,7 +62,7 @@ public class ItemSetManager implements ItemSetManagement{
         }));
     }
 
-    private void registerItemClass(ItemSetDefinition itemSetDefinition) {
+    private void registerSetClass(ItemSetDefinition itemSetDefinition) {
         registeredClasses.add(itemSetDefinition);
     }
 

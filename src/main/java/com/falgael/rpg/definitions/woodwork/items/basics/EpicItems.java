@@ -1,4 +1,4 @@
-package com.falgael.rpg.definitions.woodwork.items;
+package com.falgael.rpg.definitions.woodwork.items.basics;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;

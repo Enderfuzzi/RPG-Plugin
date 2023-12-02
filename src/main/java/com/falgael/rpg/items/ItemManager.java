@@ -1,8 +1,5 @@
 package com.falgael.rpg.items;
 
-import com.falgael.rpg.definitions.misc.items.Currency;
-import com.falgael.rpg.definitions.misc.items.Statistics;
-import com.falgael.rpg.definitions.woodwork.items.*;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
@@ -54,21 +51,43 @@ public class ItemManager implements ItemManagement{
 
     private void registeredClasses(ItemSetManagement itemSetManager) {
         //Misc
-        registerItemClass(new Currency(itemSetManager));
-        registerItemClass(new Statistics(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.Currency(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.Statistics(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.WeatherController(itemSetManager));
+
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.KingMidas(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.Jewels(itemSetManager));
+
         //Woodwork
-        registerItemClass(new SimpleItems(itemSetManager));
-        registerItemClass(new CommonItems(itemSetManager));
-        registerItemClass(new AdvancedItems(itemSetManager));
-        registerItemClass(new EliteItems(itemSetManager));
-        registerItemClass(new EpicItems(itemSetManager));
-        registerItemClass(new LegendaryItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.SimpleItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.CommonItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.AdvancedItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.EliteItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.EpicItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.LegendaryItems(itemSetManager));
         //Stonework
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.SimpleItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.CommonItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.AdvancedItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.EliteItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.EpicItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.LegendaryItems(itemSetManager));
 
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.InfinitiveFuel(itemSetManager));
         //Farming
-
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.SimpleItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.CommonItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.AdvancedItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.EliteItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.EpicItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.LegendaryItems(itemSetManager));
         //Hunting
-
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.SimpleItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.CommonItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.AdvancedItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.EliteItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.EpicItems(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.LegendaryItems(itemSetManager));
     }
 
     private void init() {

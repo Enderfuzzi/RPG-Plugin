@@ -20,6 +20,7 @@ import org.bukkit.inventory.meta.MusicInstrumentMeta;
 
 import java.util.*;
 
+@Deprecated
 public class ItemBuilder {
 
     private String name;

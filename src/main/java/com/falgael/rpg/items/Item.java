@@ -7,10 +7,12 @@ import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.MusicInstrument;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.MusicInstrumentMeta;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -122,6 +124,13 @@ public class Item implements DefaultItem {
 
         itemMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_DESTROYS);
 
+        if (itemMeta instanceof MusicInstrumentMeta musicMeta) {
+            if (getMusicInstrument() != null) {
+                musicMeta.setInstrument(getMusicInstrument());
+            }
+        }
+
+
         ArrayList<String> tmpLore = buildLore();
         if (!tmpLore.isEmpty()) itemMeta.setLore(tmpLore);
 
@@ -134,14 +143,6 @@ public class Item implements DefaultItem {
         result.setItemMeta(itemMeta);
         Bukkit.getLogger().info("End create Itemstack: " + name);
         return result;
-    }
-
-    protected final void setItemMeta(ItemMeta itemMeta) {
-        itemStackRepresentation.setItemMeta(itemMeta);
-    }
-
-    protected final ItemMeta getItemMeta() {
-        return itemStackRepresentation.getItemMeta();
     }
 
     public @NotNull String getKey() {
@@ -234,4 +235,10 @@ public class Item implements DefaultItem {
         }
         return result;
     }
+
+
+    protected MusicInstrument getMusicInstrument() {
+        return null;
+    }
+
 }

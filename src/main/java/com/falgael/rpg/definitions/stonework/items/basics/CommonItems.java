@@ -1,4 +1,4 @@
-package com.falgael.rpg.definitions.woodwork.items;
+package com.falgael.rpg.definitions.stonework.items.basics;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;
@@ -26,17 +26,17 @@ public class CommonItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10100,
-                        "Lumberjack Axe II",
-                        Material.STONE_AXE,
-                        Proficiency.WOODWORK,
+                        20100,
+                        "Miner Pickaxe II",
+                        Material.STONE_PICKAXE,
+                        Proficiency.STONEWORK,
                         Rarity.COMMON,
-                        "Common lumberjack tool",
-                        itemSetManager.getItemSetbyID(1001),
+                        "Common miner tool",
+                        itemSetManager.getItemSetbyID(2001),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
-                                .addFlag(ConfigurationFlag.TREE_HARVEST,16)
+                                .addFlag(ConfigurationFlag.VEIN_MINING,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
                                 .create()
@@ -50,13 +50,13 @@ public class CommonItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10101,
-                        "Lumberjack Helmet II",
+                        20101,
+                        "Miner Helmet II",
                         Material.CHAINMAIL_HELMET,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.COMMON,
-                        "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        "Common miner protection",
+                        itemSetManager.getItemSetbyID(2001),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -65,13 +65,13 @@ public class CommonItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10102,
-                        "Lumberjack Chestplate II",
+                        20102,
+                        "Miner Chestplate II",
                         Material.CHAINMAIL_CHESTPLATE,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.COMMON,
-                        "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        "Common miner protection",
+                        itemSetManager.getItemSetbyID(2001),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5)
@@ -81,13 +81,13 @@ public class CommonItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10103,
-                        "Lumberjack Leggings II",
+                        20103,
+                        "Miner Leggings II",
                         Material.CHAINMAIL_LEGGINGS,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.COMMON,
-                        "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        "Common miner protection",
+                        itemSetManager.getItemSetbyID(2001),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -96,13 +96,13 @@ public class CommonItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10104,
-                        "Lumberjack Boots II",
+                        20104,
+                        "Miner Boots II",
                         Material.CHAINMAIL_BOOTS,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.COMMON,
-                        "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        "Common miner protection",
+                        itemSetManager.getItemSetbyID(2001),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()

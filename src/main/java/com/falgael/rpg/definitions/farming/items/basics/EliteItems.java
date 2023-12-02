@@ -1,4 +1,4 @@
-package com.falgael.rpg.definitions.woodwork.items;
+package com.falgael.rpg.definitions.farming.items.basics;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;
@@ -26,17 +26,17 @@ public class EliteItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10300,
-                        "Lumberjack Axe IV",
-                        Material.GOLDEN_AXE,
-                        Proficiency.WOODWORK,
+                        30300,
+                        "Farmer Hoe IV",
+                        Material.GOLDEN_HOE,
+                        Proficiency.FARMING,
                         Rarity.ELITE,
-                        "Elite lumberjack tool",
-                        itemSetManager.getItemSetbyID(1003),
+                        "Elite farmer tool",
+                        itemSetManager.getItemSetbyID(3003),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
-                                .addFlag(ConfigurationFlag.TREE_HARVEST,32)
+                                .addFlag(ConfigurationFlag.CROP_HARVEST)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
                                 .create()
@@ -50,13 +50,13 @@ public class EliteItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10301,
-                        "Lumberjack Helmet VI",
+                        30301,
+                        "Farmer Helmet VI",
                         Material.GOLDEN_HELMET,
-                        Proficiency.WOODWORK,
+                        Proficiency.FARMING,
                         Rarity.ELITE,
-                        "Elite lumberjack protection",
-                        itemSetManager.getItemSetbyID(1003),
+                        "Elite farmer protection",
+                        itemSetManager.getItemSetbyID(3003),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -66,13 +66,13 @@ public class EliteItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10302,
-                        "Lumberjack Chestplate IV",
+                        30302,
+                        "Farmer Chestplate IV",
                         Material.GOLDEN_CHESTPLATE,
-                        Proficiency.WOODWORK,
+                        Proficiency.FARMING,
                         Rarity.ELITE,
-                        "Elite lumberjack protection",
-                        itemSetManager.getItemSetbyID(1003),
+                        "Elite farmer protection",
+                        itemSetManager.getItemSetbyID(3003),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 2)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -83,13 +83,13 @@ public class EliteItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10303,
-                        "Lumberjack Leggings IV",
+                        30303,
+                        "Farmer Leggings IV",
                         Material.GOLDEN_LEGGINGS,
-                        Proficiency.WOODWORK,
+                        Proficiency.FARMING,
                         Rarity.ELITE,
-                        "Elite lumberjack protection",
-                        itemSetManager.getItemSetbyID(1003),
+                        "Elite farmer protection",
+                        itemSetManager.getItemSetbyID(3003),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -99,13 +99,13 @@ public class EliteItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10304,
-                        "Lumberjack Boots IV",
+                        30304,
+                        "Farmer Boots IV",
                         Material.GOLDEN_BOOTS,
-                        Proficiency.WOODWORK,
+                        Proficiency.FARMING,
                         Rarity.ELITE,
-                        "Elite lumberjack protection",
-                        itemSetManager.getItemSetbyID(1003),
+                        "Elite farmer protection",
+                        itemSetManager.getItemSetbyID(3003),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)

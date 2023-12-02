@@ -1,4 +1,4 @@
-package com.falgael.rpg.definitions.woodwork.items;
+package com.falgael.rpg.definitions.stonework.items.basics;
 
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.Item;
@@ -26,17 +26,17 @@ public class LegendaryItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10500,
-                        "Lumberjack Axe VI",
-                        Material.NETHERITE_AXE,
-                        Proficiency.WOODWORK,
+                        20500,
+                        "Miner Pickaxe VI",
+                        Material.NETHERITE_PICKAXE,
+                        Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        "Legendary lumberjack tool",
-                        itemSetManager.getItemSetbyID(1005),
+                        "Legendary miner tool",
+                        itemSetManager.getItemSetbyID(2005),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,6)
                                 .addFlag(ConfigurationFlag.LOOT, 5)
-                                .addFlag(ConfigurationFlag.TREE_HARVEST,80)
+                                .addFlag(ConfigurationFlag.VEIN_MINING,20)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING,1)
                                 .create()
@@ -50,13 +50,13 @@ public class LegendaryItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10501,
-                        "Lumberjack Helmet VI",
+                        20501,
+                        "Miner Helmet VI",
                         Material.NETHERITE_HELMET,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        "Legendary lumberjack protection",
-                        itemSetManager.getItemSetbyID(1005),
+                        "Legendary miner protection",
+                        itemSetManager.getItemSetbyID(2005),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
@@ -66,13 +66,13 @@ public class LegendaryItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10502,
-                        "Lumberjack Chestplate VI",
+                        20502,
+                        "Miner Chestplate VI",
                         Material.NETHERITE_CHESTPLATE,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        "Legendary lumberjack protection",
-                        itemSetManager.getItemSetbyID(1005),
+                        "Legendary miner protection",
+                        itemSetManager.getItemSetbyID(2005),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 4)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
@@ -83,13 +83,13 @@ public class LegendaryItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10503,
-                        "Lumberjack Leggings VI",
+                        20503,
+                        "Miner Leggings VI",
                         Material.NETHERITE_LEGGINGS,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        "Legendary lumberjack protection",
-                        itemSetManager.getItemSetbyID(1005),
+                        "Legendary miner protection",
+                        itemSetManager.getItemSetbyID(2005),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT,1)
@@ -100,13 +100,13 @@ public class LegendaryItems extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        10504,
-                        "Lumberjack Boots VI",
+                        20504,
+                        "Miner Boots VI",
                         Material.NETHERITE_BOOTS,
-                        Proficiency.WOODWORK,
+                        Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        "Legendary lumberjack protection",
-                        itemSetManager.getItemSetbyID(1005),
+                        "Legendary miner protection",
+                        itemSetManager.getItemSetbyID(2005),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
