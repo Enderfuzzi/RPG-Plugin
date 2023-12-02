@@ -60,12 +60,11 @@ public class ItemConfiguration {
      * @return The EquipmentSlot in which the Items is active
      */
     public boolean compareEquipmentSlot(EquipmentSlot toCompare) {
-        for (EquipmentSlot slot : equipmentSlot) if (slot == toCompare) return true;
-        return false;
+        return equipmentSlot.contains(toCompare);
     }
 
     /**
-     * @return {@code true} if the Configuration has any {@link ItemConfigurationFlag} set
+     * @return {@code true} if the Configuration has any {@link } set
      */
     public boolean hasFlags() {
         return !flags.isEmpty();
@@ -73,7 +72,7 @@ public class ItemConfiguration {
 
     /**
      * @param flag The flag to check
-     * @return {@code true} if the Configuration has the specified {@link ItemConfigurationFlag} set
+     * @return {@code true} if the Configuration has the specified {@link } set
      */
     public boolean hasFlag(ConfigurationFlag flag) {
         return hasFlags() && flags.containsKey(flag);
@@ -82,7 +81,7 @@ public class ItemConfiguration {
     /**
      * Returns the Value of a specific Flag. Before usage, it is necessary to check that the configuration has this flag set.
      * @param flag The flag to search for
-     * @return the float Value of the given {@link ItemConfigurationFlag}
+     * @return the float Value of the given {@link }
      */
     public Double getValue(ConfigurationFlag flag) {
         return flags.getOrDefault(flag, 0.0);
@@ -176,7 +175,7 @@ public class ItemConfiguration {
         }
 
         /**
-         * Adds a new {@link ItemConfigurationFlag} with value to the current configuration
+         * Adds a new {@link } with value to the current configuration
          * @param flag the Flag to set
          * @param value the Value which get assigned to the flag
          * @return the current Builder state

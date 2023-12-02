@@ -3,7 +3,6 @@ package com.falgael.rpg.manager;
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
-import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.SinglePredicateConsumer;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -55,7 +54,9 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
 
     public DefaultItem getItem(Player player, EquipmentSlot slot) {
         if (player == null || slot == null) return itemManagement.getDefault();
-        return itemManagement.getItem(player.getInventory().getItem(slot));
+        DefaultItem result  = itemManagement.getItem(player.getInventory().getItem(slot));
+        if (!result.getConfiguration().compareEquipmentSlot(slot)) return itemManagement.getDefault();
+        return result;
     }
 
     @Override
