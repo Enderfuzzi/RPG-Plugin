@@ -148,11 +148,6 @@ public class Item implements DefaultItem {
         return material.toString().toLowerCase() + "_" + name.toLowerCase().replace(" ", "_");
     }
 
-    @Override
-    public boolean isWeapon() {
-        return false;
-    }
-
 
     @Override
     public int getId() {

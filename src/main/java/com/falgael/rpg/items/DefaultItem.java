@@ -26,8 +26,6 @@ public interface DefaultItem {
     @NotNull String getKey();
 
 
-    boolean isWeapon();
-
     default boolean isDefault() {
         return false;
     }
@@ -35,5 +33,7 @@ public interface DefaultItem {
     default boolean isBreakingTool() {
         return false;
     }
+
+    default boolean isWeapon() {return false;}
 
 }
