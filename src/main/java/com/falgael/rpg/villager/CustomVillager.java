@@ -3,6 +3,7 @@ package com.falgael.rpg.villager;
 import com.falgael.rpg.items.ItemStackManipulation;
 import com.falgael.rpg.items.set.NameBuilding;
 
+@Deprecated
 public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
     /*
