@@ -9,7 +9,5 @@ public interface Stats {
 
     long getExperienceAmount();
 
-
-
-
+    boolean isNone();
 }

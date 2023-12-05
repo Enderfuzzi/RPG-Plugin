@@ -5,7 +5,7 @@ import com.falgael.rpg.villager.VillagerManagement;
 
 public interface MainManagement {
 
-    ProficiencyCalculationAdapter getProficiencyAdapter();
+    ProficiencyExperienceCalculation getPExperienceCalculator();
 
     ItemManagement getItemAdapter();
 

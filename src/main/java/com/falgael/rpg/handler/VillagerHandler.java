@@ -1,18 +1,11 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.manager.PlayerExperienceManagement;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
-import com.falgael.rpg.proficiency.player.PlayerMessages;
-import com.falgael.rpg.old.PlayerManager;
-import com.falgael.rpg.villager.CustomVillager;
 import com.falgael.rpg.villager.VillagerInstance;
-import com.falgael.rpg.villager.VillagerManagement;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.MerchantRecipe;
 

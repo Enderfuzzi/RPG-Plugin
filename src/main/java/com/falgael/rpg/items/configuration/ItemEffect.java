@@ -1,6 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
+import com.falgael.rpg.loottable.ItemDrop;
+import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import com.falgael.rpg.stats.BlockStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -20,9 +21,9 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.*;
 
-public interface ItemEffect {
+public interface ItemEffect extends ItemDrop {
 
-    default boolean cropHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter) {
+    default boolean cropHarvest(Event e, ProficiencyExperienceCalculation proficiencyAdapter) {
 
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
@@ -46,8 +47,8 @@ public interface ItemEffect {
         int droppedBlocks = proficiencyAdapter.calculateLoot(event.getPlayer(), block.getProficiencies());
 
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        proficiencyAdapter.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
-
+        //proficiencyAdapter.dropAdditionalLoot(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        dropItem(drops, ++droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
         if (event.getPlayer().getInventory().contains(event.getBlock().getBlockData().getPlacementMaterial(),1)) {
             int slot = event.getPlayer().getInventory().first(event.getBlock().getBlockData().getPlacementMaterial());
@@ -77,7 +78,8 @@ public interface ItemEffect {
 
     private boolean getSurroundedJungleLog(Block target, BlockFace blockFace) {
         if (target == null || blockFace == null) return false;
-        return target.getRelative(blockFace).getType() == Material.JUNGLE_LOG || target.getRelative(blockFace).getType() == Material.JUNGLE_WOOD;
+        return target.getRelative(blockFace).getType() == Material.JUNGLE_LOG
+                || target.getRelative(blockFace).getType() == Material.JUNGLE_WOOD;
     }
 
 
@@ -91,7 +93,10 @@ public interface ItemEffect {
         location.add(0,1,0);
         for (int j = 0; j < radius; j++) {
             for (int i = 0; i< radius; i++) {
-                if (location.getBlock().getType() == Material.AIR && location.getBlock().getRelative(BlockFace.DOWN).getType() == toPlaceOn) candidates.add(location.clone());
+                if (location.getBlock().getType() == Material.AIR
+                        && location.getBlock().getRelative(BlockFace.DOWN).getType() == toPlaceOn) {
+                    candidates.add(location.clone());
+                }
                 location.add(0,0,1);
             }
             location.subtract(0,0,radius);
@@ -172,7 +177,7 @@ public interface ItemEffect {
 
 
 
-    default boolean veinMining(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount) {
+    default boolean veinMining(Event e, ProficiencyExperienceCalculation proficiencyAdapter, int maxAmount) {
         return veinHarvest(e, proficiencyAdapter, maxAmount, (start, current) -> {
             BlockStats startBlock = BlockStats.getBlock(start.getType());
             BlockStats currentBlock = BlockStats.getBlock(current.getType());
@@ -184,7 +189,7 @@ public interface ItemEffect {
         });
     }
 
-    default boolean treeHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount) {
+    default boolean treeHarvest(Event e, ProficiencyExperienceCalculation proficiencyAdapter, int maxAmount) {
         return veinHarvest(e, proficiencyAdapter, maxAmount, (start, current) -> {
             BlockStats startBlock = BlockStats.getBlock(start.getType());
             BlockStats currentBlock = BlockStats.getBlock(current.getType());
@@ -224,7 +229,7 @@ public interface ItemEffect {
         return result;
     }
 
-    private boolean veinHarvest(Event e, ProficiencyCalculationAdapter proficiencyAdapter, int maxAmount, Predicate consumer) {
+    private boolean veinHarvest(Event e, ProficiencyExperienceCalculation proficiencyAdapter, int maxAmount, Predicate consumer) {
 
         if (!(e instanceof BlockBreakEvent event)) return false;
         BlockStats block = BlockStats.getBlock(event.getBlock().getType());
@@ -237,7 +242,8 @@ public interface ItemEffect {
         droppedBlocks = ((droppedBlocks + 1) * blocks.size()) - 1;
         Bukkit.getLogger().info("Dropped Blocks modified: " + droppedBlocks);
         List<ItemStack> drops = event.getBlock().getDrops(event.getPlayer().getInventory().getItemInMainHand()).stream().toList();
-        proficiencyAdapter.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        //proficiencyAdapter.dropAdditionalLoot(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
+        dropItem(drops, droppedBlocks, event.getBlock().getWorld(), event.getBlock().getLocation());
 
         for (Location location : blocks) {
             Bukkit.getLogger().info("Location to remove: " + location);

@@ -1,6 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
+import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.potion.PotionEffect;
@@ -28,13 +28,13 @@ public class ItemConfiguration {
     /**
      * A Special Action which can be defined and applied in different situations
      */
-    private PredicateConsumer<Event, ProficiencyCalculationAdapter> action;
+    private PredicateConsumer<Event, ProficiencyExperienceCalculation> action;
 
     private ItemConfiguration(
             List<EquipmentSlot> equipmentSlot,
             HashMap<ConfigurationFlag, Double> flags,
             List<PotionEffect> potionEffects,
-            PredicateConsumer<Event, ProficiencyCalculationAdapter> action
+            PredicateConsumer<Event, ProficiencyExperienceCalculation> action
     ) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
@@ -111,7 +111,7 @@ public class ItemConfiguration {
      * Gets the action of this configuration. It should be checked that this configuration has an action set before usage.
      * @return the Action if set or {@code null}
      */
-    public PredicateConsumer<Event, ProficiencyCalculationAdapter> getAction() {
+    public PredicateConsumer<Event, ProficiencyExperienceCalculation> getAction() {
         return action;
     }
 
@@ -125,7 +125,7 @@ public class ItemConfiguration {
         private HashMap<ConfigurationFlag,Double> flags;
         private List<PotionEffect> potionEffects;
 
-        private PredicateConsumer<Event, ProficiencyCalculationAdapter> action = null;
+        private PredicateConsumer<Event, ProficiencyExperienceCalculation> action = null;
 
 
         public Builder() {
@@ -205,7 +205,7 @@ public class ItemConfiguration {
          * @param action the action to add
          * @return the current Builder state
          */
-        public Builder addAction(PredicateConsumer<Event, ProficiencyCalculationAdapter> action) {
+        public Builder addAction(PredicateConsumer<Event, ProficiencyExperienceCalculation> action) {
             this.action = action;
             return this;
         }

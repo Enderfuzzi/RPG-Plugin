@@ -1,7 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
 import com.falgael.rpg.old.ItemBuilder;
-import com.falgael.rpg.manager.ProficiencyCalculationAdapter;
+import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Contract;
@@ -96,7 +96,7 @@ public enum ConfigurationFlag implements ItemEffect {
         };
     }
 
-    public PredicateConsumer<Event, ProficiencyCalculationAdapter> getAction(Double value) {
+    public PredicateConsumer<Event, ProficiencyExperienceCalculation> getAction(Double value) {
         return switch (this) {
             case VEIN_MINING -> (e,p) -> veinMining(e, p, value.intValue());
             case BURN_TIME -> (e,p) -> furnaceFuelBurn(e, value);

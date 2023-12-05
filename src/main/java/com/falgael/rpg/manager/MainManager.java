@@ -4,7 +4,7 @@ import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.villager.VillagerManagement;
 
 public class MainManager implements MainManagement {
-    private final ProficiencyCalculationAdapter proficiencyAdapter;
+    private final ProficiencyExperienceCalculation pExperienceCalculator;
 
     private final ItemManagement itemAdapter;
 
@@ -12,18 +12,18 @@ public class MainManager implements MainManagement {
 
 
     public MainManager(
-            ProficiencyCalculationAdapter proficiencyAdapter,
+            ProficiencyExperienceCalculation PExperienceCalculator,
             ItemManagement itemAdapter,
             VillagerManagement villagerAdapter
     ) {
-        this.proficiencyAdapter = proficiencyAdapter;
+        this.pExperienceCalculator = PExperienceCalculator;
         this.itemAdapter = itemAdapter;
         this.villagerAdapter = villagerAdapter;
     }
 
     @Override
-    public ProficiencyCalculationAdapter getProficiencyAdapter() {
-        return proficiencyAdapter;
+    public ProficiencyExperienceCalculation getPExperienceCalculator() {
+        return pExperienceCalculator;
     }
 
     @Override

@@ -17,13 +17,13 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class ProficiencyCalculation implements ProficiencyCalculationAdapter, PlayerMessage {
+public class ProficiencyExperienceCalculator implements ProficiencyExperienceCalculation, PlayerMessage {
 
     private final PlayerExperienceManagement playerExperience;
 
     private final ItemManagement itemManagement;
 
-    public ProficiencyCalculation(PlayerExperienceManagement playerExperience, ItemManagement itemManagement) {
+    public ProficiencyExperienceCalculator(PlayerExperienceManagement playerExperience, ItemManagement itemManagement) {
         this.playerExperience = playerExperience;
         this.itemManagement = itemManagement;
     }
@@ -78,7 +78,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
         return (int) Math.floor(lootValue) - 1;
     }
 
-
+    @Deprecated
     public void dropAdditionalLoot(List<ItemStack> drops, int dropAmount, World world, Location location) {
         if (dropAmount < 1) return;
         if (drops.isEmpty()) return;
@@ -95,7 +95,7 @@ public class ProficiencyCalculation implements ProficiencyCalculationAdapter, Pl
             world.dropItemNaturally(location, new ItemStack(itemStack.getType(), tmpAmount));
         }
     }
-
+    @Deprecated
     public void dropAdditionalLoot(ItemStack drop, int dropAmount, World world, Location location) {
         dropAdditionalLoot(List.of(drop), dropAmount, world, location);
     }

@@ -31,7 +31,7 @@ public class BlockBreakHandler extends MainHandler {
 
         if (proficiencyAdapter.performAction(event.getPlayer(),event, i -> i.isBreakingTool())) return;
 
-       proficiencyAdapter.calculateExperience(event.getPlayer(),block.getProficiencies(),block.getExperienceAmount());
+        proficiencyAdapter.calculateExperience(event.getPlayer(),block.getProficiencies(),block.getExperienceAmount());
 
         int droppedBlocks = proficiencyAdapter.calculateLoot(event.getPlayer(), block.getProficiencies());
         Bukkit.getLogger().info("Calculated drops: " + droppedBlocks);

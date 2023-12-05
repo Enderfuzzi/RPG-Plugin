@@ -23,7 +23,7 @@ public final class RPG extends JavaPlugin {
     
     private DataStoreManagement storeManager;
     private PlayerExperienceManagement playerExperienceManager;
-    private ProficiencyCalculationAdapter proficiencyAdapter;
+    private ProficiencyExperienceCalculation proficiencyAdapter;
 
     private ItemSetManagement itemSetManager;
     private ItemManagement itemManager;
@@ -39,7 +39,7 @@ public final class RPG extends JavaPlugin {
         itemManager = new ItemManager(itemSetManager);
         villagerManager = new VillagerManager(itemManager);
 
-        proficiencyAdapter = new ProficiencyCalculation(playerExperienceManager, itemManager);
+        proficiencyAdapter = new ProficiencyExperienceCalculator(playerExperienceManager, itemManager);
 
 
         new CustomRecipes(this);

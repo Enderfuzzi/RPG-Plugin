@@ -321,6 +321,11 @@ public enum CraftingResultStats implements Stats {
         return NONE;
     }
 
+    public static CraftingResultStats getResult(Material material) {
+        return getResult(new ItemStack(material));
+    }
+
+
     public List<Proficiency> getProficiencies() {
         return proficiencies;
     }

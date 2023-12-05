@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public interface ProficiencyCalculationAdapter {
+public interface ProficiencyExperienceCalculation {
 
 
     default double calculateMultiplier(Player player, Proficiency proficiency, ConfigurationFlag flag) {

@@ -1,12 +1,13 @@
 package com.falgael.rpg.loottable;
 
 import com.falgael.rpg.proficiency.Proficiency;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
 public class LootTableEntry {
 
-    public record Result<T>(T value, int amount) {}
+    public record Result(ItemStack value, int amount) {}
 
     private final Result result;
     private final List<Proficiency> proficiencies;
@@ -14,18 +15,18 @@ public class LootTableEntry {
 
 
     public LootTableEntry(
-            Object result,
+            ItemStack result,
             int amount,
             double dropRate,
             List<Proficiency> proficiencies
     ) {
-        this.result = new Result<>(result, amount);
+        this.result = new Result(result, amount);
         this.dropRate = dropRate;
         this.proficiencies = proficiencies;
     }
 
     public LootTableEntry(
-            Object result,
+            ItemStack result,
             int amount,
             double dropRate,
             Proficiency proficiency

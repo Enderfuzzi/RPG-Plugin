@@ -1,6 +1,7 @@
 package com.falgael.rpg.stats;
 
 import com.falgael.rpg.proficiency.Proficiency;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
 import java.util.HashMap;
@@ -114,6 +115,10 @@ public enum EntityStats implements Stats {
 
     public static EntityStats getEntity(EntityType type) {
         return LIST_OF_ENTITIES.getOrDefault(type, NONE);
+    }
+
+    public static EntityStats getEntity(Entity entity) {
+        return getEntity(entity.getType());
     }
 
 }
