@@ -1,15 +1,13 @@
 package com.falgael.rpg.loottable;
 
-import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
-import org.bukkit.Material;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
+import com.falgael.rpg.definitions.loottable.material.Stone;
+import com.falgael.rpg.items.ItemManagement;
+import com.falgael.rpg.items.set.ItemSetManagement;
+import org.bukkit.Bukkit;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
-public class LootTableManager{
+public class LootTableManager {
 
     private final static LootTable DEFAULT = new LootTable();
 
@@ -20,47 +18,32 @@ public class LootTableManager{
         Harvested
     }
 
-    public record EntityKey(Entity entity, Reason reason) {}
+    public record Key(Object object, Reason reason) {
+    }
 
-    public record MaterialKey(Material material, Reason reason) {}
+    private final HashMap<Key, LootTable> lootTables;
 
-    public record LootTable(List<LootTableEntry> entries) {
-        public LootTable(LootTableEntry... entries) {
-            this(Arrays.stream(entries).toList());
+    public LootTableManager(ItemManagement itemManager) {
+        lootTables = new HashMap<>();
+        registeredClasses(itemManager);
+    }
+
+    public LootTable getLootTable(Key key) {
+        return lootTables.getOrDefault(key, new LootTable());
+    }
+
+    private void registeredClasses(ItemManagement itemManager) {
+        registerClass(new Stone(itemManager));
+    }
+
+    private void registerClass(LootTableDefinition definition) {
+        if (definition.getReasons().isEmpty()) {
+            lootTables.put(new Key(definition.getObject(), definition.getReason()), definition.getLootTable());
+        } else {
+            definition.getReasons().forEach(e -> {
+                lootTables.put(new Key(definition.getObject(), e), definition.getLootTable());
+            });
         }
+        Bukkit.getLogger().info("Registered Special Loot table for Object:  " + definition.getObject());
     }
-
-
-
-    private HashMap<EntityKey, LootTable> entityLootTable;
-
-    private HashMap<MaterialKey, LootTable> materialLootTable;
-
-    public LootTableManager(ProficiencyExperienceCalculation proficiencyCalculator) {
-
-        //TODO add initializing the lists of LootTables
-    }
-
-
-    public List<LootTableEntry> computeLootTable(Player player, Entity entity, Reason reason) {
-        // TODO Calculate valid entries for the table
-        return null;
-    }
-
-    public List<LootTableEntry> computeLootTable(Player player, Material material, Reason reason) {
-        // TODO Calculate valid entries for the table
-        return null;
-    }
-
-    private List<LootTableEntry> getLootTable(Entity entity, Reason reason) {
-        return entityLootTable.getOrDefault(new EntityKey(entity, reason), DEFAULT).entries();
-    }
-
-    private List<LootTableEntry> getLootTable(Material material, Reason reason) {
-        return materialLootTable.getOrDefault(new MaterialKey(material, reason), DEFAULT).entries();
-    }
-
-
-
-
 }

@@ -40,7 +40,7 @@ public class SpawnItemChest implements CommandExecutor {
         if (block.getState() instanceof Chest chest) {
             Inventory inventory = chest.getBlockInventory();
             for (Items item : Items.getItemsOfProficiency(proficiency)) {
-                inventory.addItem(item.getItem());
+                inventory.addItem(item.getItemByKey());
             }
         }
 

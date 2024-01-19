@@ -34,7 +34,7 @@ public class EntityDeathHandler extends MainHandler {
         EntityStats entityStats = EntityStats.getEntity(event.getEntity().getType());
         if (entityStats.isNone()) return;
 
-        if (proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getEntity().getKiller().getInventory().getItemInMainHand()))) return;
+        if (proficiencyAdapter.performAction(event, itemAdapter.getItemByKey(event.getEntity().getKiller().getInventory().getItemInMainHand()))) return;
 
        proficiencyAdapter.calculateExperience(event.getEntity().getKiller(), entityStats.getProficiencies(), entityStats.getExperienceAmount());
 

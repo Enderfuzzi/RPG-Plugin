@@ -1383,7 +1383,7 @@ public enum Items implements NameBuilding {
     }
 
 
-    public ItemStack getItem() {
+    public ItemStack getItemByKey() {
         return item;
     }
 
@@ -1397,15 +1397,15 @@ public enum Items implements NameBuilding {
     }
 
 
-    public static Items getItem(ItemStack itemStack) {
+    public static Items getItemByKey(ItemStack itemStack) {
         if (itemStack == null) return NONE;
 
         for (Items current : COPY) {
-            if (itemStack.getType() != current.getItem().getType()) continue;
+            if (itemStack.getType() != current.getItemByKey().getType()) continue;
             ItemMeta itemMeta = itemStack.getItemMeta();
             if (itemMeta == null) continue;
             if (!itemMeta.isUnbreakable()) continue;
-            ItemMeta currentMeta = current.getItem().getItemMeta();
+            ItemMeta currentMeta = current.getItemByKey().getItemMeta();
             if (currentMeta == null) continue;
 
             if (itemMeta instanceof MusicInstrumentMeta ^ currentMeta instanceof MusicInstrumentMeta) continue;
@@ -1428,7 +1428,7 @@ public enum Items implements NameBuilding {
         ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemMeta == null) return false;
         if (!itemMeta.hasDisplayName()) return false;
-        if (!itemMeta.getDisplayName().equals(STAT_O_METER.getItem().getItemMeta().getDisplayName())) return false;
+        if (!itemMeta.getDisplayName().equals(STAT_O_METER.getItemByKey().getItemMeta().getDisplayName())) return false;
         return true;
     }
 

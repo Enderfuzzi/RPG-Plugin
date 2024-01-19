@@ -32,7 +32,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.EPIC,
                         "Epic farmer tool",
-                        itemSetManager.getItemSetbyID(3004),
+                        itemSetManager.getItemSetByID(3004),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,5)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
@@ -56,7 +56,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.EPIC,
                         "Epic farmer protection",
-                        itemSetManager.getItemSetbyID(3004),
+                        itemSetManager.getItemSetByID(3004),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
@@ -72,7 +72,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.EPIC,
                         "Epic farmer protection",
-                        itemSetManager.getItemSetbyID(3004),
+                        itemSetManager.getItemSetByID(3004),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 3)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -89,7 +89,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.EPIC,
                         "Epic farmer protection",
-                        itemSetManager.getItemSetbyID(3004),
+                        itemSetManager.getItemSetByID(3004),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
@@ -105,7 +105,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.EPIC,
                         "Epic farmer protection",
-                        itemSetManager.getItemSetbyID(3004),
+                        itemSetManager.getItemSetByID(3004),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)

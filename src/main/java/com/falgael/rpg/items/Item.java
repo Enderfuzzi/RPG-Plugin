@@ -5,7 +5,9 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
+import com.google.common.base.Strings;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.MusicInstrument;
 import org.bukkit.enchantments.Enchantment;
@@ -52,11 +54,7 @@ public class Item implements DefaultItem {
 
         Bukkit.getLogger().info("Material: " + material);
 
-        if (material == Material.AIR) {
-            itemStackRepresentation = null;
-        } else {
-            itemStackRepresentation = createItemStack();
-        }
+        itemStackRepresentation = material == Material.AIR ? null : createItemStack();
 
     }
 
@@ -196,6 +194,7 @@ public class Item implements DefaultItem {
 
     private ArrayList<String> buildLore() {
         ArrayList<String> result = new ArrayList<>();
+        result.add(spacer());
         result.add(rarity.getRepresentation());
         proficiencies.forEach(e -> {
                 if (e != Proficiency.NONE) result.add(e.getRepresentation());
@@ -203,15 +202,13 @@ public class Item implements DefaultItem {
 
         result.addAll(configurationLore(configuration));
 
-
         for (String defaultLore : loreDescription) {
             if (defaultLore.equals("")) continue;
             result.add(ConfigurationFlag.DEFAULT.createLore(defaultLore));
         }
 
-
         if (!itemSet.isDefault()) {
-            result.add("");
+            result.add(spacer());
             result.add(ConfigurationFlag.SET_BONUS.createLore(itemSet.getRarity().getColor() + itemSet.getName()));
             for (Proficiency type : itemSet.getProficiency()) {
                 if (type != Proficiency.NONE) result.add(type.getRepresentation());
@@ -220,7 +217,7 @@ public class Item implements DefaultItem {
             result.addAll(configurationLore(itemSet.getConfiguration()));
 
             itemSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
-
+            result.add(spacer());
             result.add(ConfigurationFlag.SET_PART_NUMBER.createLore(Integer.toString(itemSet.getPartNumber())));
         }
         return result;
@@ -239,6 +236,10 @@ public class Item implements DefaultItem {
 
     protected MusicInstrument getMusicInstrument() {
         return null;
+    }
+
+    private String spacer() {
+        return "-".repeat(name.length());
     }
 
 }

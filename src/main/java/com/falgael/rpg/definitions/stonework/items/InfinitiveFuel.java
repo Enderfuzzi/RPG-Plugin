@@ -29,7 +29,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.OAK_WOOD,
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.1)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -44,7 +44,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.COAL,
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.25)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -59,7 +59,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.CHARCOAL,
                         Proficiency.STONEWORK,
                         Rarity.EPIC,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.5)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -74,7 +74,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.COAL_BLOCK,
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.85)
                                 .addFlag(ConfigurationFlag.ENCHANTED)

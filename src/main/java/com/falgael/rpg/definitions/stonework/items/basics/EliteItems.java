@@ -32,7 +32,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
                         "Elite miner tool",
-                        itemSetManager.getItemSetbyID(2003),
+                        itemSetManager.getItemSetByID(2003),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -56,7 +56,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
                         "Elite miner protection",
-                        itemSetManager.getItemSetbyID(2003),
+                        itemSetManager.getItemSetByID(2003),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -72,7 +72,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
                         "Elite miner protection",
-                        itemSetManager.getItemSetbyID(2003),
+                        itemSetManager.getItemSetByID(2003),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 2)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -89,7 +89,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
                         "Elite miner protection",
-                        itemSetManager.getItemSetbyID(2003),
+                        itemSetManager.getItemSetByID(2003),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -105,7 +105,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
                         "Elite miner protection",
-                        itemSetManager.getItemSetbyID(2003),
+                        itemSetManager.getItemSetByID(2003),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)

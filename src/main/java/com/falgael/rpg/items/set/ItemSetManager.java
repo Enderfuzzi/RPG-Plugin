@@ -67,7 +67,7 @@ public class ItemSetManager implements ItemSetManagement{
     }
 
     @Override
-    public DefaultItemSet getItemSetbyID(int id) {
+    public DefaultItemSet getItemSetByID(int id) {
         for (DefaultItemSet itemSet : itemSets.values()) {
             if (itemSet.getId() == id) return itemSet;
         }
@@ -75,13 +75,13 @@ public class ItemSetManager implements ItemSetManagement{
     }
 
     @Override
-    public DefaultItemSet getItemSet(String key) {
+    public DefaultItemSet getItemSetByKey(String key) {
         return itemSets.getOrDefault(key, DEFAULT);
     }
 
     @Override
     public DefaultItemSet getItemSetByName(String name) {
-        return getItemSet(ChatColor.stripColor(name).toLowerCase().replace(" ", "_"));
+        return getItemSetByKey(ChatColor.stripColor(name).toLowerCase().replace(" ", "_"));
     }
 
 

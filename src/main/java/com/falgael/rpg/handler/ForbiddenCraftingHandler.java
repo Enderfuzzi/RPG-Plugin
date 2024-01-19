@@ -27,7 +27,7 @@ public class ForbiddenCraftingHandler implements Listener {
         /*
         for (ItemStack ingredient : event.getInventory().getMatrix()) {
             if (ingredient == null) continue;
-            if (!Items.getItem(ingredient).isNone() || forbiddenIngredients.contains(ingredient)) {
+            if (!Items.getItemByKey(ingredient).isNone() || forbiddenIngredients.contains(ingredient)) {
                 event.getInventory().setResult(new ItemStack(Material.AIR));
                 return;
             }

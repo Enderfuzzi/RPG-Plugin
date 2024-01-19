@@ -36,7 +36,7 @@ public class ItemManager implements ItemManagement{
                 Proficiency.NONE,
                 Rarity.NONE,
                 "",
-                itemSetManager.getItemSetbyID(0),
+                itemSetManager.getItemSetByID(0),
                 new ItemConfiguration.Builder().create()
         ) {
             @Override
@@ -106,21 +106,29 @@ public class ItemManager implements ItemManagement{
 
 
     @Override
-    public DefaultItem getItem(ItemStack item) {
+    public DefaultItem getItemByKey(ItemStack item) {
         if (item == null) return DEFAULT_ITEM;
         if (!item.hasItemMeta()) return DEFAULT_ITEM;
         ItemMeta meta = item.getItemMeta();
         if (!meta.isUnbreakable()) return DEFAULT_ITEM;
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
-        return getItem(
+        return getItemByKey(
                 item.getType().toString().toLowerCase()
                         + "_"
                         + ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_").toLowerCase());
     }
 
 
-    public DefaultItem getItem(String key) {
+    public DefaultItem getItemByKey(String key) {
         return items.getOrDefault(key, DEFAULT_ITEM);
+    }
+
+    @Override
+    public DefaultItem getItemByID(int id) {
+        for (DefaultItem current : items.values()) {
+            if (current.getId() == id) return current;
+        }
+        return DEFAULT_ITEM;
     }
 
 

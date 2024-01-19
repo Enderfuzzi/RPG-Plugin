@@ -32,7 +32,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
                         "Simple farmer tool",
-                        itemSetManager.getItemSetbyID(3000),
+                        itemSetManager.getItemSetByID(3000),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -54,7 +54,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
                         "Simple farmer protection",
-                        itemSetManager.getItemSetbyID(3000),
+                        itemSetManager.getItemSetByID(3000),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
         );
@@ -67,7 +67,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
                         "Simple farmer protection",
-                        itemSetManager.getItemSetbyID(3000),
+                        itemSetManager.getItemSetByID(3000),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
         );
@@ -80,7 +80,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
                         "Simple farmer protection",
-                        itemSetManager.getItemSetbyID(3000),
+                        itemSetManager.getItemSetByID(3000),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
         );
@@ -93,7 +93,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
                         "Simple farmer protection",
-                        itemSetManager.getItemSetbyID(3000),
+                        itemSetManager.getItemSetByID(3000),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )
         );

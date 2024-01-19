@@ -11,6 +11,6 @@ public class PlayerInteractHandler extends MainHandler {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getItem()), event.getPlayer());
+        proficiencyAdapter.performAction(event, itemAdapter.getItemByKey(event.getItem()), event.getPlayer());
     }
 }

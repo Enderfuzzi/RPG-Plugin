@@ -15,7 +15,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GetCommand implements CommandExecutor, TabCompleter {
 
@@ -55,7 +54,7 @@ public class GetCommand implements CommandExecutor, TabCompleter {
         }
 
         if (args[0].equals("item")) {
-            DefaultItem item = itemManager.getItem(args[1]);
+            DefaultItem item = itemManager.getItemByKey(args[1]);
             if (item.isDefault()) {
                 player.sendMessage("Unregistered Key");
                 return false;
@@ -65,7 +64,7 @@ public class GetCommand implements CommandExecutor, TabCompleter {
         }
 
         if (args[0].equals("set")) {
-            DefaultItemSet itemSet = itemSetManager.getItemSet(args[1]);
+            DefaultItemSet itemSet = itemSetManager.getItemSetByKey(args[1]);
             if (itemSet.isDefault()) {
                 player.sendMessage("Unregistered Key");
                 return false;

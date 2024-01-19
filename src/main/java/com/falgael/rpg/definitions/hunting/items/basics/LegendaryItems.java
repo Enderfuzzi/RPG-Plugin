@@ -32,7 +32,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.LEGENDARY,
                         "Legendary hunter tool",
-                        itemSetManager.getItemSetbyID(4005),
+                        itemSetManager.getItemSetByID(4005),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,6)
                                 .addFlag(ConfigurationFlag.LOOT, 5)
@@ -56,7 +56,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.LEGENDARY,
                         "Legendary hunter protection",
-                        itemSetManager.getItemSetbyID(4005),
+                        itemSetManager.getItemSetByID(4005),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
@@ -72,7 +72,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.LEGENDARY,
                         "Legendary hunter protection",
-                        itemSetManager.getItemSetbyID(4005),
+                        itemSetManager.getItemSetByID(4005),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 4)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
@@ -89,7 +89,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.LEGENDARY,
                         "Legendary hunter protection",
-                        itemSetManager.getItemSetbyID(4005),
+                        itemSetManager.getItemSetByID(4005),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT,1)
@@ -106,7 +106,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.LEGENDARY,
                         "Legendary hunter protection",
-                        itemSetManager.getItemSetbyID(4005),
+                        itemSetManager.getItemSetByID(4005),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)

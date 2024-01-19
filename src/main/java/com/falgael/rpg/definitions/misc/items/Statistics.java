@@ -31,7 +31,7 @@ public class Statistics extends MainItemDefinition {
                     Material.AMETHYST_SHARD,
                     Proficiency.MISC,
                     Rarity.EPIC,
-                    itemSetManager.getItemSetbyID(0),
+                    itemSetManager.getItemSetByID(0),
                     new ItemConfiguration.Builder()
                             .addFlag(ConfigurationFlag.ENCHANTED)
                             .create()

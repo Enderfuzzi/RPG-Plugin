@@ -1,5 +1,6 @@
 package com.falgael.rpg.handler;
 
+import com.falgael.rpg.loottable.LootTableManager;
 import com.falgael.rpg.manager.MainManagement;
 
 import com.falgael.rpg.stats.BlockStats;
@@ -30,6 +31,13 @@ public class BlockBreakHandler extends MainHandler {
 
 
         if (proficiencyAdapter.performAction(event.getPlayer(),event, i -> i.isBreakingTool())) return;
+
+
+
+        //TODO double computation of experience
+        Bukkit.getLogger().info("Material which is Broken: " + block.getMaterial());
+        lootComputation.triggerEvent(event.getPlayer(), block.getMaterial(), LootTableManager.Reason.BlockBreak, event.getBlock().getLocation());
+
 
         proficiencyAdapter.calculateExperience(event.getPlayer(),block.getProficiencies(),block.getExperienceAmount());
 

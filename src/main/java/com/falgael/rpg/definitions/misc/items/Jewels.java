@@ -32,7 +32,7 @@ public class Jewels extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Used to build Atlantis",
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addPotionEffect(PotionEffectType.CONDUIT_POWER,2)
@@ -49,7 +49,7 @@ public class Jewels extends MainItemDefinition {
                         Material.GHAST_TEAR,
                         Proficiency.MISC,
                         Rarity.COMMON,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 //.addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15)
@@ -65,7 +65,7 @@ public class Jewels extends MainItemDefinition {
                         Material.GHAST_TEAR,
                         Proficiency.MISC,
                         Rarity.ELITE,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 //.addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)

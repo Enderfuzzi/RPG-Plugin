@@ -31,7 +31,7 @@ public class Currency extends MainItemDefinition {
                         Material.IRON_NUGGET,
                         Proficiency.MISC,
                         Rarity.ADVANCED,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.CURRENCY)
                                 .create()
@@ -45,7 +45,7 @@ public class Currency extends MainItemDefinition {
                         Material.GOLD_NUGGET,
                         Proficiency.MISC,
                         Rarity.ELITE,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.CURRENCY)
                                 .create()
@@ -59,7 +59,7 @@ public class Currency extends MainItemDefinition {
                         Material.DIAMOND,
                         Proficiency.MISC,
                         Rarity.EPIC,
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.CURRENCY)
                                 .create()

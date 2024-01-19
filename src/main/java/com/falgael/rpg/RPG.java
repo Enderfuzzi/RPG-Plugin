@@ -8,6 +8,8 @@ import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.ItemManager;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.items.set.ItemSetManager;
+import com.falgael.rpg.loottable.LootComputation;
+import com.falgael.rpg.loottable.LootTableManager;
 import com.falgael.rpg.manager.*;
 import com.falgael.rpg.handler.TestHandler;
 import com.falgael.rpg.recipe.CustomRecipes;
@@ -30,6 +32,10 @@ public final class RPG extends JavaPlugin {
     private VillagerManagement villagerManager;
     private ItemHeldHandler itemHeldHandler;
 
+    private LootTableManager lootTableManager;
+
+    private LootComputation lootComputation;
+
     @Override
     public void onEnable() {
 
@@ -41,10 +47,12 @@ public final class RPG extends JavaPlugin {
 
         proficiencyAdapter = new ProficiencyExperienceCalculator(playerExperienceManager, itemManager);
 
+        lootTableManager = new LootTableManager(itemManager);
+        lootComputation = new LootComputation(proficiencyAdapter, lootTableManager, playerExperienceManager);
 
         new CustomRecipes(this);
 
-        MainManagement mainManager = new MainManager(proficiencyAdapter, itemManager, villagerManager);
+        MainManagement mainManager = new MainManager(proficiencyAdapter, itemManager, villagerManager, lootComputation);
 
 
         getLogger().info(this.getName() + " enabled");

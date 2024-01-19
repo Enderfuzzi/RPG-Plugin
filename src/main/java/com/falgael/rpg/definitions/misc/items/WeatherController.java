@@ -31,7 +31,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.ADVANCED,
                         "Clears the view to the sun",
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_CLEAR, 12000)
@@ -52,7 +52,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Nearly endless sunshine",
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_CLEAR, 6000)
@@ -73,7 +73,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Make it rain",
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_RAIN, 6000)
@@ -94,7 +94,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.ADVANCED,
                         "Call to the gods of storm",
-                        itemSetManager.getItemSetbyID(0),
+                        itemSetManager.getItemSetByID(0),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_THUNDER, 6000)

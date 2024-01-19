@@ -31,7 +31,7 @@ public class ProficiencyExperienceCalculator implements ProficiencyExperienceCal
     @Override
     public DefaultItem getItem(Player player, EquipmentSlot slot) {
         if (player == null || slot == null) return itemManagement.getDefault();
-        DefaultItem result  = itemManagement.getItem(player.getInventory().getItem(slot));
+        DefaultItem result  = itemManagement.getItemByKey(player.getInventory().getItem(slot));
         if (!result.getConfiguration().compareEquipmentSlot(slot)) return itemManagement.getDefault();
         return result;
     }

@@ -14,30 +14,30 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
 
     LIGHTING(Rarity.COMMON, Proficiency.MISC, Villager.Profession.CARTOGRAPHER,
-            new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create()
+            new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
 
 
     /*
     MISC_TIER_I(Proficiency.MISC.getName() + "_TIER_I", Proficiency.MISC,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + Proficiency.MISC.getRepresentation(), Villager.Profession.CARTOGRAPHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.GLOWSTONE, 4)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OCHRE_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PEARLESCENT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.REDSTONE_LAMP, 4)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SOUL_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SEA_LANTERN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SHROOMLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.VERDANT_FROGLIGHT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
                     .create(), 0),
     */
@@ -47,166 +47,166 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
     /*
     CARPENTER_1(Rarity.SIMPLE, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 1,
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create(),
-            new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create()
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BAMBOO,32)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create(),
+            new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create()
     ),
     /*
     WOODWORK_TIER_I(Proficiency.WOODWORK.getName() + "_TIER_I", Proficiency.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.SIMPLE.getRepresentation() + Proficiency.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_COMMON_AXE.getItem()).addIngredients(CustomTool.WOODWORK_BASIC_SIMPLE_AXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(),4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.ACACIA_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BAMBOO,32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BIRCH_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.CHERRY_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.CRIMSON_STEM,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.JUNGLE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.MANGROVE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.OAK_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.SPRUCE_LOG,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.WARPED_STEM,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_COMMON_AXE.getItemByKey()).addIngredients(CustomTool.WOODWORK_BASIC_SIMPLE_AXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(),4)).create())
                     .create(),1),
 
      */
     /*
     CARPENTER_2(Rarity.COMMON, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 5,
-            new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItem()).create()
+            new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
     /*
     WOODWORK_TIER_II(Proficiency.WOODWORK.getName() + "_TIER_II", Proficiency.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.COMMON.getRepresentation() + Proficiency.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BONE_MEAL,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_PROPAGULE,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_SAPLING,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_FUNGUS,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_NYLIUM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ADVANCED_AXE.getItem()).addIngredients(CustomTool.WOODWORK_COMMON_AXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ADVANCED_AXE.getItemByKey()).addIngredients(CustomTool.WOODWORK_COMMON_AXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(),32)).create())
                     .create(), 5),
 
 
      */
     /*
     CARPENTER_3(Rarity.ADVANCED, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 10,
-            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create()
+            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
     /*
     WOODWORK_TIER_III(Proficiency.WOODWORK.getName() + "_TIER_III", Proficiency.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ADVANCED.getRepresentation() + Proficiency.WOODWORK.getRepresentation(), Villager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_SHEARS.getItem()).addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(), 24)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ELITE_AXE.getItem()).addIngredients(CustomTool.WOODWORK_ADVANCED_AXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(),8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_SHEARS.getItemByKey()).addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 24)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_ELITE_AXE.getItemByKey()).addIngredients(CustomTool.WOODWORK_ADVANCED_AXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(),8)).create())
             .create(), 10),
 
 
      */
 /*
     CARPENTER_4(Rarity.ELITE, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 20,
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create()
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
     /*
     WOODWORK_TIER_IV(Proficiency.WOODWORK.getName() + "_TIER_IV", Proficiency.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.ELITE.getRepresentation() + Proficiency.WOODWORK.getRepresentation(), CustomVillager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_ACACIA_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BAMBOO_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_BIRCH_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CHERRY_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_CRIMSON_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_JUNGLE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_MANGROVE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_OAK_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_SPRUCE_LOG,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.STRIPPED_WARPED_STEM,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_EPIC_AXE.getItem()).addIngredients(CustomTool.WOODWORK_ELITE_AXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_EPIC_AXE.getItemByKey()).addIngredients(CustomTool.WOODWORK_ELITE_AXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(),32)).create())
                     .create(), 20),
 
 
      */
     /*
     CARPENTER_5(Rarity.EPIC, Proficiency.WOODWORK, Villager.Profession.BUTCHER, 40,
-            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.OAK_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItem()).create()
+            new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.OAK_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+            new MerchantRecipeBuilder(new ItemStack(Material.WARPED_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
     /*
     WOODWORK_TIER_V(Proficiency.WOODWORK.getName() + "_TIER_V", Proficiency.WOODWORK,
             new VillagerInstance.VillagerBuilder(Rarity.EPIC.getRepresentation() + Proficiency.WOODWORK.getRepresentation(), CustomVillager.Profession.BUTCHER)
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ACACIA_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BIRCH_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CHERRY_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.JUNGLE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.MANGROVE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OAK_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.SPRUCE_LEAVES,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WARPED_WART_BLOCK,64)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_LEGENDARY_AXE.getItem()).addIngredients(CustomTool.WOODWORK_EPIC_AXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(),64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.WOODWORK_LEGENDARY_AXE.getItemByKey()).addIngredients(CustomTool.WOODWORK_EPIC_AXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(),64)).create())
                     .create(), 40),
 
 
@@ -229,33 +229,33 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
 /*
     MASON_1(Rarity.SIMPLE, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 1,
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.STONE, 32)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.SAND, 64)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.RED_SAND, 64)).create()
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COBBLED_DEEPSLATE, 16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COBBLESTONE, 32)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.DEEPSLATE, 16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.STONE, 32)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.SAND, 64)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.RED_SAND, 64)).create()
     ),
 
     MASON_2(Rarity.COMMON, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 5,
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.IRON_INGOT, 8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COPPER_INGOT, 8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.GOLD_INGOT, 4)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.LAPIS_LAZULI, 16)).create()
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.IRON_INGOT, 8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COPPER_INGOT, 8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.GOLD_INGOT, 4)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.LAPIS_LAZULI, 16)).create()
     ),
 
 
 /*
     STONEWORK_TIER_II(Proficiency.STONEWORK.getName() + "_TIER_II", Proficiency.STONEWORK,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, Proficiency.STONEWORK), CustomVillager.Profession.TOOLSMITH)
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.IRON_INGOT, 8)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COPPER_INGOT, 8)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.GOLD_INGOT, 4)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.LAPIS_LAZULI, 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.IRON_INGOT, 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COPPER_INGOT, 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.GOLD_INGOT, 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.LAPIS_LAZULI, 16)).create())
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItem()).addIngredients(CustomTool.STONEWORK_COMMON_PICKAXE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(),32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.STONEWORK_ADVANCED_PICKAXE.getItemByKey()).addIngredients(CustomTool.STONEWORK_COMMON_PICKAXE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(),32)).create())
 
                     .create(), 5),
 
@@ -264,12 +264,12 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     /*
     MASON_3(Rarity.ADVANCED, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 10,
 
-                    new MerchantRecipeBuilder(new ItemStack(Material.COAL,32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.IRON_INGOT,8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COPPER_INGOT,8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.GOLD_INGOT,4)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.LAPIS_LAZULI,16)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.QUARTZ_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItem()).create()
+                    new MerchantRecipeBuilder(new ItemStack(Material.COAL,32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.IRON_INGOT,8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COPPER_INGOT,8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.GOLD_INGOT,4)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.LAPIS_LAZULI,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.QUARTZ_BLOCK,16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create()
     ),
 
     MASON_4(Rarity.ELITE, Proficiency.STONEWORK, Villager.Profession.TOOLSMITH, 20,
@@ -304,77 +304,77 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     //--------------------------------------------------------------------------------------------
 
     FARMER_1(Rarity.SIMPLE, Proficiency.FARMING, Villager.Profession.FARMER, 0,
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.WHEAT,16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.CARROT,32)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.POTATO,32)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BEETROOT,16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.NETHER_WART,16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.MELON,16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.PUMPKIN,16)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.HONEY_BLOCK,4)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.WHEAT,16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.CARROT,32)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.POTATO,32)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BEETROOT,16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.NETHER_WART,16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.MELON,16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.PUMPKIN,16)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.HONEY_BLOCK,4)).create(),
 
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_BEEF,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_CHICKEN,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_PORKCHOP,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_MUTTON,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_RABBIT,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_SALMON,8)).create(),
-                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.COOKED_COD,8)).create()
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_BEEF,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_CHICKEN,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_PORKCHOP,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_MUTTON,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_RABBIT,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_SALMON,8)).create(),
+                    new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.COOKED_COD,8)).create()
     ),
 
     FARMER_2(Rarity.COMMON, Proficiency.FARMING, Villager.Profession.FARMER, 5,
-                    new MerchantRecipeBuilder(new ItemStack(Material.WHEAT_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.BEETROOT_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.MELON_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.PUMPKIN_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.CARROT, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.POTATO, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART, 32)).addIngredients(Items.SILVER_COIN.getItem()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.WHEAT_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.BEETROOT_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.MELON_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.PUMPKIN_SEEDS, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.CARROT, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.POTATO, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.NETHER_WART, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
 
-                    new MerchantRecipeBuilder(new ItemStack(Material.BEE_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COW_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.PIG_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.CHICKEN_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.RABBIT_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.SALMON_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COD_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.TROPICAL_FISH_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 16)).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.PUFFERFISH_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItem(), 16)).create()
+                    new MerchantRecipeBuilder(new ItemStack(Material.BEE_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COW_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.PIG_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.CHICKEN_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.RABBIT_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.SALMON_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COD_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.TROPICAL_FISH_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 16)).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.PUFFERFISH_SPAWN_EGG)).addIngredients(ItemStackManipulation.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 16)).create()
     ),
 
     FARMER_3(Rarity.ADVANCED, Proficiency.FARMING, Villager.Profession.FARMER, 10,
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_BEEF, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_CHICKEN, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_PORKCHOP, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_MUTTON, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_RABBIT, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_COD, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
-                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_SALMON, 8)).addIngredients(Items.SILVER_COIN.getItem()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_BEEF, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_CHICKEN, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_PORKCHOP, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_MUTTON, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_RABBIT, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_COD, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
+                    new MerchantRecipeBuilder(new ItemStack(Material.COOKED_SALMON, 8)).addIngredients(Items.SILVER_COIN.getItemByKey()).create(),
 
-                    new MerchantRecipeBuilder(Items.GOLD_COIN.getItem()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create()
+                    new MerchantRecipeBuilder(Items.GOLD_COIN.getItemByKey()).addIngredients(new ItemStack(Material.NETHER_WART_BLOCK,16)).create()
             ),
     /*
     FARMER_4(Rarity.ELITE, Proficiency.FARMING.getName() + "_TIER_IV", Proficiency.FARMING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, Proficiency.FARMING), CustomVillager.Profession.FARMER)
 
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.FLOWER_POT, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.FLOWER_POT, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.POPPY, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLUE_ORCHID, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.AZURE_BLUET, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ORANGE_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PINK_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RED_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WHITE_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OXEYE_DAISY, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CORNFLOWER, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LILY_OF_THE_VALLEY, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.TORCHFLOWER, 32)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.POPPY, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.BLUE_ORCHID, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.AZURE_BLUET, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.DANDELION, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.ORANGE_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.PINK_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.RED_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WHITE_TULIP, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.OXEYE_DAISY, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.CORNFLOWER, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.LILY_OF_THE_VALLEY, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.TORCHFLOWER, 32)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
 
-                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WITHER_ROSE, 16)).addIngredients(Items.SILVER_COIN.getItem()).create())
+                    .addRecipe(new MerchantRecipeBuilder(new ItemStack(Material.WITHER_ROSE, 16)).addIngredients(Items.SILVER_COIN.getItemByKey()).create())
 
                     .create(), 20),
 
@@ -383,8 +383,8 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
 
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_LEGENDARY_HOE.getItem()).addIngredients(CustomTool.FARMING_EPIC_HOE.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.FARMING_LEGENDARY_HOE.getItemByKey()).addIngredients(CustomTool.FARMING_EPIC_HOE.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 64)).create())
                     .create(), 40),
 
     FARMING_TIER_VI(Proficiency.FARMING.getName() + "_TIER_VI", Proficiency.FARMING,
@@ -402,49 +402,49 @@ public enum CustomVillager implements ItemStackManipulation, NameBuilding {
     HUNTING_TIER_I(Proficiency.HUNTING.getName() + "_TIER_I", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.SIMPLE, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)
 
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ROTTEN_FLESH,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.GUNPOWDER,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.STRING,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.BONE,16)).create())
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.SPIDER_EYE,8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.ROTTEN_FLESH,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.GUNPOWDER,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.STRING,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.BONE,16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.SPIDER_EYE,8)).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItem()).addIngredients(new ItemStack(Material.ENDER_PEARL,4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(Items.SILVER_COIN.getItemByKey()).addIngredients(new ItemStack(Material.ENDER_PEARL,4)).create())
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_SWORD.getItem()).addIngredients(CustomTool.HUNTING_SIMPLE_SWORD.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(), 4)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_BOW.getItem()).addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(), 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_SWORD.getItemByKey()).addIngredients(CustomTool.HUNTING_SIMPLE_SWORD.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 4)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_COMMON_BOW.getItemByKey()).addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 8)).create())
                     .create(),1),
     HUNTING_TIER_II(Proficiency.HUNTING.getName() + "_TIER_II", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.COMMON, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ADVANCED_SWORD.getItem()).addIngredients(CustomTool.HUNTING_COMMON_SWORD.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItem(), 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ADVANCED_SWORD.getItemByKey()).addIngredients(CustomTool.HUNTING_COMMON_SWORD.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.SILVER_COIN.getItemByKey(), 32)).create())
                     .create(),5),
     HUNTING_TIER_III(Proficiency.HUNTING.getName() + "_TIER_III", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ADVANCED, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_SWORD.getItem()).addIngredients(CustomTool.HUNTING_ADVANCED_SWORD.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 8)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_BOW.getItem()).addIngredients(CustomTool.HUNTING_COMMON_BOW.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 16)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_SWORD.getItemByKey()).addIngredients(CustomTool.HUNTING_ADVANCED_SWORD.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 8)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_ELITE_BOW.getItemByKey()).addIngredients(CustomTool.HUNTING_COMMON_BOW.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 16)).create())
                     .create(),10),
     HUNTING_TIER_IV(Proficiency.HUNTING.getName() + "_TIER_IV", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.ELITE, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_SWORD.getItem()).addIngredients(CustomTool.HUNTING_ELITE_SWORD.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 32)).create())
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_BOW.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_SWORD.getItemByKey()).addIngredients(CustomTool.HUNTING_ELITE_SWORD.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 32)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_EPIC_BOW.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 64)).create())
                     .create(),20),
     HUNTING_TIER_V(Proficiency.HUNTING.getName() + "_TIER_V", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.EPIC, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)
 
 
-                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_LEGENDARY_SWORD.getItem()).addIngredients(CustomTool.HUNTING_EPIC_SWORD.getItem())
-                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItem(), 64)).create())
+                    .addRecipe(new MerchantRecipeBuilder(CustomTool.HUNTING_LEGENDARY_SWORD.getItemByKey()).addIngredients(CustomTool.HUNTING_EPIC_SWORD.getItemByKey())
+                            .addIngredients(Utils.modifyItemAmount(Items.MISC_GOLD_NUGGET.getItemByKey(), 64)).create())
                     .create(),40),
     HUNTING_TIER_VI(Proficiency.HUNTING.getName() + "_TIER_VI", Proficiency.HUNTING,
             new VillagerInstance.VillagerBuilder(buildName(Rarity.LEGENDARY, Proficiency.HUNTING), CustomVillager.Profession.WEAPONSMITH)

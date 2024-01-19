@@ -32,7 +32,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
                         "Common lumberjack tool",
-                        itemSetManager.getItemSetbyID(1001),
+                        itemSetManager.getItemSetByID(1001),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
@@ -56,7 +56,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
                         "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        itemSetManager.getItemSetByID(1001),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -71,7 +71,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
                         "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        itemSetManager.getItemSetByID(1001),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5)
@@ -87,7 +87,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
                         "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        itemSetManager.getItemSetByID(1001),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -102,7 +102,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
                         "Common lumberjack protection",
-                        itemSetManager.getItemSetbyID(1001),
+                        itemSetManager.getItemSetByID(1001),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()

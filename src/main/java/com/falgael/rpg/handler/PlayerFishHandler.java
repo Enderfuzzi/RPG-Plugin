@@ -21,7 +21,7 @@ public class PlayerFishHandler extends MainHandler {
     @EventHandler
     public void onFishEvent(PlayerFishEvent event) {
         if (event.isCancelled()) return;
-        DefaultItem handItem = itemAdapter.getItem(event.getPlayer().getInventory().getItemInMainHand());
+        DefaultItem handItem = itemAdapter.getItemByKey(event.getPlayer().getInventory().getItemInMainHand());
         if (event.getState() == PlayerFishEvent.State.CAUGHT_FISH) {
             if (proficiencyAdapter.performAction(event, handItem, event.getPlayer())) return;
             if (event.getCaught() instanceof Item item) {

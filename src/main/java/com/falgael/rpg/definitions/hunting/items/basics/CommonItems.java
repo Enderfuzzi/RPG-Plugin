@@ -32,7 +32,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.COMMON,
                         "Common hunter tool",
-                        itemSetManager.getItemSetbyID(4001),
+                        itemSetManager.getItemSetByID(4001),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
@@ -56,7 +56,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.COMMON,
                         "Common hunter protection",
-                        itemSetManager.getItemSetbyID(4001),
+                        itemSetManager.getItemSetByID(4001),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -71,7 +71,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.COMMON,
                         "Common hunter protection",
-                        itemSetManager.getItemSetbyID(4001),
+                        itemSetManager.getItemSetByID(4001),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5)
@@ -87,7 +87,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.COMMON,
                         "Common hunter protection",
-                        itemSetManager.getItemSetbyID(4001),
+                        itemSetManager.getItemSetByID(4001),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -102,7 +102,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.COMMON,
                         "Common hunter protection",
-                        itemSetManager.getItemSetbyID(4001),
+                        itemSetManager.getItemSetByID(4001),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()

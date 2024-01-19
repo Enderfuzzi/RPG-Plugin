@@ -1,6 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.loottable.ItemDrop;
+import com.falgael.rpg.items.ItemDrop;
 import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import com.falgael.rpg.stats.BlockStats;
 import org.bukkit.Bukkit;

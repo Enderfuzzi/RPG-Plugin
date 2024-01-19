@@ -13,6 +13,6 @@ public class ItemBurnHandler extends MainHandler {
     @EventHandler
     public void onItemBurn(FurnaceBurnEvent event) {
         if (event.isCancelled()) return;
-        proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getFuel()));
+        proficiencyAdapter.performAction(event, itemAdapter.getItemByKey(event.getFuel()));
     }
 }

@@ -1,4 +1,4 @@
-package com.falgael.rpg.loottable;
+package com.falgael.rpg.items;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
-public interface ItemDrop {
+public interface ItemDrop extends ItemStackManipulation {
 
     default void dropItem(List<ItemStack> drops, int dropAmount, World world, Location location) {
         if (dropAmount < 1) return;
@@ -20,10 +20,10 @@ public interface ItemDrop {
             if (itemStack.getAmount() <= 0) continue;
             int tmpAmount = dropAmount;
             while (tmpAmount - 64 > 0) {
-                world.dropItemNaturally(location,new ItemStack(itemStack.getType(), 64));
+                world.dropItemNaturally(location, ItemStackManipulation.modifyItemAmount(itemStack , 64));
                 tmpAmount -= 64;
             }
-            world.dropItemNaturally(location, new ItemStack(itemStack.getType(), tmpAmount));
+            world.dropItemNaturally(location, ItemStackManipulation.modifyItemAmount(itemStack , tmpAmount));
         }
     }
 

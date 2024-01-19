@@ -8,9 +8,11 @@ import java.util.Set;
 
 public interface ItemManagement {
 
-    DefaultItem getItem(ItemStack item);
+    DefaultItem getItemByKey(ItemStack item);
 
-    DefaultItem getItem(String key);
+    DefaultItem getItemByKey(String key);
+
+    DefaultItem getItemByID(int id);
 
     DefaultItem getDefault();
 

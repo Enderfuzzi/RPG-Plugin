@@ -20,7 +20,7 @@ public class PlayerInteractBlockHandler extends MainHandler {
     public void onPlayerInteractWithBlock(PlayerInteractEvent event) {
         if (!event.hasBlock()) return;
 
-        if (proficiencyAdapter.performAction(event, itemAdapter.getItem(event.getItem()), event.getPlayer())) return;
+        if (proficiencyAdapter.performAction(event, itemAdapter.getItemByKey(event.getItem()), event.getPlayer())) return;
 
         if (event.getClickedBlock().getBlockData() instanceof Beehive beehive) {
             if (beehive.getHoneyLevel() != beehive.getMaximumHoneyLevel()) return;

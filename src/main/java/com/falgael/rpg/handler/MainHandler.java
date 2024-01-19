@@ -1,6 +1,7 @@
 package com.falgael.rpg.handler;
 
 import com.falgael.rpg.items.ItemManagement;
+import com.falgael.rpg.loottable.LootComputation;
 import com.falgael.rpg.manager.MainManagement;
 import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import com.falgael.rpg.villager.VillagerManagement;
@@ -14,10 +15,13 @@ public class MainHandler implements Listener {
 
     protected VillagerManagement villagerAdapter;
 
+    protected LootComputation lootComputation;
+
     protected MainHandler(MainManagement mainManager) {
         this.proficiencyAdapter = mainManager.getPExperienceCalculator();
         this.itemAdapter = mainManager.getItemAdapter();
         this.villagerAdapter = mainManager.getVillagerAdapter();
+        this.lootComputation = mainManager.getLootComputation();
     }
 
 
