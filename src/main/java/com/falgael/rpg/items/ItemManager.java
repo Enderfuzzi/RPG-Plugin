@@ -1,5 +1,6 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.definitions.hunting.items.Narsil;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
@@ -88,6 +89,9 @@ public class ItemManager implements ItemManagement{
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.EliteItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.EpicItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.LegendaryItems(itemSetManager));
+
+        registerItemClass(new Narsil(itemSetManager));
+
     }
 
     private void init() {
