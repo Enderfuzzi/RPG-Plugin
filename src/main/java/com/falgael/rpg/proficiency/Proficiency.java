@@ -7,9 +7,19 @@ import java.util.List;
 
 public enum Proficiency {
 
-    NONE(""),
+    NONE("") {
+        @Override
+        public boolean levelCheck() {
+            return false;
+        }
+    },
 
-    MISC("Misc"),
+    MISC("Misc") {
+        @Override
+        public boolean levelCheck() {
+            return false;
+        }
+    },
 
     WOODWORK("Woodwork"),
 
@@ -53,10 +63,7 @@ public enum Proficiency {
     }
 
     public boolean levelCheck() {
-        return switch (this) {
-            case MISC, NONE -> false;
-            default -> true;
-        };
+        return true;
     }
 
     public static List<Proficiency> translate(List<String> list) {

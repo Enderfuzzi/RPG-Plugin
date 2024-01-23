@@ -56,7 +56,7 @@ public class ItemHeldHandler extends MainHandler {
         ItemMeta itemMeta = item.getItemMeta();
 
         List<String> newLore = new ArrayList<>();
-
+        newLore.add( "-".repeat(itemMeta.getDisplayName().length()));
         for (Proficiency proficiency : Proficiency.values()) {
             if (proficiency == Proficiency.NONE || proficiency == Proficiency.MISC) continue;
             newLore.add(proficiency.getRepresentation() + ": " + ChatColor.RESET + "" + playerExperienceManager.getLevel(player.getUniqueId(), proficiency));
