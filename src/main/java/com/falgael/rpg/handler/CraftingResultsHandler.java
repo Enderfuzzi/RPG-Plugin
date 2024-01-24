@@ -1,7 +1,7 @@
 package com.falgael.rpg.handler;
 
 import com.falgael.rpg.manager.MainManagement;
-import com.falgael.rpg.stats.CraftingResultStats;
+import com.falgael.rpg.definitions.stats.CraftingResultStats;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.CraftItemEvent;

@@ -1,7 +1,7 @@
 package com.falgael.rpg.handler;
 
 import com.falgael.rpg.manager.MainManagement;
-import com.falgael.rpg.stats.BlockHarvestStats;
+import com.falgael.rpg.definitions.stats.BlockHarvestStats;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerHarvestBlockEvent;

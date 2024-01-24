@@ -2,7 +2,7 @@ package com.falgael.rpg.items.configuration;
 
 import com.falgael.rpg.items.ItemDrop;
 import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
-import com.falgael.rpg.stats.BlockStats;
+import com.falgael.rpg.definitions.stats.BlockStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

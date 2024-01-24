@@ -1,7 +1,7 @@
 package com.falgael.rpg.handler;
 
 import com.falgael.rpg.manager.MainManagement;
-import com.falgael.rpg.stats.EntityStats;
+import com.falgael.rpg.definitions.stats.EntityStats;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

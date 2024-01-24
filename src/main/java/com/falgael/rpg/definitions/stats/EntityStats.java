@@ -1,4 +1,4 @@
-package com.falgael.rpg.stats;
+package com.falgael.rpg.definitions.stats;
 
 import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.entity.Entity;

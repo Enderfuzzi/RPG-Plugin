@@ -3,7 +3,7 @@ package com.falgael.rpg.handler;
 import com.falgael.rpg.loottable.LootTableManager;
 import com.falgael.rpg.manager.MainManagement;
 
-import com.falgael.rpg.stats.BlockStats;
+import com.falgael.rpg.definitions.stats.BlockStats;
 
 import org.bukkit.Bukkit;
 

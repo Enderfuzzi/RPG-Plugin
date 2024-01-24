@@ -1,11 +1,11 @@
 package com.falgael.rpg.loottable;
 
+import com.falgael.rpg.definitions.stats.*;
 import com.falgael.rpg.items.ItemDrop;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.manager.PlayerExperienceManagement;
 import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
 import com.falgael.rpg.proficiency.Proficiency;
-import com.falgael.rpg.stats.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
