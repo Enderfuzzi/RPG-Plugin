@@ -21,4 +21,10 @@ public interface PlayerMessage {
     default void denyVillagerInteraction(@NotNull Player player, Proficiency proficiency, int requirement) {
         player.sendMessage(proficiency.getRepresentation() + ChatColor.ITALIC + " Level Requirement: " + requirement);
     }
+
+    default void levelChangeMessage(Player player, Proficiency proficiency, int level) {
+        if (player == null) return;
+        player.sendTitle(proficiency.getRepresentation(),"Level: " + level, 10, 70, 20);
+    }
+
 }

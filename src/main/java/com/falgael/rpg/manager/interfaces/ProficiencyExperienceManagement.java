@@ -1,4 +1,4 @@
-package com.falgael.rpg.manager;
+package com.falgael.rpg.manager.interfaces;
 
 import com.falgael.rpg.proficiency.Proficiency;
 
@@ -12,5 +12,6 @@ public interface ProficiencyExperienceManagement {
     long getExperience(Proficiency proficiency);
     long getExperienceBorder(Proficiency proficiency);
 
+    String getPublicPlayerName();
 
 }

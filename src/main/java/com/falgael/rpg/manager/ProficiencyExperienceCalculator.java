@@ -3,6 +3,8 @@ package com.falgael.rpg.manager;
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
+import com.falgael.rpg.manager.interfaces.PlayerExperienceManagement;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
 import org.bukkit.Bukkit;

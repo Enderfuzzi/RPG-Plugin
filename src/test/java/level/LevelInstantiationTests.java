@@ -2,7 +2,7 @@ package level;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.falgael.rpg.proficiency.Level;
+import com.falgael.rpg.proficiency.experience.Level;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

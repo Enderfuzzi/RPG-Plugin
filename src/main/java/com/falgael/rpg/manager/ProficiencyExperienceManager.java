@@ -1,14 +1,13 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
-
+@Deprecated
 public class ProficiencyExperienceManager implements ProficiencyExperienceManagement, Serializable {
-
-
     @Serial
     private static final long serialVersionUID = 5319044698716544152L;
 
@@ -61,12 +60,17 @@ public class ProficiencyExperienceManager implements ProficiencyExperienceManage
         return proficiencyData.get(proficiency).getExperienceBorder();
     }
 
+    @Override
+    public String getPublicPlayerName() {
+        return publicName;
+    }
 
+    @Deprecated
     public String getPublicName() {
         return publicName;
     }
 }
-
+@Deprecated
 class ExperienceData implements Serializable {
     @Serial
     private static final long serialVersionUID = -6202896916145603976L;

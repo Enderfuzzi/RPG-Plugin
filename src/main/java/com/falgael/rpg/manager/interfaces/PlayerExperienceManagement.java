@@ -1,4 +1,4 @@
-package com.falgael.rpg.manager;
+package com.falgael.rpg.manager.interfaces;
 
 import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.entity.Player;

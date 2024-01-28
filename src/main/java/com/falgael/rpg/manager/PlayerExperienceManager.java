@@ -1,8 +1,11 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.manager.interfaces.DataStoreManagement;
+import com.falgael.rpg.manager.interfaces.PlayerExperienceManagement;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceManagement;
 import com.falgael.rpg.proficiency.Proficiency;
+import com.falgael.rpg.proficiency.experience.ExperienceDataHolder;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -36,11 +39,11 @@ public class PlayerExperienceManager implements PlayerExperienceManagement, List
             return;
         }
         for (File tmp : dirList) {
-            if (!(dataManager.load(tmp) instanceof ProficiencyExperienceManager proficiencyExperienceManager)) {
+            if (!(dataManager.load(tmp) instanceof ExperienceDataHolder experienceProficiencyData)) {
                 Bukkit.getLogger().warning("[Proficiency Data]: [" + tmp.getPath() + "] is not instance of ExperienceData");
                 continue;
             }
-            this.proficiencyExperience.put(UUID.fromString(tmp.getName()), proficiencyExperienceManager);
+            this.proficiencyExperience.put(UUID.fromString(tmp.getName()), experienceProficiencyData);
         }
     }
 
@@ -61,7 +64,7 @@ public class PlayerExperienceManager implements PlayerExperienceManagement, List
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         if (proficiencyExperience.containsKey(event.getPlayer().getUniqueId())) return;
-        proficiencyExperience.put(event.getPlayer().getUniqueId(), new ProficiencyExperienceManager(event.getPlayer().getDisplayName()));
+        proficiencyExperience.put(event.getPlayer().getUniqueId(), new ExperienceDataHolder(event.getPlayer()));
     }
 
     @EventHandler

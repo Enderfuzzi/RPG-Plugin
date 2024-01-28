@@ -1,4 +1,5 @@
-package com.falgael.rpg.proficiency;
+package com.falgael.rpg.proficiency.experience;
+
 
 public enum Level {
     ZERO(0,0) {
@@ -61,8 +62,6 @@ public enum Level {
     private Level next;
 
 
-
-
     Level(int representation, long experienceNeeded) {
         this.representation = representation;
         this.experienceNeeded = experienceNeeded;
@@ -91,5 +90,8 @@ public enum Level {
     public Level getPrevious() {
         return previous;
     }
+
+    public void levelUpAction() {}
+
 
 }

@@ -1,6 +1,6 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.manager.MainManagement;
+import com.falgael.rpg.manager.interfaces.MainManagement;
 import com.falgael.rpg.villager.VillagerInstance;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;

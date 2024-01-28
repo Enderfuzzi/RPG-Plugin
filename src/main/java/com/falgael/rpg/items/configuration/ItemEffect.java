@@ -1,7 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
 import com.falgael.rpg.items.ItemDrop;
-import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import com.falgael.rpg.definitions.stats.BlockStats;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

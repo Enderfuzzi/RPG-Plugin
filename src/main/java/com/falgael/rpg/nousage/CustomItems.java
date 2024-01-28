@@ -4,7 +4,7 @@ import com.falgael.rpg.items.configuration.ItemConfiguration;
 import com.falgael.rpg.items.configuration.PredicateConsumer;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.old.ItemBuilder;
-import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import com.falgael.rpg.old.OLDItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;

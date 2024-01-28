@@ -1,7 +1,7 @@
 package com.falgael.rpg.items.configuration;
 
 import com.falgael.rpg.old.ItemBuilder;
-import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import org.bukkit.ChatColor;
 import org.bukkit.event.Event;
 import org.jetbrains.annotations.Contract;

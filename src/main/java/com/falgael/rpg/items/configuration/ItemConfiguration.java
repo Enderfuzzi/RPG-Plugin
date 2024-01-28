@@ -1,6 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.manager.ProficiencyExperienceCalculation;
+import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.potion.PotionEffect;

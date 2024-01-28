@@ -1,7 +1,7 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.manager.MainManagement;
-import com.falgael.rpg.manager.PlayerExperienceManagement;
+import com.falgael.rpg.manager.interfaces.MainManagement;
+import com.falgael.rpg.manager.interfaces.PlayerExperienceManagement;
 import com.falgael.rpg.proficiency.player.PlayerMessage;
 import com.falgael.rpg.villager.VillagerInstance;
 import org.bukkit.Bukkit;

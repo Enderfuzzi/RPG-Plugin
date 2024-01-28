@@ -1,5 +1,6 @@
 package com.falgael.rpg.manager;
 
+import com.falgael.rpg.manager.interfaces.DataStoreManagement;
 import com.falgael.rpg.old.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;

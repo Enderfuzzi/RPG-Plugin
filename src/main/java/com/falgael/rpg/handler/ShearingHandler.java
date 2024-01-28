@@ -1,6 +1,6 @@
 package com.falgael.rpg.handler;
 
-import com.falgael.rpg.manager.MainManagement;
+import com.falgael.rpg.manager.interfaces.MainManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.DyeColor;
