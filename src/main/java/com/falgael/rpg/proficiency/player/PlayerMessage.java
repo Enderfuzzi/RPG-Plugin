@@ -5,6 +5,7 @@ import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
@@ -24,6 +25,7 @@ public interface PlayerMessage {
 
     default void levelChangeMessage(Player player, Proficiency proficiency, int level) {
         if (player == null) return;
+        player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP,0.3f,1f);
         player.sendTitle(proficiency.getRepresentation(),"Level: " + level, 10, 70, 20);
     }
 
