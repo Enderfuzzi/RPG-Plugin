@@ -26,7 +26,7 @@ public interface PlayerMessage {
     default void levelChangeMessage(Player player, Proficiency proficiency, int level) {
         if (player == null) return;
         player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP,0.3f,1f);
-        player.sendTitle(proficiency.getRepresentation(),"Level: " + level, 10, 70, 20);
+        player.sendTitle(proficiency.getRepresentation(),"Level: " + ChatColor.GOLD + level, 10, 70, 20);
     }
 
 }

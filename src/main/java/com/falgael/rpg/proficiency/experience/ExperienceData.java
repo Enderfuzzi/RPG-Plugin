@@ -18,7 +18,7 @@ public class ExperienceData implements Serializable, PlayerMessage {
     private final UUID player;
 
     ExperienceData(UUID player, Proficiency proficiency) {
-        this.player = player;;
+        this.player = player;
         this.proficiency = proficiency;
     }
 
@@ -31,10 +31,7 @@ public class ExperienceData implements Serializable, PlayerMessage {
     }
 
     public long getBorder() {
-        if (level.hasNext()) {
-            return level.getNextLevel().getExperienceNeeded();
-        }
-        return 0;
+        return level.getNextLevel().getExperienceNeeded();
     }
 
 
@@ -42,8 +39,8 @@ public class ExperienceData implements Serializable, PlayerMessage {
         if (amount == 0) return;
         if (amount < 0) amount = Math.abs(amount);
         experience += amount;
-        while (level.hasNext() &&  level.getNextLevel().getExperienceNeeded() <= experience) {
-            experience -= level.getNextLevel().getExperienceNeeded();
+        while (level.hasNext() && getBorder() <= experience) {
+            experience -= getBorder();
             increaseLevel();
         }
     }
