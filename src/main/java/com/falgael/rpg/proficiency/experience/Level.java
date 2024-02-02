@@ -115,6 +115,9 @@ public enum Level {
     },
     MAX_LEVEL(100, 0) {
         @Override
+        public boolean hasPrevious() { return false;}
+
+        @Override
         public boolean hasNext() {
             return false;
         }

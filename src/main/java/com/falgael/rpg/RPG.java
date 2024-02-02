@@ -109,6 +109,7 @@ public final class RPG extends JavaPlugin {
 
         itemHeldHandler.stopCheck();
 
+        Bukkit.getOnlinePlayers().forEach(player -> player.kickPlayer("Server Shutdown"));
 
         getLogger().info("RPG disabled");
         sendMessageToAll("Plugin disabled");
