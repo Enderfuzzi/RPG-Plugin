@@ -12,5 +12,4 @@ public abstract class MainVillagerDefinition implements VillagerDefinition, Item
         this.itemManager = itemManager;
     }
 
-
 }

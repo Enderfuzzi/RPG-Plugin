@@ -18,6 +18,7 @@ import com.falgael.rpg.manager.interfaces.PlayerExperienceManagement;
 import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import com.falgael.rpg.recipe.CustomRecipes;
 import com.falgael.rpg.handler.VillagerHandler;
+import com.falgael.rpg.recipe.RecipeInitializer;
 import com.falgael.rpg.villager.VillagerManagement;
 import com.falgael.rpg.villager.VillagerManager;
 import org.bukkit.Bukkit;
@@ -54,7 +55,7 @@ public final class RPG extends JavaPlugin {
         lootTableManager = new LootTableManager(itemManager);
         lootComputation = new LootComputation(proficiencyAdapter, lootTableManager, playerExperienceManager);
 
-        new CustomRecipes(this);
+        new RecipeInitializer(this);
 
         MainManagement mainManager = new MainManager(proficiencyAdapter, itemManager, villagerManager, lootComputation);
 

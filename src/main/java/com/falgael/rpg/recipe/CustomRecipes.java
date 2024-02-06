@@ -1,6 +1,7 @@
 package com.falgael.rpg.recipe;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Keyed;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.*;
@@ -13,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomRecipes {
+public abstract class CustomRecipes {
     // Note Loading these Recipes is placed in initializer
 
 
@@ -22,30 +23,13 @@ public class CustomRecipes {
 
     public CustomRecipes(Plugin plugin) {
         this.plugin = plugin;
-        getRecipes().forEach(e -> Bukkit.addRecipe(e));
+        getRecipes().forEach(r -> {
+            Bukkit.addRecipe(r);
+            if (r instanceof Keyed k) Bukkit.getLogger().info("Registered Recipe with name: " + k.getKey());
+        });
     }
 
-
-
-    private @NotNull List<Recipe> getRecipes() {
-        List<Recipe> result = new ArrayList<>();
-
-        result.add(
-                new RecipeBuilder(Material.OAK_SLAB, "OAK_STAIR_TO_SLAB", RecipeBuilder.RecipeType.STONECUTTER)
-                        .addIngredient(Material.OAK_STAIRS)
-                        .create()
-        );
-
-        result.add(
-                new RecipeBuilder(Material.OAK_STAIRS, "OAK_SLAB_TO_STAIR", RecipeBuilder.RecipeType.STONECUTTER)
-                        .addIngredient(Material.OAK_SLAB)
-                        .create()
-        );
-
-
-
-        return result;
-    }
+    protected abstract List<Recipe> getRecipes();
 
 
     public class RecipeBuilder {
