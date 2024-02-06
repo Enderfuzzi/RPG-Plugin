@@ -117,9 +117,9 @@ public class ItemManager implements ItemManagement{
         if (!meta.isUnbreakable()) return DEFAULT_ITEM;
         if (!meta.hasDisplayName()) return DEFAULT_ITEM;
         return getItemByKey(
-                item.getType().toString().toLowerCase()
+                ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_").toLowerCase()
                         + "_"
-                        + ChatColor.stripColor(meta.getDisplayName()).replace(" ", "_").toLowerCase());
+                        + item.getType().toString().toLowerCase());
     }
 
 

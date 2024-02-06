@@ -59,7 +59,7 @@ public class ItemHeldHandler extends MainHandler {
         newLore.add( "-".repeat(itemMeta.getDisplayName().length()));
         for (Proficiency proficiency : Proficiency.values()) {
             if (proficiency == Proficiency.NONE || proficiency == Proficiency.MISC) continue;
-            newLore.add(proficiency.getRepresentation() + ": " + ChatColor.RESET + "" + playerExperienceManager.getLevel(player.getUniqueId(), proficiency));
+            newLore.add(proficiency.getRepresentation() + ":" + ChatColor.RESET + " " + playerExperienceManager.getLevel(player.getUniqueId(), proficiency));
         }
 
         itemMeta.setLore(newLore);

@@ -112,9 +112,9 @@ public class Item implements DefaultItem {
 
     private ItemStack createItemStack() {
         ItemStack result = new ItemStack(material);
-        Bukkit.getLogger().info("Begin create Itemstack: " + name);
-        Bukkit.getLogger().info("ItemMeta " + result.hasItemMeta());
-        Bukkit.getLogger().info("Has item Meta");
+        //Bukkit.getLogger().info("Begin create Itemstack: " + name);
+        //Bukkit.getLogger().info("ItemMeta " + result.hasItemMeta());
+        //Bukkit.getLogger().info("Has item Meta");
         ItemMeta itemMeta = result.getItemMeta();
 
         itemMeta.setDisplayName(rarity.getColor() + name);
@@ -139,12 +139,12 @@ public class Item implements DefaultItem {
             }
         }
         result.setItemMeta(itemMeta);
-        Bukkit.getLogger().info("End create Itemstack: " + name);
+        //Bukkit.getLogger().info("End create Itemstack: " + name);
         return result;
     }
 
     public @NotNull String getKey() {
-        return material.toString().toLowerCase() + "_" + name.toLowerCase().replace(" ", "_");
+        return name.toLowerCase().replace(" ", "_") + "_" + material.toString().toLowerCase() ;
     }
 
 
