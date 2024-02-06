@@ -15,6 +15,7 @@ public enum CraftingResultStats implements Stats {
     // WOODWORK
     //--------------------------------------------------------------------------------------------
     ACACIA_PLANKS(Proficiency.WOODWORK, Material.ACACIA_PLANKS, 4, InventoryType.WORKBENCH),
+    ACACIA_WOOD(Proficiency.WOODWORK, Material.ACACIA_WOOD, 3, InventoryType.WORKBENCH),
     ACACIA_SLAB(Proficiency.WOODWORK, Material.ACACIA_SLAB, 3, InventoryType.WORKBENCH),
     ACACIA_STAIRS(Proficiency.WOODWORK, Material.ACACIA_STAIRS,6, InventoryType.WORKBENCH),
     ACACIA_FENCE(Proficiency.WOODWORK, Material.ACACIA_FENCE,6, InventoryType.WORKBENCH),
@@ -46,6 +47,7 @@ public enum CraftingResultStats implements Stats {
 
 
     BIRCH_PLANKS(Proficiency.WOODWORK, Material.BIRCH_PLANKS,4,InventoryType.WORKBENCH),
+    BIRCH_WOOD(Proficiency.WOODWORK, Material.BIRCH_WOOD, 3, InventoryType.WORKBENCH),
     BIRCH_SLAB(Proficiency.WOODWORK, Material.BIRCH_SLAB,3, InventoryType.WORKBENCH),
     BIRCH_STAIRS(Proficiency.WOODWORK, Material.BIRCH_STAIRS,6, InventoryType.WORKBENCH),
     BIRCH_FENCE(Proficiency.WOODWORK, Material.BIRCH_FENCE,6, InventoryType.WORKBENCH),
@@ -60,6 +62,7 @@ public enum CraftingResultStats implements Stats {
     BIRCH_CHEST_BOAT(Proficiency.WOODWORK, Material.BIRCH_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     CHERRY_PLANKS(Proficiency.WOODWORK, Material.CHERRY_PLANKS, 4, InventoryType.WORKBENCH),
+    CHERRY_WOOD(Proficiency.WOODWORK, Material.CHERRY_WOOD, 3, InventoryType.WORKBENCH),
     CHERRY_SLAB(Proficiency.WOODWORK, Material.CHERRY_SLAB,3, InventoryType.WORKBENCH),
     CHERRY_STAIRS(Proficiency.WOODWORK, Material.CHERRY_STAIRS,6, InventoryType.WORKBENCH),
     CHERRY_FENCE(Proficiency.WOODWORK, Material.CHERRY_FENCE,6, InventoryType.WORKBENCH),
@@ -74,6 +77,7 @@ public enum CraftingResultStats implements Stats {
     CHERRY_CHEST_BOAT(Proficiency.WOODWORK, Material.CHERRY_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     CRIMSON_PLANKS(Proficiency.WOODWORK, Material.CRIMSON_PLANKS,4, InventoryType.WORKBENCH),
+    CRIMSON_HYPHAE(Proficiency.WOODWORK, Material.CRIMSON_HYPHAE, 3, InventoryType.WORKBENCH),
     CRIMSON_SLAB(Proficiency.WOODWORK, Material.CRIMSON_SLAB,3, InventoryType.WORKBENCH),
     CRIMSON_STAIRS(Proficiency.WOODWORK, Material.CRIMSON_STAIRS,6, InventoryType.WORKBENCH),
     CRIMSON_FENCE(Proficiency.WOODWORK, Material.CRIMSON_FENCE,6, InventoryType.WORKBENCH),
@@ -87,6 +91,7 @@ public enum CraftingResultStats implements Stats {
 
 
     DARK_OAK_PLANKS(Proficiency.WOODWORK, Material.DARK_OAK_PLANKS,4, InventoryType.WORKBENCH),
+    DARK_OAK_WOOD(Proficiency.WOODWORK, Material.DARK_OAK_WOOD, 3, InventoryType.WORKBENCH),
     DARK_OAK_SLAB(Proficiency.WOODWORK, Material.DARK_OAK_SLAB,3, InventoryType.WORKBENCH),
     DARK_OAK_STAIRS(Proficiency.WOODWORK, Material.DARK_OAK_STAIRS,6, InventoryType.WORKBENCH),
     DARK_OAK_FENCE(Proficiency.WOODWORK, Material.DARK_OAK_FENCE,6, InventoryType.WORKBENCH),
@@ -102,6 +107,7 @@ public enum CraftingResultStats implements Stats {
 
 
     JUNGLE_PLANKS(Proficiency.WOODWORK, Material.JUNGLE_PLANKS,4, InventoryType.WORKBENCH),
+    JUNGLE_WOOD(Proficiency.WOODWORK, Material.JUNGLE_WOOD, 3, InventoryType.WORKBENCH),
     JUNGLE_SLAB(Proficiency.WOODWORK, Material.JUNGLE_SLAB,3, InventoryType.WORKBENCH),
     JUNGLE_STAIRS(Proficiency.WOODWORK, Material.JUNGLE_STAIRS,6, InventoryType.WORKBENCH),
     JUNGLE_FENCE(Proficiency.WOODWORK, Material.ACACIA_FENCE,6, InventoryType.WORKBENCH),
@@ -116,6 +122,7 @@ public enum CraftingResultStats implements Stats {
     JUNGLE_CHEST_BOAT(Proficiency.WOODWORK, Material.JUNGLE_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     MANGROVE_PLANKS(Proficiency.WOODWORK, Material.MANGROVE_PLANKS, 4, InventoryType.WORKBENCH),
+    MANGROVE_WOOD(Proficiency.WOODWORK, Material.MANGROVE_WOOD, 3, InventoryType.WORKBENCH),
     MANGROVE_SLAB(Proficiency.WOODWORK, Material.MANGROVE_SLAB,3, InventoryType.WORKBENCH),
     MANGROVE_STAIRS(Proficiency.WOODWORK, Material.BAMBOO_STAIRS,6, InventoryType.WORKBENCH),
     MANGROVE_FENCE(Proficiency.WOODWORK, Material.MANGROVE_FENCE,6, InventoryType.WORKBENCH),
@@ -131,6 +138,7 @@ public enum CraftingResultStats implements Stats {
 
 
     OAK_PLANKS(Proficiency.WOODWORK,Material.OAK_PLANKS,4,InventoryType.WORKBENCH),
+    OAK_WOOD(Proficiency.WOODWORK, Material.OAK_WOOD, 3, InventoryType.WORKBENCH),
     OAK_SLAB(Proficiency.WOODWORK, Material.OAK_SLAB,3, InventoryType.WORKBENCH),
     OAK_STAIRS(Proficiency.WOODWORK, Material.OAK_STAIRS,6, InventoryType.WORKBENCH),
     OAK_FENCE(Proficiency.WOODWORK, Material.OAK_FENCE,6, InventoryType.WORKBENCH),
@@ -146,6 +154,7 @@ public enum CraftingResultStats implements Stats {
 
 
     SPRUCE_PLANKS(Proficiency.WOODWORK, Material.SPRUCE_PLANKS, 4, InventoryType.WORKBENCH),
+    SPRUCE_WOOD(Proficiency.WOODWORK, Material.SPRUCE_WOOD, 3, InventoryType.WORKBENCH),
     SPRUCE_SLAB(Proficiency.WOODWORK, Material.SPRUCE_SLAB,3, InventoryType.WORKBENCH),
     SPRUCE_STAIRS(Proficiency.WOODWORK, Material.SPRUCE_STAIRS,6, InventoryType.WORKBENCH),
     SPRUCE_FENCE(Proficiency.WOODWORK, Material.SPRUCE_FENCE,6, InventoryType.WORKBENCH),
@@ -160,6 +169,7 @@ public enum CraftingResultStats implements Stats {
     SPRUCE_CHEST_BOAT(Proficiency.WOODWORK, Material.SPRUCE_CHEST_BOAT,2, InventoryType.WORKBENCH),
 
     WARPED_PLANKS(Proficiency.WOODWORK, Material.WARPED_PLANKS, 4, InventoryType.WORKBENCH),
+    WARPED_HYPHAE(Proficiency.WOODWORK, Material.WARPED_HYPHAE, 3, InventoryType.WORKBENCH),
     WARPED_SLAB(Proficiency.WOODWORK, Material.WARPED_SLAB,3, InventoryType.WORKBENCH),
     WARPED_STAIRS(Proficiency.WOODWORK, Material.WARPED_STAIRS,6, InventoryType.WORKBENCH),
     WARPED_FENCE(Proficiency.WOODWORK, Material.WARPED_FENCE,6, InventoryType.WORKBENCH),
