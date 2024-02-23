@@ -1,6 +1,7 @@
 package com.falgael.rpg.recipe;
 
-import com.falgael.rpg.definitions.woodwork.recipe.OAK;
+import com.falgael.rpg.definitions.woodwork.recipe.Hopper;
+import com.falgael.rpg.definitions.woodwork.recipe.Oak;
 import org.bukkit.plugin.Plugin;
 
 
@@ -8,7 +9,8 @@ import org.bukkit.plugin.Plugin;
 public class RecipeInitializer {
 
     public RecipeInitializer(Plugin plugin) {
-        new OAK(plugin);
+        new Oak(plugin);
+        new Hopper(plugin);
 
 
     }

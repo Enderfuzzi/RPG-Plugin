@@ -3,14 +3,15 @@ package com.falgael.rpg.definitions.woodwork.recipe;
 import com.falgael.rpg.recipe.CustomRecipes;
 import org.bukkit.Material;
 import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OAK extends CustomRecipes {
+public class Oak extends CustomRecipes {
 
-    public OAK(Plugin plugin) {
+    public Oak(Plugin plugin) {
         super(plugin);
     }
 

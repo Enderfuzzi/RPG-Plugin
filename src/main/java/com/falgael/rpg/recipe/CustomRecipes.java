@@ -9,10 +9,7 @@ import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public abstract class CustomRecipes {
     // Note Loading these Recipes is placed in initializer
@@ -41,7 +38,7 @@ public abstract class CustomRecipes {
 
         private ArrayList<String> shape = new ArrayList<>();
 
-        private HashMap<Character, ItemStack> mappedIngredients = new HashMap<>();
+        private HashMap<Character, List<Material>> mappedIngredients = new HashMap<>();
 
         private RecipeBuilder.RecipeType type;
 
@@ -72,14 +69,17 @@ public abstract class CustomRecipes {
             return this;
         }
 
-        public RecipeBuilder addIngredient(Character key, Material ingredient) {
-            return addIngredient(key, new ItemStack(ingredient));
+        public RecipeBuilder addIngredient(Character key, Material... ingredient) {
+            mappedIngredients.put(key, Arrays.stream(ingredient).toList());
+            return this;
         }
-
-        public RecipeBuilder addIngredient(Character key, ItemStack ingredient) {
+        /*
+        public RecipeBuilder addIngredient(Character key, ItemStack... ingredient) {
             mappedIngredients.put(key, ingredient);
             return this;
         }
+         */
+
 
         public RecipeBuilder addShape(String row1, String row2, String row3) {
             shape.add(row1);
@@ -100,8 +100,9 @@ public abstract class CustomRecipes {
                 case SHAPED:
                     ShapedRecipe resultRecipe = new ShapedRecipe(namespacedKey, result);
                     resultRecipe.shape(shape.get(0), shape.get(1), shape.get(2));
-                    for (Map.Entry<Character, ItemStack> tmp : mappedIngredients.entrySet()) {
-                        resultRecipe.setIngredient(tmp.getKey(), new RecipeChoice.ExactChoice(ingredients));
+                    for (Map.Entry<Character, List<Material>> tmp : mappedIngredients.entrySet()) {
+                        //resultRecipe.setIngredient(tmp.getKey().charValue(), tmp.getValue().getType());
+                        resultRecipe.setIngredient(tmp.getKey(), new RecipeChoice.MaterialChoice(tmp.getValue()));
                     }
                     resultRecipe.setCategory(craftingBookCategory);
                     return resultRecipe;
