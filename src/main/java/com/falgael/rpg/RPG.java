@@ -3,6 +3,7 @@ package com.falgael.rpg;
 import com.falgael.rpg.commands.ExperienceCommand;
 import com.falgael.rpg.commands.GetCommand;
 import com.falgael.rpg.commands.SpawnCommand;
+import com.falgael.rpg.general.Gamerules;
 import com.falgael.rpg.handler.*;
 import com.falgael.rpg.items.ItemManagement;
 import com.falgael.rpg.items.ItemManager;
@@ -16,7 +17,6 @@ import com.falgael.rpg.manager.interfaces.DataStoreManagement;
 import com.falgael.rpg.manager.interfaces.MainManagement;
 import com.falgael.rpg.manager.interfaces.PlayerExperienceManagement;
 import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
-import com.falgael.rpg.recipe.CustomRecipes;
 import com.falgael.rpg.handler.VillagerHandler;
 import com.falgael.rpg.recipe.RecipeInitializer;
 import com.falgael.rpg.villager.VillagerManagement;
@@ -40,6 +40,8 @@ public final class RPG extends JavaPlugin {
     private LootTableManager lootTableManager;
 
     private LootComputation lootComputation;
+
+    private Gamerules gamerules;
 
     @Override
     public void onEnable() {
@@ -88,6 +90,7 @@ public final class RPG extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new EntityTransformHandler(mainManager), this);
 
+        Bukkit.getPluginManager().registerEvents(new PlayerDeath(mainManager), this);
 
         GetCommand getCommand = new GetCommand(itemManager, itemSetManager);
         this.getCommand("get").setExecutor(getCommand);
@@ -102,6 +105,10 @@ public final class RPG extends JavaPlugin {
         this.getCommand("experience").setTabCompleter(experienceCommand);
 
 
+        gamerules = new Gamerules();
+        gamerules.activate();
+
+
     }
 
 
@@ -109,7 +116,7 @@ public final class RPG extends JavaPlugin {
     public void onDisable() {
 
         itemHeldHandler.stopCheck();
-
+        gamerules.deactivate();
         Bukkit.getOnlinePlayers().forEach(player -> player.kickPlayer("Server Shutdown"));
 
         getLogger().info("RPG disabled");
