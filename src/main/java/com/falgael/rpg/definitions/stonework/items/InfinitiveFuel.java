@@ -54,7 +54,7 @@ public class InfinitiveFuel extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        20600,
+                        20602,
                         "Infinite Fuel III",
                         Material.CHARCOAL,
                         Proficiency.STONEWORK,
@@ -69,7 +69,7 @@ public class InfinitiveFuel extends MainItemDefinition {
 
         result.add(
                 new Item(
-                        20600,
+                        20603,
                         "Infinite Fuel IV",
                         Material.COAL_BLOCK,
                         Proficiency.STONEWORK,

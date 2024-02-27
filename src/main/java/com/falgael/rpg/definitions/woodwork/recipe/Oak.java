@@ -2,7 +2,9 @@ package com.falgael.rpg.definitions.woodwork.recipe;
 
 import com.falgael.rpg.recipe.CustomRecipes;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
+import org.bukkit.inventory.StonecuttingRecipe;
 import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.bukkit.plugin.Plugin;
 
@@ -18,11 +20,18 @@ public class Oak extends CustomRecipes {
     @Override
     public List<Recipe> getRecipes() {
         List<Recipe> result = new ArrayList<>();
-
+        /*
         result.add(
                 new CustomRecipes.RecipeBuilder(Material.OAK_SLAB, "OAK_STAIR_TO_SLAB", CustomRecipes.RecipeBuilder.RecipeType.STONECUTTER)
                         .addIngredient(Material.OAK_STAIRS)
                         .create()
+        );
+         */
+        result.add(
+                new StonecuttingRecipe(
+                        namespacedKey("OAK_STAIR_TO_SLAB"),
+                        new ItemStack(Material.OAK_SLAB),
+                        Material.OAK_STAIRS)
         );
 
 

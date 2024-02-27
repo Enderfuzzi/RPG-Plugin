@@ -26,9 +26,13 @@ public abstract class CustomRecipes {
         });
     }
 
+    protected NamespacedKey namespacedKey(String key) {
+        return new NamespacedKey(plugin, key);
+    }
+
     protected abstract List<Recipe> getRecipes();
 
-
+    @Deprecated
     public class RecipeBuilder {
         private ItemStack result;
 
@@ -47,7 +51,8 @@ public abstract class CustomRecipes {
         public enum RecipeType {
             STONECUTTER,
             SHAPELESS,
-            SHAPED
+            SHAPED,
+            FURNACE
         }
 
         public RecipeBuilder(Material result, String key, RecipeBuilder.RecipeType type) {
@@ -106,6 +111,15 @@ public abstract class CustomRecipes {
                     }
                     resultRecipe.setCategory(craftingBookCategory);
                     return resultRecipe;
+                case FURNACE:
+                    FurnaceRecipe furnaceRecipe = new FurnaceRecipe(
+                            namespacedKey,
+                            result,
+                            ingredients.get(0).getType(),
+                            0.7f,
+                            200
+                    );
+                    return furnaceRecipe;
                 case SHAPELESS:
                 default:
                     ShapelessRecipe shapelessRecipe = new ShapelessRecipe(namespacedKey, result).addIngredient(new RecipeChoice.ExactChoice(ingredients));
