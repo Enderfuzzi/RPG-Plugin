@@ -20,18 +20,27 @@ public class Oak extends CustomRecipes {
     @Override
     public List<Recipe> getRecipes() {
         List<Recipe> result = new ArrayList<>();
-        /*
-        result.add(
-                new CustomRecipes.RecipeBuilder(Material.OAK_SLAB, "OAK_STAIR_TO_SLAB", CustomRecipes.RecipeBuilder.RecipeType.STONECUTTER)
-                        .addIngredient(Material.OAK_STAIRS)
-                        .create()
-        );
-         */
+
         result.add(
                 new StonecuttingRecipe(
                         namespacedKey("OAK_STAIR_TO_SLAB"),
                         new ItemStack(Material.OAK_SLAB),
-                        Material.OAK_STAIRS)
+                        Material.OAK_STAIRS
+                )
+        );
+        result.add(
+                new StonecuttingRecipe(
+                        namespacedKey("STONE_CUTTING_STRIPPED_OAK_LOG"),
+                        new ItemStack(Material.STRIPPED_OAK_LOG),
+                        Material.OAK_LOG
+                )
+        );
+        result.add(
+                new StonecuttingRecipe(
+                        namespacedKey("STONE_CUTTING_STRIPPED_OAK_WOOD"),
+                        new ItemStack(Material.STRIPPED_OAK_WOOD),
+                        Material.OAK_WOOD
+                )
         );
 
 
