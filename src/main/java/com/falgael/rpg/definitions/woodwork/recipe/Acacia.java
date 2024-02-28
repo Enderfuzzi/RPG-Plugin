@@ -5,15 +5,13 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 import org.bukkit.inventory.StonecuttingRecipe;
-import org.bukkit.inventory.recipe.CraftingBookCategory;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Oak extends CustomRecipes {
-
-    public Oak(Plugin plugin) {
+public class Acacia extends CustomRecipes {
+    public Acacia(Plugin plugin) {
         super(plugin);
     }
 
@@ -23,33 +21,33 @@ public class Oak extends CustomRecipes {
 
         result.add(
                 new StonecuttingRecipe(
-                        namespacedKey("STONE_CUTTING_STAIR_TO_SLAB_OAK"),
-                        new ItemStack(Material.OAK_SLAB),
-                        Material.OAK_STAIRS
+                        namespacedKey("STONE_CUTTING_STAIR_TO_SLAB_ACACIA"),
+                        new ItemStack(Material.ACACIA_SLAB),
+                        Material.ACACIA_STAIRS
                 )
         );
 
         result.add(
                 new StonecuttingRecipe(
-                        namespacedKey("STONE_CUTTING_PLANK_TO_SLAB_OAK"),
-                        new ItemStack(Material.OAK_SLAB,2),
-                        Material.OAK_PLANKS
+                        namespacedKey("STONE_CUTTING_PLANK_TO_SLAB_ACACIA"),
+                        new ItemStack(Material.ACACIA_SLAB,2),
+                        Material.ACACIA_PLANKS
                 )
         );
 
         result.add(
                 new StonecuttingRecipe(
-                        namespacedKey("STONE_CUTTING_STRIPPED_OAK_LOG"),
-                        new ItemStack(Material.STRIPPED_OAK_LOG),
-                        Material.OAK_LOG
+                        namespacedKey("STONE_CUTTING_STRIPPED_ACACIA_LOG"),
+                        new ItemStack(Material.STRIPPED_ACACIA_LOG),
+                        Material.ACACIA_LOG
                 )
         );
 
         result.add(
                 new StonecuttingRecipe(
-                        namespacedKey("STONE_CUTTING_STRIPPED_OAK_WOOD"),
-                        new ItemStack(Material.STRIPPED_OAK_WOOD),
-                        Material.OAK_WOOD
+                        namespacedKey("STONE_CUTTING_STRIPPED_ACACIA_WOOD"),
+                        new ItemStack(Material.STRIPPED_ACACIA_WOOD),
+                        Material.ACACIA_WOOD
                 )
         );
 
