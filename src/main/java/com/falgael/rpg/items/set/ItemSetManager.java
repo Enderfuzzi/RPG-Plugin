@@ -58,7 +58,7 @@ public class ItemSetManager implements ItemSetManagement{
     private void init() {
         registeredClasses.forEach(c -> c.getItemSets().forEach(i -> {
             itemSets.put(i.getKey(), i);
-            Bukkit.getLogger().info("Registered ItemSet with name: " + i.getName() + " and id: " + i.getId());
+            Bukkit.getLogger().info("Registered ItemSet: " + i.getName() + " id=" + i.getId());
         }));
     }
 

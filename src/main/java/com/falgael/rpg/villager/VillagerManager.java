@@ -1,6 +1,7 @@
 package com.falgael.rpg.villager;
 
 import com.falgael.rpg.items.ItemManagement;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Villager;
 
 import java.util.ArrayList;
@@ -38,7 +39,15 @@ public class VillagerManager implements VillagerManagement {
     }
 
     private void init() {
-        registeredClasses.forEach(c -> c.getVillager().forEach(e -> villagers.put(e.getKey(),e)));
+        registeredClasses.forEach(c -> c.getVillager().forEach(e -> {
+            if (villagers.containsKey(e.getKey())) {
+                Bukkit.getLogger().warning("Duplicated Villager Key detected: " + e.getKey());
+                Bukkit.getLogger().warning("Ignoring second villager with this key");
+            } else {
+                villagers.put(e.getKey(), e);
+                Bukkit.getLogger().info("Registered Villager: " + e.getKey());
+            }
+        }));
     }
 
     private void registerClass(VillagerDefinition villagerDefinition) {
