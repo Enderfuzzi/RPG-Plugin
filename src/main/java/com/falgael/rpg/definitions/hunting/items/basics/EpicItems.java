@@ -113,6 +113,52 @@ public class EpicItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        40405,
+                        "Hunter Bow III",
+                        Material.BOW,
+                        Proficiency.HUNTING,
+                        Rarity.EPIC,
+                        "Epic hunter Bow",
+                        itemSetManager.getItemSetByID(4004),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,5)
+                                .addFlag(ConfigurationFlag.LOOT, 3)
+                                .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isWeapon() {
+                        return true;
+                    }
+                }
+        );
+
+        result.add(
+                new Item(
+                        40406,
+                        "Hunter Crossbow II",
+                        Material.CROSSBOW,
+                        Proficiency.HUNTING,
+                        Rarity.EPIC,
+                        "Epic Hunter Crossbow",
+                        itemSetManager.getItemSetByID(4004),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,5)
+                                .addFlag(ConfigurationFlag.LOOT, 3)
+                                .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isWeapon() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }

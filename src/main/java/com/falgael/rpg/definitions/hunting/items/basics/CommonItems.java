@@ -109,6 +109,30 @@ public class CommonItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        40105,
+                        "Hunter Bow I",
+                        Material.BOW,
+                        Proficiency.HUNTING,
+                        Rarity.COMMON,
+                        "Common hunter Bow",
+                        itemSetManager.getItemSetByID(4001),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 0.5)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 7)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isWeapon() {
+                        return true;
+                    }
+                }
+        );
+
+
         return result;
     }
 }

@@ -113,6 +113,22 @@ public class AdvancedItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        40205,
+                        "Hunter Shield I",
+                        Material.SHIELD,
+                        Proficiency.HUNTING,
+                        Rarity.ADVANCED,
+                        "Advanced hunter protection",
+                        itemSetManager.getItemSetByID(4002),
+                        new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,15)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

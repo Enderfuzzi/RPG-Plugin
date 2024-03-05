@@ -113,6 +113,69 @@ public class EliteItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        40305,
+                        "Hunter Shield II",
+                        Material.SHIELD,
+                        Proficiency.HUNTING,
+                        Rarity.ELITE,
+                        "Elite hunter shield",
+                        itemSetManager.getItemSetByID(4003),
+                        new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,3)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)
+                                .create()
+                )
+        );
+
+        result.add(
+                new Item(
+                        40306,
+                        "Hunter Bow II",
+                        Material.BOW,
+                        Proficiency.HUNTING,
+                        Rarity.ELITE,
+                        "Elite hunter bow",
+                        itemSetManager.getItemSetByID(4003),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,4)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isWeapon() {
+                        return true;
+                    }
+                }
+        );
+
+        result.add(
+                new Item(
+                        40307,
+                        "Hunter Crossbow I",
+                        Material.CROSSBOW,
+                        Proficiency.HUNTING,
+                        Rarity.ELITE,
+                        "Elite hunter Crossbow",
+                        itemSetManager.getItemSetByID(4003),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,4)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isWeapon() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }
