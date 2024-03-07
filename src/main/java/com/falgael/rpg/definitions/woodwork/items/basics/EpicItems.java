@@ -113,6 +113,23 @@ public class EpicItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        10405,
+                        "Lumberjack Wings II",
+                        Material.ELYTRA,
+                        Proficiency.WOODWORK,
+                        Rarity.EPIC,
+                        "Lumberjack wings",
+                        itemSetManager.getItemSetByID(1003),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

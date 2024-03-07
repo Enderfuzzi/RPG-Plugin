@@ -114,6 +114,23 @@ public class LegendaryItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        30505,
+                        "Farmer Wings III",
+                        Material.ELYTRA,
+                        Proficiency.FARMING,
+                        Rarity.LEGENDARY,
+                        "Farmer wings",
+                        itemSetManager.getItemSetByID(3005),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 3)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 55)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

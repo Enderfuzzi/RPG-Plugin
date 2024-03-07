@@ -113,6 +113,23 @@ public class EpicItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        30405,
+                        "Farmer Wings II",
+                        Material.ELYTRA,
+                        Proficiency.FARMING,
+                        Rarity.EPIC,
+                        "Farmer wings",
+                        itemSetManager.getItemSetByID(3004),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

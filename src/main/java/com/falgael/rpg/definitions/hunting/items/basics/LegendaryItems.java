@@ -114,6 +114,23 @@ public class LegendaryItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        40407,
+                        "Hunter Wings III",
+                        Material.ELYTRA,
+                        Proficiency.HUNTING,
+                        Rarity.LEGENDARY,
+                        "Wings for the hunt",
+                        itemSetManager.getItemSetByID(4005),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 3)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 55)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

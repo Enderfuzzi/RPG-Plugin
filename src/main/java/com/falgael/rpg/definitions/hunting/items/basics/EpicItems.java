@@ -159,6 +159,23 @@ public class EpicItems extends MainItemDefinition {
                 }
         );
 
+        result.add(
+                new Item(
+                        40407,
+                        "Hunter Wings II",
+                        Material.ELYTRA,
+                        Proficiency.HUNTING,
+                        Rarity.EPIC,
+                        "Wings for the hunt",
+                        itemSetManager.getItemSetByID(4004),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 40)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

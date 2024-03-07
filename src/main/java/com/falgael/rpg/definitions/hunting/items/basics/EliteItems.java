@@ -176,6 +176,21 @@ public class EliteItems extends MainItemDefinition {
                 }
         );
 
+        result.add(
+                new Item(
+                        40308,
+                        "Hunter Wings I",
+                        Material.ELYTRA,
+                        Proficiency.HUNTING,
+                        Rarity.ELITE,
+                        "Wings for the hunt",
+                        itemSetManager.getItemSetByID(4003),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

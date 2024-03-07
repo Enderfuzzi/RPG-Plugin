@@ -114,6 +114,23 @@ public class LegendaryItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        10505,
+                        "Lumberjack Wings III",
+                        Material.ELYTRA,
+                        Proficiency.WOODWORK,
+                        Rarity.LEGENDARY,
+                        "Lumberjack wings",
+                        itemSetManager.getItemSetByID(1005),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 3)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

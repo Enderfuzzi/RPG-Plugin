@@ -114,6 +114,24 @@ public class LegendaryItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20505,
+                        "Miner Wings III",
+                        Material.ELYTRA,
+                        Proficiency.STONEWORK,
+                        Rarity.LEGENDARY,
+                        "Miner wings",
+                        itemSetManager.getItemSetByID(2005),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                )
+        );
+
+
         return result;
     }
 }

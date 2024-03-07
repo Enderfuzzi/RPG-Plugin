@@ -113,6 +113,22 @@ public class EliteItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        10305,
+                        "Lumberjack Wings I",
+                        Material.ELYTRA,
+                        Proficiency.WOODWORK,
+                        Rarity.ELITE,
+                        "Lumberjack wings",
+                        itemSetManager.getItemSetByID(1003),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                )
+        );
+
+
         return result;
     }
 }

@@ -113,6 +113,21 @@ public class EliteItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20305,
+                        "Miner Wings I",
+                        Material.ELYTRA,
+                        Proficiency.STONEWORK,
+                        Rarity.ELITE,
+                        "Miner wings",
+                        itemSetManager.getItemSetByID(2003),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

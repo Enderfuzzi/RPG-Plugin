@@ -113,6 +113,23 @@ public class EpicItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20405,
+                        "Miner Wings II",
+                        Material.ELYTRA,
+                        Proficiency.STONEWORK,
+                        Rarity.EPIC,
+                        "Miner wings",
+                        itemSetManager.getItemSetByID(2004),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,40)
+                                .create()
+                )
+        );
+
         return result;
     }
 }

@@ -113,6 +113,21 @@ public class EliteItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        30305,
+                        "Farmer Wings I",
+                        Material.ELYTRA,
+                        Proficiency.FARMING,
+                        Rarity.ELITE,
+                        "Farmer wings",
+                        itemSetManager.getItemSetByID(3003),
+                        new ItemConfiguration.Builder(EquipmentSlot.CHEST)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
+                                .create()
+                )
+        );
+
         return result;
     }
 }
