@@ -36,7 +36,7 @@ public class AdvancedItems extends MainItemDefinition {
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT, 1.5)
-                                .addFlag(ConfigurationFlag.TREE_HARVEST,24)
+                                .addFlag(ConfigurationFlag.CROP_HARVEST)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
                                 .create()
