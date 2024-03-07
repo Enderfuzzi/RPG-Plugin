@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -31,7 +32,7 @@ public class Statistics extends MainItemDefinition {
                     Material.AMETHYST_SHARD,
                     Proficiency.MISC,
                     Rarity.EPIC,
-                    itemSetManager.getItemSetByID(0),
+                    itemSetManager.getItemSetByID(IdSets.NONE),
                     new ItemConfiguration.Builder()
                             .addFlag(ConfigurationFlag.ENCHANTED)
                             .create()

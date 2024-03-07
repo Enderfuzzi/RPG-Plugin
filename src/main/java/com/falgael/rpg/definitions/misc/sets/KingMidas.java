@@ -2,6 +2,7 @@ package com.falgael.rpg.definitions.misc.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.ItemSetDefinition;
@@ -18,7 +19,7 @@ public class KingMidas implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        9000,
+                        IdSets.KING_MIDAS,
                         "King Midas",
                         Proficiency.MISC,
                         Rarity.EPIC,

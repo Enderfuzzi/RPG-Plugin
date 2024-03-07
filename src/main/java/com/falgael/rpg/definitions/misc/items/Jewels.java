@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class Jewels extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Used to build Atlantis",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addPotionEffect(PotionEffectType.CONDUIT_POWER,2)
@@ -49,7 +50,7 @@ public class Jewels extends MainItemDefinition {
                         Material.GHAST_TEAR,
                         Proficiency.MISC,
                         Rarity.COMMON,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 //.addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 15)
@@ -65,7 +66,7 @@ public class Jewels extends MainItemDefinition {
                         Material.GHAST_TEAR,
                         Proficiency.MISC,
                         Rarity.ELITE,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND, EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 //.addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 25)

@@ -34,6 +34,10 @@ public enum IdSets implements ID {
     HUNTER_V(4004),
     HUNTER_VI(4005),
 
+
+
+    KING_MIDAS(9000),
+
     ;
 
     private final int id;

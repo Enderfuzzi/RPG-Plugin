@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class KingMidas extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "A Crown for the richest",
-                        itemSetManager.getItemSetByID(9000),
+                        itemSetManager.getItemSetByID(IdSets.KING_MIDAS),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50)
@@ -48,7 +49,7 @@ public class KingMidas extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Protects with pure Gold",
-                        itemSetManager.getItemSetByID(9000),
+                        itemSetManager.getItemSetByID(IdSets.KING_MIDAS),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 50)
@@ -64,7 +65,7 @@ public class KingMidas extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Slaughter the poor",
-                        itemSetManager.getItemSetByID(9000),
+                        itemSetManager.getItemSetByID(IdSets.KING_MIDAS),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
                                 .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 1.5)

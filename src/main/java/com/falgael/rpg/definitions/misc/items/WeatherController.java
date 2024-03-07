@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -31,7 +32,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.ADVANCED,
                         "Clears the view to the sun",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_CLEAR, 12000)
@@ -52,7 +53,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Nearly endless sunshine",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_CLEAR, 6000)
@@ -73,7 +74,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.EPIC,
                         "Make it rain",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_RAIN, 6000)
@@ -94,7 +95,7 @@ public class WeatherController extends MainItemDefinition {
                         Proficiency.MISC,
                         Rarity.ADVANCED,
                         "Call to the gods of storm",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addFlag(ConfigurationFlag.WEATHER_THUNDER, 6000)
