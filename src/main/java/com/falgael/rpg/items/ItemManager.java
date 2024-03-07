@@ -82,6 +82,11 @@ public class ItemManager implements ItemManagement{
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.EliteItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.EpicItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.LegendaryItems(itemSetManager));
+
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.tools.FishingRods(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.tools.Shears(itemSetManager));
+
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.Baker(itemSetManager));
         //Hunting
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.SimpleItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.CommonItems(itemSetManager));
@@ -96,8 +101,11 @@ public class ItemManager implements ItemManagement{
 
     private void init() {
         registeredClasses.forEach(c -> c.getItems().forEach(i -> {
-                    items.put(i.getKey(), i);
-                    Bukkit.getLogger().info("Registered item: " + i.getKey() + " set=" + i.getEquipmentSet().getName());
+                    if (items.put(i.getKey(), i) != null) {
+                        Bukkit.getLogger().warning("Multiple Keys detected: " + i.getKey());
+                    } else {
+                        Bukkit.getLogger().info("Registered item: " + i.getKey() + " set=" + i.getEquipmentSet().getName());
+                    }
                 }
             )
         );
