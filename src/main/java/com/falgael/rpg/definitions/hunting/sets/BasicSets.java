@@ -2,6 +2,7 @@ package com.falgael.rpg.definitions.hunting.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.ItemSetDefinition;
@@ -18,7 +19,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4000,
+                        IdSets.HUNTER_I,
                         "Hunter I",
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
@@ -34,7 +35,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4001,
+                        IdSets.HUNTER_II,
                         "Hunter II",
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
@@ -50,7 +51,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4002,
+                        IdSets.HUNTER_III,
                         "Hunter III",
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
@@ -66,7 +67,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4003,
+                        IdSets.HUNTER_IV,
                         "Hunter IV",
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
@@ -82,7 +83,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4004,
+                        IdSets.HUNTER_V,
                         "Hunter V",
                         Proficiency.STONEWORK,
                         Rarity.EPIC,
@@ -98,7 +99,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        4005,
+                        IdSets.HUNTER_VI,
                         "Hunter VI",
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,

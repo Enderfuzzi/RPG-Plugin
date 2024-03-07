@@ -1,6 +1,9 @@
 package com.falgael.rpg.items.identification;
 
 public enum IdSets implements ID {
+
+    NONE(0),
+
     LUMBERJACK_I(1000),
     LUMBERJACK_II(1001),
     LUMBERJACK_III(1002),

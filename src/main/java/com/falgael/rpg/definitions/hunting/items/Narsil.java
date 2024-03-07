@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -31,7 +32,7 @@ public class Narsil extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.UNIQUE,
                         "The red and white flame",
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 6)
                                 .addFlag(ConfigurationFlag.LOOT, 6)

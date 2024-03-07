@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter tool",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -56,7 +57,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter protection",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -72,7 +73,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter protection",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 2)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -89,7 +90,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter protection",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -105,7 +106,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter protection",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -121,7 +122,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter shield",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.OFF_HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
@@ -138,7 +139,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter bow",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -161,7 +162,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Elite hunter Crossbow",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -184,7 +185,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.HUNTING,
                         Rarity.ELITE,
                         "Wings for the hunt",
-                        itemSetManager.getItemSetByID(4003),
+                        itemSetManager.getItemSetByID(IdSets.HUNTER_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
                                 .create()
