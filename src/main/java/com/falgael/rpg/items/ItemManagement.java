@@ -1,5 +1,6 @@
 package com.falgael.rpg.items;
 
+import com.falgael.rpg.items.identification.ID;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import org.bukkit.inventory.ItemStack;
 
@@ -13,6 +14,10 @@ public interface ItemManagement {
     DefaultItem getItemByKey(String key);
 
     DefaultItem getItemByID(int id);
+
+    default DefaultItem getItemByID(ID id) {
+        return getItemByID(id.getId());
+    }
 
     DefaultItem getDefault();
 

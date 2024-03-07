@@ -1,6 +1,7 @@
 package com.falgael.rpg.items.set;
 
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.ID;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
 
@@ -28,6 +29,19 @@ public class ItemSet implements DefaultItemSet, NameBuilding {
     ) {
         this(id, name, proficiency, rarity, numberOfParts, "", configuration);
     }
+
+    public ItemSet(
+            ID id,
+            String name,
+            Proficiency proficiency,
+            Rarity rarity,
+            int numberOfParts,
+            String description,
+            ItemConfiguration configuration
+    ) {
+        this(id.getId(), name, List.of(proficiency), rarity, numberOfParts, List.of(description), configuration);
+    }
+
 
     public ItemSet(
             int id,

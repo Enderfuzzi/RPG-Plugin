@@ -2,6 +2,8 @@ package com.falgael.rpg.definitions.farming.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.ID;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.ItemSetDefinition;
@@ -18,7 +20,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3000,
+                        IdSets.FARMER_I,
                         "Farmer I",
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
@@ -34,7 +36,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3001,
+                        IdSets.FARMER_II,
                         "Farmer II",
                         Proficiency.FARMING,
                         Rarity.COMMON,
@@ -50,7 +52,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3002,
+                        IdSets.FARMER_III,
                         "Farmer III",
                         Proficiency.FARMING,
                         Rarity.ADVANCED,
@@ -66,7 +68,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3003,
+                        IdSets.FARMER_IV,
                         "Farmer IV",
                         Proficiency.FARMING,
                         Rarity.ELITE,
@@ -82,7 +84,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3004,
+                        IdSets.FARMER_V,
                         "Farmer V",
                         Proficiency.FARMING,
                         Rarity.EPIC,
@@ -98,7 +100,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        3005,
+                        IdSets.FARMER_VI,
                         "Farmer VI",
                         Proficiency.FARMING,
                         Rarity.LEGENDARY,
