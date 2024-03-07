@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Elite lumberjack tool",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -56,7 +57,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Elite lumberjack protection",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -72,7 +73,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Elite lumberjack protection",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 2)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -89,7 +90,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Elite lumberjack protection",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -105,7 +106,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Elite lumberjack protection",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
@@ -121,7 +122,7 @@ public class EliteItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
                         "Lumberjack wings",
-                        itemSetManager.getItemSetByID(1003),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_IV),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,25)
                                 .create()

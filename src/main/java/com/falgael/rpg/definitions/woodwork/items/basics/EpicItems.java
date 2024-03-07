@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
                         "Epic lumberjack tool",
-                        itemSetManager.getItemSetByID(1004),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_V),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,5)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
@@ -56,7 +57,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
                         "Epic lumberjack protection",
-                        itemSetManager.getItemSetByID(1004),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_V),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
@@ -72,7 +73,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
                         "Epic lumberjack protection",
-                        itemSetManager.getItemSetByID(1004),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_V),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 3)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
@@ -89,7 +90,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
                         "Epic lumberjack protection",
-                        itemSetManager.getItemSetByID(1004),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_V),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
@@ -105,7 +106,7 @@ public class EpicItems extends MainItemDefinition {
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
                         "Epic lumberjack protection",
-                        itemSetManager.getItemSetByID(1004),
+                        itemSetManager.getItemSetByID(IdSets.LUMBERJACK_V),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)

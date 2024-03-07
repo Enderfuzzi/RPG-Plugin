@@ -2,6 +2,7 @@ package com.falgael.rpg.definitions.woodwork.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.ItemSetDefinition;
@@ -18,23 +19,23 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                1000,
-                "Lumberjack I",
-                Proficiency.WOODWORK,
-                Rarity.SIMPLE,
-                5,
-                "For wood specialists",
-                new ItemConfiguration.Builder()
-                        .addFlag(ConfigurationFlag.EXPERIENCE, 1)
-                        .addFlag(ConfigurationFlag.LOOT, 0.5)
-                        .create()
+                        IdSets.LUMBERJACK_I,
+                        "Lumberjack I",
+                        Proficiency.WOODWORK,
+                        Rarity.SIMPLE,
+                        5,
+                        "For wood specialists",
+                        new ItemConfiguration.Builder()
+                                .addFlag(ConfigurationFlag.EXPERIENCE, 1)
+                                .addFlag(ConfigurationFlag.LOOT, 0.5)
+                                .create()
 
                 )
         );
 
         result.add(
                 new ItemSet(
-                        1001,
+                        IdSets.LUMBERJACK_II,
                         "Lumberjack II",
                         Proficiency.WOODWORK,
                         Rarity.COMMON,
@@ -50,7 +51,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        1002,
+                        IdSets.LUMBERJACK_III,
                         "Lumberjack III",
                         Proficiency.WOODWORK,
                         Rarity.ADVANCED,
@@ -66,7 +67,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        1003,
+                        IdSets.LUMBERJACK_IV,
                         "Lumberjack IV",
                         Proficiency.WOODWORK,
                         Rarity.ELITE,
@@ -82,7 +83,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        1004,
+                        IdSets.LUMBERJACK_V,
                         "Lumberjack V",
                         Proficiency.WOODWORK,
                         Rarity.EPIC,
@@ -98,7 +99,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        1005,
+                        IdSets.LUMBERJACK_IV,
                         "Lumberjack VI",
                         Proficiency.WOODWORK,
                         Rarity.LEGENDARY,
