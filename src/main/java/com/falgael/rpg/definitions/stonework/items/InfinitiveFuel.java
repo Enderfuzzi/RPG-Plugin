@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -29,7 +30,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.OAK_WOOD,
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.1)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -44,7 +45,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.COAL,
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.25)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -59,7 +60,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.CHARCOAL,
                         Proficiency.STONEWORK,
                         Rarity.EPIC,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.5)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
@@ -74,7 +75,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         Material.COAL_BLOCK,
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
-                        itemSetManager.getItemSetByID(0),
+                        itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.85)
                                 .addFlag(ConfigurationFlag.ENCHANTED)

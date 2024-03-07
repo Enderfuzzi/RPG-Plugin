@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
                         "Common miner tool",
-                        itemSetManager.getItemSetByID(2001),
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
@@ -56,7 +57,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
                         "Common miner protection",
-                        itemSetManager.getItemSetByID(2001),
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -71,7 +72,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
                         "Common miner protection",
-                        itemSetManager.getItemSetByID(2001),
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 5)
@@ -87,7 +88,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
                         "Common miner protection",
-                        itemSetManager.getItemSetByID(2001),
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()
@@ -102,7 +103,7 @@ public class CommonItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
                         "Common miner protection",
-                        itemSetManager.getItemSetByID(2001),
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .create()

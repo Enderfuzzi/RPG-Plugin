@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Legendary miner tool",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,6)
                                 .addFlag(ConfigurationFlag.LOOT, 5)
@@ -56,7 +57,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Legendary miner protection",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
@@ -72,7 +73,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Legendary miner protection",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 4)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
@@ -89,7 +90,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Legendary miner protection",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT,1)
@@ -106,7 +107,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Legendary miner protection",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
@@ -122,7 +123,7 @@ public class LegendaryItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,
                         "Miner wings",
-                        itemSetManager.getItemSetByID(2005),
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)

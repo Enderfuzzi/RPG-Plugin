@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
                         "Simple miner tool",
-                        itemSetManager.getItemSetByID(2000),
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -54,7 +55,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
                         "Simple miner protection",
-                        itemSetManager.getItemSetByID(2000),
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
         );
@@ -67,7 +68,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
                         "Simple miner protection",
-                        itemSetManager.getItemSetByID(2000),
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
         );
@@ -80,7 +81,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
                         "Simple miner protection",
-                        itemSetManager.getItemSetByID(2000),
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
         );
@@ -93,7 +94,7 @@ public class SimpleItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
                         "Simple miner protection",
-                        itemSetManager.getItemSetByID(2000),
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )
         );

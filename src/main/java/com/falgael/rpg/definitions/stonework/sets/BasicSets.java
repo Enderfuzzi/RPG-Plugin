@@ -2,6 +2,7 @@ package com.falgael.rpg.definitions.stonework.sets;
 
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.items.set.ItemSet;
 import com.falgael.rpg.items.set.ItemSetDefinition;
@@ -18,7 +19,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2000,
+                        IdSets.MINER_I,
                         "Miner I",
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
@@ -34,7 +35,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2001,
+                        IdSets.MINER_II,
                         "Miner II",
                         Proficiency.STONEWORK,
                         Rarity.COMMON,
@@ -50,7 +51,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2002,
+                        IdSets.MINER_III,
                         "Miner III",
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
@@ -66,7 +67,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2003,
+                        IdSets.MINER_IV,
                         "Miner IV",
                         Proficiency.STONEWORK,
                         Rarity.ELITE,
@@ -82,7 +83,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2004,
+                        IdSets.MINER_V,
                         "Miner V",
                         Proficiency.STONEWORK,
                         Rarity.EPIC,
@@ -98,7 +99,7 @@ public class BasicSets implements ItemSetDefinition {
 
         result.add(
                 new ItemSet(
-                        2005,
+                        IdSets.MINER_VI,
                         "Miner VI",
                         Proficiency.STONEWORK,
                         Rarity.LEGENDARY,

@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
 import com.falgael.rpg.proficiency.Rarity;
@@ -32,7 +33,7 @@ public class AdvancedItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
                         "Advanced miner tool",
-                        itemSetManager.getItemSetByID(2002),
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,3)
                                 .addFlag(ConfigurationFlag.LOOT, 1.5)
@@ -56,7 +57,7 @@ public class AdvancedItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
                         "Advanced miner protection",
-                        itemSetManager.getItemSetByID(2002),
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
@@ -72,7 +73,7 @@ public class AdvancedItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
                         "Advanced miner protection",
-                        itemSetManager.getItemSetByID(2002),
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST)
                                 .addFlag(ConfigurationFlag.EXPERIENCE, 1)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
@@ -89,7 +90,7 @@ public class AdvancedItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
                         "Advanced miner protection",
-                        itemSetManager.getItemSetByID(2002),
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
@@ -105,7 +106,7 @@ public class AdvancedItems extends MainItemDefinition {
                         Proficiency.STONEWORK,
                         Rarity.ADVANCED,
                         "Advanced miner protection",
-                        itemSetManager.getItemSetByID(2002),
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
