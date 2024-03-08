@@ -42,6 +42,7 @@ public enum ConfigurationFlag implements ItemEffect {
     WEATHER_THUNDER(),
     CROP_HARVEST(),
     ENCHANTED(),
+    ROCKET_FLIGHT_DURATION(),
 
     ;
     private final ChatColor color;
@@ -59,7 +60,7 @@ public enum ConfigurationFlag implements ItemEffect {
 
     public boolean hasRepresentation() {
         return switch (this) {
-            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING, WEATHER_CLEAR, WEATHER_RAIN, WEATHER_THUNDER -> false;
+            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING, WEATHER_CLEAR, WEATHER_RAIN, WEATHER_THUNDER, ROCKET_FLIGHT_DURATION -> false;
             default -> true;
         };
     }

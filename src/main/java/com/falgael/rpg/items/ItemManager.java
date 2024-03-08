@@ -58,6 +58,7 @@ public class ItemManager implements ItemManagement{
 
         registerItemClass(new com.falgael.rpg.definitions.misc.items.KingMidas(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.misc.items.Jewels(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.misc.items.Rockets(itemSetManager));
 
         //Woodwork
         registerItemClass(new com.falgael.rpg.definitions.woodwork.items.basics.SimpleItems(itemSetManager));

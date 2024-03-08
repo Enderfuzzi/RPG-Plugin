@@ -13,6 +13,7 @@ import org.bukkit.MusicInstrument;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.MusicInstrumentMeta;
 import org.jetbrains.annotations.NotNull;
@@ -126,8 +127,13 @@ public class Item implements DefaultItem {
             if (getMusicInstrument() != null) {
                 musicMeta.setInstrument(getMusicInstrument());
             }
+        } else if (itemMeta instanceof FireworkMeta fireworkMeta) {
+            if (configuration.hasFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION)) {
+                int value = configuration.getValue(ConfigurationFlag.ROCKET_FLIGHT_DURATION).intValue();
+                if (value >= 0 && value <= 127) fireworkMeta.setPower(value);
+                fireworkMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+            }
         }
-
 
         ArrayList<String> tmpLore = buildLore();
         if (!tmpLore.isEmpty()) itemMeta.setLore(tmpLore);
@@ -216,7 +222,9 @@ public class Item implements DefaultItem {
 
             result.addAll(configurationLore(itemSet.getConfiguration()));
 
-            itemSet.getDescription().forEach(v -> result.add(ConfigurationFlag.DEFAULT.createLore(v)));
+            itemSet.getDescription().forEach(v -> {
+                if (!v.equals("")) result.add(ConfigurationFlag.DEFAULT.createLore(v));
+            });
             result.add(spacer());
             result.add(ConfigurationFlag.SET_PART_NUMBER.createLore(Integer.toString(itemSet.getPartNumber())));
         }
