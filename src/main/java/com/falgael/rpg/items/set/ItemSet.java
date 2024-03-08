@@ -36,6 +36,18 @@ public class ItemSet implements DefaultItemSet, NameBuilding {
             Proficiency proficiency,
             Rarity rarity,
             int numberOfParts,
+            ItemConfiguration configuration
+    ) {
+        this(id.getId(), name, proficiency, rarity, numberOfParts, "", configuration);
+    }
+
+
+    public ItemSet(
+            ID id,
+            String name,
+            Proficiency proficiency,
+            Rarity rarity,
+            int numberOfParts,
             String description,
             ItemConfiguration configuration
     ) {

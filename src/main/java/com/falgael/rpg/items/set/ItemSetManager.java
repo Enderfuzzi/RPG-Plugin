@@ -51,6 +51,8 @@ public class ItemSetManager implements ItemSetManagement{
         //farming
         registerSetClass(new com.falgael.rpg.definitions.farming.sets.BasicSets());
 
+        registerSetClass(new com.falgael.rpg.definitions.farming.sets.Butcher());
+
         //hunting
         registerSetClass(new com.falgael.rpg.definitions.hunting.sets.BasicSets());
     }

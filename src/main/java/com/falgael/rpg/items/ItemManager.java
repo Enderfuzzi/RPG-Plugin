@@ -87,6 +87,7 @@ public class ItemManager implements ItemManagement{
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.tools.Shears(itemSetManager));
 
         registerItemClass(new com.falgael.rpg.definitions.farming.items.Baker(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.farming.items.Butcher(itemSetManager));
         //Hunting
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.SimpleItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.hunting.items.basics.CommonItems(itemSetManager));

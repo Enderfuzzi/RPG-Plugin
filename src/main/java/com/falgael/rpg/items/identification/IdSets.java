@@ -26,6 +26,8 @@ public enum IdSets implements ID {
     FARMER_V(3004),
     FARMER_VI(3005),
 
+    BUTCHER(3100),
+
 
     HUNTER_I(4000),
     HUNTER_II(4001),
