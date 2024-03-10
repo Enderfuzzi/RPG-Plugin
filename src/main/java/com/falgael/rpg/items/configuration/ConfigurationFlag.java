@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
  * @author falgael
  * @version 0.0.2
  */
-public enum ConfigurationFlag implements ItemEffect {
+public enum ConfigurationFlag {
 
     LEVEL_REQUIREMENT(ChatColor.DARK_AQUA,"Level"),
 
@@ -35,12 +35,6 @@ public enum ConfigurationFlag implements ItemEffect {
 
     DEFAULT(ChatColor.DARK_PURPLE, ""),
 
-    TREE_HARVEST(),
-    VEIN_MINING(),
-    WEATHER_CLEAR(),
-    WEATHER_RAIN(),
-    WEATHER_THUNDER(),
-    CROP_HARVEST(),
     ENCHANTED(),
     ROCKET_FLIGHT_DURATION(),
 
@@ -60,7 +54,7 @@ public enum ConfigurationFlag implements ItemEffect {
 
     public boolean hasRepresentation() {
         return switch (this) {
-            case TREE_HARVEST, ENCHANTED, CROP_HARVEST, VEIN_MINING, WEATHER_CLEAR, WEATHER_RAIN, WEATHER_THUNDER, ROCKET_FLIGHT_DURATION -> false;
+            case ENCHANTED, ROCKET_FLIGHT_DURATION -> false;
             default -> true;
         };
     }
@@ -94,19 +88,6 @@ public enum ConfigurationFlag implements ItemEffect {
         return switch (this) {
             case LEVEL_REQUIREMENT, DAMAGE_ADDITIVE -> createLore(Integer.toString(value.intValue()));
             default -> createLore(Integer.toString((int) (value * 100f)));
-        };
-    }
-
-    public PredicateConsumer<Event, ProficiencyExperienceCalculation> getAction(Double value) {
-        return switch (this) {
-            case VEIN_MINING -> (e,p) -> veinMining(e, p, value.intValue());
-            case BURN_TIME -> (e,p) -> furnaceFuelBurn(e, value);
-            case TREE_HARVEST -> (e,p) -> treeHarvest(e, p, value.intValue());
-            case CROP_HARVEST -> (e,p) -> cropHarvest(e,p);
-            case WEATHER_CLEAR -> (e,p) -> weatherClear(e, value.intValue());
-            case WEATHER_RAIN -> (e,p) -> weatherRain(e, value.intValue());
-            case WEATHER_THUNDER -> (e,p) -> weatherStorm(e, value.intValue());
-            default -> null;
         };
     }
 

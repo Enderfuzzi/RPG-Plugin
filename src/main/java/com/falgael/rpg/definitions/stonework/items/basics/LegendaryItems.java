@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.VeinMining;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -37,9 +38,9 @@ public class LegendaryItems extends MainItemDefinition {
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,6)
                                 .addFlag(ConfigurationFlag.LOOT, 5)
-                                .addFlag(ConfigurationFlag.VEIN_MINING,20)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING,1)
+                                .addAction(new VeinMining(20))
                                 .create()
                 ) {
                     @Override

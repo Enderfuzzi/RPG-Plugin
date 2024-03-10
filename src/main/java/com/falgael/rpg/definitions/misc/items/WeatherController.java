@@ -5,6 +5,9 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.WeatherClear;
+import com.falgael.rpg.items.configuration.effects.definitions.WeatherRain;
+import com.falgael.rpg.items.configuration.effects.definitions.WeatherStorm;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -35,7 +38,7 @@ public class WeatherController extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
-                                .addFlag(ConfigurationFlag.WEATHER_CLEAR, 12000)
+                                .addAction(new WeatherClear(12000))
                                 .create()
                 ) {
                     @Override
@@ -56,7 +59,7 @@ public class WeatherController extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
-                                .addFlag(ConfigurationFlag.WEATHER_CLEAR, 6000)
+                                .addAction(new WeatherClear(6000))
                                 .create()
                 ) {
                     @Override
@@ -77,7 +80,7 @@ public class WeatherController extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
-                                .addFlag(ConfigurationFlag.WEATHER_RAIN, 6000)
+                                .addAction(new WeatherRain(6000))
                                 .create()
                 ) {
                     @Override
@@ -98,7 +101,7 @@ public class WeatherController extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ENCHANTED)
-                                .addFlag(ConfigurationFlag.WEATHER_THUNDER, 6000)
+                                .addAction(new WeatherStorm(6000))
                                 .create()
                 ) {
                     @Override

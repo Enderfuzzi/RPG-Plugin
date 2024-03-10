@@ -3,6 +3,7 @@ package com.falgael.rpg.manager.interfaces;
 import com.falgael.rpg.items.DefaultItem;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.SinglePredicateConsumer;
+import com.falgael.rpg.items.configuration.effects.Action;
 import com.falgael.rpg.items.set.DefaultItemSet;
 import com.falgael.rpg.proficiency.Proficiency;
 import org.bukkit.Bukkit;
@@ -120,8 +121,13 @@ public interface ProficiencyExperienceCalculation {
 
     default boolean performAction(Event e, DefaultItem item) {
         if (e == null || item == null) return false;
-        if (!item.getConfiguration().hasAction()) return false;
-        return item.getConfiguration().getAction().accept(e, this);
+        //if (!item.getConfiguration().hasAction()) return false;
+        //return item.getConfiguration().getAction().accept(e, this);
+        boolean value = true;
+        for (Action action : item.getConfiguration().getActions()) {
+            value &= action.execute(e, this);
+        }
+        return value;
     }
 
     default boolean performAction(Event e, DefaultItem item, Player player) {

@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.FurnaceFuelBurn;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -34,6 +35,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.1)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
+                                .addAction(new FurnaceFuelBurn(0.1))
                                 .create()
                 )
         );
@@ -49,6 +51,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.25)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
+                                .addAction(new FurnaceFuelBurn(0.25))
                                 .create()
                 )
         );
@@ -64,6 +67,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.5)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
+                                .addAction(new FurnaceFuelBurn(0.5))
                                 .create()
                 )
         );
@@ -79,6 +83,7 @@ public class InfinitiveFuel extends MainItemDefinition {
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.BURN_TIME, 0.85)
                                 .addFlag(ConfigurationFlag.ENCHANTED)
+                                .addAction(new FurnaceFuelBurn(0.85))
                                 .create()
                 )
         );

@@ -1,5 +1,6 @@
 package com.falgael.rpg.items.configuration;
 
+import com.falgael.rpg.items.configuration.effects.Action;
 import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import org.bukkit.event.Event;
 import org.bukkit.inventory.EquipmentSlot;
@@ -24,33 +25,19 @@ public class ItemConfiguration {
     private final List<PotionEffect> potionEffects;
 
 
-
-    /**
-     * A Special Action which can be defined and applied in different situations
-     */
-    private PredicateConsumer<Event, ProficiencyExperienceCalculation> action;
+    private List<Action> actions;
 
     private ItemConfiguration(
             List<EquipmentSlot> equipmentSlot,
             HashMap<ConfigurationFlag, Double> flags,
             List<PotionEffect> potionEffects,
-            PredicateConsumer<Event, ProficiencyExperienceCalculation> action
+            List<Action> actions
     ) {
         this.equipmentSlot = equipmentSlot;
         this.flags = flags;
         this.potionEffects = potionEffects;
 
-
-        if (action != null) {
-            this.action = action;
-        } else {
-            for (ConfigurationFlag flag : ConfigurationFlag.values()) {
-                if (flags.containsKey(flag) && flag.getAction(flags.get(flag)) != null) {
-                    this.action = flag.getAction(flags.get(flag));
-                    break;
-                }
-            }
-        }
+        this.actions = actions;
     }
 
     /**
@@ -98,22 +85,10 @@ public class ItemConfiguration {
         return potionEffects;
     }
 
-    /**
-     * @return {@code true} if an Action is set for this Configuration
-     */
-    public boolean hasAction() {
-        return action != null;
+    public List<Action> getActions() {
+        return actions;
     }
 
-
-
-    /**
-     * Gets the action of this configuration. It should be checked that this configuration has an action set before usage.
-     * @return the Action if set or {@code null}
-     */
-    public PredicateConsumer<Event, ProficiencyExperienceCalculation> getAction() {
-        return action;
-    }
 
     /**
      * Builder Class for Items creation.
@@ -127,6 +102,7 @@ public class ItemConfiguration {
 
         private PredicateConsumer<Event, ProficiencyExperienceCalculation> action = null;
 
+        private List<Action> actions;
 
         public Builder() {
             this(new ArrayList<>());
@@ -143,6 +119,7 @@ public class ItemConfiguration {
 
         public Builder(List<EquipmentSlot> equipmentSlot) {
             this.equipmentSlot = equipmentSlot;
+            this.actions = new ArrayList<>();
 
             flags = new HashMap<>();
             potionEffects = new ArrayList<>();
@@ -210,12 +187,18 @@ public class ItemConfiguration {
             return this;
         }
 
+        public Builder addAction(Action action) {
+            this.actions.add(action);
+            return this;
+        }
+
+
         /**
          * Creates the configuration with the defined arguments.
          * @return the new Created ItemConfiguration
          */
         public ItemConfiguration create() {
-            return new ItemConfiguration(equipmentSlot, flags, potionEffects, action);
+            return new ItemConfiguration(equipmentSlot, flags, potionEffects, actions);
         }
     }
 }

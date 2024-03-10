@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.TreeHarvest;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -37,9 +38,9 @@ public class CommonItems extends MainItemDefinition {
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,2)
                                 .addFlag(ConfigurationFlag.LOOT, 1)
-                                .addFlag(ConfigurationFlag.TREE_HARVEST,16)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
+                                .addAction(new TreeHarvest(16))
                                 .create()
                 ) {
                     @Override

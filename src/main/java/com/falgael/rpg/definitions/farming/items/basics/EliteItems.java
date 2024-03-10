@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.CropHarvest;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -37,9 +38,9 @@ public class EliteItems extends MainItemDefinition {
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,4)
                                 .addFlag(ConfigurationFlag.LOOT, 2)
-                                .addFlag(ConfigurationFlag.CROP_HARVEST)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
+                                .addAction(new CropHarvest())
                                 .create()
                 ) {
                     @Override

@@ -5,6 +5,7 @@ import com.falgael.rpg.items.Item;
 import com.falgael.rpg.items.MainItemDefinition;
 import com.falgael.rpg.items.configuration.ConfigurationFlag;
 import com.falgael.rpg.items.configuration.ItemConfiguration;
+import com.falgael.rpg.items.configuration.effects.definitions.VeinMining;
 import com.falgael.rpg.items.identification.IdSets;
 import com.falgael.rpg.items.set.ItemSetManagement;
 import com.falgael.rpg.proficiency.Proficiency;
@@ -37,9 +38,9 @@ public class EpicItems extends MainItemDefinition {
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,5)
                                 .addFlag(ConfigurationFlag.LOOT, 3)
-                                .addFlag(ConfigurationFlag.VEIN_MINING,12)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
                                 .addPotionEffect(PotionEffectType.FAST_DIGGING)
+                                .addAction(new VeinMining(12))
                                 .create()
                 ) {
                     @Override

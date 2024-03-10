@@ -83,9 +83,11 @@ public class CustomItems {
 
             PredicateConsumer<Event, ProficiencyExperienceCalculation> action = null;
             for (Map.Entry<ConfigurationFlag, Double> entry: config.entrySet()) {
+                /*
                 if (entry.getKey().getAction(entry.getValue()) != null) {
                     action = entry.getKey().getAction(entry.getValue());
                 }
+                 */
             }
 
             ItemConfiguration RPGConfiguration = new ItemConfiguration.Builder(slots)
