@@ -99,6 +99,27 @@ public class SimpleItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20005,
+                        "Miner Shovel I",
+                        Material.WOODEN_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.SIMPLE,
+                        "Simple miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_I),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,1)
+                                .addFlag(ConfigurationFlag.LOOT, 0.5)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
+
 
         return result;
     }

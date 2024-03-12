@@ -133,6 +133,27 @@ public class LegendaryItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20506,
+                        "Miner Shovel VI",
+                        Material.NETHERITE_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.LEGENDARY,
+                        "Legendary miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_VI),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,6)
+                                .addFlag(ConfigurationFlag.LOOT, 5)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,55)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
 
         return result;
     }

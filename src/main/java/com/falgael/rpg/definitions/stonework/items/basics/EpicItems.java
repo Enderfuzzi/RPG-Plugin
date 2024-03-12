@@ -132,6 +132,28 @@ public class EpicItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20406,
+                        "Miner Shovel V",
+                        Material.DIAMOND_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.EPIC,
+                        "Epic miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_V),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,5)
+                                .addFlag(ConfigurationFlag.LOOT, 3)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,35)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }

@@ -115,6 +115,28 @@ public class AdvancedItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20205,
+                        "Miner Shovel III",
+                        Material.IRON_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.ADVANCED,
+                        "Advanced miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_III),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,3)
+                                .addFlag(ConfigurationFlag.LOOT, 1.5)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,10)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }

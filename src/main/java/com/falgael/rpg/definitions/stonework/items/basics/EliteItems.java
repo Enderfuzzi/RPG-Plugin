@@ -130,6 +130,28 @@ public class EliteItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20306,
+                        "Miner Shovel IV",
+                        Material.GOLDEN_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.ELITE,
+                        "Elite miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_IV),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,4)
+                                .addFlag(ConfigurationFlag.LOOT, 2)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,20)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }

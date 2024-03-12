@@ -111,6 +111,28 @@ public class CommonItems extends MainItemDefinition {
                 )
         );
 
+        result.add(
+                new Item(
+                        20105,
+                        "Miner Shovel II",
+                        Material.STONE_SHOVEL,
+                        Proficiency.STONEWORK,
+                        Rarity.COMMON,
+                        "Common miner tool",
+                        itemSetManager.getItemSetByID(IdSets.MINER_II),
+                        new ItemConfiguration.Builder(EquipmentSlot.HAND)
+                                .addFlag(ConfigurationFlag.EXPERIENCE,2)
+                                .addFlag(ConfigurationFlag.LOOT, 1)
+                                .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT,5)
+                                .create()
+                ) {
+                    @Override
+                    public boolean isBreakingTool() {
+                        return true;
+                    }
+                }
+        );
+
         return result;
     }
 }

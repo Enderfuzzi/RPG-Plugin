@@ -33,6 +33,7 @@ public class Rockets extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION,1)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .create()
                 )
         );
@@ -48,6 +49,7 @@ public class Rockets extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION,3)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .create()
                 )
         );
@@ -63,6 +65,7 @@ public class Rockets extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION,16)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .create()
                 )
         );
@@ -78,6 +81,7 @@ public class Rockets extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION,32)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .create()
                 )
         );
@@ -92,6 +96,7 @@ public class Rockets extends MainItemDefinition {
                         itemSetManager.getItemSetByID(IdSets.NONE),
                         new ItemConfiguration.Builder()
                                 .addFlag(ConfigurationFlag.ROCKET_FLIGHT_DURATION,127)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .create()
                 )
         );
