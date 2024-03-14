@@ -38,9 +38,11 @@ public class Narsil extends MainItemDefinition {
                                 .addFlag(ConfigurationFlag.LOOT, 6)
                                 .addFlag(ConfigurationFlag.DAMAGE_MULTIPLIER, 2)
                                 .addFlag(ConfigurationFlag.LEVEL_REQUIREMENT, 75)
+                                .addFlag(ConfigurationFlag.ENCHANTED)
                                 .addPotionEffect(PotionEffectType.INCREASE_DAMAGE, 2)
                                 .addPotionEffect(PotionEffectType.REGENERATION)
                                 .addPotionEffect(PotionEffectType.ABSORPTION)
+
                                 .create()
                 )
         );

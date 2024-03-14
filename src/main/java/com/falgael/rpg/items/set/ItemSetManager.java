@@ -48,6 +48,9 @@ public class ItemSetManager implements ItemSetManagement{
         //stonework
         registerSetClass(new com.falgael.rpg.definitions.stonework.sets.BasicSets());
 
+        registerSetClass(new com.falgael.rpg.definitions.stonework.sets.DeepMiner());
+        registerSetClass(new com.falgael.rpg.definitions.stonework.sets.Unique());
+
         //farming
         registerSetClass(new com.falgael.rpg.definitions.farming.sets.BasicSets());
 

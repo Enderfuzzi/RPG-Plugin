@@ -18,6 +18,8 @@ public enum IdSets implements ID {
     MINER_V(2004),
     MINER_VI(2005),
 
+    DEEP_MINER(2010),
+    GOTHMOGS_BREATH(2011),
 
     FARMER_I(3000),
     FARMER_II(3001),

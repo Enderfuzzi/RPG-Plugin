@@ -141,7 +141,7 @@ public class Item implements DefaultItem {
         if (configuration != null) {
             if (configuration.hasFlag(ConfigurationFlag.CURRENCY) || configuration.hasFlag(ConfigurationFlag.ENCHANTED)) {
                 itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-                itemMeta.addEnchant(Enchantment.ARROW_INFINITE,1,true);
+                itemMeta.addEnchant(Enchantment.DURABILITY, 1, true);
             }
         }
         result.setItemMeta(itemMeta);

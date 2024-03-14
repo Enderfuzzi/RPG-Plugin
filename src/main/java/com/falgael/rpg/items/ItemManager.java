@@ -76,6 +76,8 @@ public class ItemManager implements ItemManagement{
         registerItemClass(new com.falgael.rpg.definitions.stonework.items.basics.LegendaryItems(itemSetManager));
 
         registerItemClass(new com.falgael.rpg.definitions.stonework.items.InfinitiveFuel(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.DeepMiner(itemSetManager));
+        registerItemClass(new com.falgael.rpg.definitions.stonework.items.Unique(itemSetManager));
         //Farming
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.SimpleItems(itemSetManager));
         registerItemClass(new com.falgael.rpg.definitions.farming.items.basics.CommonItems(itemSetManager));
