@@ -10,7 +10,7 @@ public class LevelInstantiationTests {
 
 
     @Test
-    @DisplayName("Simple Level Coverage")
+    @DisplayName("Misc Level Coverage")
     public void simple_Level_Check() {
         assertEquals(Level.ONE, Level.ZERO.getNextLevel());
         assertEquals(Level.ZERO, Level.ONE.getPrevious());

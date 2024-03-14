@@ -6,8 +6,4 @@ import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import org.bukkit.event.Event;
 
 
-public class Action implements ConfigurationEffect<Event, ProficiencyExperienceCalculation>{
-
-
-
-}
+public class Action implements ConfigurationEffect<Event, ProficiencyExperienceCalculation>{}

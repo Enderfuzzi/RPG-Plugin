@@ -24,7 +24,7 @@ public class CoalOre extends MainLootTableDefinition {
 
     @Override
     public LootTableManager.Reason getReason() {
-        return LootTableManager.Reason.BlockBreak;
+        return LootTableManager.Reason.BLOCK_BREAK;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CoalOre extends MainLootTableDefinition {
                                         1, false)
                         )
                 ),
-                new LootTableRow(Proficiency.STONEWORK, 50, 100, 0.01,
+                new LootTableRow(Proficiency.STONEWORK, 50, 101, 0.01,
                         new LootTableRow.WeightedPair(1,
                                 new LootTableRow.Result(itemManager.getItemByID(20603).getItemStackRepresentation(),
                                         1, false)

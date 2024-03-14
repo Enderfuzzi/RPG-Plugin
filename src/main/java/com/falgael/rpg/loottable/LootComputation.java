@@ -42,15 +42,15 @@ public class LootComputation implements ItemDrop, DropChanceTranslation {
         Stats stats = BlockStats.NONE;
         if (o instanceof Material material) {
             stats = switch (reason) {
-                case BlockBreak -> BlockStats.getBlock(material);
-                case Harvested ->  BlockHarvestStats.getBlock(material);
-                case CraftingResult -> CraftingResultStats.getResult(material);
+                case BLOCK_BREAK -> BlockStats.getBlock(material);
+                case HARVESTED ->  BlockHarvestStats.getBlock(material);
+                case CRAFTING_RESULT -> CraftingResultStats.getResult(material);
                 default -> BlockStats.NONE;
             };
         }
         if (o instanceof Entity entity) {
             stats = switch (reason) {
-                case Killed -> EntityStats.getEntity(entity);
+                case KILLED -> EntityStats.getEntity(entity);
                 default -> EntityStats.NONE;
             };
         }

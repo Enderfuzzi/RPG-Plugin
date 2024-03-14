@@ -36,4 +36,6 @@ public interface DefaultItem {
 
     default boolean isWeapon() {return false;}
 
+    default boolean isLootBox() {return false;}
+
 }

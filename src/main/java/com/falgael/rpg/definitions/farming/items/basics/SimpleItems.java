@@ -32,7 +32,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.WOODEN_HOE,
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
-                        "Simple farmer tool",
+                        "Misc farmer tool",
                         itemSetManager.getItemSetByID(IdSets.FARMER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
@@ -54,7 +54,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_HELMET,
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
-                        "Simple farmer protection",
+                        "Misc farmer protection",
                         itemSetManager.getItemSetByID(IdSets.FARMER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
@@ -67,7 +67,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_CHESTPLATE,
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
-                        "Simple farmer protection",
+                        "Misc farmer protection",
                         itemSetManager.getItemSetByID(IdSets.FARMER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
@@ -80,7 +80,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_LEGGINGS,
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
-                        "Simple farmer protection",
+                        "Misc farmer protection",
                         itemSetManager.getItemSetByID(IdSets.FARMER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
@@ -93,7 +93,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_BOOTS,
                         Proficiency.FARMING,
                         Rarity.SIMPLE,
-                        "Simple farmer protection",
+                        "Misc farmer protection",
                         itemSetManager.getItemSetByID(IdSets.FARMER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )

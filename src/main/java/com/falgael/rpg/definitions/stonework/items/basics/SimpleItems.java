@@ -32,7 +32,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.WOODEN_PICKAXE,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner tool",
+                        "Misc miner tool",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
@@ -54,7 +54,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_HELMET,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner protection",
+                        "Misc miner protection",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
@@ -67,7 +67,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_CHESTPLATE,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner protection",
+                        "Misc miner protection",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
@@ -80,7 +80,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_LEGGINGS,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner protection",
+                        "Misc miner protection",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
@@ -93,7 +93,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_BOOTS,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner protection",
+                        "Misc miner protection",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )
@@ -106,7 +106,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.WOODEN_SHOVEL,
                         Proficiency.STONEWORK,
                         Rarity.SIMPLE,
-                        "Simple miner tool",
+                        "Misc miner tool",
                         itemSetManager.getItemSetByID(IdSets.MINER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)

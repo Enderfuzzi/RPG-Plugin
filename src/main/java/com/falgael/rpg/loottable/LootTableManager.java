@@ -1,5 +1,6 @@
 package com.falgael.rpg.loottable;
 
+import com.falgael.rpg.definitions.loottable.lootbox.Misc;
 import com.falgael.rpg.definitions.loottable.material.CoalOre;
 import com.falgael.rpg.items.ItemManagement;
 import org.bukkit.Bukkit;
@@ -11,14 +12,14 @@ public class LootTableManager {
     private final static LootTable DEFAULT = new LootTable();
 
     public enum Reason {
-        BlockBreak,
-        CraftingResult,
-        Killed,
-        Harvested
+        BLOCK_BREAK,
+        CRAFTING_RESULT,
+        KILLED,
+        HARVESTED,
+        LOOT_BOX
     }
 
-    public record Key(Object object, Reason reason) {
-    }
+    public record Key(Object object, Reason reason) {}
 
     private final HashMap<Key, LootTable> lootTables;
 
@@ -33,6 +34,8 @@ public class LootTableManager {
 
     private void registeredClasses(ItemManagement itemManager) {
         registerClass(new CoalOre(itemManager));
+
+        registerClass(new Misc(itemManager));
     }
 
     private void registerClass(LootTableDefinition definition) {

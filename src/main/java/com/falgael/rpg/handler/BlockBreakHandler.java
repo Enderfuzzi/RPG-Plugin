@@ -36,7 +36,7 @@ public class BlockBreakHandler extends MainHandler {
 
         //TODO double computation of experience
         Bukkit.getLogger().info("Material which is Broken: " + block.getMaterial());
-        lootComputation.triggerEvent(event.getPlayer(), block.getMaterial(), LootTableManager.Reason.BlockBreak, event.getBlock().getLocation());
+        lootComputation.triggerEvent(event.getPlayer(), block.getMaterial(), LootTableManager.Reason.BLOCK_BREAK, event.getBlock().getLocation());
 
 
         proficiencyAdapter.calculateExperience(event.getPlayer(),block.getProficiencies(),block.getExperienceAmount());

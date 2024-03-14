@@ -32,7 +32,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.WOODEN_SWORD,
                         Proficiency.HUNTING,
                         Rarity.SIMPLE,
-                        "Simple hunter tool",
+                        "Misc hunter tool",
                         itemSetManager.getItemSetByID(IdSets.HUNTER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
@@ -54,7 +54,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_HELMET,
                         Proficiency.HUNTING,
                         Rarity.SIMPLE,
-                        "Simple hunter protection",
+                        "Misc hunter protection",
                         itemSetManager.getItemSetByID(IdSets.HUNTER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
@@ -67,7 +67,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_CHESTPLATE,
                         Proficiency.HUNTING,
                         Rarity.SIMPLE,
-                        "Simple hunter protection",
+                        "Misc hunter protection",
                         itemSetManager.getItemSetByID(IdSets.HUNTER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
@@ -80,7 +80,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_LEGGINGS,
                         Proficiency.HUNTING,
                         Rarity.SIMPLE,
-                        "Simple hunter protection",
+                        "Misc hunter protection",
                         itemSetManager.getItemSetByID(IdSets.HUNTER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
@@ -93,7 +93,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_BOOTS,
                         Proficiency.HUNTING,
                         Rarity.SIMPLE,
-                        "Simple hunter protection",
+                        "Misc hunter protection",
                         itemSetManager.getItemSetByID(IdSets.HUNTER_I),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )

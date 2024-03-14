@@ -32,7 +32,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.WOODEN_AXE,
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
-                        "Simple lumberjack tool",
+                        "Misc lumberjack tool",
                         itemSetManager.getItemSetByID(IdSets.LUMBERJACK_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HAND)
                                 .addFlag(ConfigurationFlag.EXPERIENCE,1)
@@ -54,7 +54,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_HELMET,
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
-                        "Simple lumberjack protection",
+                        "Misc lumberjack protection",
                         itemSetManager.getItemSetByID(IdSets.LUMBERJACK_I),
                         new ItemConfiguration.Builder(EquipmentSlot.HEAD).create()
                 )
@@ -67,7 +67,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_CHESTPLATE,
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
-                        "Simple lumberjack protection",
+                        "Misc lumberjack protection",
                         itemSetManager.getItemSetByID(IdSets.LUMBERJACK_I),
                         new ItemConfiguration.Builder(EquipmentSlot.CHEST).create()
                 )
@@ -80,7 +80,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_LEGGINGS,
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
-                        "Simple lumberjack protection",
+                        "Misc lumberjack protection",
                         itemSetManager.getItemSetByID(IdSets.LUMBERJACK_I),
                         new ItemConfiguration.Builder(EquipmentSlot.LEGS).create()
                 )
@@ -93,7 +93,7 @@ public class SimpleItems extends MainItemDefinition {
                         Material.LEATHER_BOOTS,
                         Proficiency.WOODWORK,
                         Rarity.SIMPLE,
-                        "Simple lumberjack protection",
+                        "Misc lumberjack protection",
                         itemSetManager.getItemSetByID(IdSets.LUMBERJACK_I),
                         new ItemConfiguration.Builder(EquipmentSlot.FEET).create()
                 )

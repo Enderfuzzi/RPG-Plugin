@@ -81,7 +81,6 @@ public final class RPG extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new ItemBurnHandler(mainManager), this);
         Bukkit.getPluginManager().registerEvents(new ShearingHandler(mainManager), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerInteractBlockHandler(mainManager), this);
         Bukkit.getPluginManager().registerEvents(new EntityDeathHandler(mainManager, this), this);
         Bukkit.getPluginManager().registerEvents(new ArrowShootHandler(mainManager), this);
         Bukkit.getPluginManager().registerEvents(new DamageHitHandler(mainManager), this);

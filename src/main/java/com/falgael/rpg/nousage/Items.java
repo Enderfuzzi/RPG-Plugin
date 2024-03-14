@@ -102,7 +102,7 @@ public enum Items implements NameBuilding {
     // Woodwork
     //--------------------------------------------------------------------------------------------
 
-    LUMBERJACK_AXE_1(Proficiency.WOODWORK,Material.WOODEN_AXE,Rarity.SIMPLE,"Simple lumberjack tool",
+    LUMBERJACK_AXE_1(Proficiency.WOODWORK,Material.WOODEN_AXE,Rarity.SIMPLE,"Misc lumberjack tool",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -110,19 +110,19 @@ public enum Items implements NameBuilding {
                     .create(),
             OLDItemSet.LUMBERJACK_1
     ),
-    LUMBERJACK_HELMET_1(Proficiency.WOODWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple lumberjack protection",
+    LUMBERJACK_HELMET_1(Proficiency.WOODWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Misc lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
             OLDItemSet.LUMBERJACK_1
     ),
-    LUMBERJACK_CHESTPLATE_1(Proficiency.WOODWORK, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple lumberjack protection",
+    LUMBERJACK_CHESTPLATE_1(Proficiency.WOODWORK, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Misc lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
             OLDItemSet.LUMBERJACK_1
     ),
-    LUMBERJACK_LEGGINGS_1(Proficiency.WOODWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple lumberjack protection",
+    LUMBERJACK_LEGGINGS_1(Proficiency.WOODWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Misc lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
             OLDItemSet.LUMBERJACK_1
     ),
-    LUMBERJACK_BOOTS_1(Proficiency.WOODWORK, Material.LEATHER_BOOTS,Rarity.SIMPLE,"Simple lumberjack protection",
+    LUMBERJACK_BOOTS_1(Proficiency.WOODWORK, Material.LEATHER_BOOTS,Rarity.SIMPLE,"Misc lumberjack protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
             OLDItemSet.LUMBERJACK_1
     ),
@@ -392,7 +392,7 @@ public enum Items implements NameBuilding {
 
 
 
-    MINER_PICKAXE_1(Proficiency.STONEWORK, Material.WOODEN_PICKAXE, Rarity.SIMPLE,"Simple miner pickaxe",
+    MINER_PICKAXE_1(Proficiency.STONEWORK, Material.WOODEN_PICKAXE, Rarity.SIMPLE,"Misc miner pickaxe",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -400,26 +400,26 @@ public enum Items implements NameBuilding {
                     .create(),
             OLDItemSet.MINER_1
     ),
-    MINER_SHOVEL_1(Proficiency.STONEWORK, Material.WOODEN_SHOVEL, Rarity.SIMPLE,"Simple miner shovel",
+    MINER_SHOVEL_1(Proficiency.STONEWORK, Material.WOODEN_SHOVEL, Rarity.SIMPLE,"Misc miner shovel",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
                     .create(),
             OLDItemSet.MINER_1
     ),
-    MINER_HELMET_1(Proficiency.STONEWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple miner protection",
+    MINER_HELMET_1(Proficiency.STONEWORK, Material.LEATHER_HELMET, Rarity.SIMPLE,"Misc miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
             OLDItemSet.MINER_1
     ),
-    MINER_CHESTPLATE_1(Proficiency.STONEWORK, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.SIMPLE,"Simple miner protection",
+    MINER_CHESTPLATE_1(Proficiency.STONEWORK, Material.LEATHER_CHESTPLATE,"Chestplate",Rarity.SIMPLE,"Misc miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
             OLDItemSet.MINER_1
     ),
-    MINER_LEGGINGS_1(Proficiency.STONEWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple miner protection",
+    MINER_LEGGINGS_1(Proficiency.STONEWORK, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Misc miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
             OLDItemSet.MINER_1
     ),
-    MINER_BOOTS_1(Proficiency.STONEWORK, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple miner protection",
+    MINER_BOOTS_1(Proficiency.STONEWORK, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Misc miner protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
             OLDItemSet.MINER_1
     ),
@@ -681,7 +681,7 @@ public enum Items implements NameBuilding {
     //--------------------------------------------------------------------------------------------
 
 
-    FARMER_HOE_1(Proficiency.FARMING, Material.WOODEN_HOE, Rarity.SIMPLE,"Simple farmer hoe",
+    FARMER_HOE_1(Proficiency.FARMING, Material.WOODEN_HOE, Rarity.SIMPLE,"Misc farmer hoe",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -689,19 +689,19 @@ public enum Items implements NameBuilding {
                     .create(),
             OLDItemSet.FARMER_1
     ),
-    FARMER_HELMET_1(Proficiency.FARMING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple farmer protection",
+    FARMER_HELMET_1(Proficiency.FARMING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Misc farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
             OLDItemSet.FARMER_1
     ),
-    FARMER_CHESTPLATE_1(Proficiency.FARMING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple farmer protection",
+    FARMER_CHESTPLATE_1(Proficiency.FARMING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Misc farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
             OLDItemSet.FARMER_1
     ),
-    FARMER_LEGGINGS_1(Proficiency.FARMING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple farmer protection",
+    FARMER_LEGGINGS_1(Proficiency.FARMING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Misc farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
             OLDItemSet.FARMER_1
     ),
-    FARMER_BOOTS_1(Proficiency.FARMING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple farmer protection",
+    FARMER_BOOTS_1(Proficiency.FARMING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Misc farmer protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
             OLDItemSet.FARMER_1
     ),
@@ -1005,7 +1005,7 @@ public enum Items implements NameBuilding {
                     .create()
     ),
     
-    HUNTER_SWORD_1(Proficiency.HUNTING, Material.WOODEN_SWORD, Rarity.SIMPLE,"Simple hunter Sword",
+    HUNTER_SWORD_1(Proficiency.HUNTING, Material.WOODEN_SWORD, Rarity.SIMPLE,"Misc hunter Sword",
             new ItemConfiguration.Builder(EquipmentSlot.HAND)
                     .addFlag(ConfigurationFlag.EXPERIENCE,1)
                     .addFlag(ConfigurationFlag.LOOT, 0.5)
@@ -1013,19 +1013,19 @@ public enum Items implements NameBuilding {
                     .create(),
             OLDItemSet.HUNTER_1
     ),
-    HUNTER_HELMET_1(Proficiency.HUNTING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Simple hunter protection",
+    HUNTER_HELMET_1(Proficiency.HUNTING, Material.LEATHER_HELMET, Rarity.SIMPLE,"Misc hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.HEAD).create(),
             OLDItemSet.HUNTER_1
     ),
-    HUNTER_CHESTPLATE_1(Proficiency.HUNTING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Simple hunter protection",
+    HUNTER_CHESTPLATE_1(Proficiency.HUNTING, Material.LEATHER_CHESTPLATE, Rarity.SIMPLE,"Misc hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.CHEST).create(),
             OLDItemSet.HUNTER_1
     ),
-    HUNTER_LEGGINGS_1(Proficiency.HUNTING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Simple hunter protection",
+    HUNTER_LEGGINGS_1(Proficiency.HUNTING, Material.LEATHER_LEGGINGS, Rarity.SIMPLE,"Misc hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.LEGS).create(),
             OLDItemSet.HUNTER_1
     ),
-    HUNTER_BOOTS_1(Proficiency.HUNTING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Simple hunter protection",
+    HUNTER_BOOTS_1(Proficiency.HUNTING, Material.LEATHER_BOOTS, Rarity.SIMPLE,"Misc hunter protection",
             new ItemConfiguration.Builder(EquipmentSlot.FEET).create(),
             OLDItemSet.HUNTER_1
     ),
