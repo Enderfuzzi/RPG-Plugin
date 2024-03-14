@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class DropChanceCalculationTests implements DropChanceTranslation {
 
     @Test
-    @DisplayName("Misc coverage")
+    @DisplayName("Simple coverage")
     public void testFirst_Test() {
         assertEquals(2, translateDropChance(2.0));
         assertEquals(0, translateDropChance(-1.0));
@@ -20,7 +20,7 @@ public class DropChanceCalculationTests implements DropChanceTranslation {
     }
 
     @Test
-    @DisplayName("Misc range coverage")
+    @DisplayName("Simple range coverage")
     public void simple_range_Test() {
         rangeTest(0.5);
         rangeTest(0.25);
