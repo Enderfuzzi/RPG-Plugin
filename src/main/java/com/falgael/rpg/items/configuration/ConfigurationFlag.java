@@ -1,15 +1,12 @@
 package com.falgael.rpg.items.configuration;
 
-import com.falgael.rpg.old.ItemBuilder;
-import com.falgael.rpg.manager.interfaces.ProficiencyExperienceCalculation;
 import org.bukkit.ChatColor;
-import org.bukkit.event.Event;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 
 /**
- * Provides possible Configuration modifiers for the Lore of an Items created by {@link ItemBuilder}
+ * Provides possible Configuration modifiers for the Lore of an Items created
  * @author falgael
  * @version 0.0.2
  */

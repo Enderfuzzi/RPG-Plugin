@@ -1,10 +1,6 @@
 package com.falgael.rpg.proficiency.player;
 
-import com.falgael.rpg.old.PlayerManager;
 import com.falgael.rpg.proficiency.Proficiency;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;

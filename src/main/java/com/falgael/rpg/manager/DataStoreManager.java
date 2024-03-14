@@ -1,7 +1,6 @@
 package com.falgael.rpg.manager;
 
 import com.falgael.rpg.manager.interfaces.DataStoreManagement;
-import com.falgael.rpg.old.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.io.BukkitObjectInputStream;
@@ -10,8 +9,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
-import java.util.Map;
-import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -33,18 +30,12 @@ public class DataStoreManager implements DataStoreManagement {
 
         Bukkit.getLogger().info("[" + DataStoreManager.class.getSimpleName() + "]: Start initializing");
 
-
         checkAndCreateDirectory(plugin.getDataFolder());
         checkAndCreateDirectory(plugin.getDataFolder() + DATA_PATH);
         checkAndCreateDirectory(plugin.getDataFolder() + DATA_PLAYER_PATH);
         checkAndCreateDirectory(plugin.getDataFolder() + DATA_PROFICIENCY_PATH);
 
         Bukkit.getLogger().info("[" + DataStoreManager.class.getSimpleName() + "]: Finished initializing");
-        Bukkit.getLogger().info("[" + DataStoreManager.class.getSimpleName() + "]: Start loading");
-        loadProficiencyData();
-        Bukkit.getLogger().info("[" + DataStoreManager.class.getSimpleName() + "]: Finished loading");
-
-
     }
 
 
@@ -141,45 +132,4 @@ public class DataStoreManager implements DataStoreManagement {
             e.printStackTrace();
         }
     }
-
-
-    public void loadProficiencyData() {
-        File dir = new File(plugin.getDataFolder() + DATA_PROFICIENCY_PATH + File.separator);
-        Bukkit.getLogger().info("[Proficiency Data]: Start loading");
-        File[] dirList = dir.listFiles();
-        if (dirList == null) {
-            Bukkit.getLogger().info("[Proficiency Data]: No data to load found");
-            return;
-        }
-        for (File tmp : dirList) {
-            if (!(load(tmp) instanceof ProficiencyExperienceManager proficiencyExperienceManager)) {
-                Bukkit.getLogger().warning("[Proficiency Data]: [" + tmp.getPath() + "] is not instance of ExperienceData");
-                continue;
-            }
-            PlayerManager.setProficiencyData(UUID.fromString(tmp.getName()), proficiencyExperienceManager);
-            Bukkit.getLogger().info("[Proficiency Data]: Loaded " + tmp.getName());
-        }
-        Bukkit.getLogger().info("[Proficiency Data]: Finished loading");
-    }
-
-    /**
-     * Saves the Proficiency Data of all Players as new Task
-     */
-    public void saveProficiencyData() {
-        Bukkit.getScheduler().runTask(plugin, this::saveProficiencyDataThread);
-    }
-
-    /**
-     * Saves the current Proficiency data
-     */
-    private void saveProficiencyDataThread() {
-        Bukkit.getLogger().info("[Proficiency Data]: Start Saving");
-        for (Map.Entry<UUID, ProficiencyExperienceManager> entry : PlayerManager.getProficiencyData().entrySet()) {
-            File file = new File(plugin.getDataFolder() + DATA_PROFICIENCY_PATH + File.separator + entry.getKey().toString());
-            save(file, entry.getValue());
-        }
-        Bukkit.getLogger().info("[Proficiency Data]: Finished Saving");
-    }
-
-
 }
